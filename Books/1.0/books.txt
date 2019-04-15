@@ -1,1 +1,0 @@
-Books specification for Mastro OBDA Reasoner
