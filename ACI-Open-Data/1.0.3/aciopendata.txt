@@ -1,1 +1,4 @@
 ACIOpenData ontology
+
+- The ontology ACI-Open_Data1-0-3.owl contains html-formatted descriptions for Mastro Studio
+- The ontology ACIOpenData1-0-3-NoTag.owl contains plan text descriptions
