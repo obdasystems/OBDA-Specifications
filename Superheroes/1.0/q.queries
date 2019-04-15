@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<queryCatalog name="Protege">
+    <queryCatalogEntry id="abilities">
+        <description/>
+        <code>PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX sh: &lt;http://www.obdasystems.com/demo/superheroes/#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX : &lt;http://www.obdasystems.com/demo/superheroes/#&gt;
+PREFIX xml: &lt;http://www.w3.org/XML/1998/namespace&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+SELECT $ab 
+WHERE {$ab a sh:Ability}</code>
+    </queryCatalogEntry>
+    <queryCatalogEntry id="ability_names">
+        <description/>
+        <code>PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX sh: &lt;http://www.obdasystems.com/demo/superheroes/#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX : &lt;http://www.obdasystems.com/demo/superheroes/#&gt;
+PREFIX xml: &lt;http://www.w3.org/XML/1998/namespace&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+ 
+SELECT $ab_name
+WHERE {   
+    $ab a sh:Ability.
+    $ab sh:name $ab_name   }
+</code>
+    </queryCatalogEntry>
+    <queryCatalogEntry id="extraterrestrial_info">
+        <description>name, planet of origin and abilities of all the extraterrestrials</description>
+        <code>PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX sh: &lt;http://www.obdasystems.com/demo/superheroes/#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX : &lt;http://www.obdasystems.com/demo/superheroes/#&gt;
+PREFIX xml: &lt;http://www.w3.org/XML/1998/namespace&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+SELECT   $ex_name $planet $ability_name
+WHERE {  $ex a sh:Extraterrestrial.
+    $ex sh:name $ex_name.
+    $ex sh:origin_planet_name $planet.
+    $ex sh:has_ability $ability.
+    $ability sh:name $ability_name }
+</code>
+    </queryCatalogEntry>
+    <queryCatalogEntry id="enemies">
+        <description>all the characters who are enemies of villains who are extraterrestrials and can fly</description>
+        <code>PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX sh: &lt;http://www.obdasystems.com/demo/superheroes/#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX : &lt;http://www.obdasystems.com/demo/superheroes/#&gt;
+PREFIX xml: &lt;http://www.w3.org/XML/1998/namespace&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+SELECT     $sup_name $vi_name $planet
+WHERE  { $vi sh:is_enemy_of $sup.
+    $vi sh:name $vi_name.
+    $sup sh:name $sup_name.
+    $vi sh:origin_planet_name $planet.
+    $vi sh:has_ability $ab.
+    $ab sh:name 'Flight'^^xsd:string }
+</code>
+    </queryCatalogEntry>
+</queryCatalog>

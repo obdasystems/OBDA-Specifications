@@ -1,0 +1,91 @@
+Prefix(:=<http://www.obdasystems.com/demo/superheroes/>)
+Prefix(sh:=<http://www.obdasystems.com/demo/superheroes/#>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+
+
+Ontology(<http://www.obdasystems.com/demo/superheroes/>
+<http://www.obdasystems.com/demo/superheroes//1.0>
+
+Declaration(Class(sh:Ability))
+Declaration(Class(sh:Character))
+Declaration(Class(sh:Extraterrestrial))
+Declaration(Class(sh:Human))
+Declaration(Class(sh:Meta_human))
+Declaration(Class(sh:Superhero))
+Declaration(Class(sh:Superpower))
+Declaration(Class(sh:Villain))
+Declaration(ObjectProperty(sh:has_ability))
+Declaration(ObjectProperty(sh:is_enemy_of))
+Declaration(DataProperty(sh:name))
+Declaration(DataProperty(sh:origin_planet_name))
+Declaration(Datatype(xsd:string))
+############################
+#   Object Properties
+############################
+
+# Object Property: sh:has_ability (sh:has_ability)
+
+ObjectPropertyDomain(sh:has_ability sh:Character)
+ObjectPropertyRange(sh:has_ability sh:Ability)
+
+# Object Property: sh:is_enemy_of (sh:is_enemy_of)
+
+ObjectPropertyDomain(sh:is_enemy_of sh:Villain)
+ObjectPropertyRange(sh:is_enemy_of sh:Superhero)
+
+
+############################
+#   Data Properties
+############################
+
+# Data Property: sh:name (sh:name)
+
+FunctionalDataProperty(sh:name)
+DataPropertyDomain(sh:name ObjectUnionOf(sh:Ability sh:Character))
+DataPropertyRange(sh:name xsd:string)
+
+# Data Property: sh:origin_planet_name (sh:origin_planet_name)
+
+FunctionalDataProperty(sh:origin_planet_name)
+DataPropertyRange(sh:origin_planet_name xsd:string)
+
+
+
+############################
+#   Classes
+############################
+
+# Class: sh:Ability (sh:Ability)
+
+SubClassOf(sh:Ability DataSomeValuesFrom(sh:name xsd:string))
+
+# Class: sh:Character (sh:Character)
+
+EquivalentClasses(sh:Character ObjectUnionOf(sh:Extraterrestrial sh:Human sh:Meta_human))
+
+# Class: sh:Extraterrestrial (sh:Extraterrestrial)
+
+SubClassOf(sh:Extraterrestrial DataSomeValuesFrom(sh:origin_planet_name rdfs:Literal))
+
+# Class: sh:Human (sh:Human)
+
+
+# Class: sh:Meta_human (sh:Meta_human)
+
+
+# Class: sh:Superhero (sh:Superhero)
+
+DisjointClasses(sh:Superhero sh:Villain)
+
+# Class: sh:Villain (sh:Villain)
+
+EquivalentClasses(sh:Villain ObjectSomeValuesFrom(sh:is_enemy_of owl:Thing))
+
+
+SubClassOf(ObjectUnionOf(sh:Superhero sh:Villain) sh:Character)
+DisjointClasses(sh:Extraterrestrial sh:Human sh:Meta_human)
+)
