@@ -1,0 +1,138 @@
+Prefix(:=<http://www.obdasystems.com/books/>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+
+
+Ontology(<http://www.obdasystems.com/books/>
+<http://www.obdasystems.com/books/1.0>
+
+Declaration(Class(:AudioBook))
+Declaration(Class(:Author))
+Declaration(Class(:Book))
+Declaration(Class(:E_Book))
+Declaration(Class(:EconomicEdition))
+Declaration(Class(:Edition))
+Declaration(Class(:Editor))
+Declaration(Class(:EmergingWriter))
+Declaration(Class(:PrintedBook))
+Declaration(Class(:SpecialEdition))
+Declaration(Class(:UneditedBook))
+Declaration(ObjectProperty(:editedBy))
+Declaration(ObjectProperty(:hasEdition))
+Declaration(ObjectProperty(:writtenBy))
+Declaration(DataProperty(:dateOfPublication))
+Declaration(DataProperty(:editionNumber))
+Declaration(DataProperty(:genre))
+Declaration(DataProperty(:name))
+Declaration(DataProperty(:title))
+############################
+#   Object Properties
+############################
+
+# Object Property: :editedBy (:editedBy)
+
+FunctionalObjectProperty(:editedBy)
+ObjectPropertyDomain(:editedBy :Edition)
+ObjectPropertyRange(:editedBy :Editor)
+
+# Object Property: :hasEdition (:hasEdition)
+
+InverseFunctionalObjectProperty(:hasEdition)
+ObjectPropertyDomain(:hasEdition :Book)
+ObjectPropertyRange(:hasEdition :Edition)
+
+# Object Property: :writtenBy (:writtenBy)
+
+ObjectPropertyDomain(:writtenBy :Book)
+ObjectPropertyRange(:writtenBy :Author)
+
+
+############################
+#   Data Properties
+############################
+
+# Data Property: :dateOfPublication (:dateOfPublication)
+
+FunctionalDataProperty(:dateOfPublication)
+DataPropertyDomain(:dateOfPublication :Edition)
+
+# Data Property: :editionNumber (:editionNumber)
+
+FunctionalDataProperty(:editionNumber)
+DataPropertyDomain(:editionNumber :Edition)
+
+# Data Property: :genre (:genre)
+
+FunctionalDataProperty(:genre)
+DataPropertyDomain(:genre :Book)
+
+# Data Property: :name (:name)
+
+FunctionalDataProperty(:name)
+
+# Data Property: :title (:title)
+
+DataPropertyDomain(:title :Book)
+
+
+
+############################
+#   Classes
+############################
+
+# Class: :AudioBook (:AudioBook)
+
+SubClassOf(:AudioBook :Book)
+
+# Class: :Author (:Author)
+
+SubClassOf(:Author DataSomeValuesFrom(:name rdfs:Literal))
+
+# Class: :Book (:Book)
+
+SubClassOf(:Book ObjectSomeValuesFrom(:writtenBy owl:Thing))
+SubClassOf(:Book DataSomeValuesFrom(:genre rdfs:Literal))
+SubClassOf(:Book DataSomeValuesFrom(:title rdfs:Literal))
+
+# Class: :E_Book (:E_Book)
+
+SubClassOf(:E_Book :Book)
+SubClassOf(:E_Book ObjectAllValuesFrom(:hasEdition :EconomicEdition))
+
+# Class: :EconomicEdition (:EconomicEdition)
+
+SubClassOf(:EconomicEdition :Edition)
+DisjointClasses(:EconomicEdition :SpecialEdition)
+
+# Class: :Edition (:Edition)
+
+SubClassOf(:Edition ObjectSomeValuesFrom(:editedBy owl:Thing))
+SubClassOf(:Edition DataSomeValuesFrom(:dateOfPublication rdfs:Literal))
+SubClassOf(:Edition DataSomeValuesFrom(:editionNumber rdfs:Literal))
+
+# Class: :Editor (:Editor)
+
+SubClassOf(:Editor DataSomeValuesFrom(:name rdfs:Literal))
+
+# Class: :EmergingWriter (:EmergingWriter)
+
+SubClassOf(:EmergingWriter :Author)
+
+# Class: :PrintedBook (:PrintedBook)
+
+SubClassOf(:PrintedBook :Book)
+
+# Class: :SpecialEdition (:SpecialEdition)
+
+SubClassOf(:SpecialEdition :Edition)
+
+# Class: :UneditedBook (:UneditedBook)
+
+SubClassOf(:UneditedBook :Book)
+
+
+DisjointClasses(:AudioBook :E_Book :PrintedBook)
+)
