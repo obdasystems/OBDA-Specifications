@@ -3,7 +3,7 @@
     <mappingsMetadata id="imdb mappings" version="1.0.0">
         <description>Mappings for IMDB Movie ontology</description>   
     </mappingsMetadata>
-    <dataSource name="books"/>
+    <dataSource name="movie"/>
     <prefixes>
         <prefix name="xml:" namespace="http://www.w3.org/XML/1998/namespace"/>
         <prefix name="xsd:" namespace="http://www.w3.org/2001/XMLSchema#"/>
