@@ -1,0 +1,25 @@
+REFIX xml: <http://www.w3.org/XML/1998/namespace>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX mo: <http://www.movieontology.org/ontology/>
+PREFIX imdb: <http://imdb.com/data/>
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX dbr: <http://dbpedia.org/resource/>
+
+#-----------------------------------------------------------
+# Find all titles directed by Steven Spielgerg, with
+# title, genre, production year, rating, budget and gross.
+#-----------------------------------------------------------
+SELECT ?title ?title_name ?genre ?production_year
+       ?title_rating ?title_budget ?title_gross
+WHERE {
+  ?title a mo:Title;
+         mo:title ?title_name;
+         mo:productionYear ?production_year;
+         mo:rating ?title_rating;
+         mo:belongsToGenre ?genre;
+         mo:budget ?title_budget;
+         mo:gross ?title_gross;
+         mo:hasDirector [ mo:name "Spielberg, Steven"^^xsd:string ]
+}

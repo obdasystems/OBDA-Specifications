@@ -1,0 +1,25 @@
+PREFIX xml: <http://www.w3.org/XML/1998/namespace>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX mo: <http://www.movieontology.org/ontology/>
+PREFIX imdb: <http://imdb.com/data/>
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX dbr: <http://dbpedia.org/resource/>
+
+#-----------------------------------------------------------
+# All the movies with title, genre, production year, budget, gross
+# and rating produced since 2000 that have been released in Italy.
+#-----------------------------------------------------------
+SELECT ?movie ?title ?genre ?production_year ?budget ?gross ?rating
+WHERE {
+  ?movie a mo:Movie;
+         mo:title ?title;
+         mo:belongsToGenre ?genre;
+         mo:productionYear ?production_year;
+         mo:budget ?budget;
+         mo:gross ?gross;
+         mo:rating ?rating;
+  	     mo:hasReleasingCountry mo:Italy.
+  FILTER (?production_year >= "2000"^^xsd:int).
+}

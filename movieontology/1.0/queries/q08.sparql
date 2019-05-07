@@ -1,0 +1,27 @@
+PREFIX xml: <http://www.w3.org/XML/1998/namespace>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX mo: <http://www.movieontology.org/ontology/>
+PREFIX imdb: <http://imdb.com/data/>
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX dbr: <http://dbpedia.org/resource/>
+
+#-----------------------------------------------------------
+# Find director names which have directed at least a TV series
+# which has a higher rating than movies he directed.
+#-----------------------------------------------------------
+SELECT ?director ?director_name ?movie_title
+       ?series_title ?movie_rating ?series_rating
+WHERE {
+   ?movie a mo:Movie;
+          mo:title ?movie_title;
+          mo:rating ?movie_rating;
+          mo:hasDirector ?director.
+   ?director mo:name ?director_name.
+   ?director mo:isDirectorOf ?tv_series.
+   ?tv_series a mo:TVSeries;
+              mo:title ?series_title;
+              mo:rating ?series_rating.
+   FILTER(?series_rating >= "8.0"^^xsd:float && ?movie_rating < "8.0"^^xsd:float).
+}

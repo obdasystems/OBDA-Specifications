@@ -1,0 +1,30 @@
+PREFIX xml: <http://www.w3.org/XML/1998/namespace>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX mo: <http://www.movieontology.org/ontology/>
+PREFIX imdb: <http://imdb.com/data/>
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX dbr: <http://dbpedia.org/resource/>
+
+#-----------------------------------------------------------
+# Video games for which there is a movie with the same
+# title but later production year, and an higher rating
+# than the movie.
+#-----------------------------------------------------------
+SELECT ?game ?movie ?title 
+       ?game_year ?movie_year
+       ?game_rating ?movie_rating
+WHERE {
+    ?game a mo:VideoGame;
+           mo:title ?title;
+           mo:rating ?game_rating;
+           mo:productionYear ?game_year.
+    ?movie a mo:Movie;
+           mo:title ?title;
+           mo:rating ?movie_rating;
+           mo:productionYear ?movie_year.
+    FILTER(?game_year < ?movie_year &&
+           ?game_rating >= ?movie_rating)
+}
+

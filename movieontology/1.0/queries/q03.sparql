@@ -1,0 +1,24 @@
+PREFIX xml: <http://www.w3.org/XML/1998/namespace>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX mo: <http://www.movieontology.org/ontology/>
+PREFIX imdb: <http://imdb.com/data/>
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX dbr: <http://dbpedia.org/resource/>
+
+#-----------------------------------------------------------
+# Find actors that played the role of James Bond in a movie
+# with the movie title, production year and rating.
+#-----------------------------------------------------------
+SELECT DISTINCT ?actor_name ?title ?year ?rating
+WHERE {
+  ?movie a mo:Movie;
+         mo:title ?title;
+         mo:productionYear ?year;
+         mo:rating ?rating;
+         mo:hasMaleActor [
+           mo:name ?actor_name;
+           mo:playsRoleOf [ mo:name "James Bond"^^xsd:string ]
+         ]
+}

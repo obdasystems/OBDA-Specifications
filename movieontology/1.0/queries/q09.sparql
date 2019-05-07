@@ -1,0 +1,29 @@
+PREFIX xml: <http://www.w3.org/XML/1998/namespace>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX mo: <http://www.movieontology.org/ontology/>
+PREFIX imdb: <http://imdb.com/data/>
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX dbr: <http://dbpedia.org/resource/>
+
+#-----------------------------------------------------------
+# Find all companies that release a movie in Italy,
+# with the company name, movie title, genre, production year
+# and movie rating.
+#-----------------------------------------------------------
+SELECT ?company ?company_name ?movie_title
+       ?genre ?production_year ?movie_rating
+WHERE {
+  ?company a mo:Production_Company;
+           mo:companyName ?company_name;
+           mo:produced [
+             a mo:Movie;
+             mo:title ?movie_title;
+             mo:genre ?genre;
+             mo:productionYear ?production_year;
+             mo:rating ?movie_rating;
+             mo:hasReleasingCountry mo:Italy
+           ]
+  FILTER(?movie_rating >= "8.0"^^xsd:float)
+}

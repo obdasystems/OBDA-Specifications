@@ -1,0 +1,33 @@
+PREFIX xml: <http://www.w3.org/XML/1998/namespace>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX mo: <http://www.movieontology.org/ontology/>
+PREFIX imdb: <http://imdb.com/data/>
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX dbr: <http://dbpedia.org/resource/>
+
+#-----------------------------------------------------------
+# Find popular movies that have a higher rating than any
+# of the movies they follow, with title, production year,
+# rating and budget.
+#-----------------------------------------------------------
+SELECT ?movie_title ?movie_year ?movie_rating ?movie_budget ?popularity
+       ?followed_title ?followed_year ?followed_rating ?followed_budget
+WHERE {
+    ?movie a mo:Movie;
+           mo:title ?movie_title;
+           mo:productionYear ?movie_year;
+           mo:rating ?movie_rating;
+           mo:budget ?movie_budget;
+           mo:popularity ?popularity;
+           mo:follows [
+             a mo:Movie;
+             mo:productionYear ?followed_year;
+             mo:rating ?followed_rating;
+             mo:budget ?followed_budget;
+             mo:title ?followed_title
+           ]
+    FILTER(?movie_rating > ?followed_rating &&
+           ?popularity > "10.0"^^xsd:float)
+}

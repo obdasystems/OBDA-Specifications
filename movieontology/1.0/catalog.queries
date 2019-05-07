@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<queryCatalog name="Protege">
+    <queryCatalogEntry id="q00">
+        <description/>
+        <code>PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX mo: &lt;http://www.movieontology.org/ontology/&gt;
+PREFIX imdb: &lt;http://imdb.com/data/&gt;
+PREFIX db: &lt;http://dbpedia.org/ontology/&gt;
+PREFIX dbr: &lt;http://dbpedia.org/resource/&gt;
+
+#-----------------------------------------------------------
+# Find popular movies
+#-----------------------------------------------------------
+SELECT ?title ?popularity ?year ?imdbid ?movie
+WHERE {
+  ?movie a mo:Movie;
+         mo:title ?title;
+         mo:productionYear ?year;
+         mo:imdbid ?imdbid;
+         mo:popularity ?popularity.
+  FILTER(?popularity &gt; "100.0"^^xsd:float)
+}
+</code>
+    </queryCatalogEntry>
+    <queryCatalogEntry id="q01">
+        <description/>
+        <code>PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX mo: &lt;http://www.movieontology.org/ontology/&gt;
+PREFIX imdb: &lt;http://imdb.com/data/&gt;
+PREFIX db: &lt;http://dbpedia.org/ontology/&gt;
+PREFIX dbr: &lt;http://dbpedia.org/resource/&gt;
+
+#-----------------------------------------------------------
+# Find all titles directed by Steven Spielgerg, with
+# title, genre, production year, rating, budget and gross.
+#-----------------------------------------------------------
+SELECT ?title ?title_name ?genre ?production_year
+       ?title_rating ?title_budget ?title_gross
+WHERE {
+  ?title a mo:Title;
+         mo:title ?title_name;
+         mo:productionYear ?production_year;
+         mo:rating ?title_rating;
+         mo:belongsToGenre ?genre;
+         mo:budget ?title_budget;
+         mo:gross ?title_gross;
+         mo:hasDirector [ mo:name "Spielberg, Steven"^^xsd:string ]
+}
+</code>
+    </queryCatalogEntry>
+    <queryCatalogEntry id="q02">
+        <description/>
+        <code>PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX mo: &lt;http://www.movieontology.org/ontology/&gt;
+PREFIX imdb: &lt;http://imdb.com/data/&gt;
+PREFIX db: &lt;http://dbpedia.org/ontology/&gt;
+PREFIX dbr: &lt;http://dbpedia.org/resource/&gt;
+
+#-----------------------------------------------------------
+# All the movies with title and production year
+# about James Bond.
+#-----------------------------------------------------------
+SELECT ?movie ?title ?year
+WHERE {
+   ?movie a mo:Movie;
+          mo:title ?title;
+          mo:productionYear ?year;
+          mo:hasCharacter [ mo:name "James Bond"^^xsd:string ].
+}
+</code>
+    </queryCatalogEntry>
+    <queryCatalogEntry id="q03">
+        <description/>
+        <code>PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX mo: &lt;http://www.movieontology.org/ontology/&gt;
+PREFIX imdb: &lt;http://imdb.com/data/&gt;
+PREFIX db: &lt;http://dbpedia.org/ontology/&gt;
+PREFIX dbr: &lt;http://dbpedia.org/resource/&gt;
+
+#-----------------------------------------------------------
+# Find actors that played the role of James Bond in a movie
+# with the movie title, production year and rating.
+#-----------------------------------------------------------
+SELECT DISTINCT ?actor_name ?title ?year ?rating
+WHERE {
+  ?movie a mo:Movie;
+         mo:title ?title;
+         mo:productionYear ?year;
+         mo:rating ?rating;
+         mo:hasMaleActor [
+           mo:name ?actor_name;
+           mo:playsRoleOf [ mo:name "James Bond"^^xsd:string ]
+         ]
+}
+</code>
+    </queryCatalogEntry>
+    <queryCatalogEntry id="q04">
+        <description/>
+        <code>PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX mo: &lt;http://www.movieontology.org/ontology/&gt;
+PREFIX imdb: &lt;http://imdb.com/data/&gt;
+PREFIX db: &lt;http://dbpedia.org/ontology/&gt;
+PREFIX dbr: &lt;http://dbpedia.org/resource/&gt;
+
+#-----------------------------------------------------------
+# All episodes with title, season number, episode number,
+# release dates, production year, rating of the TV series named
+# "The Simpsons".
+#-----------------------------------------------------------
+SELECT ?episode ?epTitle ?seasonNum ?epNum ?releasedate ?pyear ?epRating
+WHERE {
+    ?episode a mo:Episode;
+             mo:title ?epTitle;
+             mo:rating ?epRating;
+             mo:releasedate ?releasedate;
+             mo:productionYear ?pyear;
+             mo:episodeNr ?epNum;
+             mo:seasonNr ?seasonNum;
+             mo:isEpisodeOf [
+                 a mo:TVSeries;
+                 mo:title "The Simpsons"^^xsd:string
+             ].
+}
+</code>
+    </queryCatalogEntry>
+    <queryCatalogEntry id="q05">
+        <description/>
+        <code>PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX mo: &lt;http://www.movieontology.org/ontology/&gt;
+PREFIX imdb: &lt;http://imdb.com/data/&gt;
+PREFIX db: &lt;http://dbpedia.org/ontology/&gt;
+PREFIX dbr: &lt;http://dbpedia.org/resource/&gt;
+
+#-----------------------------------------------------------
+# All information about a movie given a particular title,
+# including complete casting and crew names.
+#-----------------------------------------------------------
+SELECT ?movie ?genre ?production_year
+       ?budget ?gross ?rating ?actor_name
+       ?director_name ?producer_name ?editor_name
+WHERE {
+  ?movie a mo:Movie;
+         mo:title "The Matrix"^^xsd:string;
+         mo:belongsToGenre ?genre;
+         mo:productionYear ?production_year;
+         mo:budget ?budget;
+         mo:gross ?gross;
+         mo:rating ?rating.
+  ?movie mo:hasActor [ mo:name ?actor_name ].
+  ?movie mo:hasDirector [ mo:name ?director_name ].
+  ?movie mo:hasProducer [ mo:name ?producer_name ].
+  ?movie mo:hasEditor [ mo:name ?editor_name ].
+}
+</code>
+    </queryCatalogEntry>
+    <queryCatalogEntry id="q06">
+        <description/>
+        <code>PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX mo: &lt;http://www.movieontology.org/ontology/&gt;
+PREFIX imdb: &lt;http://imdb.com/data/&gt;
+PREFIX db: &lt;http://dbpedia.org/ontology/&gt;
+PREFIX dbr: &lt;http://dbpedia.org/resource/&gt;
+
+#-----------------------------------------------------------
+# All the movies with title, genre, production year, budget, gross
+# and rating produced since 2000 that have been released in Italy.
+#-----------------------------------------------------------
+SELECT ?movie ?title ?genre ?production_year ?budget ?gross ?rating
+WHERE {
+  ?movie a mo:Movie;
+         mo:title ?title;
+         mo:belongsToGenre ?genre;
+         mo:productionYear ?production_year;
+         mo:budget ?budget;
+         mo:gross ?gross;
+         mo:rating ?rating;
+  	     mo:hasReleasingCountry mo:Italy.
+  FILTER (?production_year &gt;= "2000"^^xsd:int).
+}
+</code>
+    </queryCatalogEntry>
+    <queryCatalogEntry id="q07">
+        <description/>
+        <code>PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX mo: &lt;http://www.movieontology.org/ontology/&gt;
+PREFIX imdb: &lt;http://imdb.com/data/&gt;
+PREFIX db: &lt;http://dbpedia.org/ontology/&gt;
+PREFIX dbr: &lt;http://dbpedia.org/resource/&gt;
+
+#-----------------------------------------------------------
+# Find actors that act both as actors and directors on movies
+# that belongs to the love genre with title and production
+# company name.
+#-----------------------------------------------------------
+SELECT DISTINCT ?actor ?title ?genre ?actor_name ?company_name
+WHERE {
+   ?movie a mo:Movie;
+          mo:title ?title;
+          mo:hasActor ?actor;
+          mo:hasDirector ?actor;
+          mo:isProducedBy [ mo:companyName ?company_name ];
+          mo:belongsToGenre ?genre.
+   ?genre a mo:Love.
+   ?actor mo:name ?actor_name .
+}
+</code>
+    </queryCatalogEntry>
+    <queryCatalogEntry id="q08">
+        <description/>
+        <code>PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX mo: &lt;http://www.movieontology.org/2009/10/01/movieontology.owl#&gt;
+PREFIX mo2: &lt;http://www.movieontology.org/2009/11/09/movieontology.owl#&gt;
+PREFIX imdb: &lt;http://imdb.com/data/&gt;
+PREFIX : &lt;http://www.movieontology.org/2009/11/09/&gt;
+PREFIX db: &lt;http://dbpedia.org/ontology/&gt;
+PREFIX dbr: &lt;http://dbpedia.org/resource/&gt;
+
+#-----------------------------------------------------------
+# Find director names which have directed at least a TV series
+# which has a higher rating than movies he directed.
+#-----------------------------------------------------------
+SELECT ?director ?director_name ?movie_title
+       ?series_title ?movie_rating ?series_rating
+WHERE {
+   ?movie a :Movie;
+          mo:title ?movie_title;
+          mo:rating ?movie_rating;
+          mo:hasDirector ?director.
+   ?director mo:name ?director_name.
+   ?director mo:isDirectorOf ?tv_series.
+   ?tv_series a :TVSeries;
+              mo:title ?series_title;
+              mo:rating ?series_rating.
+   FILTER(?series_rating &gt;= "8.0"^^xsd:float &amp;&amp; ?movie_rating &lt; "8.0"^^xsd:float).
+}
+</code>
+    </queryCatalogEntry>
+    <queryCatalogEntry id="q09">
+        <description/>
+        <code>PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX mo: &lt;http://www.movieontology.org/ontology/&gt;
+PREFIX imdb: &lt;http://imdb.com/data/&gt;
+PREFIX db: &lt;http://dbpedia.org/ontology/&gt;
+PREFIX dbr: &lt;http://dbpedia.org/resource/&gt;
+
+#-----------------------------------------------------------
+# Find all companies that release a movie in Italy,
+# with the company name, movie title, genre, production year
+# and movie rating.
+#-----------------------------------------------------------
+SELECT ?company ?company_name ?movie_title
+       ?genre ?production_year ?movie_rating
+WHERE {
+  ?company a mo:Production_Company;
+           mo:companyName ?company_name;
+           mo:produced [
+             a mo:Movie;
+             mo:title ?movie_title;
+             mo:genre ?genre;
+             mo:productionYear ?production_year;
+             mo:rating ?movie_rating;
+             mo:hasReleasingCountry mo:Italy
+           ]
+  FILTER(?movie_rating &gt;= "8.0"^^xsd:float)
+}
+</code>
+    </queryCatalogEntry>
+    <queryCatalogEntry id="q10">
+        <description/>
+        <code>PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX mo: &lt;http://www.movieontology.org/ontology/&gt;
+PREFIX imdb: &lt;http://imdb.com/data/&gt;
+PREFIX db: &lt;http://dbpedia.org/ontology/&gt;
+PREFIX dbr: &lt;http://dbpedia.org/resource/&gt;
+
+#-----------------------------------------------------------
+# The production year, rating and imdbid of the movie
+# named "The Matrix".
+#-----------------------------------------------------------
+SELECT ?movie ?production_year ?imdbid
+WHERE {
+  ?movie a mo:Movie;
+         mo:title "The Matrix"^^xsd:string;
+         mo:productionYear ?production_year;
+         mo:rating ?title_rating;
+         mo:imdbid ?imdbid.
+}
+</code>
+    </queryCatalogEntry>
+    <queryCatalogEntry id="q11">
+        <description/>
+        <code>PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX mo: &lt;http://www.movieontology.org/ontology/&gt;
+PREFIX imdb: &lt;http://imdb.com/data/&gt;
+PREFIX db: &lt;http://dbpedia.org/ontology/&gt;
+PREFIX dbr: &lt;http://dbpedia.org/resource/&gt;
+
+#-----------------------------------------------------------
+# Video games for which there is a movie with the same
+# title but later production year, and an higher rating
+# than the movie.
+#-----------------------------------------------------------
+SELECT ?game ?movie ?title 
+       ?game_year ?movie_year
+       ?game_rating ?movie_rating
+WHERE {
+    ?game a mo:VideoGame;
+           mo:title ?title;
+           mo:rating ?game_rating;
+           mo:productionYear ?game_year.
+    ?movie a mo:Movie;
+           mo:title ?title;
+           mo:rating ?movie_rating;
+           mo:productionYear ?movie_year.
+    FILTER(?game_year &lt; ?movie_year &amp;&amp;
+           ?game_rating &gt;= ?movie_rating)
+}
+
+</code>
+    </queryCatalogEntry>
+    <queryCatalogEntry id="q12">
+        <description/>
+        <code>PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX mo: &lt;http://www.movieontology.org/ontology/&gt;
+PREFIX imdb: &lt;http://imdb.com/data/&gt;
+PREFIX db: &lt;http://dbpedia.org/ontology/&gt;
+PREFIX dbr: &lt;http://dbpedia.org/resource/&gt;
+
+#-----------------------------------------------------------
+# Find popular movies that have a higher rating than any
+# of the movies they follow, with title, production year,
+# rating and budget.
+#-----------------------------------------------------------
+SELECT ?movie_title ?movie_year ?movie_rating ?movie_budget ?popularity
+       ?followed_title ?followed_year ?followed_rating ?followed_budget
+WHERE {
+    ?movie a mo:Movie;
+           mo:title ?movie_title;
+           mo:productionYear ?movie_year;
+           mo:rating ?movie_rating;
+           mo:budget ?movie_budget;
+           mo:popularity ?popularity;
+           mo:follows [
+             a mo:Movie;
+             mo:productionYear ?followed_year;
+             mo:rating ?followed_rating;
+             mo:budget ?followed_budget;
+             mo:title ?followed_title
+           ]
+    FILTER(?movie_rating &gt; ?followed_rating &amp;&amp;
+           ?popularity &gt; "10.0"^^xsd:float)
+}
+</code>
+    </queryCatalogEntry>
+    <queryCatalogEntry id="q13">
+        <description/>
+        <code>PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX mo: &lt;http://www.movieontology.org/ontology/&gt;
+PREFIX imdb: &lt;http://imdb.com/data/&gt;
+PREFIX db: &lt;http://dbpedia.org/ontology/&gt;
+PREFIX dbr: &lt;http://dbpedia.org/resource/&gt;
+
+#-----------------------------------------------------------
+# Find all highly rated movies that have a higher rating than any
+# of the movies they follow, with title, production year,
+# rating and budget.
+#-----------------------------------------------------------
+SELECT ?movie_title ?movie_year ?movie_rating ?movie_budget ?movie_votes
+       ?followed_title ?followed_year ?followed_rating ?followed_budget ?followed_votes
+WHERE {
+    ?movie a mo:Movie;
+           mo:title ?movie_title;
+           mo:productionYear ?movie_year;
+           mo:rating ?movie_rating;
+           mo:budget ?movie_budget;
+           mo:votesCount ?movie_votes;
+           mo:follows [
+             a mo:Movie;
+             mo:productionYear ?followed_year;
+             mo:rating ?followed_rating;
+             mo:budget ?followed_budget;
+             mo:votesCount ?followed_votes;
+             mo:title ?followed_title
+           ]
+    FILTER(?movie_rating &gt; ?followed_rating &amp;&amp;
+           ?movie_votes &gt; "50000"^^xsd:integer &amp;&amp;
+           ?followed_votes &gt; "50000"^^xsd:integer)
+}
+</code>
+    </queryCatalogEntry>
+</queryCatalog>

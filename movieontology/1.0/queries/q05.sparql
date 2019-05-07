@@ -1,0 +1,29 @@
+PREFIX xml: <http://www.w3.org/XML/1998/namespace>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX mo: <http://www.movieontology.org/ontology/>
+PREFIX imdb: <http://imdb.com/data/>
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX dbr: <http://dbpedia.org/resource/>
+
+#-----------------------------------------------------------
+# All information about a movie given a particular title,
+# including complete casting and crew names.
+#-----------------------------------------------------------
+SELECT ?movie ?genre ?production_year
+       ?budget ?gross ?rating ?actor_name
+       ?director_name ?producer_name ?editor_name
+WHERE {
+  ?movie a mo:Movie;
+         mo:title "The Matrix"^^xsd:string;
+         mo:belongsToGenre ?genre;
+         mo:productionYear ?production_year;
+         mo:budget ?budget;
+         mo:gross ?gross;
+         mo:rating ?rating.
+  ?movie mo:hasActor [ mo:name ?actor_name ].
+  ?movie mo:hasDirector [ mo:name ?director_name ].
+  ?movie mo:hasProducer [ mo:name ?producer_name ].
+  ?movie mo:hasEditor [ mo:name ?editor_name ].
+}

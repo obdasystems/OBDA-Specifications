@@ -1,0 +1,25 @@
+PREFIX xml: <http://www.w3.org/XML/1998/namespace>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX mo: <http://www.movieontology.org/ontology/>
+PREFIX imdb: <http://imdb.com/data/>
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX dbr: <http://dbpedia.org/resource/>
+
+#-----------------------------------------------------------
+# Find actors that act both as actors and directors on movies
+# that belongs to the love genre with title and production
+# company name.
+#-----------------------------------------------------------
+SELECT DISTINCT ?actor ?title ?genre ?actor_name ?company_name
+WHERE {
+   ?movie a mo:Movie;
+          mo:title ?title;
+          mo:hasActor ?actor;
+          mo:hasDirector ?actor;
+          mo:isProducedBy [ mo:companyName ?company_name ];
+          mo:belongsToGenre ?genre.
+   ?genre a mo:Love.
+   ?actor mo:name ?actor_name .
+}
