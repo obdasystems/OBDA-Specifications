@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <OBDA version="1.0">
     <dataSource databaseDriver="com.mysql.jdbc.Driver" databaseName=""
-        databasePassword="imdb"
+        databasePassword="dasilab2017"
         databaseURL="jdbc:mysql://localhost/imdb"
-        databaseUsername="imdb" name="datasource"/>
+        databaseUsername="root" name="datasource"/>
     <prefixes>
         <prefix name="xml:" namespace="http://www.w3.org/XML/1998/namespace"/>
         <prefix name="xsd:" namespace="http://www.w3.org/2001/XMLSchema#"/>

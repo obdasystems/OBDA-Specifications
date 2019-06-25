@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<queryCatalog name="Protege">
+    <queryCatalogEntry id="Comuni">
+        <description/>
+        <code>PREFIX cen: &lt;http://datiopen.istat.it/odi/ontologia/censimento/&gt;
+PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX geoql: &lt;http://www.uniroma1.it/owl2qlgeo#&gt;
+PREFIX magister: &lt;http://www.magister.uniroma1.it/ontology#&gt;
+PREFIX geo: &lt;http://www.opengis.net/ont/geosparql#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX : &lt;http://www.magister.uniroma1.it/ontology#&gt;
+PREFIX xml: &lt;http://www.w3.org/XML/1998/namespace&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX ter: &lt;http://datiopen.istat.it/odi/ontologia/territorio/&gt;
+PREFIX geof: &lt;http://www.opengis.net/def/function/geosparql/&gt;
+
+select ?c1
+
+where {
+
+	?c1 a magister:Comune.
+	
+}</code>
+    </queryCatalogEntry>
+    <queryCatalogEntry id="ComuniInGeom">
+        <description/>
+        <code>PREFIX cen: &lt;http://datiopen.istat.it/odi/ontologia/censimento/&gt;
+PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX geoql: &lt;http://www.uniroma1.it/owl2qlgeo#&gt;
+PREFIX magister: &lt;http://www.magister.uniroma1.it/ontology#&gt;
+PREFIX geo: &lt;http://www.opengis.net/ont/geosparql#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX : &lt;http://www.magister.uniroma1.it/ontology#&gt;
+PREFIX xml: &lt;http://www.w3.org/XML/1998/namespace&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX ter: &lt;http://datiopen.istat.it/odi/ontologia/territorio/&gt;
+PREFIX geof: &lt;http://www.opengis.net/def/function/geosparql/&gt;
+
+select ?t1
+
+where {
+
+	?c1 a magister:Comune.
+	?c1 magister:toponimo ?t1.
+	?c1 geoql:hasGeometryWKT ?g1
+
+	
+	FILTER( geof:sfIntersects(?g1, 'LINESTRING(13.056907653808594 41.519065303185414,13.036308288574219 41.49386873325777,13.040428161621094 41.475350719505,13.078536987304688 41.475093487607964,13.094673156738281 41.49746884357325,13.056907653808594 41.519065303185414)'	^^geo:wktLiteral ))
+
+	
+}</code>
+    </queryCatalogEntry>
+    <queryCatalogEntry id="HasGeom">
+        <description>40 results</description>
+        <code>PREFIX cen: &lt;http://datiopen.istat.it/odi/ontologia/censimento/&gt;
+PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX geoql: &lt;http://www.uniroma1.it/owl2qlgeo#&gt;
+PREFIX magister: &lt;http://www.magister.uniroma1.it/ontology#&gt;
+PREFIX geo: &lt;http://www.opengis.net/ont/geosparql#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX : &lt;http://www.magister.uniroma1.it/ontology#&gt;
+PREFIX xml: &lt;http://www.w3.org/XML/1998/namespace&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX ter: &lt;http://datiopen.istat.it/odi/ontologia/territorio/&gt;
+PREFIX geof: &lt;http://www.opengis.net/def/function/geosparql/&gt;
+
+select ?c1 ?g1
+
+where {
+
+	?c1 geoql:hasGeometryWKT ?g1
+
+	
+	FILTER( geof:sfIntersects(?g1, 'LINESTRING(13.056907653808594 41.519065303185414,13.036308288574219 41.49386873325777,13.040428161621094 41.475350719505,13.078536987304688 41.475093487607964,13.094673156738281 41.49746884357325,13.056907653808594 41.519065303185414)'	^^geo:wktLiteral ))
+
+	
+}</code>
+    </queryCatalogEntry>
+    <queryCatalogEntry id="HasGeom227">
+        <description/>
+        <code>PREFIX cen: &lt;http://datiopen.istat.it/odi/ontologia/censimento/&gt;
+PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX geoql: &lt;http://www.uniroma1.it/owl2qlgeo#&gt;
+PREFIX magister: &lt;http://www.magister.uniroma1.it/ontology#&gt;
+PREFIX geo: &lt;http://www.opengis.net/ont/geosparql#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX : &lt;http://www.magister.uniroma1.it/ontology#&gt;
+PREFIX xml: &lt;http://www.w3.org/XML/1998/namespace&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX ter: &lt;http://datiopen.istat.it/odi/ontologia/territorio/&gt;
+PREFIX geof: &lt;http://www.opengis.net/def/function/geosparql/&gt;
+
+select ?c1 ?g1
+
+where {
+
+	?c1 geoql:hasGeometryWKT ?g1
+
+	
+	FILTER( geof:sfIntersects(?g1, 'LINESTRING(12.74139404296875 41.499931750193376,12.930908203125 41.662236377025714,13.458251953125 41.42171590085469,13.238525390625 41.18236844451118,12.74139404296875 41.499931750193376)'	^^geo:wktLiteral ))
+
+	
+}</code>
+    </queryCatalogEntry>
+    <queryCatalogEntry id="HasGeomToponimo">
+        <description/>
+        <code>PREFIX cen: &lt;http://datiopen.istat.it/odi/ontologia/censimento/&gt;
+PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX geoql: &lt;http://www.uniroma1.it/owl2qlgeo#&gt;
+PREFIX magister: &lt;http://www.magister.uniroma1.it/ontology#&gt;
+PREFIX geo: &lt;http://www.opengis.net/ont/geosparql#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX : &lt;http://www.magister.uniroma1.it/ontology#&gt;
+PREFIX xml: &lt;http://www.w3.org/XML/1998/namespace&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX ter: &lt;http://datiopen.istat.it/odi/ontologia/territorio/&gt;
+PREFIX geof: &lt;http://www.opengis.net/def/function/geosparql/&gt;
+
+select ?t1 ?c1 ?g1
+
+where {
+
+	?c1 a magister:Comune.
+	?c1 geoql:hasGeometryWKT ?g1.
+	?c1 magister:toponimo ?t1.
+
+
+	
+	FILTER( geof:sfIntersects(?g1, 'POLYGON((12.9034423828125 41.680700890219775,12.6287841796875 41.40935740704585,13.3099365234375 41.14721787650023,13.73291015625 41.24641799269245,13.634033203125 41.501988788015794,12.9034423828125 41.680700890219775))'	
+	^^geo:wktLiteral ))
+
+	
+}</code>
+    </queryCatalogEntry>
+    <queryCatalogEntry id="HasGeomTopCom">
+        <description/>
+        <code/>
+    </queryCatalogEntry>
+    <queryCatalogEntry id="hasGeomToponimo22798">
+        <description>24928 results</description>
+        <code>PREFIX cen: &lt;http://datiopen.istat.it/odi/ontologia/censimento/&gt;
+PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX geoql: &lt;http://www.uniroma1.it/owl2qlgeo#&gt;
+PREFIX magister: &lt;http://www.magister.uniroma1.it/ontology#&gt;
+PREFIX geo: &lt;http://www.opengis.net/ont/geosparql#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX : &lt;http://www.magister.uniroma1.it/ontology#&gt;
+PREFIX xml: &lt;http://www.w3.org/XML/1998/namespace&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX ter: &lt;http://datiopen.istat.it/odi/ontologia/territorio/&gt;
+PREFIX geof: &lt;http://www.opengis.net/def/function/geosparql/&gt;
+
+select ?t1 ?c1 ?g1
+
+where {
+
+	?c1 geoql:hasGeometryWKT ?g1.
+	?c1 magister:toponimo ?t1.
+
+
+	
+	FILTER( geof:sfIntersects(?g1, 'POLYGON((12.9034423828125 41.680700890219775,12.6287841796875 41.40935740704585,13.3099365234375 41.14721787650023,13.73291015625 41.24641799269245,13.634033203125 41.501988788015794,12.9034423828125 41.680700890219775))'	
+	^^geo:wktLiteral ))
+
+	
+}</code>
+    </queryCatalogEntry>
+    <queryCatalogEntry id="variabileCensuaria">
+        <description/>
+        <code>PREFIX cen: &lt;http://datiopen.istat.it/odi/ontologia/censimento/&gt;
+PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX geoql: &lt;http://www.uniroma1.it/owl2qlgeo#&gt;
+PREFIX magister: &lt;http://www.magister.uniroma1.it/ontology#&gt;
+PREFIX geo: &lt;http://www.opengis.net/ont/geosparql#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX : &lt;http://www.magister.uniroma1.it/ontology#&gt;
+PREFIX xml: &lt;http://www.w3.org/XML/1998/namespace&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX ter: &lt;http://datiopen.istat.it/odi/ontologia/territorio/&gt;
+
+select ?x where { ?x a magister:VariabileCensuaria }
+
+</code>
+    </queryCatalogEntry>
+    <queryCatalogEntry id="askpalude">
+        <description/>
+        <code>PREFIX cen: &lt;http://datiopen.istat.it/odi/ontologia/censimento/&gt;
+PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX geoql: &lt;http://www.uniroma1.it/owl2qlgeo#&gt;
+PREFIX magister: &lt;http://www.magister.uniroma1.it/ontology#&gt;
+PREFIX geo: &lt;http://www.opengis.net/ont/geosparql#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX : &lt;http://www.magister.uniroma1.it/ontology#&gt;
+PREFIX xml: &lt;http://www.w3.org/XML/1998/namespace&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX ter: &lt;http://datiopen.istat.it/odi/ontologia/territorio/&gt;
+
+ask { &lt;http://www.magister.uniroma1.it/ontology/UnitaGeografica/Palude/TOP0000005&gt; a :Palude }</code>
+    </queryCatalogEntry>
+    <queryCatalogEntry id="codIstat">
+        <description/>
+        <code>PREFIX cen: &lt;http://datiopen.istat.it/odi/ontologia/censimento/&gt;
+PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX geoql: &lt;http://www.uniroma1.it/owl2qlgeo#&gt;
+PREFIX magister: &lt;http://www.magister.uniroma1.it/ontology#&gt;
+PREFIX geo: &lt;http://www.opengis.net/ont/geosparql#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX : &lt;http://www.magister.uniroma1.it/ontology#&gt;
+PREFIX xml: &lt;http://www.w3.org/XML/1998/namespace&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX ter: &lt;http://datiopen.istat.it/odi/ontologia/territorio/&gt;
+
+select ?x { &lt;http://www.magister.uniroma1.it/ontology/Comune/12059003&gt; ter:haCodIstat ?x }
+</code>
+    </queryCatalogEntry>
+    <queryCatalogEntry id="provincia">
+        <description/>
+        <code>PREFIX cen: &lt;http://datiopen.istat.it/odi/ontologia/censimento/&gt;
+PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX geoql: &lt;http://www.uniroma1.it/owl2qlgeo#&gt;
+PREFIX magister: &lt;http://www.magister.uniroma1.it/ontology#&gt;
+PREFIX geo: &lt;http://www.opengis.net/ont/geosparql#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX : &lt;http://www.magister.uniroma1.it/ontology#&gt;
+PREFIX xml: &lt;http://www.w3.org/XML/1998/namespace&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX ter: &lt;http://datiopen.istat.it/odi/ontologia/territorio/&gt;
+
+select ?x {?x a :Provincia }</code>
+    </queryCatalogEntry>
+    <queryCatalogEntry id="Poderi">
+        <description/>
+        <code>PREFIX cen: &lt;http://datiopen.istat.it/odi/ontologia/censimento#&gt;
+PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX geoql: &lt;http://www.uniroma1.it/owl2qlgeo#&gt;
+PREFIX magister: &lt;http://www.magister.uniroma1.it/ontology#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX : &lt;http://www.magister.uniroma1.it/ontology#&gt;
+PREFIX xml: &lt;http://www.w3.org/XML/1998/namespace&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select ?x #?n ?s ?str ?con ?t 
+{ ?x a :Podere .
+#?x  :numero_podere ?n. ?x :superficie_podere ?s. ?x :nome_strada_ubicazione_podere ?str. ?con :contratto_relativo_a_podere ?x.
+#?x :toponimo ?t
+
+}</code>
+    </queryCatalogEntry>
+    <queryCatalogEntry id="Coloni">
+        <description/>
+        <code>PREFIX cen: &lt;http://datiopen.istat.it/odi/ontologia/censimento#&gt;
+PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX geoql: &lt;http://www.uniroma1.it/owl2qlgeo#&gt;
+PREFIX magister: &lt;http://www.magister.uniroma1.it/ontology#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX : &lt;http://www.magister.uniroma1.it/ontology#&gt;
+PREFIX xml: &lt;http://www.w3.org/XML/1998/namespace&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+select ?x { ?x a :Colono }</code>
+    </queryCatalogEntry>
+    <queryCatalogEntry id="dataInizio">
+        <description/>
+        <code>PREFIX cen: &lt;http://datiopen.istat.it/odi/ontologia/censimento#&gt;
+PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX geoql: &lt;http://www.uniroma1.it/owl2qlgeo#&gt;
+PREFIX magister: &lt;http://www.magister.uniroma1.it/ontology#&gt;
+PREFIX geo: &lt;http://www.opengis.net/ont/geosparql#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX : &lt;http://www.magister.uniroma1.it/ontology#&gt;
+PREFIX xml: &lt;http://www.w3.org/XML/1998/namespace&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX ter: &lt;http://datiopen.istat.it/odi/ontologia/territorio/&gt;
+
+select ?col ?pod ?di
+{ ?col :colono_est_assegnatario_di_podere ?pod. ?col :data_inizio ?di
+}
+</code>
+    </queryCatalogEntry>
+    <queryCatalogEntry id="AziendaAgraria">
+        <description/>
+        <code>PREFIX cen: &lt;http://datiopen.istat.it/odi/ontologia/censimento#&gt;
+PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX geoql: &lt;http://www.uniroma1.it/owl2qlgeo#&gt;
+PREFIX magister: &lt;http://www.magister.uniroma1.it/ontology#&gt;
+PREFIX geo: &lt;http://www.opengis.net/ont/geosparql#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX : &lt;http://www.magister.uniroma1.it/ontology#&gt;
+PREFIX xml: &lt;http://www.w3.org/XML/1998/namespace&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX ter: &lt;http://datiopen.istat.it/odi/ontologia/territorio/&gt;
+
+select ?x ?y { ?x a :Azienda_agraria. ?x :sede_azienda_agraria ?y}</code>
+    </queryCatalogEntry>
+    <queryCatalogEntry id="Assegnazione">
+        <description/>
+        <code>PREFIX cen: &lt;http://datiopen.istat.it/odi/ontologia/censimento#&gt;
+PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+PREFIX geoql: &lt;http://www.uniroma1.it/owl2qlgeo#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX san: &lt;http://san.beniculturali.it/SAN#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX ms: &lt;http://www.obdasystems.com/mastrostudio#&gt;
+PREFIX eaccpf: &lt;http://archivi.ibc.regione.emilia-romagna.it/ontology/eac-cpf#&gt;
+PREFIX magister: &lt;http://www.magister.uniroma1.it/ontology#&gt;
+PREFIX time: &lt;http://www.w3.org/2006/time#&gt;
+PREFIX : &lt;http://www.magister.uniroma1.it/ontology#&gt;
+PREFIX oad: &lt;http://lod.xdams.org/reload/oad#&gt;
+PREFIX xml: &lt;http://www.w3.org/XML/1998/namespace&gt;
+
+select ?x { ?x a :Assegnazione }</code>
+    </queryCatalogEntry>
+</queryCatalog>

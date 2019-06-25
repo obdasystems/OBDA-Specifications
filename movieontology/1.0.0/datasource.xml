@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSourceCatalog>
+    <dataSource databaseDriver="com.mysql.jdbc.Driver" databaseName=""
+        databasePassword="dasilab2017"
+        databaseURL="jdbc:mysql://localhost/imdb"
+        databaseUsername="root" name="datasource"/>
+    <schema name="IMDB">
+        <table name="M_DATA_PROP_ASSERT">
+            <column decimals="" name="DATA_PROPERTY_IRI" size="255" type="VARCHAR"/>
+            <column decimals="0" name="ID_DOMAIN_TEMPLATE" size="10" type="INTEGER"/>
+            <column decimals="" name="DOMAIN_TABLE_NAME" size="250" type="VARCHAR"/>
+            <column decimals="" name="ATTRIBUTE_VALUE" size="255" type="VARCHAR"/>
+            <column decimals="" name="VALUE_TYPE" size="255" type="VARCHAR"/>
+        </table>
+        <table name="COMPANY_TYPE">
+            <column decimals="0" name="ID" size="10" type="INTEGER"/>
+            <column decimals="" name="KIND" size="32" type="VARCHAR"/>
+        </table>
+        <table name="INFO_TYPE">
+            <column decimals="0" name="ID" size="10" type="INTEGER"/>
+            <column decimals="" name="INFO" size="32" type="VARCHAR"/>
+        </table>
+        <table name="MOVIE_KEYWORD">
+            <column decimals="0" name="ID" size="10" type="INTEGER"/>
+            <column decimals="0" name="MOVIE_ID" size="10" type="INTEGER"/>
+            <column decimals="0" name="KEYWORD_ID" size="10" type="INTEGER"/>
+        </table>
+        <table name="PERSON_INFO">
+            <column decimals="0" name="ID" size="10" type="INTEGER"/>
+            <column decimals="0" name="PERSON_ID" size="10" type="INTEGER"/>
+            <column decimals="0" name="INFO_TYPE_ID" size="10" type="INTEGER"/>
+            <column decimals="" name="INFO" size="65535" type="LONGVARCHAR"/>
+            <column decimals="" name="NOTE" size="65535" type="LONGVARCHAR"/>
+        </table>
+        <table name="MASTRO_IRI_FUNCT_121273">
+            <column decimals="0" name="ID" size="10" type="INTEGER"/>
+            <column decimals="" name="IRI_COMPONENT0" size="255" type="VARCHAR"/>
+        </table>
+        <table name="M_TEMPLATES_TABLE_CATALOG">
+            <column decimals="" name="TABLE_NAME" size="255" type="VARCHAR"/>
+        </table>
+        <table name="M_OBJ_PROP_ASSERT">
+            <column decimals="" name="OBJECT_PROPERTY_IRI" size="255" type="VARCHAR"/>
+            <column decimals="0" name="ID_DOMAIN_TEMPLATE" size="10" type="INTEGER"/>
+            <column decimals="" name="DOMAIN_TABLE_NAME" size="250" type="VARCHAR"/>
+            <column decimals="0" name="ID_RANGE_TEMPLATE" size="10" type="INTEGER"/>
+            <column decimals="" name="RANGE_TABLE_NAME" size="250" type="VARCHAR"/>
+        </table>
+        <table name="TITLE">
+            <column decimals="0" name="ID" size="10" type="INTEGER"/>
+            <column decimals="" name="TITLE" size="16777215" type="LONGVARCHAR"/>
+            <column decimals="" name="IMDB_INDEX" size="12" type="VARCHAR"/>
+            <column decimals="0" name="KIND_ID" size="10" type="INTEGER"/>
+            <column decimals="0" name="PRODUCTION_YEAR" size="10" type="INTEGER"/>
+            <column decimals="0" name="IMDB_ID" size="10" type="INTEGER"/>
+            <column decimals="" name="PHONETIC_CODE" size="5" type="VARCHAR"/>
+            <column decimals="0" name="EPISODE_OF_ID" size="10" type="INTEGER"/>
+            <column decimals="0" name="SEASON_NR" size="10" type="INTEGER"/>
+            <column decimals="0" name="EPISODE_NR" size="10" type="INTEGER"/>
+            <column decimals="" name="SERIES_YEARS" size="49" type="VARCHAR"/>
+            <column decimals="" name="MD5SUM" size="32" type="VARCHAR"/>
+        </table>
+        <table name="MASTRO_IRI_FUNCT_1261871370">
+            <column decimals="0" name="ID" size="10" type="INTEGER"/>
+            <column decimals="" name="IRI_COMPONENT0" size="255" type="VARCHAR"/>
+        </table>
+        <table name="MASTRO_IRI_FUNCT_1479970874">
+            <column decimals="0" name="ID" size="10" type="INTEGER"/>
+            <column decimals="" name="IRI_COMPONENT0" size="255" type="VARCHAR"/>
+        </table>
+        <table name="MOVIE_COMPANIES">
+            <column decimals="0" name="ID" size="10" type="INTEGER"/>
+            <column decimals="0" name="MOVIE_ID" size="10" type="INTEGER"/>
+            <column decimals="0" name="COMPANY_ID" size="10" type="INTEGER"/>
+            <column decimals="0" name="COMPANY_TYPE_ID" size="10" type="INTEGER"/>
+            <column decimals="" name="NOTE" size="65535" type="LONGVARCHAR"/>
+        </table>
+        <table name="AKA_NAME">
+            <column decimals="0" name="ID" size="10" type="INTEGER"/>
+            <column decimals="0" name="PERSON_ID" size="10" type="INTEGER"/>
+            <column decimals="" name="NAME" size="65535" type="LONGVARCHAR"/>
+            <column decimals="" name="IMDB_INDEX" size="12" type="VARCHAR"/>
+            <column decimals="" name="NAME_PCODE_CF" size="5" type="VARCHAR"/>
+            <column decimals="" name="NAME_PCODE_NF" size="5" type="VARCHAR"/>
+            <column decimals="" name="SURNAME_PCODE" size="5" type="VARCHAR"/>
+            <column decimals="" name="MD5SUM" size="32" type="VARCHAR"/>
+        </table>
+        <table name="MOVIE_LINK">
+            <column decimals="0" name="ID" size="10" type="INTEGER"/>
+            <column decimals="0" name="MOVIE_ID" size="10" type="INTEGER"/>
+            <column decimals="0" name="LINKED_MOVIE_ID" size="10" type="INTEGER"/>
+            <column decimals="0" name="LINK_TYPE_ID" size="10" type="INTEGER"/>
+        </table>
+        <table name="MASTRO_IRI_FUNCT_457630652">
+            <column decimals="0" name="ID" size="10" type="INTEGER"/>
+            <column decimals="" name="IRI_COMPONENT0" size="255" type="VARCHAR"/>
+        </table>
+        <table name="KEYWORD">
+            <column decimals="0" name="ID" size="10" type="INTEGER"/>
+            <column decimals="" name="KEYWORD" size="65535" type="LONGVARCHAR"/>
+            <column decimals="" name="PHONETIC_CODE" size="5" type="VARCHAR"/>
+        </table>
+        <table name="MASTRO_IRI_FUNCT_236105884">
+            <column decimals="0" name="ID" size="10" type="INTEGER"/>
+            <column decimals="" name="IRI_COMPONENT0" size="255" type="VARCHAR"/>
+        </table>
+        <table name="MASTRO_IRI_FUNCT_327779082">
+            <column decimals="0" name="ID" size="10" type="INTEGER"/>
+            <column decimals="" name="IRI_COMPONENT0" size="255" type="VARCHAR"/>
+        </table>
+        <table name="M_CLASS_ASSER">
+            <column decimals="" name="CLASS_IRI" size="255" type="VARCHAR"/>
+            <column decimals="0" name="ID_TEMPLATE" size="10" type="INTEGER"/>
+            <column decimals="" name="TABLE_NAME" size="250" type="VARCHAR"/>
+        </table>
+        <table name="ROLE_TYPE">
+            <column decimals="0" name="ID" size="10" type="INTEGER"/>
+            <column decimals="" name="ROLE" size="32" type="VARCHAR"/>
+        </table>
+        <table name="AKA_TITLE">
+            <column decimals="0" name="ID" size="10" type="INTEGER"/>
+            <column decimals="0" name="MOVIE_ID" size="10" type="INTEGER"/>
+            <column decimals="" name="TITLE" size="65535" type="LONGVARCHAR"/>
+            <column decimals="" name="IMDB_INDEX" size="12" type="VARCHAR"/>
+            <column decimals="0" name="KIND_ID" size="10" type="INTEGER"/>
+            <column decimals="0" name="PRODUCTION_YEAR" size="10" type="INTEGER"/>
+            <column decimals="" name="PHONETIC_CODE" size="5" type="VARCHAR"/>
+            <column decimals="0" name="EPISODE_OF_ID" size="10" type="INTEGER"/>
+            <column decimals="0" name="SEASON_NR" size="10" type="INTEGER"/>
+            <column decimals="0" name="EPISODE_NR" size="10" type="INTEGER"/>
+            <column decimals="" name="NOTE" size="65535" type="LONGVARCHAR"/>
+            <column decimals="" name="MD5SUM" size="32" type="VARCHAR"/>
+        </table>
+        <table name="COMP_CAST_TYPE">
+            <column decimals="0" name="ID" size="10" type="INTEGER"/>
+            <column decimals="" name="KIND" size="32" type="VARCHAR"/>
+        </table>
+        <table name="CHAR_NAME">
+            <column decimals="0" name="ID" size="10" type="INTEGER"/>
+            <column decimals="" name="NAME" size="65535" type="LONGVARCHAR"/>
+            <column decimals="" name="IMDB_INDEX" size="12" type="VARCHAR"/>
+            <column decimals="0" name="IMDB_ID" size="10" type="INTEGER"/>
+            <column decimals="" name="NAME_PCODE_NF" size="5" type="VARCHAR"/>
+            <column decimals="" name="SURNAME_PCODE" size="5" type="VARCHAR"/>
+            <column decimals="" name="MD5SUM" size="32" type="VARCHAR"/>
+        </table>
+        <table name="LINK_TYPE">
+            <column decimals="0" name="ID" size="10" type="INTEGER"/>
+            <column decimals="" name="LINK" size="32" type="VARCHAR"/>
+        </table>
+        <table name="MASTRO_IRI_FUNCT_897008091">
+            <column decimals="0" name="ID" size="10" type="INTEGER"/>
+            <column decimals="" name="IRI_COMPONENT0" size="255" type="VARCHAR"/>
+        </table>
+        <table name="MOVIE_INFO">
+            <column decimals="0" name="ID" size="10" type="INTEGER"/>
+            <column decimals="0" name="MOVIE_ID" size="10" type="INTEGER"/>
+            <column decimals="0" name="INFO_TYPE_ID" size="10" type="INTEGER"/>
+            <column decimals="" name="INFO" size="65535" type="LONGVARCHAR"/>
+            <column decimals="" name="NOTE" size="65535" type="LONGVARCHAR"/>
+        </table>
+        <table name="COMPANY_NAME">
+            <column decimals="0" name="ID" size="10" type="INTEGER"/>
+            <column decimals="" name="NAME" size="65535" type="LONGVARCHAR"/>
+            <column decimals="" name="COUNTRY_CODE" size="255" type="VARCHAR"/>
+            <column decimals="0" name="IMDB_ID" size="10" type="INTEGER"/>
+            <column decimals="" name="NAME_PCODE_NF" size="5" type="VARCHAR"/>
+            <column decimals="" name="NAME_PCODE_SF" size="5" type="VARCHAR"/>
+            <column decimals="" name="MD5SUM" size="32" type="VARCHAR"/>
+        </table>
+        <table name="MASTRO_IRI_FUNCT_70463468">
+            <column decimals="0" name="ID" size="10" type="INTEGER"/>
+            <column decimals="" name="IRI_COMPONENT0" size="255" type="VARCHAR"/>
+        </table>
+        <table name="NAME">
+            <column decimals="0" name="ID" size="10" type="INTEGER"/>
+            <column decimals="" name="NAME" size="65535" type="LONGVARCHAR"/>
+            <column decimals="" name="IMDB_INDEX" size="12" type="VARCHAR"/>
+            <column decimals="0" name="IMDB_ID" size="10" type="INTEGER"/>
+            <column decimals="" name="GENDER" size="1" type="VARCHAR"/>
+            <column decimals="" name="NAME_PCODE_CF" size="5" type="VARCHAR"/>
+            <column decimals="" name="NAME_PCODE_NF" size="5" type="VARCHAR"/>
+            <column decimals="" name="SURNAME_PCODE" size="5" type="VARCHAR"/>
+            <column decimals="" name="MD5SUM" size="32" type="VARCHAR"/>
+        </table>
+        <table name="COMPLETE_CAST">
+            <column decimals="0" name="ID" size="10" type="INTEGER"/>
+            <column decimals="0" name="MOVIE_ID" size="10" type="INTEGER"/>
+            <column decimals="0" name="SUBJECT_ID" size="10" type="INTEGER"/>
+            <column decimals="0" name="STATUS_ID" size="10" type="INTEGER"/>
+        </table>
+        <table name="KIND_TYPE">
+            <column decimals="0" name="ID" size="10" type="INTEGER"/>
+            <column decimals="" name="KIND" size="15" type="VARCHAR"/>
+        </table>
+        <table name="CAST_INFO">
+            <column decimals="0" name="ID" size="10" type="INTEGER"/>
+            <column decimals="0" name="PERSON_ID" size="10" type="INTEGER"/>
+            <column decimals="0" name="MOVIE_ID" size="10" type="INTEGER"/>
+            <column decimals="0" name="PERSON_ROLE_ID" size="10" type="INTEGER"/>
+            <column decimals="" name="NOTE" size="65535" type="LONGVARCHAR"/>
+            <column decimals="0" name="NR_ORDER" size="10" type="INTEGER"/>
+            <column decimals="0" name="ROLE_ID" size="10" type="INTEGER"/>
+        </table>
+    </schema>
+</dataSourceCatalog>

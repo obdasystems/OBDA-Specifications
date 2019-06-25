@@ -3,7 +3,7 @@
     <mappingsMetadata id="books_mappings" version="1.0.2">
         <description>Mappings for books ontology version 1.0 (mapping version 1.0.2 with new datasource mechanism implemented)</description>   
     </mappingsMetadata>
-    <dataSource name="test"/>
+    <dataSource name="books"/>
     <prefixes>
         <prefix name="owl:" namespace="http://www.w3.org/2002/07/owl#"/>
         <prefix name="rdf:" namespace="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
