@@ -18,6 +18,9 @@ Prefix(wikidata:=<http://www.wikidata.org/entity/>)
 
 
 Ontology(<http://dbpedia.org/ontology/>
+<http://dbpedia.org/ontology/01.10.2016>
+
+
 Annotation(cc:license <http://creativecommons.org/licenses/by-sa/3.0/>)
 Annotation(cc:license <http://www.gnu.org/copyleft/fdl.html>)
 Annotation(dcterms:creator "DBpedia Maintainers and Contributors")
