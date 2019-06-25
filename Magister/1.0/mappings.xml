@@ -1,0 +1,2145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OBDA version="1.0">
+    <dataSource databaseDriver="org.postgresql.Driver" databaseName=""
+        databasePassword="postgres"
+        databaseURL="jdbc:postgresql://localhost/magister_gdb"
+        databaseUsername="postgres" name="datasource"/>
+    <prefixes>
+        <prefix name="cen:" namespace="http://datiopen.istat.it/odi/ontologia/censimento/"/>
+        <prefix name="owl:" namespace="http://www.w3.org/2002/07/owl#"/>
+        <prefix name="geoql:" namespace="http://www.uniroma1.it/owl2qlgeo#"/>
+        <prefix name="xsd:" namespace="http://www.w3.org/2001/XMLSchema#"/>
+        <prefix name="rdfs:" namespace="http://www.w3.org/2000/01/rdf-schema#"/>
+        <prefix name="san:" namespace="http://san.beniculturali.it/SAN/"/>
+        <prefix name="ter:" namespace="http://datiopen.istat.it/odi/ontologia/territorio/"/>
+        <prefix name="rdf:" namespace="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        <prefix name="eaccpf:" namespace="http://archivi.ibc.regione.emilia-romagna.it/ontology/eac-cpf/"/>
+        <prefix name="magister:" namespace="http://www.magister.uniroma1.it/ontology#"/>
+        <prefix name="geo:" namespace="http://www.opengis.net/ont/geosparql#"/>
+        <prefix name="time:" namespace="http://www.w3.org/2006/time#"/>
+        <prefix name=":" namespace="http://www.magister.uniroma1.it/ontology#"/>
+        <prefix name="oad:" namespace="http://lod.xdams.org/reload/oad#"/>
+        <prefix name="xml:" namespace="http://www.w3.org/XML/1998/namespace"/>
+    </prefixes>
+    <templates>
+        <template>http://datiopen.istat.it/odi/ontologia/variabileCens/DiplomaMedia/{_}</template>
+        <template>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEta45_49Anni/{_}</template>
+        <template>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEta50_54Anni/{_}</template>
+        <template>http://www.magister.uniroma1.it/ontology/AttiviOccupati/{_}</template>
+        <template>http://datiopen.istat.it/odi/ontologia/censimento/{_}</template>
+        <template>http://www.magister.uniroma1.it/ontology/AttiviTotali/{_}</template>
+        <template>http://www.magister.uniroma1.it/ontology/Femmine/{_}</template>
+        <template>http://datiopen.istat.it/odi/ontologia/variabileCens/Analfabeti/{_}</template>
+        <template>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEta55_59Anni/{_}</template>
+        <template>http://www.magister.uniroma1.it/ontology/BacinoIdrografico/{_}</template>
+        <template>http://www.magister.uniroma1.it/ontology/Stranieri/{_}</template>
+        <template>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEta40_44Anni/{_}</template>
+        <template>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEta65_69Anni/{_}</template>
+        <template>http://www.magister.uniroma1.it/ontology/Podere/{_}</template>
+        <template>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEtaMin5Anni/{_}</template>
+        <template>http://datiopen.istat.it/odi/ontologia/variabileCens/DiplomaSuperiore/{_}</template>
+        <template>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEta10_14Anni/{_}</template>
+        <template>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEta70_74Anni/{_}</template>
+        <template>http://www.magister.uniroma1.it/ontology/EntitaGeoArtificiale/{_}/{_}</template>
+        <template>http://www.magister.uniroma1.it/ontology/Regione/{_}</template>
+        <template>http://www.magister.uniroma1.it/ontology/AttiviInCercaDiOccupazione/{_}</template>
+        <template>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEta30_34Anni/{_}</template>
+        <template>http://www.magister.uniroma1.it/ontology/CorsoAcqua/{_}/{_}</template>
+        <template>http://www.magister.uniroma1.it/ontology/AreaGeolitologica/{_}/{_}</template>
+        <template>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEta25_29Anni/{_}</template>
+        <template>http://www.magister.uniroma1.it/ontology/Comune/{_}</template>
+        <template>http://datiopen.istat.it/odi/ontologia/variabileCens/LicenzaElementare/{_}</template>
+        <template>http://www.magister.uniroma1.it/ontology/LevelOfDescription/{_}</template>
+        <template>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEta60_64Anni/{_}</template>
+        <template>http://www.magister.uniroma1.it/ontology#{_}</template>
+        <template>http://www.magister.uniroma1.it/ontology/RecordSet/{_}</template>
+        <template>http://www.magister.uniroma1.it/ontology/CampioneCensito/{_}</template>
+        <template>http://www.magister.uniroma1.it/ontology/Borgo/{_}</template>
+        <template>http://datiopen.istat.it/odi/ontologia/variabileCens/Alfabeti/{_}</template>
+        <template>http://www.magister.uniroma1.it/ontology/Provincia/{_}</template>
+        <template>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEta20_24Anni/{_}</template>
+        <template>{_}</template>
+        <template>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEtaMag74Anni/{_}</template>
+        <template>http://www.magister.uniroma1.it/ontology/AreaPermeabilita/{_}/{_}</template>
+        <template>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEta5_9Anni/{_}</template>
+        <template>http://datiopen.istat.it/odi/ontologia/variabileCens/LaureaEAssimilati/{_}</template>
+        <template>http://www.magister.uniroma1.it/ontology/Maschi/{_}</template>
+        <template>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEta35_39Anni/{_}</template>
+        <template>http://www.magister.uniroma1.it/ontology/Colono/{_}</template>
+        <template>http://www.magister.uniroma1.it/ontology/Censimento/{_}</template>
+        <template>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEta15_19Anni/{_}</template>
+        <template>http://www.magister.uniroma1.it/ontology/UnitaGeografica/{_}/{_}</template>
+        <template>http://www.magister.uniroma1.it/ontology/AziendaAgraria/{_}</template>
+        <template>http://www.magister.uniroma1.it/ontology/Assegnazione/{_}-{_}</template>
+    </templates>
+    <mappings>
+        <ontologyPredicateComplexMapping id="AeroportoM">
+            <concept string="http://www.magister.uniroma1.it/ontology#Aeroporto">
+                <template>http://www.magister.uniroma1.it/ontology/EntitaGeoArtificiale/{oggetto}/{gid}</template>
+            </concept>
+            <viewAtomsConjunction>
+                <viewAtom>EQUALS(oggetto,'Aeroporto'^^xsd:string)</viewAtom>
+                <viewAtom>ToponimiV(gid,nome,alias,tipo,oggetto,anno,wkt,gml)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="AreaArcheologicaM">
+            <concept string="http://www.magister.uniroma1.it/ontology#AreaArcheologica">
+                <template>http://www.magister.uniroma1.it/ontology/EntitaGeoArtificiale/{oggetto}/{gid}</template>
+            </concept>
+            <viewAtomsConjunction>
+                <viewAtom>EQUALS(oggetto,'Area archeologica'^^xsd:string)</viewAtom>
+                <viewAtom>ToponimiV(gid,nome,alias,tipo,oggetto,anno,wkt,gml)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="AreaDepositiM">
+            <concept string="http://www.magister.uniroma1.it/ontology#AreaDepositi">
+                <template>http://www.magister.uniroma1.it/ontology/AreaGeolitologica/{tipo}/{gid}</template>
+            </concept>
+            <viewAtomsConjunction>
+                <viewAtom>EQUALS(tipo,'Altro'^^xsd:string)</viewAtom>
+                <viewAtom>GeologiaV(gid,tipo,descrizione,codice,eta,wkt,gml)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="AreaMetamorficaM">
+            <concept string="http://www.magister.uniroma1.it/ontology#AreaMetamorfica">
+                <template>http://www.magister.uniroma1.it/ontology/AreaGeolitologica/{tipo}/{gid}</template>
+            </concept>
+            <viewAtomsConjunction>
+                <viewAtom>EQUALS(tipo,'Metamorfico'^^xsd:string)</viewAtom>
+                <viewAtom>GeologiaV(gid,tipo,descrizione,codice,eta,wkt,gml)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="AreaPermeabilitaAltaM">
+            <concept string="http://www.magister.uniroma1.it/ontology#AreaPermeabilitaAlta">
+                <template>http://www.magister.uniroma1.it/ontology/AreaPermeabilita/{tipo}/{gid}</template>
+            </concept>
+            <viewAtomsConjunction>
+                <viewAtom>EQUALS(codice,'A'^^xsd:string)</viewAtom>
+                <viewAtom>PermeabilitaV(gid,tipo,codice,descrizione,anno,wkt,gml)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="AreaPermeabilitaBassaM">
+            <concept string="http://www.magister.uniroma1.it/ontology#AreaPermeabilitaBassa">
+                <template>http://www.magister.uniroma1.it/ontology/AreaPermeabilita/{tipo}/{gid}</template>
+            </concept>
+            <viewAtomsConjunction>
+                <viewAtom>EQUALS(codice,'S'^^xsd:string)</viewAtom>
+                <viewAtom>PermeabilitaV(gid,tipo,codice,descrizione,anno,wkt,gml)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="AreaPermeabilitaMediaM">
+            <concept string="http://www.magister.uniroma1.it/ontology#AreaPermeabilitaMedia">
+                <template>http://www.magister.uniroma1.it/ontology/AreaPermeabilita/{tipo}/{gid}</template>
+            </concept>
+            <viewAtomsConjunction>
+                <viewAtom>EQUALS(codice,'M'^^xsd:string)</viewAtom>
+                <viewAtom>PermeabilitaV(gid,tipo,codice,descrizione,anno,wkt,gml)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="AreaPermeabilitaMedioAltaM">
+            <concept string="http://www.magister.uniroma1.it/ontology#AreaPermeabilitaMedioAlta">
+                <template>http://www.magister.uniroma1.it/ontology/AreaPermeabilita/{tipo}/{gid}</template>
+            </concept>
+            <viewAtomsConjunction>
+                <viewAtom>EQUALS(codice,'MA'^^xsd:string)</viewAtom>
+                <viewAtom>PermeabilitaV(gid,tipo,codice,descrizione,anno,wkt,gml)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="AreaSedimentariaM">
+            <concept string="http://www.magister.uniroma1.it/ontology#AreaSedimentaria">
+                <template>http://www.magister.uniroma1.it/ontology/AreaGeolitologica/{tipo}/{gid}</template>
+            </concept>
+            <viewAtomsConjunction>
+                <viewAtom>EQUALS(tipo,'Sedimentario'^^xsd:string)</viewAtom>
+                <viewAtom>GeologiaV(gid,tipo,descrizione,codice,eta,wkt,gml)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="AreaVulcanicaM">
+            <concept string="http://www.magister.uniroma1.it/ontology#AreaVulcanica">
+                <template>http://www.magister.uniroma1.it/ontology/AreaGeolitologica/{tipo}/{gid}</template>
+            </concept>
+            <viewAtomsConjunction>
+                <viewAtom>EQUALS(tipo,'Vulcanico'^^xsd:string)</viewAtom>
+                <viewAtom>GeologiaV(gid,tipo,descrizione,codice,eta,wkt,gml)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="AssegnazioneM">
+            <concept string="http://www.magister.uniroma1.it/ontology#Assegnazione">
+                <template>http://www.magister.uniroma1.it/ontology/Assegnazione/{title_col}-{id}</template>
+            </concept>
+            <viewAtomsConjunction>
+                <viewAtom>IS_NOT_NULL(cognome_col)</viewAtom>
+                <viewAtom>IS_NOT_NULL(nome_col)</viewAtom>
+                <viewAtom>PoderiV(id,sup,cognome_col,nome_col,azienda,tipo_con,strada,wkt,gml,toponimo,title_col)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="AssegnazioneM2">
+            <concept string="http://www.magister.uniroma1.it/ontology#Assegnazione">
+                <template>http://www.magister.uniroma1.it/ontology/Assegnazione/{title_col}-{id}</template>
+            </concept>
+            <viewAtomsConjunction>
+                <viewAtom>IS_NOT_NULL(cognome_col)</viewAtom>
+                <viewAtom>IS_NOT_NULL(nome_col)</viewAtom>
+                <viewAtom>PoderiSuccV(id,nome_col,cognome_col,data_inizio,data_fine,toponimo,title_col)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateMapping id="AssegnazioneM3">
+            <concept string="http://www.magister.uniroma1.it/ontology#Assegnazione">
+                <template>http://www.magister.uniroma1.it/ontology/Assegnazione/{title}-{nrpodere}</template>
+            </concept>
+            <HEAD string="ONCPoderiV(id, FK_language_id, versionDate, versionStatus, fondo, serie, type, nrpodere, title, datainizio, datafine, destreme, numero, busta, info, managment, compilationDate, unitarchdetail_author)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="AziendaAgraria">
+            <concept string="http://www.magister.uniroma1.it/ontology#Azienda_agraria">
+                <template>http://www.magister.uniroma1.it/ontology/AziendaAgraria/{id}</template>
+            </concept>
+            <HEAD string="AziendaAgrariaV(id, comune, borgo)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="BorgoM">
+            <concept string="http://www.magister.uniroma1.it/ontology#Borgo">
+                <template>http://www.magister.uniroma1.it/ontology/Borgo/{id}</template>
+            </concept>
+            <HEAD string="BorgoV(id, nome_b, nome_prec_b, id_comune_rif, nome, alias, tipo, oggetto, anno, wkt, gml)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateComplexMapping id="CanaleCollettoreM">
+            <concept string="http://www.magister.uniroma1.it/ontology#Canale_collettore">
+                <template>http://www.magister.uniroma1.it/ontology/CorsoAcqua/{tipo}/{gid}</template>
+            </concept>
+            <viewAtomsConjunction>
+                <viewAtom>CorsoAcquaV(gid,tipo,nome,alias,id_bacino,wkt,gml)</viewAtom>
+                <viewAtom>EQUALS(tipo,'Canale'^^xsd:string)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="CanaleDiScoloM">
+            <concept string="http://www.magister.uniroma1.it/ontology#Canale_di_scolo">
+                <template>http://www.magister.uniroma1.it/ontology/CorsoAcqua/{tipo}/{gid}</template>
+            </concept>
+            <viewAtomsConjunction>
+                <viewAtom>CorsoAcquaV(gid,tipo,nome,alias,id_bacino,wkt,gml)</viewAtom>
+                <viewAtom>EQUALS(tipo,'Canale di scolo'^^xsd:string)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="CimaM">
+            <concept string="http://www.magister.uniroma1.it/ontology#Cima">
+                <template>http://www.magister.uniroma1.it/ontology/UnitaGeografica/{oggetto}/{gid}</template>
+            </concept>
+            <viewAtomsConjunction>
+                <viewAtom>EQUALS(oggetto,'Monte, cima o corno'^^xsd:string)</viewAtom>
+                <viewAtom>ToponimiV(gid,nome,alias,tipo,oggetto,anno,wkt,gml)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateMapping id="ColonoM">
+            <concept string="http://www.magister.uniroma1.it/ontology#Colono">
+                <template>http://www.magister.uniroma1.it/ontology/Colono/{title_col}</template>
+            </concept>
+            <HEAD string="PoderiSuccV(id, nome_col, cognome_col, data_inizio, data_fine, toponimo, title_col)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="ColonoM2">
+            <concept string="http://www.magister.uniroma1.it/ontology#Colono">
+                <template>http://www.magister.uniroma1.it/ontology/Colono/{title_col}</template>
+            </concept>
+            <HEAD string="PoderiV(id, sup, cognome_col, nome_col, azienda, tipo_con, strada, wkt, gml, toponimo, title_col)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="ColonoM3">
+            <concept string="http://www.magister.uniroma1.it/ontology#Colono">
+                <template>http://www.magister.uniroma1.it/ontology/Colono/{title}</template>
+            </concept>
+            <HEAD string="ONCPoderiV(id, FK_language_id, versionDate, versionStatus, fondo, serie, type, nrpodere, title, datainizio, datafine, destreme, numero, busta, info, managment, compilationDate, unitarchdetail_author)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="ComuneM">
+            <concept string="http://www.magister.uniroma1.it/ontology#Comune">
+                <template>http://www.magister.uniroma1.it/ontology/Comune/{CODICE_ISTAT}</template>
+            </concept>
+            <HEAD string="ComuniV(GID, CODICE_ISTAT, COD_REG, COD_PROV, COD_COM, REGIONE, PROVINCIA, COMUNE, ANNO, wkt, gml)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateComplexMapping id="FiumeM">
+            <concept string="http://www.magister.uniroma1.it/ontology#Fiume">
+                <template>http://www.magister.uniroma1.it/ontology/CorsoAcqua/{tipo}/{gid}</template>
+            </concept>
+            <viewAtomsConjunction>
+                <viewAtom>CorsoAcquaV(gid,tipo,nome,alias,id_bacino,wkt,gml)</viewAtom>
+                <viewAtom>EQUALS(tipo,'Fiume'^^xsd:string)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="GrottaM">
+            <concept string="http://www.magister.uniroma1.it/ontology#Grotta">
+                <template>http://www.magister.uniroma1.it/ontology/UnitaGeografica/{oggetto}/{gid}</template>
+            </concept>
+            <viewAtomsConjunction>
+                <viewAtom>EQUALS(oggetto,'Grotta o caverna'^^xsd:string)</viewAtom>
+                <viewAtom>ToponimiV(gid,nome,alias,tipo,oggetto,anno,wkt,gml)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="IsolaM">
+            <concept string="http://www.magister.uniroma1.it/ontology#Isola">
+                <template>http://www.magister.uniroma1.it/ontology/UnitaGeografica/{oggetto}/{gid}</template>
+            </concept>
+            <viewAtomsConjunction>
+                <viewAtom>EQUALS(oggetto,'Isola'^^xsd:string)</viewAtom>
+                <viewAtom>ToponimiV(gid,nome,alias,tipo,oggetto,anno,wkt,gml)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="LagoM">
+            <concept string="http://www.magister.uniroma1.it/ontology#Lago">
+                <template>http://www.magister.uniroma1.it/ontology/UnitaGeografica/{oggetto}/{gid}</template>
+            </concept>
+            <viewAtomsConjunction>
+                <viewAtom>EQUALS(oggetto,'Lago o stagno'^^xsd:string)</viewAtom>
+                <viewAtom>ToponimiV(gid,nome,alias,tipo,oggetto,anno,wkt,gml)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="MonumentoM">
+            <concept string="http://www.magister.uniroma1.it/ontology#Monumento">
+                <template>http://www.magister.uniroma1.it/ontology/EntitaGeoArtificiale/{oggetto}/{gid}</template>
+            </concept>
+            <viewAtomsConjunction>
+                <viewAtom>EQUALS(oggetto,'Monumento'^^xsd:string)</viewAtom>
+                <viewAtom>ToponimiV(gid,nome,alias,tipo,oggetto,anno,wkt,gml)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="MuraDiruteM">
+            <concept string="http://www.magister.uniroma1.it/ontology#Mura_Dirute">
+                <template>http://www.magister.uniroma1.it/ontology/EntitaGeoArtificiale/{oggetto}/{gid}</template>
+            </concept>
+            <viewAtomsConjunction>
+                <viewAtom>EQUALS(oggetto,'Mura dirute'^^xsd:string)</viewAtom>
+                <viewAtom>ToponimiV(gid,nome,alias,tipo,oggetto,anno,wkt,gml)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="PaludeM">
+            <concept string="http://www.magister.uniroma1.it/ontology#Palude">
+                <template>http://www.magister.uniroma1.it/ontology/UnitaGeografica/{oggetto}/{gid}</template>
+            </concept>
+            <viewAtomsConjunction>
+                <viewAtom>EQUALS(oggetto,'Palude'^^xsd:string)</viewAtom>
+                <viewAtom>ToponimiV(gid,nome,alias,tipo,oggetto,anno,wkt,gml)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="Pista_ciclabileM">
+            <concept string="http://www.magister.uniroma1.it/ontology#Pista_ciclabile">
+                <template>http://www.magister.uniroma1.it/ontology/EntitaGeoArtificiale/{tipo}/{gid}</template>
+            </concept>
+            <viewAtomsConjunction>
+                <viewAtom>EQUALS(tipo,'Pista ciclabile'^^xsd:string)</viewAtom>
+                <viewAtom>InfrastruttureV(gid,tipo,nome,alias,wkt,gml)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateMapping id="PodereM">
+            <concept string="http://www.magister.uniroma1.it/ontology#Podere">
+                <template>http://www.magister.uniroma1.it/ontology/Podere/{id}</template>
+            </concept>
+            <HEAD string="PoderiV(id, sup, cognome_col, nome_col, azienda, tipo_con, strada, wkt, gml, toponimo, title_col)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="PodereM2">
+            <concept string="http://www.magister.uniroma1.it/ontology#Podere">
+                <template>http://www.magister.uniroma1.it/ontology/Podere/{id}</template>
+            </concept>
+            <HEAD string="PoderiSuccV(id, nome_col, cognome_col, data_inizio, data_fine, toponimo, title_col)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="PodereM3">
+            <concept string="http://www.magister.uniroma1.it/ontology#Podere">
+                <template>http://www.magister.uniroma1.it/ontology/Podere/{nrpodere}</template>
+            </concept>
+            <HEAD string="ONCPoderiV(id, FK_language_id, versionDate, versionStatus, fondo, serie, type, nrpodere, title, datainizio, datafine, destreme, numero, busta, info, managment, compilationDate, unitarchdetail_author)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateComplexMapping id="PollaM">
+            <concept string="http://www.magister.uniroma1.it/ontology#Polla">
+                <template>http://www.magister.uniroma1.it/ontology/UnitaGeografica/{oggetto}/{gid}</template>
+            </concept>
+            <viewAtomsConjunction>
+                <viewAtom>EQUALS(oggetto,'Polla o laghetto'^^xsd:string)</viewAtom>
+                <viewAtom>ToponimiV(gid,nome,alias,tipo,oggetto,anno,wkt,gml)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="PonteM">
+            <concept string="http://www.magister.uniroma1.it/ontology#Ponte">
+                <template>http://www.magister.uniroma1.it/ontology/EntitaGeoArtificiale/{oggetto}/{gid}</template>
+            </concept>
+            <viewAtomsConjunction>
+                <viewAtom>EQUALS(oggetto,'Ponte'^^xsd:string)</viewAtom>
+                <viewAtom>ToponimiV(gid,nome,alias,tipo,oggetto,anno,wkt,gml)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="PortoM">
+            <concept string="http://www.magister.uniroma1.it/ontology#Porto">
+                <template>http://www.magister.uniroma1.it/ontology/EntitaGeoArtificiale/{oggetto}/{gid}</template>
+            </concept>
+            <viewAtomsConjunction>
+                <viewAtom>EQUALS(oggetto,'Porto'^^xsd:string)</viewAtom>
+                <viewAtom>ToponimiV(gid,nome,alias,tipo,oggetto,anno,wkt,gml)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateMapping id="ProvinciaM">
+            <concept string="http://www.magister.uniroma1.it/ontology#Provincia">
+                <template>http://www.magister.uniroma1.it/ontology/Provincia/{cod_prov}</template>
+            </concept>
+            <HEAD string="ProvinciaV(gid, provincia, cod_prov, regione, cod_reg, anno, wkt, gml)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="RegioneM">
+            <concept string="http://www.magister.uniroma1.it/ontology#Regione">
+                <template>http://www.magister.uniroma1.it/ontology/Regione/{COD_REG}</template>
+            </concept>
+            <HEAD string="ComuniV(GID, CODICE_ISTAT, COD_REG, COD_PROV, COD_COM, REGIONE, PROVINCIA, COMUNE, ANNO, wkt, gml)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateComplexMapping id="Rete_ferroviariaM">
+            <concept string="http://www.magister.uniroma1.it/ontology#Rete_ferroviaria">
+                <template>http://www.magister.uniroma1.it/ontology/EntitaGeoArtificiale/{tipo}/{gid}</template>
+            </concept>
+            <viewAtomsConjunction>
+                <viewAtom>EQUALS(tipo,'Rete ferroviaria'^^xsd:string)</viewAtom>
+                <viewAtom>InfrastruttureV(gid,tipo,nome,alias,wkt,gml)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="SpiaggiaM">
+            <concept string="http://www.magister.uniroma1.it/ontology#Spiaggia">
+                <template>http://www.magister.uniroma1.it/ontology/UnitaGeografica/{oggetto}/{gid}</template>
+            </concept>
+            <viewAtomsConjunction>
+                <viewAtom>EQUALS(oggetto,'Spiaggia'^^xsd:string)</viewAtom>
+                <viewAtom>ToponimiV(gid,nome,alias,tipo,oggetto,anno,wkt,gml)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="Stazione_ferroviariaM">
+            <concept string="http://www.magister.uniroma1.it/ontology#Stazione_ferroviaria">
+                <template>http://www.magister.uniroma1.it/ontology/EntitaGeoArtificiale/{oggetto}/{gid}</template>
+            </concept>
+            <viewAtomsConjunction>
+                <viewAtom>EQUALS(oggetto,'Stazione ferroviaria'^^xsd:string)</viewAtom>
+                <viewAtom>ToponimiV(gid,nome,alias,tipo,oggetto,anno,wkt,gml)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="Strada_pedonaleM">
+            <concept string="http://www.magister.uniroma1.it/ontology#Strada_pedonale">
+                <template>http://www.magister.uniroma1.it/ontology/EntitaGeoArtificiale/{tipo}/{gid}</template>
+            </concept>
+            <viewAtomsConjunction>
+                <viewAtom>EQUALS(tipo,'Strada pedonale'^^xsd:string)</viewAtom>
+                <viewAtom>InfrastruttureV(gid,tipo,nome,alias,wkt,gml)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="Strada_principaleM">
+            <concept string="http://www.magister.uniroma1.it/ontology#Strada_principale">
+                <template>http://www.magister.uniroma1.it/ontology/EntitaGeoArtificiale/{tipo}/{gid}</template>
+            </concept>
+            <viewAtomsConjunction>
+                <viewAtom>EQUALS(tipo,'Strada principale'^^xsd:string)</viewAtom>
+                <viewAtom>InfrastruttureV(gid,tipo,nome,alias,wkt,gml)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="Strada_residenzialeM">
+            <concept string="http://www.magister.uniroma1.it/ontology#Strada_residenziale">
+                <template>http://www.magister.uniroma1.it/ontology/EntitaGeoArtificiale/{tipo}/{gid}</template>
+            </concept>
+            <viewAtomsConjunction>
+                <viewAtom>EQUALS(tipo,'Strada residenziale'^^xsd:string)</viewAtom>
+                <viewAtom>InfrastruttureV(gid,tipo,nome,alias,wkt,gml)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="Strada_secondariaM">
+            <concept string="http://www.magister.uniroma1.it/ontology#Strada_secondaria">
+                <template>http://www.magister.uniroma1.it/ontology/EntitaGeoArtificiale/{tipo}/{gid}</template>
+            </concept>
+            <viewAtomsConjunction>
+                <viewAtom>EQUALS(tipo,'Strada secondaria'^^xsd:string)</viewAtom>
+                <viewAtom>InfrastruttureV(gid,tipo,nome,alias,wkt,gml)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="TorreM">
+            <concept string="http://www.magister.uniroma1.it/ontology#Torre">
+                <template>http://www.magister.uniroma1.it/ontology/EntitaGeoArtificiale/{oggetto}/{gid}</template>
+            </concept>
+            <viewAtomsConjunction>
+                <viewAtom>EQUALS(oggetto,'Torre o faro'^^xsd:string)</viewAtom>
+                <viewAtom>NOT_LIKE(nome,'%FARO%'^^xsd:string)</viewAtom>
+                <viewAtom>ToponimiV(gid,nome,alias,tipo,oggetto,anno,wkt,gml)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="TorrenteM">
+            <concept string="http://www.magister.uniroma1.it/ontology#Torrente">
+                <template>http://www.magister.uniroma1.it/ontology/CorsoAcqua/{tipo}/{gid}</template>
+            </concept>
+            <viewAtomsConjunction>
+                <viewAtom>CorsoAcquaV(gid,tipo,nome,alias,id_bacino,wkt,gml)</viewAtom>
+                <viewAtom>EQUALS(tipo,'Torrente o ruscello'^^xsd:string)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="ValicoM">
+            <concept string="http://www.magister.uniroma1.it/ontology#Valico">
+                <template>http://www.magister.uniroma1.it/ontology/UnitaGeografica/{oggetto}/{gid}</template>
+            </concept>
+            <viewAtomsConjunction>
+                <viewAtom>EQUALS(oggetto,'Passo o valico'^^xsd:string)</viewAtom>
+                <viewAtom>ToponimiV(gid,nome,alias,tipo,oggetto,anno,wkt,gml)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="altraDenomBorgo">
+            <attribute string="http://www.magister.uniroma1.it/ontology#altraDenomLuogo">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Borgo/{id}</domainTemplate>
+                <rangeVariable>nome_b</rangeVariable>
+            </attribute>
+            <viewAtomsConjunction>
+                <viewAtom>BorgoV(id,nome_b,nome_prec_b,id_comune_rif,nome,alias,tipo,oggetto,anno,wkt,gml)</viewAtom>
+                <viewAtom>IS_NOT_NULL(nome_b)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="altraDenomBorgo2">
+            <attribute string="http://www.magister.uniroma1.it/ontology#altraDenomLuogo">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Borgo/{id}</domainTemplate>
+                <rangeVariable>nome_prec_b</rangeVariable>
+            </attribute>
+            <viewAtomsConjunction>
+                <viewAtom>BorgoV(id,nome_b,nome_prec_b,id_comune_rif,nome,alias,tipo,oggetto,anno,wkt,gml)</viewAtom>
+                <viewAtom>IS_NOT_NULL(nome_prec_b)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateMapping id="altraDenomCorsoAcqua">
+            <attribute string="http://www.magister.uniroma1.it/ontology#altraDenomLuogo">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/CorsoAcqua/{tipo}/{gid}</domainTemplate>
+                <rangeVariable>alias</rangeVariable>
+            </attribute>
+            <HEAD string="CorsoAcquaV(gid, tipo, nome, alias, id_bacino, wkt, gml)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="altraDenomEntitaGeoArtificialeInfr">
+            <attribute string="http://www.magister.uniroma1.it/ontology#altraDenomLuogo">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/EntitaGeoArtificiale/{tipo}/{gid}</domainTemplate>
+                <rangeVariable>alias</rangeVariable>
+            </attribute>
+            <HEAD string="InfrastruttureV(gid, tipo, nome, alias, wkt, gml)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="altraDenomEntitaGeoArtificialeTopo">
+            <attribute string="http://www.magister.uniroma1.it/ontology#altraDenomLuogo">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/EntitaGeoArtificiale/{oggetto}/{gid}</domainTemplate>
+                <rangeVariable>alias</rangeVariable>
+            </attribute>
+            <HEAD string="ToponimiV(gid, nome, alias, tipo, oggetto, anno, wkt, gml)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="altraDenomUnitaGeografica">
+            <attribute string="http://www.magister.uniroma1.it/ontology#altraDenomLuogo">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/UnitaGeografica/{oggetto}/{gid}</domainTemplate>
+                <rangeVariable>alias</rangeVariable>
+            </attribute>
+            <HEAD string="ToponimiV(gid, nome, alias, tipo, oggetto, anno, wkt, gml)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="annoCensimento">
+            <attribute string="http://www.magister.uniroma1.it/ontology#annoCensimento">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Censimento/{gid}</domainTemplate>
+                <rangeVariable>anno</rangeVariable>
+            </attribute>
+            <HEAD string="CensimentoV(gid, anno, pop_res_tot, pop_res_mas, pop_res_fem, pop_res_inf_5, pop_res_5_9, pop_res_10_14, pop_res_15_19, pop_res_20_24, pop_res_25_29, pop_res_30_34, pop_res_35_39, pop_res_40_44, pop_res_45_49, pop_res_50_54, pop_res_55_59, pop_res_60_64, pop_res_65_69, pop_res_70_74, pop_res_mag_74, pop_res_laurea, pop_res_diploma, pop_res_media, pop_res_elem, pop_res_alfab, pop_res_analf, pop_res_att_tot, pop_res_att_occup, pop_res_att_in_cerca, pop_res_straniera, id_comune)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="borgoAfferisceA">
+            <role string="http://www.magister.uniroma1.it/ontology#borgo_afferisce_a">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Borgo/{id}</domainTemplate>
+                <rangeTemplate>http://www.magister.uniroma1.it/ontology/Comune/{id_comune_rif}</rangeTemplate>
+            </role>
+            <HEAD string="BorgoV(id, nome_b, nome_prec_b, id_comune_rif, nome, alias, tipo, oggetto, anno, wkt, gml)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="codDescrAreaGeolitologica">
+            <attribute string="http://www.magister.uniroma1.it/ontology#codDescrLitologia">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/AreaGeolitologica/{tipo}/{gid}</domainTemplate>
+                <rangeVariable>codice</rangeVariable>
+            </attribute>
+            <HEAD string="GeologiaV(gid, tipo, descrizione, codice, eta, wkt, gml)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateComplexMapping id="contrattoRelativoPodere">
+            <role string="http://www.magister.uniroma1.it/ontology#contratto_relativo_a_podere">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology#{tipo_con}</domainTemplate>
+                <rangeTemplate>http://www.magister.uniroma1.it/ontology/Podere/{id}</rangeTemplate>
+            </role>
+            <viewAtomsConjunction>
+                <viewAtom>IS_NOT_NULL(tipo_con)</viewAtom>
+                <viewAtom>PoderiV(id,sup,cognome_col,nome_col,azienda,tipo_con,strada,wkt,gml,toponimo,title_col)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateMapping id="dataFineColono">
+            <attribute string="http://www.magister.uniroma1.it/ontology#data_fine">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Colono/{title_col}</domainTemplate>
+                <rangeVariable>data_fine</rangeVariable>
+            </attribute>
+            <HEAD string="PoderiSuccV(id, nome_col, cognome_col, data_inizio, data_fine, toponimo, title_col)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="dataFineColono2">
+            <attribute string="http://www.magister.uniroma1.it/ontology#data_fine">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Colono/{title}</domainTemplate>
+                <rangeVariable>datafine</rangeVariable>
+            </attribute>
+            <HEAD string="ONCPoderiV(id, FK_language_id, versionDate, versionStatus, fondo, serie, type, nrpodere, title, datainizio, datafine, destreme, numero, busta, info, managment, compilationDate, unitarchdetail_author)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="dataInizioColono">
+            <attribute string="http://www.magister.uniroma1.it/ontology#data_inizio">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Colono/{title_col}</domainTemplate>
+                <rangeVariable>data_inizio</rangeVariable>
+            </attribute>
+            <HEAD string="PoderiSuccV(id, nome_col, cognome_col, data_inizio, data_fine, toponimo, title_col)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="dataInizioColono2">
+            <attribute string="http://www.magister.uniroma1.it/ontology#data_inizio">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Colono/{title}</domainTemplate>
+                <rangeVariable>datainizio</rangeVariable>
+            </attribute>
+            <HEAD string="ONCPoderiV(id, FK_language_id, versionDate, versionStatus, fondo, serie, type, nrpodere, title, datainizio, datafine, destreme, numero, busta, info, managment, compilationDate, unitarchdetail_author)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="denominazioneAziendaAgraria">
+            <attribute string="http://www.magister.uniroma1.it/ontology#denominazione_azienda_agraria">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/AziendaAgraria/{id}</domainTemplate>
+                <rangeVariable>id</rangeVariable>
+            </attribute>
+            <HEAD string="AziendaAgrariaV(id, comune, borgo)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="descTipoTerrenoAreaPermeabilita">
+            <attribute string="http://www.magister.uniroma1.it/ontology#descrTipoTerreno">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/AreaPermeabilita/{tipo}/{gid}</domainTemplate>
+                <rangeVariable>descrizione</rangeVariable>
+            </attribute>
+            <HEAD string="PermeabilitaV(gid, tipo, codice, descrizione, anno, wkt, gml)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="descrTipoTerrenoAreaGeolitologica">
+            <attribute string="http://www.magister.uniroma1.it/ontology#descrTipoTerreno">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/AreaGeolitologica/{tipo}/{gid}</domainTemplate>
+                <rangeVariable>tipo</rangeVariable>
+            </attribute>
+            <HEAD string="GeologiaV(gid, tipo, descrizione, codice, eta, wkt, gml)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="descrizioneAreaGeolitologica">
+            <attribute string="http://www.magister.uniroma1.it/ontology#descrLitologia">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/AreaGeolitologica/{tipo}/{gid}</domainTemplate>
+                <rangeVariable>descrizione</rangeVariable>
+            </attribute>
+            <HEAD string="GeologiaV(gid, tipo, descrizione, codice, eta, wkt, gml)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="descrizioneBacino">
+            <attribute string="http://www.magister.uniroma1.it/ontology#descrizione_luogo">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/BacinoIdrografico/{gid}</domainTemplate>
+                <rangeVariable>descrizione</rangeVariable>
+            </attribute>
+            <HEAD string="BaciniV(gid, nome, descrizione, wkt, gml)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="descrizioneCorsoAcqua">
+            <attribute string="http://www.magister.uniroma1.it/ontology#altraDenomLuogo">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/CorsoAcqua/{tipo}/{gid}</domainTemplate>
+                <rangeVariable>tipo</rangeVariable>
+            </attribute>
+            <HEAD string="CorsoAcquaV(gid, tipo, nome, alias, id_bacino, wkt, gml)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateComplexMapping id="estAssegnazioneA">
+            <role string="http://www.magister.uniroma1.it/ontology#est_assegnazione_a">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Assegnazione/{title_col}-{id}</domainTemplate>
+                <rangeTemplate>http://www.magister.uniroma1.it/ontology/Colono/{title_col}</rangeTemplate>
+            </role>
+            <viewAtomsConjunction>
+                <viewAtom>IS_NOT_NULL(cognome_col)</viewAtom>
+                <viewAtom>IS_NOT_NULL(nome_col)</viewAtom>
+                <viewAtom>PoderiV(id,sup,cognome_col,nome_col,azienda,tipo_con,strada,wkt,gml,toponimo,title_col)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="estAssegnazioneA2">
+            <role string="http://www.magister.uniroma1.it/ontology#est_assegnazione_a">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Assegnazione/{title_col}-{id}</domainTemplate>
+                <rangeTemplate>http://www.magister.uniroma1.it/ontology/Colono/{title_col}</rangeTemplate>
+            </role>
+            <viewAtomsConjunction>
+                <viewAtom>IS_NOT_NULL(cognome_col)</viewAtom>
+                <viewAtom>IS_NOT_NULL(nome_col)</viewAtom>
+                <viewAtom>PoderiSuccV(id,nome_col,cognome_col,data_inizio,data_fine,toponimo,title_col)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateMapping id="estAssegnazioneA3">
+            <role string="http://www.magister.uniroma1.it/ontology#est_assegnazione_a">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Assegnazione/{title}-{nrpodere}</domainTemplate>
+                <rangeTemplate>http://www.magister.uniroma1.it/ontology/Colono/{title}</rangeTemplate>
+            </role>
+            <HEAD string="ONCPoderiV(id, FK_language_id, versionDate, versionStatus, fondo, serie, type, nrpodere, title, datainizio, datafine, destreme, numero, busta, info, managment, compilationDate, unitarchdetail_author)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateComplexMapping id="estAssegnazioneDi">
+            <role string="http://www.magister.uniroma1.it/ontology#est_assegnazione_di">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Assegnazione/{title_col}-{id}</domainTemplate>
+                <rangeTemplate>http://www.magister.uniroma1.it/ontology/Podere/{id}</rangeTemplate>
+            </role>
+            <viewAtomsConjunction>
+                <viewAtom>IS_NOT_NULL(cognome_col)</viewAtom>
+                <viewAtom>IS_NOT_NULL(nome_col)</viewAtom>
+                <viewAtom>PoderiV(id,sup,cognome_col,nome_col,azienda,tipo_con,strada,wkt,gml,toponimo,title_col)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="estAssegnazioneDi2">
+            <role string="http://www.magister.uniroma1.it/ontology#est_assegnazione_di">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Assegnazione/{title_col}-{id}</domainTemplate>
+                <rangeTemplate>http://www.magister.uniroma1.it/ontology/Podere/{id}</rangeTemplate>
+            </role>
+            <viewAtomsConjunction>
+                <viewAtom>IS_NOT_NULL(cognome_col)</viewAtom>
+                <viewAtom>IS_NOT_NULL(nome_col)</viewAtom>
+                <viewAtom>PoderiSuccV(id,nome_col,cognome_col,data_inizio,data_fine,toponimo,title_col)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateMapping id="estAssegnazioneDi3">
+            <role string="http://www.magister.uniroma1.it/ontology#est_assegnazione_di">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Assegnazione/{title}-{nrpodere}</domainTemplate>
+                <rangeTemplate>http://www.magister.uniroma1.it/ontology/Podere/{nrpodere}</rangeTemplate>
+            </role>
+            <HEAD string="ONCPoderiV(id, FK_language_id, versionDate, versionStatus, fondo, serie, type, nrpodere, title, datainizio, datafine, destreme, numero, busta, info, managment, compilationDate, unitarchdetail_author)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateComplexMapping id="estCensitaAlfabeti">
+            <role string="http://www.magister.uniroma1.it/ontology#est_censita_in">
+                <domainTemplate>http://datiopen.istat.it/odi/ontologia/censimento/{alfabeti}</domainTemplate>
+                <rangeTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/Alfabeti/{gid}</rangeTemplate>
+            </role>
+            <viewAtomsConjunction>
+                <viewAtom>AlfabetiV(alfabeti)</viewAtom>
+                <viewAtom>CensimentoV(gid,anno,pop_res_tot,pop_res_mas,pop_res_fem,pop_res_inf_5,pop_res_5_9,pop_res_10_14,pop_res_15_19,pop_res_20_24,pop_res_25_29,pop_res_30_34,pop_res_35_39,pop_res_40_44,pop_res_45_49,pop_res_50_54,pop_res_55_59,pop_res_60_64,pop_res_65_69,pop_res_70_74,pop_res_mag_74,pop_res_laurea,pop_res_diploma,pop_res_media,pop_res_elem,pop_res_alfab,pop_res_analf,pop_res_att_tot,pop_res_att_occup,pop_res_att_in_cerca,pop_res_straniera,id_comune)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="estCensitaAnalfbeti">
+            <role string="http://www.magister.uniroma1.it/ontology#est_censita_in">
+                <domainTemplate>http://datiopen.istat.it/odi/ontologia/censimento/{analfabeti}</domainTemplate>
+                <rangeTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/Analfabeti/{gid}</rangeTemplate>
+            </role>
+            <viewAtomsConjunction>
+                <viewAtom>AnalfabetiV(analfabeti)</viewAtom>
+                <viewAtom>CensimentoV(gid,anno,pop_res_tot,pop_res_mas,pop_res_fem,pop_res_inf_5,pop_res_5_9,pop_res_10_14,pop_res_15_19,pop_res_20_24,pop_res_25_29,pop_res_30_34,pop_res_35_39,pop_res_40_44,pop_res_45_49,pop_res_50_54,pop_res_55_59,pop_res_60_64,pop_res_65_69,pop_res_70_74,pop_res_mag_74,pop_res_laurea,pop_res_diploma,pop_res_media,pop_res_elem,pop_res_alfab,pop_res_analf,pop_res_att_tot,pop_res_att_occup,pop_res_att_in_cerca,pop_res_straniera,id_comune)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="estCensitaAttiviInCercaDiOccupazione">
+            <role string="http://www.magister.uniroma1.it/ontology#est_censita_in">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology#{attivi_cer}</domainTemplate>
+                <rangeTemplate>http://www.magister.uniroma1.it/ontology/AttiviInCercaDiOccupazione/{gid}</rangeTemplate>
+            </role>
+            <viewAtomsConjunction>
+                <viewAtom>AttiviInCercaDiOccupazione(attivi_cer)</viewAtom>
+                <viewAtom>CensimentoV(gid,anno,pop_res_tot,pop_res_mas,pop_res_fem,pop_res_inf_5,pop_res_5_9,pop_res_10_14,pop_res_15_19,pop_res_20_24,pop_res_25_29,pop_res_30_34,pop_res_35_39,pop_res_40_44,pop_res_45_49,pop_res_50_54,pop_res_55_59,pop_res_60_64,pop_res_65_69,pop_res_70_74,pop_res_mag_74,pop_res_laurea,pop_res_diploma,pop_res_media,pop_res_elem,pop_res_alfab,pop_res_analf,pop_res_att_tot,pop_res_att_occup,pop_res_att_in_cerca,pop_res_straniera,id_comune)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="estCensitaAttiviOccupati">
+            <role string="http://www.magister.uniroma1.it/ontology#est_censita_in">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology#{attivi_occ}</domainTemplate>
+                <rangeTemplate>http://www.magister.uniroma1.it/ontology/AttiviOccupati/{gid}</rangeTemplate>
+            </role>
+            <viewAtomsConjunction>
+                <viewAtom>AttiviOccupati(attivi_occ)</viewAtom>
+                <viewAtom>CensimentoV(gid,anno,pop_res_tot,pop_res_mas,pop_res_fem,pop_res_inf_5,pop_res_5_9,pop_res_10_14,pop_res_15_19,pop_res_20_24,pop_res_25_29,pop_res_30_34,pop_res_35_39,pop_res_40_44,pop_res_45_49,pop_res_50_54,pop_res_55_59,pop_res_60_64,pop_res_65_69,pop_res_70_74,pop_res_mag_74,pop_res_laurea,pop_res_diploma,pop_res_media,pop_res_elem,pop_res_alfab,pop_res_analf,pop_res_att_tot,pop_res_att_occup,pop_res_att_in_cerca,pop_res_straniera,id_comune)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="estCensitaAttiviTotali">
+            <role string="http://www.magister.uniroma1.it/ontology#est_censita_in">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology#{attivi_tot}</domainTemplate>
+                <rangeTemplate>http://www.magister.uniroma1.it/ontology/AttiviTotali/{gid}</rangeTemplate>
+            </role>
+            <viewAtomsConjunction>
+                <viewAtom>AttiviTotali(attivi_tot)</viewAtom>
+                <viewAtom>CensimentoV(gid,anno,pop_res_tot,pop_res_mas,pop_res_fem,pop_res_inf_5,pop_res_5_9,pop_res_10_14,pop_res_15_19,pop_res_20_24,pop_res_25_29,pop_res_30_34,pop_res_35_39,pop_res_40_44,pop_res_45_49,pop_res_50_54,pop_res_55_59,pop_res_60_64,pop_res_65_69,pop_res_70_74,pop_res_mag_74,pop_res_laurea,pop_res_diploma,pop_res_media,pop_res_elem,pop_res_alfab,pop_res_analf,pop_res_att_tot,pop_res_att_occup,pop_res_att_in_cerca,pop_res_straniera,id_comune)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="estCensitaCampioneCensito">
+            <role string="http://www.magister.uniroma1.it/ontology#est_censita_in">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology#{campione}</domainTemplate>
+                <rangeTemplate>http://www.magister.uniroma1.it/ontology/CampioneCensito/{gid}</rangeTemplate>
+            </role>
+            <viewAtomsConjunction>
+                <viewAtom>CampioneCensito(campione)</viewAtom>
+                <viewAtom>CensimentoV(gid,anno,pop_res_tot,pop_res_mas,pop_res_fem,pop_res_inf_5,pop_res_5_9,pop_res_10_14,pop_res_15_19,pop_res_20_24,pop_res_25_29,pop_res_30_34,pop_res_35_39,pop_res_40_44,pop_res_45_49,pop_res_50_54,pop_res_55_59,pop_res_60_64,pop_res_65_69,pop_res_70_74,pop_res_mag_74,pop_res_laurea,pop_res_diploma,pop_res_media,pop_res_elem,pop_res_alfab,pop_res_analf,pop_res_att_tot,pop_res_att_occup,pop_res_att_in_cerca,pop_res_straniera,id_comune)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="estCensitaClasseEta5_9Anni">
+            <role string="http://www.magister.uniroma1.it/ontology#est_censita_in">
+                <domainTemplate>http://datiopen.istat.it/odi/ontologia/censimento/{eta}</domainTemplate>
+                <rangeTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEta5_9Anni/{gid}</rangeTemplate>
+            </role>
+            <viewAtomsConjunction>
+                <viewAtom>CensimentoV(gid,anno,pop_res_tot,pop_res_mas,pop_res_fem,pop_res_inf_5,pop_res_5_9,pop_res_10_14,pop_res_15_19,pop_res_20_24,pop_res_25_29,pop_res_30_34,pop_res_35_39,pop_res_40_44,pop_res_45_49,pop_res_50_54,pop_res_55_59,pop_res_60_64,pop_res_65_69,pop_res_70_74,pop_res_mag_74,pop_res_laurea,pop_res_diploma,pop_res_media,pop_res_elem,pop_res_alfab,pop_res_analf,pop_res_att_tot,pop_res_att_occup,pop_res_att_in_cerca,pop_res_straniera,id_comune)</viewAtom>
+                <viewAtom>ClasseEta5_9Anni(eta)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="estCensitaClasseEta10_14Anni">
+            <role string="http://www.magister.uniroma1.it/ontology#est_censita_in">
+                <domainTemplate>http://datiopen.istat.it/odi/ontologia/censimento/{eta}</domainTemplate>
+                <rangeTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEta10_14Anni/{gid}</rangeTemplate>
+            </role>
+            <viewAtomsConjunction>
+                <viewAtom>CensimentoV(gid,anno,pop_res_tot,pop_res_mas,pop_res_fem,pop_res_inf_5,pop_res_5_9,pop_res_10_14,pop_res_15_19,pop_res_20_24,pop_res_25_29,pop_res_30_34,pop_res_35_39,pop_res_40_44,pop_res_45_49,pop_res_50_54,pop_res_55_59,pop_res_60_64,pop_res_65_69,pop_res_70_74,pop_res_mag_74,pop_res_laurea,pop_res_diploma,pop_res_media,pop_res_elem,pop_res_alfab,pop_res_analf,pop_res_att_tot,pop_res_att_occup,pop_res_att_in_cerca,pop_res_straniera,id_comune)</viewAtom>
+                <viewAtom>ClasseEta10_14Anni(eta)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="estCensitaClasseEta15_19Anni">
+            <role string="http://www.magister.uniroma1.it/ontology#est_censita_in">
+                <domainTemplate>http://datiopen.istat.it/odi/ontologia/censimento/{eta}</domainTemplate>
+                <rangeTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEta15_19Anni/{gid}</rangeTemplate>
+            </role>
+            <viewAtomsConjunction>
+                <viewAtom>CensimentoV(gid,anno,pop_res_tot,pop_res_mas,pop_res_fem,pop_res_inf_5,pop_res_5_9,pop_res_10_14,pop_res_15_19,pop_res_20_24,pop_res_25_29,pop_res_30_34,pop_res_35_39,pop_res_40_44,pop_res_45_49,pop_res_50_54,pop_res_55_59,pop_res_60_64,pop_res_65_69,pop_res_70_74,pop_res_mag_74,pop_res_laurea,pop_res_diploma,pop_res_media,pop_res_elem,pop_res_alfab,pop_res_analf,pop_res_att_tot,pop_res_att_occup,pop_res_att_in_cerca,pop_res_straniera,id_comune)</viewAtom>
+                <viewAtom>ClasseEta15_19Anni(eta)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="estCensitaClasseEta20_24Anni">
+            <role string="http://www.magister.uniroma1.it/ontology#est_censita_in">
+                <domainTemplate>http://datiopen.istat.it/odi/ontologia/censimento/{eta}</domainTemplate>
+                <rangeTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEta20_24Anni/{gid}</rangeTemplate>
+            </role>
+            <viewAtomsConjunction>
+                <viewAtom>CensimentoV(gid,anno,pop_res_tot,pop_res_mas,pop_res_fem,pop_res_inf_5,pop_res_5_9,pop_res_10_14,pop_res_15_19,pop_res_20_24,pop_res_25_29,pop_res_30_34,pop_res_35_39,pop_res_40_44,pop_res_45_49,pop_res_50_54,pop_res_55_59,pop_res_60_64,pop_res_65_69,pop_res_70_74,pop_res_mag_74,pop_res_laurea,pop_res_diploma,pop_res_media,pop_res_elem,pop_res_alfab,pop_res_analf,pop_res_att_tot,pop_res_att_occup,pop_res_att_in_cerca,pop_res_straniera,id_comune)</viewAtom>
+                <viewAtom>ClasseEta20_24Anni(eta)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="estCensitaClasseEta25_29Anni">
+            <role string="http://www.magister.uniroma1.it/ontology#est_censita_in">
+                <domainTemplate>http://datiopen.istat.it/odi/ontologia/censimento/{eta}</domainTemplate>
+                <rangeTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEta25_29Anni/{gid}</rangeTemplate>
+            </role>
+            <viewAtomsConjunction>
+                <viewAtom>CensimentoV(gid,anno,pop_res_tot,pop_res_mas,pop_res_fem,pop_res_inf_5,pop_res_5_9,pop_res_10_14,pop_res_15_19,pop_res_20_24,pop_res_25_29,pop_res_30_34,pop_res_35_39,pop_res_40_44,pop_res_45_49,pop_res_50_54,pop_res_55_59,pop_res_60_64,pop_res_65_69,pop_res_70_74,pop_res_mag_74,pop_res_laurea,pop_res_diploma,pop_res_media,pop_res_elem,pop_res_alfab,pop_res_analf,pop_res_att_tot,pop_res_att_occup,pop_res_att_in_cerca,pop_res_straniera,id_comune)</viewAtom>
+                <viewAtom>ClasseEta25_29Anni(eta)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="estCensitaClasseEta30_34Anni">
+            <role string="http://www.magister.uniroma1.it/ontology#est_censita_in">
+                <domainTemplate>http://datiopen.istat.it/odi/ontologia/censimento/{eta}</domainTemplate>
+                <rangeTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEta30_34Anni/{gid}</rangeTemplate>
+            </role>
+            <viewAtomsConjunction>
+                <viewAtom>CensimentoV(gid,anno,pop_res_tot,pop_res_mas,pop_res_fem,pop_res_inf_5,pop_res_5_9,pop_res_10_14,pop_res_15_19,pop_res_20_24,pop_res_25_29,pop_res_30_34,pop_res_35_39,pop_res_40_44,pop_res_45_49,pop_res_50_54,pop_res_55_59,pop_res_60_64,pop_res_65_69,pop_res_70_74,pop_res_mag_74,pop_res_laurea,pop_res_diploma,pop_res_media,pop_res_elem,pop_res_alfab,pop_res_analf,pop_res_att_tot,pop_res_att_occup,pop_res_att_in_cerca,pop_res_straniera,id_comune)</viewAtom>
+                <viewAtom>ClasseEta30_34Anni(eta)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="estCensitaClasseEta35_39Anni">
+            <role string="http://www.magister.uniroma1.it/ontology#est_censita_in">
+                <domainTemplate>http://datiopen.istat.it/odi/ontologia/censimento/{eta}</domainTemplate>
+                <rangeTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEta35_39Anni/{gid}</rangeTemplate>
+            </role>
+            <viewAtomsConjunction>
+                <viewAtom>CensimentoV(gid,anno,pop_res_tot,pop_res_mas,pop_res_fem,pop_res_inf_5,pop_res_5_9,pop_res_10_14,pop_res_15_19,pop_res_20_24,pop_res_25_29,pop_res_30_34,pop_res_35_39,pop_res_40_44,pop_res_45_49,pop_res_50_54,pop_res_55_59,pop_res_60_64,pop_res_65_69,pop_res_70_74,pop_res_mag_74,pop_res_laurea,pop_res_diploma,pop_res_media,pop_res_elem,pop_res_alfab,pop_res_analf,pop_res_att_tot,pop_res_att_occup,pop_res_att_in_cerca,pop_res_straniera,id_comune)</viewAtom>
+                <viewAtom>ClasseEta35_39Anni(eta)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="estCensitaClasseEta40_44Anni">
+            <role string="http://www.magister.uniroma1.it/ontology#est_censita_in">
+                <domainTemplate>http://datiopen.istat.it/odi/ontologia/censimento/{eta}</domainTemplate>
+                <rangeTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEta40_44Anni/{gid}</rangeTemplate>
+            </role>
+            <viewAtomsConjunction>
+                <viewAtom>CensimentoV(gid,anno,pop_res_tot,pop_res_mas,pop_res_fem,pop_res_inf_5,pop_res_5_9,pop_res_10_14,pop_res_15_19,pop_res_20_24,pop_res_25_29,pop_res_30_34,pop_res_35_39,pop_res_40_44,pop_res_45_49,pop_res_50_54,pop_res_55_59,pop_res_60_64,pop_res_65_69,pop_res_70_74,pop_res_mag_74,pop_res_laurea,pop_res_diploma,pop_res_media,pop_res_elem,pop_res_alfab,pop_res_analf,pop_res_att_tot,pop_res_att_occup,pop_res_att_in_cerca,pop_res_straniera,id_comune)</viewAtom>
+                <viewAtom>ClasseEta40_44Anni(eta)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="estCensitaClasseEta45_49Anni">
+            <role string="http://www.magister.uniroma1.it/ontology#est_censita_in">
+                <domainTemplate>http://datiopen.istat.it/odi/ontologia/censimento/{eta}</domainTemplate>
+                <rangeTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEta45_49Anni/{gid}</rangeTemplate>
+            </role>
+            <viewAtomsConjunction>
+                <viewAtom>CensimentoV(gid,anno,pop_res_tot,pop_res_mas,pop_res_fem,pop_res_inf_5,pop_res_5_9,pop_res_10_14,pop_res_15_19,pop_res_20_24,pop_res_25_29,pop_res_30_34,pop_res_35_39,pop_res_40_44,pop_res_45_49,pop_res_50_54,pop_res_55_59,pop_res_60_64,pop_res_65_69,pop_res_70_74,pop_res_mag_74,pop_res_laurea,pop_res_diploma,pop_res_media,pop_res_elem,pop_res_alfab,pop_res_analf,pop_res_att_tot,pop_res_att_occup,pop_res_att_in_cerca,pop_res_straniera,id_comune)</viewAtom>
+                <viewAtom>ClasseEta45_49Anni(eta)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="estCensitaClasseEta50_54Anni">
+            <role string="http://www.magister.uniroma1.it/ontology#est_censita_in">
+                <domainTemplate>http://datiopen.istat.it/odi/ontologia/censimento/{eta}</domainTemplate>
+                <rangeTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEta50_54Anni/{gid}</rangeTemplate>
+            </role>
+            <viewAtomsConjunction>
+                <viewAtom>CensimentoV(gid,anno,pop_res_tot,pop_res_mas,pop_res_fem,pop_res_inf_5,pop_res_5_9,pop_res_10_14,pop_res_15_19,pop_res_20_24,pop_res_25_29,pop_res_30_34,pop_res_35_39,pop_res_40_44,pop_res_45_49,pop_res_50_54,pop_res_55_59,pop_res_60_64,pop_res_65_69,pop_res_70_74,pop_res_mag_74,pop_res_laurea,pop_res_diploma,pop_res_media,pop_res_elem,pop_res_alfab,pop_res_analf,pop_res_att_tot,pop_res_att_occup,pop_res_att_in_cerca,pop_res_straniera,id_comune)</viewAtom>
+                <viewAtom>ClasseEta50_54Anni(eta)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="estCensitaClasseEta55_59Anni">
+            <role string="http://www.magister.uniroma1.it/ontology#est_censita_in">
+                <domainTemplate>http://datiopen.istat.it/odi/ontologia/censimento/{eta}</domainTemplate>
+                <rangeTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEta55_59Anni/{gid}</rangeTemplate>
+            </role>
+            <viewAtomsConjunction>
+                <viewAtom>CensimentoV(gid,anno,pop_res_tot,pop_res_mas,pop_res_fem,pop_res_inf_5,pop_res_5_9,pop_res_10_14,pop_res_15_19,pop_res_20_24,pop_res_25_29,pop_res_30_34,pop_res_35_39,pop_res_40_44,pop_res_45_49,pop_res_50_54,pop_res_55_59,pop_res_60_64,pop_res_65_69,pop_res_70_74,pop_res_mag_74,pop_res_laurea,pop_res_diploma,pop_res_media,pop_res_elem,pop_res_alfab,pop_res_analf,pop_res_att_tot,pop_res_att_occup,pop_res_att_in_cerca,pop_res_straniera,id_comune)</viewAtom>
+                <viewAtom>ClasseEta55_59Anni(eta)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="estCensitaClasseEta60_64Anni">
+            <role string="http://www.magister.uniroma1.it/ontology#est_censita_in">
+                <domainTemplate>http://datiopen.istat.it/odi/ontologia/censimento/{eta}</domainTemplate>
+                <rangeTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEta60_64Anni/{gid}</rangeTemplate>
+            </role>
+            <viewAtomsConjunction>
+                <viewAtom>CensimentoV(gid,anno,pop_res_tot,pop_res_mas,pop_res_fem,pop_res_inf_5,pop_res_5_9,pop_res_10_14,pop_res_15_19,pop_res_20_24,pop_res_25_29,pop_res_30_34,pop_res_35_39,pop_res_40_44,pop_res_45_49,pop_res_50_54,pop_res_55_59,pop_res_60_64,pop_res_65_69,pop_res_70_74,pop_res_mag_74,pop_res_laurea,pop_res_diploma,pop_res_media,pop_res_elem,pop_res_alfab,pop_res_analf,pop_res_att_tot,pop_res_att_occup,pop_res_att_in_cerca,pop_res_straniera,id_comune)</viewAtom>
+                <viewAtom>ClasseEta60_64Anni(eta)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="estCensitaClasseEta65_69Anni">
+            <role string="http://www.magister.uniroma1.it/ontology#est_censita_in">
+                <domainTemplate>http://datiopen.istat.it/odi/ontologia/censimento/{eta}</domainTemplate>
+                <rangeTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEta65_69Anni/{gid}</rangeTemplate>
+            </role>
+            <viewAtomsConjunction>
+                <viewAtom>CensimentoV(gid,anno,pop_res_tot,pop_res_mas,pop_res_fem,pop_res_inf_5,pop_res_5_9,pop_res_10_14,pop_res_15_19,pop_res_20_24,pop_res_25_29,pop_res_30_34,pop_res_35_39,pop_res_40_44,pop_res_45_49,pop_res_50_54,pop_res_55_59,pop_res_60_64,pop_res_65_69,pop_res_70_74,pop_res_mag_74,pop_res_laurea,pop_res_diploma,pop_res_media,pop_res_elem,pop_res_alfab,pop_res_analf,pop_res_att_tot,pop_res_att_occup,pop_res_att_in_cerca,pop_res_straniera,id_comune)</viewAtom>
+                <viewAtom>ClasseEta65_69Anni(eta)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="estCensitaClasseEta70_74Anni">
+            <role string="http://www.magister.uniroma1.it/ontology#est_censita_in">
+                <domainTemplate>http://datiopen.istat.it/odi/ontologia/censimento/{eta}</domainTemplate>
+                <rangeTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEta70_74Anni/{gid}</rangeTemplate>
+            </role>
+            <viewAtomsConjunction>
+                <viewAtom>CensimentoV(gid,anno,pop_res_tot,pop_res_mas,pop_res_fem,pop_res_inf_5,pop_res_5_9,pop_res_10_14,pop_res_15_19,pop_res_20_24,pop_res_25_29,pop_res_30_34,pop_res_35_39,pop_res_40_44,pop_res_45_49,pop_res_50_54,pop_res_55_59,pop_res_60_64,pop_res_65_69,pop_res_70_74,pop_res_mag_74,pop_res_laurea,pop_res_diploma,pop_res_media,pop_res_elem,pop_res_alfab,pop_res_analf,pop_res_att_tot,pop_res_att_occup,pop_res_att_in_cerca,pop_res_straniera,id_comune)</viewAtom>
+                <viewAtom>ClasseEta70_74Anni(eta)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="estCensitaClasseEtaMag74Anni">
+            <role string="http://www.magister.uniroma1.it/ontology#est_censita_in">
+                <domainTemplate>http://datiopen.istat.it/odi/ontologia/censimento/{eta}</domainTemplate>
+                <rangeTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEtaMag74Anni/{gid}</rangeTemplate>
+            </role>
+            <viewAtomsConjunction>
+                <viewAtom>CensimentoV(gid,anno,pop_res_tot,pop_res_mas,pop_res_fem,pop_res_inf_5,pop_res_5_9,pop_res_10_14,pop_res_15_19,pop_res_20_24,pop_res_25_29,pop_res_30_34,pop_res_35_39,pop_res_40_44,pop_res_45_49,pop_res_50_54,pop_res_55_59,pop_res_60_64,pop_res_65_69,pop_res_70_74,pop_res_mag_74,pop_res_laurea,pop_res_diploma,pop_res_media,pop_res_elem,pop_res_alfab,pop_res_analf,pop_res_att_tot,pop_res_att_occup,pop_res_att_in_cerca,pop_res_straniera,id_comune)</viewAtom>
+                <viewAtom>ClasseEtaMag74Anni(eta)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="estCensitaClasseEtaMin5Anni">
+            <role string="http://www.magister.uniroma1.it/ontology#est_censita_in">
+                <domainTemplate>http://datiopen.istat.it/odi/ontologia/censimento/{eta}</domainTemplate>
+                <rangeTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEtaMin5Anni/{gid}</rangeTemplate>
+            </role>
+            <viewAtomsConjunction>
+                <viewAtom>CensimentoV(gid,anno,pop_res_tot,pop_res_mas,pop_res_fem,pop_res_inf_5,pop_res_5_9,pop_res_10_14,pop_res_15_19,pop_res_20_24,pop_res_25_29,pop_res_30_34,pop_res_35_39,pop_res_40_44,pop_res_45_49,pop_res_50_54,pop_res_55_59,pop_res_60_64,pop_res_65_69,pop_res_70_74,pop_res_mag_74,pop_res_laurea,pop_res_diploma,pop_res_media,pop_res_elem,pop_res_alfab,pop_res_analf,pop_res_att_tot,pop_res_att_occup,pop_res_att_in_cerca,pop_res_straniera,id_comune)</viewAtom>
+                <viewAtom>ClasseEtaMin5Anni(eta)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="estCensitaDiplomaMedia">
+            <role string="http://www.magister.uniroma1.it/ontology#est_censita_in">
+                <domainTemplate>http://datiopen.istat.it/odi/ontologia/censimento/{media}</domainTemplate>
+                <rangeTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/DiplomaMedia/{gid}</rangeTemplate>
+            </role>
+            <viewAtomsConjunction>
+                <viewAtom>CensimentoV(gid,anno,pop_res_tot,pop_res_mas,pop_res_fem,pop_res_inf_5,pop_res_5_9,pop_res_10_14,pop_res_15_19,pop_res_20_24,pop_res_25_29,pop_res_30_34,pop_res_35_39,pop_res_40_44,pop_res_45_49,pop_res_50_54,pop_res_55_59,pop_res_60_64,pop_res_65_69,pop_res_70_74,pop_res_mag_74,pop_res_laurea,pop_res_diploma,pop_res_media,pop_res_elem,pop_res_alfab,pop_res_analf,pop_res_att_tot,pop_res_att_occup,pop_res_att_in_cerca,pop_res_straniera,id_comune)</viewAtom>
+                <viewAtom>DimplomaMediaV(media)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="estCensitaDiplomaSuperiore">
+            <role string="http://www.magister.uniroma1.it/ontology#est_censita_in">
+                <domainTemplate>http://datiopen.istat.it/odi/ontologia/censimento/{superiore}</domainTemplate>
+                <rangeTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/DiplomaSuperiore/{gid}</rangeTemplate>
+            </role>
+            <viewAtomsConjunction>
+                <viewAtom>CensimentoV(gid,anno,pop_res_tot,pop_res_mas,pop_res_fem,pop_res_inf_5,pop_res_5_9,pop_res_10_14,pop_res_15_19,pop_res_20_24,pop_res_25_29,pop_res_30_34,pop_res_35_39,pop_res_40_44,pop_res_45_49,pop_res_50_54,pop_res_55_59,pop_res_60_64,pop_res_65_69,pop_res_70_74,pop_res_mag_74,pop_res_laurea,pop_res_diploma,pop_res_media,pop_res_elem,pop_res_alfab,pop_res_analf,pop_res_att_tot,pop_res_att_occup,pop_res_att_in_cerca,pop_res_straniera,id_comune)</viewAtom>
+                <viewAtom>DiplomaSuperioreV(superiore)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="estCensitaFemmine">
+            <role string="http://www.magister.uniroma1.it/ontology#est_censita_in">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology#{femmine}</domainTemplate>
+                <rangeTemplate>http://www.magister.uniroma1.it/ontology/Femmine/{gid}</rangeTemplate>
+            </role>
+            <viewAtomsConjunction>
+                <viewAtom>CensimentoV(gid,anno,pop_res_tot,pop_res_mas,pop_res_fem,pop_res_inf_5,pop_res_5_9,pop_res_10_14,pop_res_15_19,pop_res_20_24,pop_res_25_29,pop_res_30_34,pop_res_35_39,pop_res_40_44,pop_res_45_49,pop_res_50_54,pop_res_55_59,pop_res_60_64,pop_res_65_69,pop_res_70_74,pop_res_mag_74,pop_res_laurea,pop_res_diploma,pop_res_media,pop_res_elem,pop_res_alfab,pop_res_analf,pop_res_att_tot,pop_res_att_occup,pop_res_att_in_cerca,pop_res_straniera,id_comune)</viewAtom>
+                <viewAtom>Femmine(femmine)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="estCensitaLaurea">
+            <role string="http://www.magister.uniroma1.it/ontology#est_censita_in">
+                <domainTemplate>http://datiopen.istat.it/odi/ontologia/censimento/{laurea}</domainTemplate>
+                <rangeTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/LaureaEAssimilati/{gid}</rangeTemplate>
+            </role>
+            <viewAtomsConjunction>
+                <viewAtom>CensimentoV(gid,anno,pop_res_tot,pop_res_mas,pop_res_fem,pop_res_inf_5,pop_res_5_9,pop_res_10_14,pop_res_15_19,pop_res_20_24,pop_res_25_29,pop_res_30_34,pop_res_35_39,pop_res_40_44,pop_res_45_49,pop_res_50_54,pop_res_55_59,pop_res_60_64,pop_res_65_69,pop_res_70_74,pop_res_mag_74,pop_res_laurea,pop_res_diploma,pop_res_media,pop_res_elem,pop_res_alfab,pop_res_analf,pop_res_att_tot,pop_res_att_occup,pop_res_att_in_cerca,pop_res_straniera,id_comune)</viewAtom>
+                <viewAtom>LaureaEAssimilati(laurea)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="estCensitaLicenzaElementare">
+            <role string="http://www.magister.uniroma1.it/ontology#est_censita_in">
+                <domainTemplate>http://datiopen.istat.it/odi/ontologia/censimento/{elementare}</domainTemplate>
+                <rangeTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/LicenzaElementare/{gid}</rangeTemplate>
+            </role>
+            <viewAtomsConjunction>
+                <viewAtom>CensimentoV(gid,anno,pop_res_tot,pop_res_mas,pop_res_fem,pop_res_inf_5,pop_res_5_9,pop_res_10_14,pop_res_15_19,pop_res_20_24,pop_res_25_29,pop_res_30_34,pop_res_35_39,pop_res_40_44,pop_res_45_49,pop_res_50_54,pop_res_55_59,pop_res_60_64,pop_res_65_69,pop_res_70_74,pop_res_mag_74,pop_res_laurea,pop_res_diploma,pop_res_media,pop_res_elem,pop_res_alfab,pop_res_analf,pop_res_att_tot,pop_res_att_occup,pop_res_att_in_cerca,pop_res_straniera,id_comune)</viewAtom>
+                <viewAtom>LicenzaElementareV(elementare)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="estCensitaMaschi">
+            <role string="http://www.magister.uniroma1.it/ontology#est_censita_in">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology#{maschi}</domainTemplate>
+                <rangeTemplate>http://www.magister.uniroma1.it/ontology/Maschi/{gid}</rangeTemplate>
+            </role>
+            <viewAtomsConjunction>
+                <viewAtom>CensimentoV(gid,anno,pop_res_tot,pop_res_mas,pop_res_fem,pop_res_inf_5,pop_res_5_9,pop_res_10_14,pop_res_15_19,pop_res_20_24,pop_res_25_29,pop_res_30_34,pop_res_35_39,pop_res_40_44,pop_res_45_49,pop_res_50_54,pop_res_55_59,pop_res_60_64,pop_res_65_69,pop_res_70_74,pop_res_mag_74,pop_res_laurea,pop_res_diploma,pop_res_media,pop_res_elem,pop_res_alfab,pop_res_analf,pop_res_att_tot,pop_res_att_occup,pop_res_att_in_cerca,pop_res_straniera,id_comune)</viewAtom>
+                <viewAtom>Maschi(maschi)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="estCensitaStranieri">
+            <role string="http://www.magister.uniroma1.it/ontology#est_censita_in">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology#{stranieri}</domainTemplate>
+                <rangeTemplate>http://www.magister.uniroma1.it/ontology/Stranieri/{gid}</rangeTemplate>
+            </role>
+            <viewAtomsConjunction>
+                <viewAtom>CensimentoV(gid,anno,pop_res_tot,pop_res_mas,pop_res_fem,pop_res_inf_5,pop_res_5_9,pop_res_10_14,pop_res_15_19,pop_res_20_24,pop_res_25_29,pop_res_30_34,pop_res_35_39,pop_res_40_44,pop_res_45_49,pop_res_50_54,pop_res_55_59,pop_res_60_64,pop_res_65_69,pop_res_70_74,pop_res_mag_74,pop_res_laurea,pop_res_diploma,pop_res_media,pop_res_elem,pop_res_alfab,pop_res_analf,pop_res_att_tot,pop_res_att_occup,pop_res_att_in_cerca,pop_res_straniera,id_comune)</viewAtom>
+                <viewAtom>Stranieri(stranieri)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="estGestitoDa">
+            <role string="http://www.magister.uniroma1.it/ontology#podere_est_gestito_da">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Podere/{id}</domainTemplate>
+                <rangeTemplate>http://www.magister.uniroma1.it/ontology/AziendaAgraria/{azienda}</rangeTemplate>
+            </role>
+            <viewAtomsConjunction>
+                <viewAtom>IS_NOT_NULL(azienda)</viewAtom>
+                <viewAtom>PoderiV(id,sup,cognome_col,nome_col,azienda,tipo_con,strada,wkt,gml,toponimo,title_col)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="estSorgenteDi">
+            <role string="http://www.magister.uniroma1.it/ontology#est_sorgente_di">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/UnitaGeografica/{oggetto}/{topoid}</domainTemplate>
+                <rangeTemplate>http://www.magister.uniroma1.it/ontology/CorsoAcqua/{tipo}/{idroid}</rangeTemplate>
+            </role>
+            <viewAtomsConjunction>
+                <viewAtom>CorsoAcquaV(idroid,idrotipo,idronome,idroalias,idroid_bacino,idrowkt,idrogml)</viewAtom>
+                <viewAtom>EQUALS(oggetto,'Polla o laghetto'^^xsd:string)</viewAtom>
+                <viewAtom>EstSorgenteDiV(idroid,topoid)</viewAtom>
+                <viewAtom>ToponimiV(topoid,nome,alias,tipo,oggetto,anno,wkt,gml)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateMapping id="globalPersistentId">
+            <attribute string="http://www.magister.uniroma1.it/ontology#globalPersistentIdentifier">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/RecordSet/{id}</domainTemplate>
+                <rangeVariable>id</rangeVariable>
+            </attribute>
+            <HEAD string="ONCPoderiV(id, FK_language_id, versionDate, versionStatus, fondo, serie, type, nrpodere, title, datainizio, datafine, destreme, numero, busta, info, managment, compilationDate, unitarchdetail_author)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="gmlBacino">
+            <attribute string="http://www.uniroma1.it/owl2qlgeo#hasGeometryGML">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/BacinoIdrografico/{gid}</domainTemplate>
+                <rangeVariable>gml</rangeVariable>
+            </attribute>
+            <HEAD string="BaciniV(gid, nome, descrizione, wkt, gml)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="haCensitoAlfabeti">
+            <role string="http://www.magister.uniroma1.it/ontology#haCensito">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Censimento/{gid}</domainTemplate>
+                <rangeTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/Alfabeti/{gid}</rangeTemplate>
+            </role>
+            <HEAD string="CensimentoV(gid, anno, pop_res_tot, pop_res_mas, pop_res_fem, pop_res_inf_5, pop_res_5_9, pop_res_10_14, pop_res_15_19, pop_res_20_24, pop_res_25_29, pop_res_30_34, pop_res_35_39, pop_res_40_44, pop_res_45_49, pop_res_50_54, pop_res_55_59, pop_res_60_64, pop_res_65_69, pop_res_70_74, pop_res_mag_74, pop_res_laurea, pop_res_diploma, pop_res_media, pop_res_elem, pop_res_alfab, pop_res_analf, pop_res_att_tot, pop_res_att_occup, pop_res_att_in_cerca, pop_res_straniera, id_comune)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="haCensitoAnalfabeti">
+            <role string="http://www.magister.uniroma1.it/ontology#haCensito">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Censimento/{gid}</domainTemplate>
+                <rangeTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/Analfabeti/{gid}</rangeTemplate>
+            </role>
+            <HEAD string="CensimentoV(gid, anno, pop_res_tot, pop_res_mas, pop_res_fem, pop_res_inf_5, pop_res_5_9, pop_res_10_14, pop_res_15_19, pop_res_20_24, pop_res_25_29, pop_res_30_34, pop_res_35_39, pop_res_40_44, pop_res_45_49, pop_res_50_54, pop_res_55_59, pop_res_60_64, pop_res_65_69, pop_res_70_74, pop_res_mag_74, pop_res_laurea, pop_res_diploma, pop_res_media, pop_res_elem, pop_res_alfab, pop_res_analf, pop_res_att_tot, pop_res_att_occup, pop_res_att_in_cerca, pop_res_straniera, id_comune)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="haCensitoAttiviInCercaDiOccupazione">
+            <role string="http://www.magister.uniroma1.it/ontology#haCensito">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Censimento/{gid}</domainTemplate>
+                <rangeTemplate>http://www.magister.uniroma1.it/ontology/AttiviInCercaDiOccupazione/{gid}</rangeTemplate>
+            </role>
+            <HEAD string="CensimentoV(gid, anno, pop_res_tot, pop_res_mas, pop_res_fem, pop_res_inf_5, pop_res_5_9, pop_res_10_14, pop_res_15_19, pop_res_20_24, pop_res_25_29, pop_res_30_34, pop_res_35_39, pop_res_40_44, pop_res_45_49, pop_res_50_54, pop_res_55_59, pop_res_60_64, pop_res_65_69, pop_res_70_74, pop_res_mag_74, pop_res_laurea, pop_res_diploma, pop_res_media, pop_res_elem, pop_res_alfab, pop_res_analf, pop_res_att_tot, pop_res_att_occup, pop_res_att_in_cerca, pop_res_straniera, id_comune)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="haCensitoAttiviOccupati">
+            <role string="http://www.magister.uniroma1.it/ontology#haCensito">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Censimento/{gid}</domainTemplate>
+                <rangeTemplate>http://www.magister.uniroma1.it/ontology/AttiviOccupati/{gid}</rangeTemplate>
+            </role>
+            <HEAD string="CensimentoV(gid, anno, pop_res_tot, pop_res_mas, pop_res_fem, pop_res_inf_5, pop_res_5_9, pop_res_10_14, pop_res_15_19, pop_res_20_24, pop_res_25_29, pop_res_30_34, pop_res_35_39, pop_res_40_44, pop_res_45_49, pop_res_50_54, pop_res_55_59, pop_res_60_64, pop_res_65_69, pop_res_70_74, pop_res_mag_74, pop_res_laurea, pop_res_diploma, pop_res_media, pop_res_elem, pop_res_alfab, pop_res_analf, pop_res_att_tot, pop_res_att_occup, pop_res_att_in_cerca, pop_res_straniera, id_comune)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="haCensitoAttiviTotali">
+            <role string="http://www.magister.uniroma1.it/ontology#haCensito">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Censimento/{gid}</domainTemplate>
+                <rangeTemplate>http://www.magister.uniroma1.it/ontology/AttiviTotali/{gid}</rangeTemplate>
+            </role>
+            <HEAD string="CensimentoV(gid, anno, pop_res_tot, pop_res_mas, pop_res_fem, pop_res_inf_5, pop_res_5_9, pop_res_10_14, pop_res_15_19, pop_res_20_24, pop_res_25_29, pop_res_30_34, pop_res_35_39, pop_res_40_44, pop_res_45_49, pop_res_50_54, pop_res_55_59, pop_res_60_64, pop_res_65_69, pop_res_70_74, pop_res_mag_74, pop_res_laurea, pop_res_diploma, pop_res_media, pop_res_elem, pop_res_alfab, pop_res_analf, pop_res_att_tot, pop_res_att_occup, pop_res_att_in_cerca, pop_res_straniera, id_comune)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="haCensitoCampioneCensito">
+            <role string="http://www.magister.uniroma1.it/ontology#haCensito">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Censimento/{gid}</domainTemplate>
+                <rangeTemplate>http://www.magister.uniroma1.it/ontology/CampioneCensito/{gid}</rangeTemplate>
+            </role>
+            <HEAD string="CensimentoV(gid, anno, pop_res_tot, pop_res_mas, pop_res_fem, pop_res_inf_5, pop_res_5_9, pop_res_10_14, pop_res_15_19, pop_res_20_24, pop_res_25_29, pop_res_30_34, pop_res_35_39, pop_res_40_44, pop_res_45_49, pop_res_50_54, pop_res_55_59, pop_res_60_64, pop_res_65_69, pop_res_70_74, pop_res_mag_74, pop_res_laurea, pop_res_diploma, pop_res_media, pop_res_elem, pop_res_alfab, pop_res_analf, pop_res_att_tot, pop_res_att_occup, pop_res_att_in_cerca, pop_res_straniera, id_comune)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="haCensitoClasseEta5_9Anni">
+            <role string="http://www.magister.uniroma1.it/ontology#haCensito">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Censimento/{gid}</domainTemplate>
+                <rangeTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEta5_9Anni/{gid}</rangeTemplate>
+            </role>
+            <HEAD string="CensimentoV(gid, anno, pop_res_tot, pop_res_mas, pop_res_fem, pop_res_inf_5, pop_res_5_9, pop_res_10_14, pop_res_15_19, pop_res_20_24, pop_res_25_29, pop_res_30_34, pop_res_35_39, pop_res_40_44, pop_res_45_49, pop_res_50_54, pop_res_55_59, pop_res_60_64, pop_res_65_69, pop_res_70_74, pop_res_mag_74, pop_res_laurea, pop_res_diploma, pop_res_media, pop_res_elem, pop_res_alfab, pop_res_analf, pop_res_att_tot, pop_res_att_occup, pop_res_att_in_cerca, pop_res_straniera, id_comune)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="haCensitoClasseEta10_14Anni">
+            <role string="http://www.magister.uniroma1.it/ontology#haCensito">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Censimento/{gid}</domainTemplate>
+                <rangeTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEta10_14Anni/{gid}</rangeTemplate>
+            </role>
+            <HEAD string="CensimentoV(gid, anno, pop_res_tot, pop_res_mas, pop_res_fem, pop_res_inf_5, pop_res_5_9, pop_res_10_14, pop_res_15_19, pop_res_20_24, pop_res_25_29, pop_res_30_34, pop_res_35_39, pop_res_40_44, pop_res_45_49, pop_res_50_54, pop_res_55_59, pop_res_60_64, pop_res_65_69, pop_res_70_74, pop_res_mag_74, pop_res_laurea, pop_res_diploma, pop_res_media, pop_res_elem, pop_res_alfab, pop_res_analf, pop_res_att_tot, pop_res_att_occup, pop_res_att_in_cerca, pop_res_straniera, id_comune)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="haCensitoClasseEta15_19Anni">
+            <role string="http://www.magister.uniroma1.it/ontology#haCensito">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Censimento/{gid}</domainTemplate>
+                <rangeTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEta15_19Anni/{gid}</rangeTemplate>
+            </role>
+            <HEAD string="CensimentoV(gid, anno, pop_res_tot, pop_res_mas, pop_res_fem, pop_res_inf_5, pop_res_5_9, pop_res_10_14, pop_res_15_19, pop_res_20_24, pop_res_25_29, pop_res_30_34, pop_res_35_39, pop_res_40_44, pop_res_45_49, pop_res_50_54, pop_res_55_59, pop_res_60_64, pop_res_65_69, pop_res_70_74, pop_res_mag_74, pop_res_laurea, pop_res_diploma, pop_res_media, pop_res_elem, pop_res_alfab, pop_res_analf, pop_res_att_tot, pop_res_att_occup, pop_res_att_in_cerca, pop_res_straniera, id_comune)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="haCensitoClasseEta20_24Anni">
+            <role string="http://www.magister.uniroma1.it/ontology#haCensito">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Censimento/{gid}</domainTemplate>
+                <rangeTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEta20_24Anni/{gid}</rangeTemplate>
+            </role>
+            <HEAD string="CensimentoV(gid, anno, pop_res_tot, pop_res_mas, pop_res_fem, pop_res_inf_5, pop_res_5_9, pop_res_10_14, pop_res_15_19, pop_res_20_24, pop_res_25_29, pop_res_30_34, pop_res_35_39, pop_res_40_44, pop_res_45_49, pop_res_50_54, pop_res_55_59, pop_res_60_64, pop_res_65_69, pop_res_70_74, pop_res_mag_74, pop_res_laurea, pop_res_diploma, pop_res_media, pop_res_elem, pop_res_alfab, pop_res_analf, pop_res_att_tot, pop_res_att_occup, pop_res_att_in_cerca, pop_res_straniera, id_comune)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="haCensitoClasseEta25_29Anni">
+            <role string="http://www.magister.uniroma1.it/ontology#haCensito">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Censimento/{gid}</domainTemplate>
+                <rangeTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEta25_29Anni/{gid}</rangeTemplate>
+            </role>
+            <HEAD string="CensimentoV(gid, anno, pop_res_tot, pop_res_mas, pop_res_fem, pop_res_inf_5, pop_res_5_9, pop_res_10_14, pop_res_15_19, pop_res_20_24, pop_res_25_29, pop_res_30_34, pop_res_35_39, pop_res_40_44, pop_res_45_49, pop_res_50_54, pop_res_55_59, pop_res_60_64, pop_res_65_69, pop_res_70_74, pop_res_mag_74, pop_res_laurea, pop_res_diploma, pop_res_media, pop_res_elem, pop_res_alfab, pop_res_analf, pop_res_att_tot, pop_res_att_occup, pop_res_att_in_cerca, pop_res_straniera, id_comune)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="haCensitoClasseEta30_34Anni">
+            <role string="http://www.magister.uniroma1.it/ontology#haCensito">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Censimento/{gid}</domainTemplate>
+                <rangeTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEta30_34Anni/{gid}</rangeTemplate>
+            </role>
+            <HEAD string="CensimentoV(gid, anno, pop_res_tot, pop_res_mas, pop_res_fem, pop_res_inf_5, pop_res_5_9, pop_res_10_14, pop_res_15_19, pop_res_20_24, pop_res_25_29, pop_res_30_34, pop_res_35_39, pop_res_40_44, pop_res_45_49, pop_res_50_54, pop_res_55_59, pop_res_60_64, pop_res_65_69, pop_res_70_74, pop_res_mag_74, pop_res_laurea, pop_res_diploma, pop_res_media, pop_res_elem, pop_res_alfab, pop_res_analf, pop_res_att_tot, pop_res_att_occup, pop_res_att_in_cerca, pop_res_straniera, id_comune)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="haCensitoClasseEta35_39Anni">
+            <role string="http://www.magister.uniroma1.it/ontology#haCensito">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Censimento/{gid}</domainTemplate>
+                <rangeTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEta35_39Anni/{gid}</rangeTemplate>
+            </role>
+            <HEAD string="CensimentoV(gid, anno, pop_res_tot, pop_res_mas, pop_res_fem, pop_res_inf_5, pop_res_5_9, pop_res_10_14, pop_res_15_19, pop_res_20_24, pop_res_25_29, pop_res_30_34, pop_res_35_39, pop_res_40_44, pop_res_45_49, pop_res_50_54, pop_res_55_59, pop_res_60_64, pop_res_65_69, pop_res_70_74, pop_res_mag_74, pop_res_laurea, pop_res_diploma, pop_res_media, pop_res_elem, pop_res_alfab, pop_res_analf, pop_res_att_tot, pop_res_att_occup, pop_res_att_in_cerca, pop_res_straniera, id_comune)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="haCensitoClasseEta40_44Anni">
+            <role string="http://www.magister.uniroma1.it/ontology#haCensito">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Censimento/{gid}</domainTemplate>
+                <rangeTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEta40_44Anni/{gid}</rangeTemplate>
+            </role>
+            <HEAD string="CensimentoV(gid, anno, pop_res_tot, pop_res_mas, pop_res_fem, pop_res_inf_5, pop_res_5_9, pop_res_10_14, pop_res_15_19, pop_res_20_24, pop_res_25_29, pop_res_30_34, pop_res_35_39, pop_res_40_44, pop_res_45_49, pop_res_50_54, pop_res_55_59, pop_res_60_64, pop_res_65_69, pop_res_70_74, pop_res_mag_74, pop_res_laurea, pop_res_diploma, pop_res_media, pop_res_elem, pop_res_alfab, pop_res_analf, pop_res_att_tot, pop_res_att_occup, pop_res_att_in_cerca, pop_res_straniera, id_comune)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="haCensitoClasseEta45_49Anni">
+            <role string="http://www.magister.uniroma1.it/ontology#haCensito">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Censimento/{gid}</domainTemplate>
+                <rangeTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEta45_49Anni/{gid}</rangeTemplate>
+            </role>
+            <HEAD string="CensimentoV(gid, anno, pop_res_tot, pop_res_mas, pop_res_fem, pop_res_inf_5, pop_res_5_9, pop_res_10_14, pop_res_15_19, pop_res_20_24, pop_res_25_29, pop_res_30_34, pop_res_35_39, pop_res_40_44, pop_res_45_49, pop_res_50_54, pop_res_55_59, pop_res_60_64, pop_res_65_69, pop_res_70_74, pop_res_mag_74, pop_res_laurea, pop_res_diploma, pop_res_media, pop_res_elem, pop_res_alfab, pop_res_analf, pop_res_att_tot, pop_res_att_occup, pop_res_att_in_cerca, pop_res_straniera, id_comune)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="haCensitoClasseEta50_54Anni">
+            <role string="http://www.magister.uniroma1.it/ontology#haCensito">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Censimento/{gid}</domainTemplate>
+                <rangeTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEta50_54Anni/{gid}</rangeTemplate>
+            </role>
+            <HEAD string="CensimentoV(gid, anno, pop_res_tot, pop_res_mas, pop_res_fem, pop_res_inf_5, pop_res_5_9, pop_res_10_14, pop_res_15_19, pop_res_20_24, pop_res_25_29, pop_res_30_34, pop_res_35_39, pop_res_40_44, pop_res_45_49, pop_res_50_54, pop_res_55_59, pop_res_60_64, pop_res_65_69, pop_res_70_74, pop_res_mag_74, pop_res_laurea, pop_res_diploma, pop_res_media, pop_res_elem, pop_res_alfab, pop_res_analf, pop_res_att_tot, pop_res_att_occup, pop_res_att_in_cerca, pop_res_straniera, id_comune)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="haCensitoClasseEta55_59Anni">
+            <role string="http://www.magister.uniroma1.it/ontology#haCensito">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Censimento/{gid}</domainTemplate>
+                <rangeTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEta55_59Anni/{gid}</rangeTemplate>
+            </role>
+            <HEAD string="CensimentoV(gid, anno, pop_res_tot, pop_res_mas, pop_res_fem, pop_res_inf_5, pop_res_5_9, pop_res_10_14, pop_res_15_19, pop_res_20_24, pop_res_25_29, pop_res_30_34, pop_res_35_39, pop_res_40_44, pop_res_45_49, pop_res_50_54, pop_res_55_59, pop_res_60_64, pop_res_65_69, pop_res_70_74, pop_res_mag_74, pop_res_laurea, pop_res_diploma, pop_res_media, pop_res_elem, pop_res_alfab, pop_res_analf, pop_res_att_tot, pop_res_att_occup, pop_res_att_in_cerca, pop_res_straniera, id_comune)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="haCensitoClasseEta60_64Anni">
+            <role string="http://www.magister.uniroma1.it/ontology#haCensito">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Censimento/{gid}</domainTemplate>
+                <rangeTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEta60_64Anni/{gid}</rangeTemplate>
+            </role>
+            <HEAD string="CensimentoV(gid, anno, pop_res_tot, pop_res_mas, pop_res_fem, pop_res_inf_5, pop_res_5_9, pop_res_10_14, pop_res_15_19, pop_res_20_24, pop_res_25_29, pop_res_30_34, pop_res_35_39, pop_res_40_44, pop_res_45_49, pop_res_50_54, pop_res_55_59, pop_res_60_64, pop_res_65_69, pop_res_70_74, pop_res_mag_74, pop_res_laurea, pop_res_diploma, pop_res_media, pop_res_elem, pop_res_alfab, pop_res_analf, pop_res_att_tot, pop_res_att_occup, pop_res_att_in_cerca, pop_res_straniera, id_comune)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="haCensitoClasseEta65_69Anni">
+            <role string="http://www.magister.uniroma1.it/ontology#haCensito">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Censimento/{gid}</domainTemplate>
+                <rangeTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEta65_69Anni/{gid}</rangeTemplate>
+            </role>
+            <HEAD string="CensimentoV(gid, anno, pop_res_tot, pop_res_mas, pop_res_fem, pop_res_inf_5, pop_res_5_9, pop_res_10_14, pop_res_15_19, pop_res_20_24, pop_res_25_29, pop_res_30_34, pop_res_35_39, pop_res_40_44, pop_res_45_49, pop_res_50_54, pop_res_55_59, pop_res_60_64, pop_res_65_69, pop_res_70_74, pop_res_mag_74, pop_res_laurea, pop_res_diploma, pop_res_media, pop_res_elem, pop_res_alfab, pop_res_analf, pop_res_att_tot, pop_res_att_occup, pop_res_att_in_cerca, pop_res_straniera, id_comune)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="haCensitoClasseEta70_74Anni">
+            <role string="http://www.magister.uniroma1.it/ontology#haCensito">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Censimento/{gid}</domainTemplate>
+                <rangeTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEta70_74Anni/{gid}</rangeTemplate>
+            </role>
+            <HEAD string="CensimentoV(gid, anno, pop_res_tot, pop_res_mas, pop_res_fem, pop_res_inf_5, pop_res_5_9, pop_res_10_14, pop_res_15_19, pop_res_20_24, pop_res_25_29, pop_res_30_34, pop_res_35_39, pop_res_40_44, pop_res_45_49, pop_res_50_54, pop_res_55_59, pop_res_60_64, pop_res_65_69, pop_res_70_74, pop_res_mag_74, pop_res_laurea, pop_res_diploma, pop_res_media, pop_res_elem, pop_res_alfab, pop_res_analf, pop_res_att_tot, pop_res_att_occup, pop_res_att_in_cerca, pop_res_straniera, id_comune)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="haCensitoClasseEtaMag74Anni">
+            <role string="http://www.magister.uniroma1.it/ontology#haCensito">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Censimento/{gid}</domainTemplate>
+                <rangeTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEtaMag74Anni/{gid}</rangeTemplate>
+            </role>
+            <HEAD string="CensimentoV(gid, anno, pop_res_tot, pop_res_mas, pop_res_fem, pop_res_inf_5, pop_res_5_9, pop_res_10_14, pop_res_15_19, pop_res_20_24, pop_res_25_29, pop_res_30_34, pop_res_35_39, pop_res_40_44, pop_res_45_49, pop_res_50_54, pop_res_55_59, pop_res_60_64, pop_res_65_69, pop_res_70_74, pop_res_mag_74, pop_res_laurea, pop_res_diploma, pop_res_media, pop_res_elem, pop_res_alfab, pop_res_analf, pop_res_att_tot, pop_res_att_occup, pop_res_att_in_cerca, pop_res_straniera, id_comune)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="haCensitoClasseEtaMin5Anni">
+            <role string="http://www.magister.uniroma1.it/ontology#haCensito">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Censimento/{gid}</domainTemplate>
+                <rangeTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEtaMin5Anni/{gid}</rangeTemplate>
+            </role>
+            <HEAD string="CensimentoV(gid, anno, pop_res_tot, pop_res_mas, pop_res_fem, pop_res_inf_5, pop_res_5_9, pop_res_10_14, pop_res_15_19, pop_res_20_24, pop_res_25_29, pop_res_30_34, pop_res_35_39, pop_res_40_44, pop_res_45_49, pop_res_50_54, pop_res_55_59, pop_res_60_64, pop_res_65_69, pop_res_70_74, pop_res_mag_74, pop_res_laurea, pop_res_diploma, pop_res_media, pop_res_elem, pop_res_alfab, pop_res_analf, pop_res_att_tot, pop_res_att_occup, pop_res_att_in_cerca, pop_res_straniera, id_comune)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="haCensitoDiplomaMedia">
+            <role string="http://www.magister.uniroma1.it/ontology#haCensito">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Censimento/{gid}</domainTemplate>
+                <rangeTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/DiplomaMedia/{gid}</rangeTemplate>
+            </role>
+            <HEAD string="CensimentoV(gid, anno, pop_res_tot, pop_res_mas, pop_res_fem, pop_res_inf_5, pop_res_5_9, pop_res_10_14, pop_res_15_19, pop_res_20_24, pop_res_25_29, pop_res_30_34, pop_res_35_39, pop_res_40_44, pop_res_45_49, pop_res_50_54, pop_res_55_59, pop_res_60_64, pop_res_65_69, pop_res_70_74, pop_res_mag_74, pop_res_laurea, pop_res_diploma, pop_res_media, pop_res_elem, pop_res_alfab, pop_res_analf, pop_res_att_tot, pop_res_att_occup, pop_res_att_in_cerca, pop_res_straniera, id_comune)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="haCensitoDiplomaSuperiore">
+            <role string="http://www.magister.uniroma1.it/ontology#haCensito">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Censimento/{gid}</domainTemplate>
+                <rangeTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/DiplomaSuperiore/{gid}</rangeTemplate>
+            </role>
+            <HEAD string="CensimentoV(gid, anno, pop_res_tot, pop_res_mas, pop_res_fem, pop_res_inf_5, pop_res_5_9, pop_res_10_14, pop_res_15_19, pop_res_20_24, pop_res_25_29, pop_res_30_34, pop_res_35_39, pop_res_40_44, pop_res_45_49, pop_res_50_54, pop_res_55_59, pop_res_60_64, pop_res_65_69, pop_res_70_74, pop_res_mag_74, pop_res_laurea, pop_res_diploma, pop_res_media, pop_res_elem, pop_res_alfab, pop_res_analf, pop_res_att_tot, pop_res_att_occup, pop_res_att_in_cerca, pop_res_straniera, id_comune)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="haCensitoFemmine">
+            <role string="http://www.magister.uniroma1.it/ontology#haCensito">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Censimento/{gid}</domainTemplate>
+                <rangeTemplate>http://www.magister.uniroma1.it/ontology/Femmine/{gid}</rangeTemplate>
+            </role>
+            <HEAD string="CensimentoV(gid, anno, pop_res_tot, pop_res_mas, pop_res_fem, pop_res_inf_5, pop_res_5_9, pop_res_10_14, pop_res_15_19, pop_res_20_24, pop_res_25_29, pop_res_30_34, pop_res_35_39, pop_res_40_44, pop_res_45_49, pop_res_50_54, pop_res_55_59, pop_res_60_64, pop_res_65_69, pop_res_70_74, pop_res_mag_74, pop_res_laurea, pop_res_diploma, pop_res_media, pop_res_elem, pop_res_alfab, pop_res_analf, pop_res_att_tot, pop_res_att_occup, pop_res_att_in_cerca, pop_res_straniera, id_comune)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="haCensitoLaurea">
+            <role string="http://www.magister.uniroma1.it/ontology#haCensito">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Censimento/{gid}</domainTemplate>
+                <rangeTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/LaureaEAssimilati/{gid}</rangeTemplate>
+            </role>
+            <HEAD string="CensimentoV(gid, anno, pop_res_tot, pop_res_mas, pop_res_fem, pop_res_inf_5, pop_res_5_9, pop_res_10_14, pop_res_15_19, pop_res_20_24, pop_res_25_29, pop_res_30_34, pop_res_35_39, pop_res_40_44, pop_res_45_49, pop_res_50_54, pop_res_55_59, pop_res_60_64, pop_res_65_69, pop_res_70_74, pop_res_mag_74, pop_res_laurea, pop_res_diploma, pop_res_media, pop_res_elem, pop_res_alfab, pop_res_analf, pop_res_att_tot, pop_res_att_occup, pop_res_att_in_cerca, pop_res_straniera, id_comune)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="haCensitoLicenzaElementare">
+            <role string="http://www.magister.uniroma1.it/ontology#haCensito">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Censimento/{gid}</domainTemplate>
+                <rangeTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/LicenzaElementare/{gid}</rangeTemplate>
+            </role>
+            <HEAD string="CensimentoV(gid, anno, pop_res_tot, pop_res_mas, pop_res_fem, pop_res_inf_5, pop_res_5_9, pop_res_10_14, pop_res_15_19, pop_res_20_24, pop_res_25_29, pop_res_30_34, pop_res_35_39, pop_res_40_44, pop_res_45_49, pop_res_50_54, pop_res_55_59, pop_res_60_64, pop_res_65_69, pop_res_70_74, pop_res_mag_74, pop_res_laurea, pop_res_diploma, pop_res_media, pop_res_elem, pop_res_alfab, pop_res_analf, pop_res_att_tot, pop_res_att_occup, pop_res_att_in_cerca, pop_res_straniera, id_comune)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="haCensitoMaschi">
+            <role string="http://www.magister.uniroma1.it/ontology#haCensito">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Censimento/{gid}</domainTemplate>
+                <rangeTemplate>http://www.magister.uniroma1.it/ontology/Maschi/{gid}</rangeTemplate>
+            </role>
+            <HEAD string="CensimentoV(gid, anno, pop_res_tot, pop_res_mas, pop_res_fem, pop_res_inf_5, pop_res_5_9, pop_res_10_14, pop_res_15_19, pop_res_20_24, pop_res_25_29, pop_res_30_34, pop_res_35_39, pop_res_40_44, pop_res_45_49, pop_res_50_54, pop_res_55_59, pop_res_60_64, pop_res_65_69, pop_res_70_74, pop_res_mag_74, pop_res_laurea, pop_res_diploma, pop_res_media, pop_res_elem, pop_res_alfab, pop_res_analf, pop_res_att_tot, pop_res_att_occup, pop_res_att_in_cerca, pop_res_straniera, id_comune)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="haCensitoStranieri">
+            <role string="http://www.magister.uniroma1.it/ontology#haCensito">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Censimento/{gid}</domainTemplate>
+                <rangeTemplate>http://www.magister.uniroma1.it/ontology/Stranieri/{gid}</rangeTemplate>
+            </role>
+            <HEAD string="CensimentoV(gid, anno, pop_res_tot, pop_res_mas, pop_res_fem, pop_res_inf_5, pop_res_5_9, pop_res_10_14, pop_res_15_19, pop_res_20_24, pop_res_25_29, pop_res_30_34, pop_res_35_39, pop_res_40_44, pop_res_45_49, pop_res_50_54, pop_res_55_59, pop_res_60_64, pop_res_65_69, pop_res_70_74, pop_res_mag_74, pop_res_laurea, pop_res_diploma, pop_res_media, pop_res_elem, pop_res_alfab, pop_res_analf, pop_res_att_tot, pop_res_att_occup, pop_res_att_in_cerca, pop_res_straniera, id_comune)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="haCodIstatComune">
+            <attribute string="http://datiopen.istat.it/odi/ontologia/territorio/haCodIstat">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Comune/{CODICE_ISTAT}</domainTemplate>
+                <rangeVariable>CODICE_ISTAT</rangeVariable>
+            </attribute>
+            <HEAD string="ComuniV(GID, CODICE_ISTAT, COD_REG, COD_PROV, COD_COM, REGIONE, PROVINCIA, COMUNE, ANNO, wkt, gml)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="haCodIstatProvincia">
+            <attribute string="http://datiopen.istat.it/odi/ontologia/territorio/haCodIstat">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Provincia/{COD_PROV}</domainTemplate>
+                <rangeVariable>COD_PROV</rangeVariable>
+            </attribute>
+            <HEAD string="ComuniV(GID, CODICE_ISTAT, COD_REG, COD_PROV, COD_COM, REGIONE, PROVINCIA, COMUNE, ANNO, wkt, gml)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="haCodIstatRegione">
+            <attribute string="http://datiopen.istat.it/odi/ontologia/territorio/haCodIstat">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Regione/{COD_REG}</domainTemplate>
+                <rangeVariable>COD_REG</rangeVariable>
+            </attribute>
+            <HEAD string="ComuniV(GID, CODICE_ISTAT, COD_REG, COD_PROV, COD_COM, REGIONE, PROVINCIA, COMUNE, ANNO, wkt, gml)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="hasBacinoIdrico">
+            <role string="http://www.magister.uniroma1.it/ontology#hasBacinoIdro">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/CorsoAcqua/{tipo}/{gid}</domainTemplate>
+                <rangeTemplate>http://www.magister.uniroma1.it/ontology/BacinoIdrografico/{id_bacino}</rangeTemplate>
+            </role>
+            <HEAD string="CorsoAcquaV(gid, tipo, nome, alias, id_bacino, wkt, gml)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateComplexMapping id="hasCensimento">
+            <role string="http://www.magister.uniroma1.it/ontology#hasCensimento">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Comune/{CODICE_ISTAT}</domainTemplate>
+                <rangeTemplate>http://www.magister.uniroma1.it/ontology/Censimento/{gid}</rangeTemplate>
+            </role>
+            <viewAtomsConjunction>
+                <viewAtom>CensimentoV(gid,anno,pop_res_tot,pop_res_mas,pop_res_fem,pop_res_inf_5,pop_res_5_9,pop_res_10_14,pop_res_15_19,pop_res_20_24,pop_res_25_29,pop_res_30_34,pop_res_35_39,pop_res_40_44,pop_res_45_49,pop_res_50_54,pop_res_55_59,pop_res_60_64,pop_res_65_69,pop_res_70_74,pop_res_mag_74,pop_res_laurea,pop_res_diploma,pop_res_media,pop_res_elem,pop_res_alfab,pop_res_analf,pop_res_att_tot,pop_res_att_occup,pop_res_att_in_cerca,pop_res_straniera,id_comune)</viewAtom>
+                <viewAtom>ComuniV(id_comune,CODICE_ISTAT,COD_REG,COD_PROV,COD_COM,REGIONE,PROVINCIA,COMUNE,ANNO,wkt,gml)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="hasLevel">
+            <role string="http://www.magister.uniroma1.it/ontology#hasLevel">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/RecordSet/{id}</domainTemplate>
+                <rangeTemplate>http://www.magister.uniroma1.it/ontology#{file}</rangeTemplate>
+            </role>
+            <viewAtomsConjunction>
+                <viewAtom>File(file)</viewAtom>
+                <viewAtom>ONCPoderiV(id,FK_language_id,versionDate,versionStatus,fondo,serie,type,nrpodere,title,datainizio,datafine,destreme,numero,busta,info,managment,compilationDate,unitarchdetail_author)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateMapping id="hasUASovraordinataComune">
+            <role string="http://www.magister.uniroma1.it/ontology#hasUASovraordinata">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Comune/{CODICE_ISTAT}</domainTemplate>
+                <rangeTemplate>http://www.magister.uniroma1.it/ontology/Provincia/{COD_PROV}</rangeTemplate>
+            </role>
+            <HEAD string="ComuniV(GID, CODICE_ISTAT, COD_REG, COD_PROV, COD_COM, REGIONE, PROVINCIA, COMUNE, ANNO, wkt, gml)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="hasUASovraordinataProvincia">
+            <role string="http://www.magister.uniroma1.it/ontology#hasUASovraordinata">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Provincia/{COD_PROV}</domainTemplate>
+                <rangeTemplate>http://www.magister.uniroma1.it/ontology/Regione/{COD_REG}</rangeTemplate>
+            </role>
+            <HEAD string="ComuniV(GID, CODICE_ISTAT, COD_REG, COD_PROV, COD_COM, REGIONE, PROVINCIA, COMUNE, ANNO, wkt, gml)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="idCensimento">
+            <attribute string="http://www.magister.uniroma1.it/ontology#idCensimento">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Censimento/{gid}</domainTemplate>
+                <rangeVariable>gid</rangeVariable>
+            </attribute>
+            <HEAD string="CensimentoV(gid, anno, pop_res_tot, pop_res_mas, pop_res_fem, pop_res_inf_5, pop_res_5_9, pop_res_10_14, pop_res_15_19, pop_res_20_24, pop_res_25_29, pop_res_30_34, pop_res_35_39, pop_res_40_44, pop_res_45_49, pop_res_50_54, pop_res_55_59, pop_res_60_64, pop_res_65_69, pop_res_70_74, pop_res_mag_74, pop_res_laurea, pop_res_diploma, pop_res_media, pop_res_elem, pop_res_alfab, pop_res_analf, pop_res_att_tot, pop_res_att_occup, pop_res_att_in_cerca, pop_res_straniera, id_comune)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="languageInfo">
+            <attribute string="http://www.magister.uniroma1.it/ontology#languageInformation">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/RecordSet/{id}</domainTemplate>
+                <rangeVariable>FK_language_id</rangeVariable>
+            </attribute>
+            <HEAD string="ONCPoderiV(id, FK_language_id, versionDate, versionStatus, fondo, serie, type, nrpodere, title, datainizio, datafine, destreme, numero, busta, info, managment, compilationDate, unitarchdetail_author)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="numeroPodere">
+            <attribute string="http://www.magister.uniroma1.it/ontology#numero_podere">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Podere/{id}</domainTemplate>
+                <rangeVariable>id</rangeVariable>
+            </attribute>
+            <HEAD string="PoderiV(id, sup, cognome_col, nome_col, azienda, tipo_con, strada, wkt, gml, toponimo, title_col)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="numeroPodere2">
+            <attribute string="http://www.magister.uniroma1.it/ontology#numero_podere">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Podere/{id}</domainTemplate>
+                <rangeVariable>id</rangeVariable>
+            </attribute>
+            <HEAD string="PoderiSuccV(id, nome_col, cognome_col, data_inizio, data_fine, toponimo, title_col)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="numeroPodere3">
+            <attribute string="http://www.magister.uniroma1.it/ontology#numero_podere">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Podere/{nrpodere}</domainTemplate>
+                <rangeVariable>nrpodere</rangeVariable>
+            </attribute>
+            <HEAD string="ONCPoderiV(id, FK_language_id, versionDate, versionStatus, fondo, serie, type, nrpodere, title, datainizio, datafine, destreme, numero, busta, info, managment, compilationDate, unitarchdetail_author)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="periodoAreaGeolitologica">
+            <attribute string="http://www.magister.uniroma1.it/ontology#periodo_litologia">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/AreaGeolitologica/{tipo}/{gid}</domainTemplate>
+                <rangeVariable>eta</rangeVariable>
+            </attribute>
+            <HEAD string="GeologiaV(gid, tipo, descrizione, codice, eta, wkt, gml)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateComplexMapping id="rappresentazioneTrattaDa">
+            <role string="http://www.magister.uniroma1.it/ontology#rappresntazione_tratta_da">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Assegnazione/{title}-{p_id}</domainTemplate>
+                <rangeTemplate>http://www.magister.uniroma1.it/ontology/RecordSet/{id}</rangeTemplate>
+            </role>
+            <viewAtomsConjunction>
+                <viewAtom>ONCPoderiV(id,FK_language_id,versionDate,versionStatus,fondo,serie,type,p_id,title,datainizio,datafine,destreme,numero,busta,info,managment,compilationDate,unitarchdetail_author)</viewAtom>
+                <viewAtom>PoderiV(p_id,p_sup,p_cognome_col,p_nome_col,p_azienda,p_tipo_con,p_strada,p_wkt,p_gml,p_toponimo,title)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="rappresentazioneTrattaDa2">
+            <role string="http://www.magister.uniroma1.it/ontology#rappresntazione_tratta_da">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Assegnazione/{title}-{p_id}</domainTemplate>
+                <rangeTemplate>http://www.magister.uniroma1.it/ontology/RecordSet/{id}</rangeTemplate>
+            </role>
+            <viewAtomsConjunction>
+                <viewAtom>ONCPoderiV(id,FK_language_id,versionDate,versionStatus,fondo,serie,type,p_id,title,datainizio,datafine,destreme,numero,busta,info,managment,compilationDate,unitarchdetail_author)</viewAtom>
+                <viewAtom>PoderiSuccV(p_id,p_nome_col,p_cognome_col,p_data_inizio,p_data_fine,p_toponimo,title)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="sedeAziendaBorgo">
+            <role string="http://www.magister.uniroma1.it/ontology#sede_azienda_agraria">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/AziendaAgraria/{id}</domainTemplate>
+                <rangeTemplate>http://www.magister.uniroma1.it/ontology/Borgo/{borgo}</rangeTemplate>
+            </role>
+            <viewAtomsConjunction>
+                <viewAtom>AziendaAgrariaV(id,comune,borgo)</viewAtom>
+                <viewAtom>IS_NOT_NULL(borgo)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="sedeAziendaComune">
+            <role string="http://www.magister.uniroma1.it/ontology#sede_azienda_agraria">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/AziendaAgraria/{id}</domainTemplate>
+                <rangeTemplate>http://www.magister.uniroma1.it/ontology/Comune/{comune}</rangeTemplate>
+            </role>
+            <viewAtomsConjunction>
+                <viewAtom>AziendaAgrariaV(id,comune,borgo)</viewAtom>
+                <viewAtom>IS_NOT_NULL(comune)</viewAtom>
+            </viewAtomsConjunction>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateMapping id="stradaPodere">
+            <attribute string="http://www.magister.uniroma1.it/ontology#nome_strada_ubicazione_podere">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Podere/{id}</domainTemplate>
+                <rangeVariable>strada</rangeVariable>
+            </attribute>
+            <HEAD string="PoderiV(id, sup, cognome_col, nome_col, azienda, tipo_con, strada, wkt, gml, toponimo, title_col)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="superficiePodere">
+            <attribute string="http://www.magister.uniroma1.it/ontology#superficie_podere">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Podere/{id}</domainTemplate>
+                <rangeVariable>sup</rangeVariable>
+            </attribute>
+            <HEAD string="PoderiV(id, sup, cognome_col, nome_col, azienda, tipo_con, strada, wkt, gml, toponimo, title_col)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="toponimoBacino">
+            <attribute string="http://www.magister.uniroma1.it/ontology#toponimo">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/BacinoIdrografico/{gid}</domainTemplate>
+                <rangeVariable>nome</rangeVariable>
+            </attribute>
+            <HEAD string="BaciniV(gid, nome, descrizione, wkt, gml)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="toponimoBorgo">
+            <attribute string="http://www.magister.uniroma1.it/ontology#toponimo">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Borgo/{id}</domainTemplate>
+                <rangeVariable>nome</rangeVariable>
+            </attribute>
+            <HEAD string="BorgoV(id, nome_b, nome_prec_b, id_comune_rif, nome, alias, tipo, oggetto, anno, wkt, gml)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="toponimoComune">
+            <attribute string="http://www.magister.uniroma1.it/ontology#toponimo">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Comune/{CODICE_ISTAT}</domainTemplate>
+                <rangeVariable>COMUNE</rangeVariable>
+            </attribute>
+            <HEAD string="ComuniV(GID, CODICE_ISTAT, COD_REG, COD_PROV, COD_COM, REGIONE, PROVINCIA, COMUNE, ANNO, wkt, gml)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="toponimoCorsoAcqua">
+            <attribute string="http://www.magister.uniroma1.it/ontology#toponimo">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/CorsoAcqua/{tipo}/{gid}</domainTemplate>
+                <rangeVariable>nome</rangeVariable>
+            </attribute>
+            <HEAD string="CorsoAcquaV(gid, tipo, nome, alias, id_bacino, wkt, gml)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="toponimoEntitaGeoArtificialeInfr">
+            <attribute string="http://www.magister.uniroma1.it/ontology#toponimo">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/EntitaGeoArtificiale/{tipo}/{gid}</domainTemplate>
+                <rangeVariable>nome</rangeVariable>
+            </attribute>
+            <HEAD string="InfrastruttureV(gid, tipo, nome, alias, wkt, gml)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="toponimoEntitaGeoArtificialeTopo">
+            <attribute string="http://www.magister.uniroma1.it/ontology#toponimo">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/EntitaGeoArtificiale/{oggetto}/{gid}</domainTemplate>
+                <rangeVariable>nome</rangeVariable>
+            </attribute>
+            <HEAD string="ToponimiV(gid, nome, alias, tipo, oggetto, anno, wkt, gml)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="toponimoPodere">
+            <attribute string="http://www.magister.uniroma1.it/ontology#toponimo">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Podere/{id}</domainTemplate>
+                <rangeVariable>toponimo</rangeVariable>
+            </attribute>
+            <HEAD string="PoderiV(id, sup, cognome_col, nome_col, azienda, tipo_con, strada, wkt, gml, toponimo, title_col)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="toponimoPodere2">
+            <attribute string="http://www.magister.uniroma1.it/ontology#toponimo">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Podere/{id}</domainTemplate>
+                <rangeVariable>toponimo</rangeVariable>
+            </attribute>
+            <HEAD string="PoderiSuccV(id, nome_col, cognome_col, data_inizio, data_fine, toponimo, title_col)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="toponimoPodere3">
+            <attribute string="http://www.magister.uniroma1.it/ontology#toponimo">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Podere/{nrpodere}</domainTemplate>
+                <rangeVariable>nrpodere</rangeVariable>
+            </attribute>
+            <HEAD string="ONCPoderiV(id, FK_language_id, versionDate, versionStatus, fondo, serie, type, nrpodere, title, datainizio, datafine, destreme, numero, busta, info, managment, compilationDate, unitarchdetail_author)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="toponimoProvincia">
+            <attribute string="http://www.magister.uniroma1.it/ontology#toponimo">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Provincia/{COD_PROV}</domainTemplate>
+                <rangeVariable>PROVINCIA</rangeVariable>
+            </attribute>
+            <HEAD string="ComuniV(GID, CODICE_ISTAT, COD_REG, COD_PROV, COD_COM, REGIONE, PROVINCIA, COMUNE, ANNO, wkt, gml)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="toponimoRegione">
+            <attribute string="http://www.magister.uniroma1.it/ontology#toponimo">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Regione/{COD_REG}</domainTemplate>
+                <rangeVariable>REGIONE</rangeVariable>
+            </attribute>
+            <HEAD string="ComuniV(GID, CODICE_ISTAT, COD_REG, COD_PROV, COD_COM, REGIONE, PROVINCIA, COMUNE, ANNO, wkt, gml)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="toponimoUnitaGeografica">
+            <attribute string="http://www.magister.uniroma1.it/ontology#toponimo">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/UnitaGeografica/{oggetto}/{gid}</domainTemplate>
+                <rangeVariable>nome</rangeVariable>
+            </attribute>
+            <HEAD string="ToponimiV(gid, nome, alias, tipo, oggetto, anno, wkt, gml)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="valoreVariabileAlfabeti">
+            <attribute string="http://www.magister.uniroma1.it/ontology#valore_variabile">
+                <domainTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/Alfabeti/{gid}</domainTemplate>
+                <rangeVariable>pop_res_alfab</rangeVariable>
+            </attribute>
+            <HEAD string="CensimentoV(gid, anno, pop_res_tot, pop_res_mas, pop_res_fem, pop_res_inf_5, pop_res_5_9, pop_res_10_14, pop_res_15_19, pop_res_20_24, pop_res_25_29, pop_res_30_34, pop_res_35_39, pop_res_40_44, pop_res_45_49, pop_res_50_54, pop_res_55_59, pop_res_60_64, pop_res_65_69, pop_res_70_74, pop_res_mag_74, pop_res_laurea, pop_res_diploma, pop_res_media, pop_res_elem, pop_res_alfab, pop_res_analf, pop_res_att_tot, pop_res_att_occup, pop_res_att_in_cerca, pop_res_straniera, id_comune)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="valoreVariabileAnalfabeti">
+            <attribute string="http://www.magister.uniroma1.it/ontology#valore_variabile">
+                <domainTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/Analfabeti/{gid}</domainTemplate>
+                <rangeVariable>pop_res_analf</rangeVariable>
+            </attribute>
+            <HEAD string="CensimentoV(gid, anno, pop_res_tot, pop_res_mas, pop_res_fem, pop_res_inf_5, pop_res_5_9, pop_res_10_14, pop_res_15_19, pop_res_20_24, pop_res_25_29, pop_res_30_34, pop_res_35_39, pop_res_40_44, pop_res_45_49, pop_res_50_54, pop_res_55_59, pop_res_60_64, pop_res_65_69, pop_res_70_74, pop_res_mag_74, pop_res_laurea, pop_res_diploma, pop_res_media, pop_res_elem, pop_res_alfab, pop_res_analf, pop_res_att_tot, pop_res_att_occup, pop_res_att_in_cerca, pop_res_straniera, id_comune)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="valoreVariabileAttiviInCercaDiOccupazione">
+            <attribute string="http://www.magister.uniroma1.it/ontology#valore_variabile">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/AttiviInCercaDiOccupazione/{gid}</domainTemplate>
+                <rangeVariable>pop_res_att_in_cerca</rangeVariable>
+            </attribute>
+            <HEAD string="CensimentoV(gid, anno, pop_res_tot, pop_res_mas, pop_res_fem, pop_res_inf_5, pop_res_5_9, pop_res_10_14, pop_res_15_19, pop_res_20_24, pop_res_25_29, pop_res_30_34, pop_res_35_39, pop_res_40_44, pop_res_45_49, pop_res_50_54, pop_res_55_59, pop_res_60_64, pop_res_65_69, pop_res_70_74, pop_res_mag_74, pop_res_laurea, pop_res_diploma, pop_res_media, pop_res_elem, pop_res_alfab, pop_res_analf, pop_res_att_tot, pop_res_att_occup, pop_res_att_in_cerca, pop_res_straniera, id_comune)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="valoreVariabileAttiviOccupati">
+            <attribute string="http://www.magister.uniroma1.it/ontology#valore_variabile">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/AttiviOccupati/{gid}</domainTemplate>
+                <rangeVariable>pop_res_att_occup</rangeVariable>
+            </attribute>
+            <HEAD string="CensimentoV(gid, anno, pop_res_tot, pop_res_mas, pop_res_fem, pop_res_inf_5, pop_res_5_9, pop_res_10_14, pop_res_15_19, pop_res_20_24, pop_res_25_29, pop_res_30_34, pop_res_35_39, pop_res_40_44, pop_res_45_49, pop_res_50_54, pop_res_55_59, pop_res_60_64, pop_res_65_69, pop_res_70_74, pop_res_mag_74, pop_res_laurea, pop_res_diploma, pop_res_media, pop_res_elem, pop_res_alfab, pop_res_analf, pop_res_att_tot, pop_res_att_occup, pop_res_att_in_cerca, pop_res_straniera, id_comune)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="valoreVariabileAttiviTotali">
+            <attribute string="http://www.magister.uniroma1.it/ontology#valore_variabile">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/AttiviTotali/{gid}</domainTemplate>
+                <rangeVariable>pop_res_att_tot</rangeVariable>
+            </attribute>
+            <HEAD string="CensimentoV(gid, anno, pop_res_tot, pop_res_mas, pop_res_fem, pop_res_inf_5, pop_res_5_9, pop_res_10_14, pop_res_15_19, pop_res_20_24, pop_res_25_29, pop_res_30_34, pop_res_35_39, pop_res_40_44, pop_res_45_49, pop_res_50_54, pop_res_55_59, pop_res_60_64, pop_res_65_69, pop_res_70_74, pop_res_mag_74, pop_res_laurea, pop_res_diploma, pop_res_media, pop_res_elem, pop_res_alfab, pop_res_analf, pop_res_att_tot, pop_res_att_occup, pop_res_att_in_cerca, pop_res_straniera, id_comune)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="valoreVariabileCampioneCensito">
+            <attribute string="http://www.magister.uniroma1.it/ontology#valore_variabile">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/CampioneCensito/{gid}</domainTemplate>
+                <rangeVariable>pop_res_tot</rangeVariable>
+            </attribute>
+            <HEAD string="CensimentoV(gid, anno, pop_res_tot, pop_res_mas, pop_res_fem, pop_res_inf_5, pop_res_5_9, pop_res_10_14, pop_res_15_19, pop_res_20_24, pop_res_25_29, pop_res_30_34, pop_res_35_39, pop_res_40_44, pop_res_45_49, pop_res_50_54, pop_res_55_59, pop_res_60_64, pop_res_65_69, pop_res_70_74, pop_res_mag_74, pop_res_laurea, pop_res_diploma, pop_res_media, pop_res_elem, pop_res_alfab, pop_res_analf, pop_res_att_tot, pop_res_att_occup, pop_res_att_in_cerca, pop_res_straniera, id_comune)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="valoreVariabileClasseEta5_9Anni">
+            <attribute string="http://www.magister.uniroma1.it/ontology#valore_variabile">
+                <domainTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEta5_9Anni/{gid}</domainTemplate>
+                <rangeVariable>pop_res_5_9</rangeVariable>
+            </attribute>
+            <HEAD string="CensimentoV(gid, anno, pop_res_tot, pop_res_mas, pop_res_fem, pop_res_inf_5, pop_res_5_9, pop_res_10_14, pop_res_15_19, pop_res_20_24, pop_res_25_29, pop_res_30_34, pop_res_35_39, pop_res_40_44, pop_res_45_49, pop_res_50_54, pop_res_55_59, pop_res_60_64, pop_res_65_69, pop_res_70_74, pop_res_mag_74, pop_res_laurea, pop_res_diploma, pop_res_media, pop_res_elem, pop_res_alfab, pop_res_analf, pop_res_att_tot, pop_res_att_occup, pop_res_att_in_cerca, pop_res_straniera, id_comune)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="valoreVariabileClasseEta10_14Anni">
+            <attribute string="http://www.magister.uniroma1.it/ontology#valore_variabile">
+                <domainTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEta10_14Anni/{gid}</domainTemplate>
+                <rangeVariable>pop_res_10_14</rangeVariable>
+            </attribute>
+            <HEAD string="CensimentoV(gid, anno, pop_res_tot, pop_res_mas, pop_res_fem, pop_res_inf_5, pop_res_5_9, pop_res_10_14, pop_res_15_19, pop_res_20_24, pop_res_25_29, pop_res_30_34, pop_res_35_39, pop_res_40_44, pop_res_45_49, pop_res_50_54, pop_res_55_59, pop_res_60_64, pop_res_65_69, pop_res_70_74, pop_res_mag_74, pop_res_laurea, pop_res_diploma, pop_res_media, pop_res_elem, pop_res_alfab, pop_res_analf, pop_res_att_tot, pop_res_att_occup, pop_res_att_in_cerca, pop_res_straniera, id_comune)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="valoreVariabileClasseEta15_19Anni">
+            <attribute string="http://www.magister.uniroma1.it/ontology#valore_variabile">
+                <domainTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEta15_19Anni/{gid}</domainTemplate>
+                <rangeVariable>pop_res_15_19</rangeVariable>
+            </attribute>
+            <HEAD string="CensimentoV(gid, anno, pop_res_tot, pop_res_mas, pop_res_fem, pop_res_inf_5, pop_res_5_9, pop_res_10_14, pop_res_15_19, pop_res_20_24, pop_res_25_29, pop_res_30_34, pop_res_35_39, pop_res_40_44, pop_res_45_49, pop_res_50_54, pop_res_55_59, pop_res_60_64, pop_res_65_69, pop_res_70_74, pop_res_mag_74, pop_res_laurea, pop_res_diploma, pop_res_media, pop_res_elem, pop_res_alfab, pop_res_analf, pop_res_att_tot, pop_res_att_occup, pop_res_att_in_cerca, pop_res_straniera, id_comune)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="valoreVariabileClasseEta20_24Anni">
+            <attribute string="http://www.magister.uniroma1.it/ontology#valore_variabile">
+                <domainTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEta20_24Anni/{gid}</domainTemplate>
+                <rangeVariable>pop_res_20_24</rangeVariable>
+            </attribute>
+            <HEAD string="CensimentoV(gid, anno, pop_res_tot, pop_res_mas, pop_res_fem, pop_res_inf_5, pop_res_5_9, pop_res_10_14, pop_res_15_19, pop_res_20_24, pop_res_25_29, pop_res_30_34, pop_res_35_39, pop_res_40_44, pop_res_45_49, pop_res_50_54, pop_res_55_59, pop_res_60_64, pop_res_65_69, pop_res_70_74, pop_res_mag_74, pop_res_laurea, pop_res_diploma, pop_res_media, pop_res_elem, pop_res_alfab, pop_res_analf, pop_res_att_tot, pop_res_att_occup, pop_res_att_in_cerca, pop_res_straniera, id_comune)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="valoreVariabileClasseEta25_29Anni">
+            <attribute string="http://www.magister.uniroma1.it/ontology#valore_variabile">
+                <domainTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEta25_29Anni/{gid}</domainTemplate>
+                <rangeVariable>pop_res_25_29</rangeVariable>
+            </attribute>
+            <HEAD string="CensimentoV(gid, anno, pop_res_tot, pop_res_mas, pop_res_fem, pop_res_inf_5, pop_res_5_9, pop_res_10_14, pop_res_15_19, pop_res_20_24, pop_res_25_29, pop_res_30_34, pop_res_35_39, pop_res_40_44, pop_res_45_49, pop_res_50_54, pop_res_55_59, pop_res_60_64, pop_res_65_69, pop_res_70_74, pop_res_mag_74, pop_res_laurea, pop_res_diploma, pop_res_media, pop_res_elem, pop_res_alfab, pop_res_analf, pop_res_att_tot, pop_res_att_occup, pop_res_att_in_cerca, pop_res_straniera, id_comune)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="valoreVariabileClasseEta30_34Anni">
+            <attribute string="http://www.magister.uniroma1.it/ontology#valore_variabile">
+                <domainTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEta30_34Anni/{gid}</domainTemplate>
+                <rangeVariable>pop_res_30_34</rangeVariable>
+            </attribute>
+            <HEAD string="CensimentoV(gid, anno, pop_res_tot, pop_res_mas, pop_res_fem, pop_res_inf_5, pop_res_5_9, pop_res_10_14, pop_res_15_19, pop_res_20_24, pop_res_25_29, pop_res_30_34, pop_res_35_39, pop_res_40_44, pop_res_45_49, pop_res_50_54, pop_res_55_59, pop_res_60_64, pop_res_65_69, pop_res_70_74, pop_res_mag_74, pop_res_laurea, pop_res_diploma, pop_res_media, pop_res_elem, pop_res_alfab, pop_res_analf, pop_res_att_tot, pop_res_att_occup, pop_res_att_in_cerca, pop_res_straniera, id_comune)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="valoreVariabileClasseEta35_39Anni">
+            <attribute string="http://www.magister.uniroma1.it/ontology#valore_variabile">
+                <domainTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEta35_39Anni/{gid}</domainTemplate>
+                <rangeVariable>pop_res_35_39</rangeVariable>
+            </attribute>
+            <HEAD string="CensimentoV(gid, anno, pop_res_tot, pop_res_mas, pop_res_fem, pop_res_inf_5, pop_res_5_9, pop_res_10_14, pop_res_15_19, pop_res_20_24, pop_res_25_29, pop_res_30_34, pop_res_35_39, pop_res_40_44, pop_res_45_49, pop_res_50_54, pop_res_55_59, pop_res_60_64, pop_res_65_69, pop_res_70_74, pop_res_mag_74, pop_res_laurea, pop_res_diploma, pop_res_media, pop_res_elem, pop_res_alfab, pop_res_analf, pop_res_att_tot, pop_res_att_occup, pop_res_att_in_cerca, pop_res_straniera, id_comune)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="valoreVariabileClasseEta40_44Anni">
+            <attribute string="http://www.magister.uniroma1.it/ontology#valore_variabile">
+                <domainTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEta40_44Anni/{gid}</domainTemplate>
+                <rangeVariable>pop_res_40_44</rangeVariable>
+            </attribute>
+            <HEAD string="CensimentoV(gid, anno, pop_res_tot, pop_res_mas, pop_res_fem, pop_res_inf_5, pop_res_5_9, pop_res_10_14, pop_res_15_19, pop_res_20_24, pop_res_25_29, pop_res_30_34, pop_res_35_39, pop_res_40_44, pop_res_45_49, pop_res_50_54, pop_res_55_59, pop_res_60_64, pop_res_65_69, pop_res_70_74, pop_res_mag_74, pop_res_laurea, pop_res_diploma, pop_res_media, pop_res_elem, pop_res_alfab, pop_res_analf, pop_res_att_tot, pop_res_att_occup, pop_res_att_in_cerca, pop_res_straniera, id_comune)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="valoreVariabileClasseEta45_49Anni">
+            <attribute string="http://www.magister.uniroma1.it/ontology#valore_variabile">
+                <domainTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEta45_49Anni/{gid}</domainTemplate>
+                <rangeVariable>pop_res_45_49</rangeVariable>
+            </attribute>
+            <HEAD string="CensimentoV(gid, anno, pop_res_tot, pop_res_mas, pop_res_fem, pop_res_inf_5, pop_res_5_9, pop_res_10_14, pop_res_15_19, pop_res_20_24, pop_res_25_29, pop_res_30_34, pop_res_35_39, pop_res_40_44, pop_res_45_49, pop_res_50_54, pop_res_55_59, pop_res_60_64, pop_res_65_69, pop_res_70_74, pop_res_mag_74, pop_res_laurea, pop_res_diploma, pop_res_media, pop_res_elem, pop_res_alfab, pop_res_analf, pop_res_att_tot, pop_res_att_occup, pop_res_att_in_cerca, pop_res_straniera, id_comune)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="valoreVariabileClasseEta50_54Anni">
+            <attribute string="http://www.magister.uniroma1.it/ontology#valore_variabile">
+                <domainTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEta50_54Anni/{gid}</domainTemplate>
+                <rangeVariable>pop_res_50_54</rangeVariable>
+            </attribute>
+            <HEAD string="CensimentoV(gid, anno, pop_res_tot, pop_res_mas, pop_res_fem, pop_res_inf_5, pop_res_5_9, pop_res_10_14, pop_res_15_19, pop_res_20_24, pop_res_25_29, pop_res_30_34, pop_res_35_39, pop_res_40_44, pop_res_45_49, pop_res_50_54, pop_res_55_59, pop_res_60_64, pop_res_65_69, pop_res_70_74, pop_res_mag_74, pop_res_laurea, pop_res_diploma, pop_res_media, pop_res_elem, pop_res_alfab, pop_res_analf, pop_res_att_tot, pop_res_att_occup, pop_res_att_in_cerca, pop_res_straniera, id_comune)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="valoreVariabileClasseEta55_59Anni">
+            <attribute string="http://www.magister.uniroma1.it/ontology#valore_variabile">
+                <domainTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEta55_59Anni/{gid}</domainTemplate>
+                <rangeVariable>pop_res_55_59</rangeVariable>
+            </attribute>
+            <HEAD string="CensimentoV(gid, anno, pop_res_tot, pop_res_mas, pop_res_fem, pop_res_inf_5, pop_res_5_9, pop_res_10_14, pop_res_15_19, pop_res_20_24, pop_res_25_29, pop_res_30_34, pop_res_35_39, pop_res_40_44, pop_res_45_49, pop_res_50_54, pop_res_55_59, pop_res_60_64, pop_res_65_69, pop_res_70_74, pop_res_mag_74, pop_res_laurea, pop_res_diploma, pop_res_media, pop_res_elem, pop_res_alfab, pop_res_analf, pop_res_att_tot, pop_res_att_occup, pop_res_att_in_cerca, pop_res_straniera, id_comune)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="valoreVariabileClasseEta60_64Anni">
+            <attribute string="http://www.magister.uniroma1.it/ontology#valore_variabile">
+                <domainTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEta60_64Anni/{gid}</domainTemplate>
+                <rangeVariable>pop_res_60_64</rangeVariable>
+            </attribute>
+            <HEAD string="CensimentoV(gid, anno, pop_res_tot, pop_res_mas, pop_res_fem, pop_res_inf_5, pop_res_5_9, pop_res_10_14, pop_res_15_19, pop_res_20_24, pop_res_25_29, pop_res_30_34, pop_res_35_39, pop_res_40_44, pop_res_45_49, pop_res_50_54, pop_res_55_59, pop_res_60_64, pop_res_65_69, pop_res_70_74, pop_res_mag_74, pop_res_laurea, pop_res_diploma, pop_res_media, pop_res_elem, pop_res_alfab, pop_res_analf, pop_res_att_tot, pop_res_att_occup, pop_res_att_in_cerca, pop_res_straniera, id_comune)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="valoreVariabileClasseEta65_69Anni">
+            <attribute string="http://www.magister.uniroma1.it/ontology#valore_variabile">
+                <domainTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEta65_69Anni/{gid}</domainTemplate>
+                <rangeVariable>pop_res_65_69</rangeVariable>
+            </attribute>
+            <HEAD string="CensimentoV(gid, anno, pop_res_tot, pop_res_mas, pop_res_fem, pop_res_inf_5, pop_res_5_9, pop_res_10_14, pop_res_15_19, pop_res_20_24, pop_res_25_29, pop_res_30_34, pop_res_35_39, pop_res_40_44, pop_res_45_49, pop_res_50_54, pop_res_55_59, pop_res_60_64, pop_res_65_69, pop_res_70_74, pop_res_mag_74, pop_res_laurea, pop_res_diploma, pop_res_media, pop_res_elem, pop_res_alfab, pop_res_analf, pop_res_att_tot, pop_res_att_occup, pop_res_att_in_cerca, pop_res_straniera, id_comune)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="valoreVariabileClasseEta70_74Anni">
+            <attribute string="http://www.magister.uniroma1.it/ontology#valore_variabile">
+                <domainTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEta70_74Anni/{gid}</domainTemplate>
+                <rangeVariable>pop_res_70_74</rangeVariable>
+            </attribute>
+            <HEAD string="CensimentoV(gid, anno, pop_res_tot, pop_res_mas, pop_res_fem, pop_res_inf_5, pop_res_5_9, pop_res_10_14, pop_res_15_19, pop_res_20_24, pop_res_25_29, pop_res_30_34, pop_res_35_39, pop_res_40_44, pop_res_45_49, pop_res_50_54, pop_res_55_59, pop_res_60_64, pop_res_65_69, pop_res_70_74, pop_res_mag_74, pop_res_laurea, pop_res_diploma, pop_res_media, pop_res_elem, pop_res_alfab, pop_res_analf, pop_res_att_tot, pop_res_att_occup, pop_res_att_in_cerca, pop_res_straniera, id_comune)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="valoreVariabileClasseEtaMag74Anni">
+            <attribute string="http://www.magister.uniroma1.it/ontology#valore_variabile">
+                <domainTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEtaMag74Anni/{gid}</domainTemplate>
+                <rangeVariable>pop_res_mag_74</rangeVariable>
+            </attribute>
+            <HEAD string="CensimentoV(gid, anno, pop_res_tot, pop_res_mas, pop_res_fem, pop_res_inf_5, pop_res_5_9, pop_res_10_14, pop_res_15_19, pop_res_20_24, pop_res_25_29, pop_res_30_34, pop_res_35_39, pop_res_40_44, pop_res_45_49, pop_res_50_54, pop_res_55_59, pop_res_60_64, pop_res_65_69, pop_res_70_74, pop_res_mag_74, pop_res_laurea, pop_res_diploma, pop_res_media, pop_res_elem, pop_res_alfab, pop_res_analf, pop_res_att_tot, pop_res_att_occup, pop_res_att_in_cerca, pop_res_straniera, id_comune)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="valoreVariabileClasseEtaMin5Anni">
+            <attribute string="http://www.magister.uniroma1.it/ontology#valore_variabile">
+                <domainTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/ClasseEtaMin5Anni/{gid}</domainTemplate>
+                <rangeVariable>pop_res_inf_5</rangeVariable>
+            </attribute>
+            <HEAD string="CensimentoV(gid, anno, pop_res_tot, pop_res_mas, pop_res_fem, pop_res_inf_5, pop_res_5_9, pop_res_10_14, pop_res_15_19, pop_res_20_24, pop_res_25_29, pop_res_30_34, pop_res_35_39, pop_res_40_44, pop_res_45_49, pop_res_50_54, pop_res_55_59, pop_res_60_64, pop_res_65_69, pop_res_70_74, pop_res_mag_74, pop_res_laurea, pop_res_diploma, pop_res_media, pop_res_elem, pop_res_alfab, pop_res_analf, pop_res_att_tot, pop_res_att_occup, pop_res_att_in_cerca, pop_res_straniera, id_comune)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="valoreVariabileDiplomaMedia">
+            <attribute string="http://www.magister.uniroma1.it/ontology#valore_variabile">
+                <domainTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/DiplomaMedia/{gid}</domainTemplate>
+                <rangeVariable>pop_res_media</rangeVariable>
+            </attribute>
+            <HEAD string="CensimentoV(gid, anno, pop_res_tot, pop_res_mas, pop_res_fem, pop_res_inf_5, pop_res_5_9, pop_res_10_14, pop_res_15_19, pop_res_20_24, pop_res_25_29, pop_res_30_34, pop_res_35_39, pop_res_40_44, pop_res_45_49, pop_res_50_54, pop_res_55_59, pop_res_60_64, pop_res_65_69, pop_res_70_74, pop_res_mag_74, pop_res_laurea, pop_res_diploma, pop_res_media, pop_res_elem, pop_res_alfab, pop_res_analf, pop_res_att_tot, pop_res_att_occup, pop_res_att_in_cerca, pop_res_straniera, id_comune)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="valoreVariabileDiplomaSuperiore">
+            <attribute string="http://www.magister.uniroma1.it/ontology#valore_variabile">
+                <domainTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/DiplomaSuperiore/{gid}</domainTemplate>
+                <rangeVariable>pop_res_diploma</rangeVariable>
+            </attribute>
+            <HEAD string="CensimentoV(gid, anno, pop_res_tot, pop_res_mas, pop_res_fem, pop_res_inf_5, pop_res_5_9, pop_res_10_14, pop_res_15_19, pop_res_20_24, pop_res_25_29, pop_res_30_34, pop_res_35_39, pop_res_40_44, pop_res_45_49, pop_res_50_54, pop_res_55_59, pop_res_60_64, pop_res_65_69, pop_res_70_74, pop_res_mag_74, pop_res_laurea, pop_res_diploma, pop_res_media, pop_res_elem, pop_res_alfab, pop_res_analf, pop_res_att_tot, pop_res_att_occup, pop_res_att_in_cerca, pop_res_straniera, id_comune)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="valoreVariabileFemmine">
+            <attribute string="http://www.magister.uniroma1.it/ontology#valore_variabile">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Femmine/{gid}</domainTemplate>
+                <rangeVariable>pop_res_fem</rangeVariable>
+            </attribute>
+            <HEAD string="CensimentoV(gid, anno, pop_res_tot, pop_res_mas, pop_res_fem, pop_res_inf_5, pop_res_5_9, pop_res_10_14, pop_res_15_19, pop_res_20_24, pop_res_25_29, pop_res_30_34, pop_res_35_39, pop_res_40_44, pop_res_45_49, pop_res_50_54, pop_res_55_59, pop_res_60_64, pop_res_65_69, pop_res_70_74, pop_res_mag_74, pop_res_laurea, pop_res_diploma, pop_res_media, pop_res_elem, pop_res_alfab, pop_res_analf, pop_res_att_tot, pop_res_att_occup, pop_res_att_in_cerca, pop_res_straniera, id_comune)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="valoreVariabileLaurea">
+            <attribute string="http://www.magister.uniroma1.it/ontology#valore_variabile">
+                <domainTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/LaureaEAssimilati/{gid}</domainTemplate>
+                <rangeVariable>pop_res_laurea</rangeVariable>
+            </attribute>
+            <HEAD string="CensimentoV(gid, anno, pop_res_tot, pop_res_mas, pop_res_fem, pop_res_inf_5, pop_res_5_9, pop_res_10_14, pop_res_15_19, pop_res_20_24, pop_res_25_29, pop_res_30_34, pop_res_35_39, pop_res_40_44, pop_res_45_49, pop_res_50_54, pop_res_55_59, pop_res_60_64, pop_res_65_69, pop_res_70_74, pop_res_mag_74, pop_res_laurea, pop_res_diploma, pop_res_media, pop_res_elem, pop_res_alfab, pop_res_analf, pop_res_att_tot, pop_res_att_occup, pop_res_att_in_cerca, pop_res_straniera, id_comune)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="valoreVariabileLicenzaElementare">
+            <attribute string="http://www.magister.uniroma1.it/ontology#valore_variabile">
+                <domainTemplate>http://datiopen.istat.it/odi/ontologia/variabileCens/LicenzaElementare/{gid}</domainTemplate>
+                <rangeVariable>pop_res_elem</rangeVariable>
+            </attribute>
+            <HEAD string="CensimentoV(gid, anno, pop_res_tot, pop_res_mas, pop_res_fem, pop_res_inf_5, pop_res_5_9, pop_res_10_14, pop_res_15_19, pop_res_20_24, pop_res_25_29, pop_res_30_34, pop_res_35_39, pop_res_40_44, pop_res_45_49, pop_res_50_54, pop_res_55_59, pop_res_60_64, pop_res_65_69, pop_res_70_74, pop_res_mag_74, pop_res_laurea, pop_res_diploma, pop_res_media, pop_res_elem, pop_res_alfab, pop_res_analf, pop_res_att_tot, pop_res_att_occup, pop_res_att_in_cerca, pop_res_straniera, id_comune)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="valoreVariabileMaschi">
+            <attribute string="http://www.magister.uniroma1.it/ontology#valore_variabile">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Maschi/{gid}</domainTemplate>
+                <rangeVariable>pop_res_mas</rangeVariable>
+            </attribute>
+            <HEAD string="CensimentoV(gid, anno, pop_res_tot, pop_res_mas, pop_res_fem, pop_res_inf_5, pop_res_5_9, pop_res_10_14, pop_res_15_19, pop_res_20_24, pop_res_25_29, pop_res_30_34, pop_res_35_39, pop_res_40_44, pop_res_45_49, pop_res_50_54, pop_res_55_59, pop_res_60_64, pop_res_65_69, pop_res_70_74, pop_res_mag_74, pop_res_laurea, pop_res_diploma, pop_res_media, pop_res_elem, pop_res_alfab, pop_res_analf, pop_res_att_tot, pop_res_att_occup, pop_res_att_in_cerca, pop_res_straniera, id_comune)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="valoreVariabileStranieri">
+            <attribute string="http://www.magister.uniroma1.it/ontology#valore_variabile">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Stranieri/{gid}</domainTemplate>
+                <rangeVariable>pop_res_straniera</rangeVariable>
+            </attribute>
+            <HEAD string="CensimentoV(gid, anno, pop_res_tot, pop_res_mas, pop_res_fem, pop_res_inf_5, pop_res_5_9, pop_res_10_14, pop_res_15_19, pop_res_20_24, pop_res_25_29, pop_res_30_34, pop_res_35_39, pop_res_40_44, pop_res_45_49, pop_res_50_54, pop_res_55_59, pop_res_60_64, pop_res_65_69, pop_res_70_74, pop_res_mag_74, pop_res_laurea, pop_res_diploma, pop_res_media, pop_res_elem, pop_res_alfab, pop_res_analf, pop_res_att_tot, pop_res_att_occup, pop_res_att_in_cerca, pop_res_straniera, id_comune)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="wktBacino">
+            <attribute string="http://www.uniroma1.it/owl2qlgeo#hasGeometryWKT">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/BacinoIdrografico/{gid}</domainTemplate>
+                <rangeVariable>wkt</rangeVariable>
+            </attribute>
+            <HEAD string="BaciniV(gid, nome, descrizione, wkt, gml)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="wktBorgo">
+            <attribute string="http://www.uniroma1.it/owl2qlgeo#hasGeometryWKT">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Borgo/{id}</domainTemplate>
+                <rangeVariable>wkt</rangeVariable>
+            </attribute>
+            <HEAD string="BorgoV(id, nome_b, nome_prec_b, id_comune_rif, nome, alias, tipo, oggetto, anno, wkt, gml)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="wktComune">
+            <attribute string="http://www.uniroma1.it/owl2qlgeo#hasGeometryWKT">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Comune/{CODICE_ISTAT}</domainTemplate>
+                <rangeVariable>wkt</rangeVariable>
+            </attribute>
+            <HEAD string="ComuniV(GID, CODICE_ISTAT, COD_REG, COD_PROV, COD_COM, REGIONE, PROVINCIA, COMUNE, ANNO, wkt, gml)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="wktCorsoAcqua">
+            <attribute string="http://www.uniroma1.it/owl2qlgeo#hasGeometryWKT">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/CorsoAcqua/{tipo}/{gid}</domainTemplate>
+                <rangeVariable>wkt</rangeVariable>
+            </attribute>
+            <HEAD string="CorsoAcquaV(gid, tipo, nome, alias, id_bacino, wkt, gml)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="wktEntitaGeoArtificialeInfr">
+            <attribute string="http://www.uniroma1.it/owl2qlgeo#hasGeometryWKT">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/EntitaGeoArtificiale/{tipo}/{gid}</domainTemplate>
+                <rangeVariable>wkt</rangeVariable>
+            </attribute>
+            <HEAD string="InfrastruttureV(gid, tipo, nome, alias, wkt, gml)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="wktEntitaGeoArtificialeTopo">
+            <attribute string="http://www.uniroma1.it/owl2qlgeo#hasGeometryWKT">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/EntitaGeoArtificiale/{oggetto}/{gid}</domainTemplate>
+                <rangeVariable>wkt</rangeVariable>
+            </attribute>
+            <HEAD string="ToponimiV(gid, nome, alias, tipo, oggetto, anno, wkt, gml)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="wktPodere">
+            <attribute string="http://www.uniroma1.it/owl2qlgeo#hasGeometryWKT">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Podere/{id}</domainTemplate>
+                <rangeVariable>wkt</rangeVariable>
+            </attribute>
+            <HEAD string="PoderiV(id, sup, cognome_col, nome_col, azienda, tipo_con, strada, wkt, gml, toponimo, title_col)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="wktProvincia">
+            <attribute string="http://www.uniroma1.it/owl2qlgeo#hasGeometryWKT">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/Provincia/{cod_prov}</domainTemplate>
+                <rangeVariable>wkt</rangeVariable>
+            </attribute>
+            <HEAD string="ProvinciaV(gid, provincia, cod_prov, regione, cod_reg, anno, wkt, gml)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="wktUnitaGeografica">
+            <attribute string="http://www.uniroma1.it/owl2qlgeo#hasGeometryWKT">
+                <domainTemplate>http://www.magister.uniroma1.it/ontology/UnitaGeografica/{oggetto}/{gid}</domainTemplate>
+                <rangeVariable>wkt</rangeVariable>
+            </attribute>
+            <HEAD string="ToponimiV(gid, nome, alias, tipo, oggetto, anno, wkt, gml)"/>
+        </ontologyPredicateMapping>
+        <primitiveView>
+            <HEAD string="AlfabetiV(alfabeti)"/>
+            <SQLQuery>select 'Alfabeti'::text as alfabeti</SQLQuery>
+        </primitiveView>
+        <primitiveView>
+            <HEAD string="AnalfabetiV(analfabeti)"/>
+            <SQLQuery>select 'Analfabeti'::text as analfabeti</SQLQuery>
+        </primitiveView>
+        <primitiveView>
+            <HEAD string="AttiviInCercaDiOccupazione(attivi_cer)"/>
+            <SQLQuery>select 'AttiviInCercaDiOccupazione'::text as attivi_cer</SQLQuery>
+        </primitiveView>
+        <primitiveView>
+            <HEAD string="AttiviOccupati(attivi_occ)"/>
+            <SQLQuery>select 'AttiviOccupati'::text as attivi_occ</SQLQuery>
+        </primitiveView>
+        <primitiveView>
+            <HEAD string="AttiviTotali(attivi_tot)"/>
+            <SQLQuery>select 'AttiviTotali'::text as attivi_tot</SQLQuery>
+        </primitiveView>
+        <primitiveView>
+            <HEAD string="AziendaAgrariaV(id, comune, borgo)"/>
+            <SQLQuery>select aa.id_azienda as id,
+c.codice_istat as comune,
+t.gid as borgo
+from poderi.azienda_agraria aa left outer join public.lim_com c 
+		on lower(aa.sede_azienda) = lower(c.comune) or 
+			(aa.sede_azienda = 'Littoria' and c.comune = 'LATINA') 
+	left outer join public.toponimi t
+		on c.comune is null and lower(aa.sede_azienda) = lower(t.nome) or 
+			(aa.sede_azienda = 'Borgo San Michele' and t.nome = 'BORGO S. MICHELE')
+
+where c.codice_istat is not null or t.gid is not null</SQLQuery>
+        </primitiveView>
+        <primitiveView>
+            <HEAD string="BaciniV(gid, nome, descrizione, wkt, gml)"/>
+            <SQLQuery>select gid, nome, descrizione, st_astext(geom) as wkt,  st_asgml(geom) as gml 
+from bacini_idro</SQLQuery>
+        </primitiveView>
+        <primitiveView>
+            <HEAD string="BorgoV(id, nome_b, nome_prec_b, id_comune_rif, nome, alias, tipo, oggetto, anno, wkt, gml)"/>
+            <SQLQuery>select t.gid as id,
+b.id_borgo as nome_b,
+b.nome_prec_borgo as nome_prec_b,
+c.codice_istat as id_comune_rif,
+t.nome as nome,
+t.alias as alias,
+t.tipo as tipo,
+t.oggetto as oggetto,
+t.anno as anno,
+st_astext(t.geom) as wkt,
+st_asgml(t.geom) as gml
+from poderi.borgo b,public.toponimi t, public.lim_com c
+where b.id_toponimo = t.gid 
+and (lower(b.comune_rif) = lower(c.comune) 
+or (b.comune_rif = 'Littoria' and c.comune = 'LATINA'))</SQLQuery>
+        </primitiveView>
+        <primitiveView>
+            <HEAD string="CampioneCensito(campione)"/>
+            <SQLQuery>select 'CampioneCensito'::text as campione</SQLQuery>
+        </primitiveView>
+        <primitiveView>
+            <HEAD string="CensimentoV(gid, anno, pop_res_tot, pop_res_mas, pop_res_fem, pop_res_inf_5, pop_res_5_9, pop_res_10_14, pop_res_15_19, pop_res_20_24, pop_res_25_29, pop_res_30_34, pop_res_35_39, pop_res_40_44, pop_res_45_49, pop_res_50_54, pop_res_55_59, pop_res_60_64, pop_res_65_69, pop_res_70_74, pop_res_mag_74, pop_res_laurea, pop_res_diploma, pop_res_media, pop_res_elem, pop_res_alfab, pop_res_analf, pop_res_att_tot, pop_res_att_occup, pop_res_att_in_cerca, pop_res_straniera, id_comune)"/>
+            <SQLQuery>select gid,
+  anno,
+  pop_res_tot,
+  pop_res_mas,
+  pop_res_fem,
+  pop_res_inf_5,
+  pop_res_5_9,
+  pop_res_10_14 ,
+  pop_res_15_19 ,
+  pop_res_20_24 ,
+  pop_res_25_29 ,
+  pop_res_30_34 ,
+  pop_res_35_39 ,
+  pop_res_40_44 ,
+  pop_res_45_49 ,
+  pop_res_50_54 ,
+  pop_res_55_59 ,
+  pop_res_60_64 ,
+  pop_res_65_69 ,
+  pop_res_70_74 ,
+  pop_res_mag_74 ,
+  pop_res_laurea ,
+  pop_res_diploma ,
+  pop_res_media ,
+  pop_res_elem ,
+  pop_res_alfab ,
+  pop_res_analf ,
+  pop_res_att_tot ,
+  pop_res_att_occup ,
+  pop_res_att_in_cerca ,
+  pop_res_straniera ,
+  id_comune
+
+from tab_cens</SQLQuery>
+        </primitiveView>
+        <primitiveView>
+            <HEAD string="ClasseEta10_14Anni(eta)"/>
+            <SQLQuery>select 'ClasseEta10_14Anni'::text as eta</SQLQuery>
+        </primitiveView>
+        <primitiveView>
+            <HEAD string="ClasseEta15_19Anni(eta)"/>
+            <SQLQuery>select 'ClasseEta15_19Anni'::text as eta</SQLQuery>
+        </primitiveView>
+        <primitiveView>
+            <HEAD string="ClasseEta20_24Anni(eta)"/>
+            <SQLQuery>select 'ClasseEta20_24Anni'::text as eta</SQLQuery>
+        </primitiveView>
+        <primitiveView>
+            <HEAD string="ClasseEta25_29Anni(eta)"/>
+            <SQLQuery>select 'ClasseEta25_29Anni'::text as eta</SQLQuery>
+        </primitiveView>
+        <primitiveView>
+            <HEAD string="ClasseEta30_34Anni(eta)"/>
+            <SQLQuery>select 'ClasseEta30_34Anni'::text as eta</SQLQuery>
+        </primitiveView>
+        <primitiveView>
+            <HEAD string="ClasseEta35_39Anni(eta)"/>
+            <SQLQuery>select 'ClasseEta35_39Anni'::text as eta</SQLQuery>
+        </primitiveView>
+        <primitiveView>
+            <HEAD string="ClasseEta40_44Anni(eta)"/>
+            <SQLQuery>select 'ClasseEta40_44Anni'::text as eta</SQLQuery>
+        </primitiveView>
+        <primitiveView>
+            <HEAD string="ClasseEta45_49Anni(eta)"/>
+            <SQLQuery>select 'ClasseEta45_49Anni'::text as eta</SQLQuery>
+        </primitiveView>
+        <primitiveView>
+            <HEAD string="ClasseEta50_54Anni(eta)"/>
+            <SQLQuery>select 'ClasseEta50_54Anni'::text as eta</SQLQuery>
+        </primitiveView>
+        <primitiveView>
+            <HEAD string="ClasseEta55_59Anni(eta)"/>
+            <SQLQuery>select 'ClasseEta55_59Anni'::text as eta</SQLQuery>
+        </primitiveView>
+        <primitiveView>
+            <HEAD string="ClasseEta5_9Anni(eta)"/>
+            <SQLQuery>select 'ClasseEta5_9Anni'::text as eta</SQLQuery>
+        </primitiveView>
+        <primitiveView>
+            <HEAD string="ClasseEta60_64Anni(eta)"/>
+            <SQLQuery>select 'ClasseEta60_64Anni'::text as eta</SQLQuery>
+        </primitiveView>
+        <primitiveView>
+            <HEAD string="ClasseEta65_69Anni(eta)"/>
+            <SQLQuery>select 'ClasseEta65_69Anni'::text as eta</SQLQuery>
+        </primitiveView>
+        <primitiveView>
+            <HEAD string="ClasseEta70_74Anni(eta)"/>
+            <SQLQuery>select 'ClasseEta70_74Anni'::text as eta</SQLQuery>
+        </primitiveView>
+        <primitiveView>
+            <HEAD string="ClasseEtaMag74Anni(eta)"/>
+            <SQLQuery>select 'ClasseEtaMag74Anni'::text as eta</SQLQuery>
+        </primitiveView>
+        <primitiveView>
+            <HEAD string="ClasseEtaMin5Anni(eta)"/>
+            <SQLQuery>select 'ClasseEtaMin5Anni'::text as eta</SQLQuery>
+        </primitiveView>
+        <primitiveView>
+            <HEAD string="ComuniV(GID, CODICE_ISTAT, COD_REG, COD_PROV, COD_COM, REGIONE, PROVINCIA, COMUNE, ANNO, wkt, gml)"/>
+            <SQLQuery>select GID,CODICE_ISTAT,COD_REG, COD_PROV, COD_COM, REGIONE, PROVINCIA, COMUNE, ANNO,
+st_astext(geom) as wkt, st_asgml(geom) as gml
+from lim_com</SQLQuery>
+        </primitiveView>
+        <primitiveView>
+            <HEAD string="CorsoAcquaV(gid, tipo, nome, alias, id_bacino, wkt, gml)"/>
+            <SQLQuery>select gid, tipo, nome, 'null' as alias, id_bacino,st_astext(geom) as wkt, st_asgml(geom) as gml
+from idrografia</SQLQuery>
+        </primitiveView>
+        <primitiveView>
+            <HEAD string="DimplomaMediaV(media)"/>
+            <SQLQuery>select 'DiplomaMedia'::text as media</SQLQuery>
+        </primitiveView>
+        <primitiveView>
+            <HEAD string="DiplomaSuperioreV(superiore)"/>
+            <SQLQuery>select 'DiplomaSuperiore'::text as superiore</SQLQuery>
+        </primitiveView>
+        <primitiveView>
+            <HEAD string="EstSorgenteDiV(idroid, topoid)"/>
+            <SQLQuery>select i.gid as idroid,t.gid  as topoid
+from toponimi t, idrografia i 
+where t.oggetto = 'Polla o laghetto' and st_intersects(t.geom, i.geom)</SQLQuery>
+        </primitiveView>
+        <primitiveView>
+            <HEAD string="Femmine(femmine)"/>
+            <SQLQuery>select 'Femmine'::text as femmine</SQLQuery>
+        </primitiveView>
+        <primitiveView>
+            <HEAD string="File(file)"/>
+            <SQLQuery>select 'File'::text as file</SQLQuery>
+        </primitiveView>
+        <primitiveView>
+            <HEAD string="GeologiaV(gid, tipo, descrizione, codice, eta, wkt, gml)"/>
+            <SQLQuery>select gid, tipo, descrizione, codice, eta, st_astext(geom) as wkt, st_asgml(geom) as gml
+from geologia</SQLQuery>
+        </primitiveView>
+        <primitiveView>
+            <HEAD string="InfrastruttureV(gid, tipo, nome, alias, wkt, gml)"/>
+            <SQLQuery>select gid, tipo, nome, alias, st_astext(geom) as wkt, st_asgml(geom) as gml
+from infrastrutture</SQLQuery>
+        </primitiveView>
+        <primitiveView>
+            <HEAD string="LaureaEAssimilati(laurea)"/>
+            <SQLQuery>select 'LaureaEAssimilati'::text as laurea</SQLQuery>
+        </primitiveView>
+        <primitiveView>
+            <HEAD string="LicenzaElementareV(elementare)"/>
+            <SQLQuery>select 'LicenzaElementare'::text as elementare</SQLQuery>
+        </primitiveView>
+        <primitiveView>
+            <HEAD string="Maschi(maschi)"/>
+            <SQLQuery>select 'Maschi'::text as maschi</SQLQuery>
+        </primitiveView>
+        <primitiveView>
+            <HEAD string="ONCPoderiV(id, FK_language_id, versionDate, versionStatus, fondo, serie, type, nrpodere, title, datainizio, datafine, destreme, numero, busta, info, managment, compilationDate, unitarchdetail_author)"/>
+            <SQLQuery>select t.unitarchdetail_id as id,
+t.unitarchdetail_FK_language_id as FK_language_id,
+t.unitarchdetail_versionDate as versionDate,
+t.unitarchdetail_versionStatus as versionStatus,
+t.unitarchdetail_fondo as fondo,
+t.unitarchdetail_serie as serie,
+t.unitarchdetail_type as type,
+t.unitarchdetail_nrpodere as nrpodere,
+t.unitarchdetail_title as title,
+t.unitarchdetail_datainizio as datainizio,
+t.unitarchdetail_datafine as datafine,
+t.unitarchdetail_destreme as destreme,
+t.unitarchdetail_numero as numero,
+t.unitarchdetail_busta as busta,
+t.unitarchdetail_info as info,
+t.unitarchdetail_managment as managment,
+t.unitarchdetail_compilationDate as compilationDate,
+unitarchdetail_author
+
+from poderi.mw_unitarchdetails_tbl t</SQLQuery>
+        </primitiveView>
+        <primitiveView>
+            <HEAD string="PermeabilitaV(gid, tipo, codice, descrizione, anno, wkt, gml)"/>
+            <SQLQuery>select gid, tipo, codice, descrizione, anno, st_astext(geom) as wkt, st_asgml(geom) as gml
+from permeabilita</SQLQuery>
+        </primitiveView>
+        <primitiveView>
+            <HEAD string="PoderiSuccV(id, nome_col, cognome_col, data_inizio, data_fine, toponimo, title_col)"/>
+            <SQLQuery>select ps.num_podere::text as id,
+ps.nome_colono as nome_col,
+ps.cognome_colono as cognome_col,
+ps.data_inizio_col as data_inizio,
+ps.data_fine_col as data_fine,
+concat('Podere numero ',ps.num_podere) as toponimo,
+concat(ps.cognome_colono, ' ', ps.nome_colono) as title_col
+from poderi.poderi_successione ps</SQLQuery>
+        </primitiveView>
+        <primitiveView>
+            <HEAD string="PoderiV(id, sup, cognome_col, nome_col, azienda, tipo_con, strada, wkt, gml, toponimo, title_col)"/>
+            <SQLQuery>select p.id_podere::text as id, 
+	p.superficie_pod as sup,
+	p.cognome_col as cognome_col, 
+	p.nome_col as nome_col,
+	p.azienda as azienda, 
+	case 
+		when p.tipo_contratto is not null
+			then concat('Tipo_',p.tipo_contratto) 
+		else 'Contratto'
+	end as tipo_con,
+	p.strada_pod as strada, 
+	st_astext(p.geom) as wkt, 
+	st_asgml(p.geom) as gml,
+	concat('Podere numero ',p.id_podere) as toponimo,
+	concat(p.cognome_col, ' ', p.nome_col) as title_col
+from poderi.poderi p</SQLQuery>
+        </primitiveView>
+        <primitiveView>
+            <HEAD string="ProvinciaV(gid, provincia, cod_prov, regione, cod_reg, anno, wkt, gml)"/>
+            <SQLQuery>select gid, provincia, cod_prov, regione, cod_reg, anno, st_astext(geom) as wkt, st_asgml(geom) as gml 
+
+from lim_prov</SQLQuery>
+        </primitiveView>
+        <primitiveView>
+            <HEAD string="Stranieri(stranieri)"/>
+            <SQLQuery>select 'Stranieri'::text as stranieri</SQLQuery>
+        </primitiveView>
+        <primitiveView>
+            <HEAD string="ToponimiV(gid, nome, alias, tipo, oggetto, anno, wkt, gml)"/>
+            <SQLQuery>select gid, nome, alias, tipo, oggetto, anno, st_astext(geom) as wkt, st_asgml(geom) as gml
+from toponimi</SQLQuery>
+        </primitiveView>
+    </mappings>
+    <blocks/>
+    <constraints>
+        <deny>
+            <viewAtom>AlfabetiV(alfabeti)</viewAtom>
+            <viewAtom>AnalfabetiV(analfabeti)</viewAtom>
+        </deny>
+        <inclusion>
+            <left arg="EstSorgenteDiV[2]"/>
+            <right arg="ToponimiV[4]"/>
+        </inclusion>
+        <inclusion>
+            <left arg="EstSorgenteDiV[1]"/>
+            <right arg="CorsoAcquaV[1]"/>
+        </inclusion>
+        <key>
+            <projection arg="AlfabetiV[1]"/>
+        </key>
+        <key>
+            <projection arg="AnalfabetiV[1]"/>
+        </key>
+        <key>
+            <projection arg="AttiviInCercaDiOccupazione[1]"/>
+        </key>
+        <key>
+            <projection arg="AttiviOccupati[1]"/>
+        </key>
+        <key>
+            <projection arg="AttiviTotali[1]"/>
+        </key>
+        <key>
+            <projection arg="BaciniV[1]"/>
+        </key>
+        <key>
+            <projection arg="BorgoV[1]"/>
+        </key>
+        <key>
+            <projection arg="CampioneCensito[1]"/>
+        </key>
+        <key>
+            <projection arg="CensimentoV[1]"/>
+        </key>
+        <key>
+            <projection arg="ClasseEta10_14Anni[1]"/>
+        </key>
+        <key>
+            <projection arg="ClasseEta15_19Anni[1]"/>
+        </key>
+        <key>
+            <projection arg="ClasseEta20_24Anni[1]"/>
+        </key>
+        <key>
+            <projection arg="ClasseEta25_29Anni[1]"/>
+        </key>
+        <key>
+            <projection arg="ClasseEta30_34Anni[1]"/>
+        </key>
+        <key>
+            <projection arg="ClasseEta35_39Anni[1]"/>
+        </key>
+        <key>
+            <projection arg="ClasseEta40_44Anni[1]"/>
+        </key>
+        <key>
+            <projection arg="ClasseEta45_49Anni[1]"/>
+        </key>
+        <key>
+            <projection arg="ClasseEta50_54Anni[1]"/>
+        </key>
+        <key>
+            <projection arg="ClasseEta55_59Anni[1]"/>
+        </key>
+        <key>
+            <projection arg="ClasseEta5_9Anni[1]"/>
+        </key>
+        <key>
+            <projection arg="ClasseEta60_64Anni[1]"/>
+        </key>
+        <key>
+            <projection arg="ClasseEta65_69Anni[1]"/>
+        </key>
+        <key>
+            <projection arg="ComuniV[1]"/>
+        </key>
+        <key>
+            <projection arg="ComuniV[2]"/>
+        </key>
+        <key>
+            <projection arg="CorsoAcquaV[1]"/>
+        </key>
+        <key>
+            <projection arg="DimplomaMediaV[1]"/>
+        </key>
+        <key>
+            <projection arg="DiplomaSuperioreV[1]"/>
+        </key>
+        <key>
+            <projection arg="EstSorgenteDiV[1, 2]"/>
+        </key>
+        <key>
+            <projection arg="Femmine[1]"/>
+        </key>
+        <key>
+            <projection arg="GeologiaV[1]"/>
+        </key>
+        <key>
+            <projection arg="InfrastruttureV[1]"/>
+        </key>
+        <key>
+            <projection arg="LaureaEAssimilati[1]"/>
+        </key>
+        <key>
+            <projection arg="LicenzaElementareV[1]"/>
+        </key>
+        <key>
+            <projection arg="PermeabilitaV[1]"/>
+        </key>
+        <key>
+            <projection arg="PoderiSuccV[1]"/>
+        </key>
+        <key>
+            <projection arg="PoderiV[1]"/>
+        </key>
+        <key>
+            <projection arg="ProvinciaV[1]"/>
+        </key>
+        <key>
+            <projection arg="ProvinciaV[3]"/>
+        </key>
+        <key>
+            <projection arg="Stranieri[1]"/>
+        </key>
+        <key>
+            <projection arg="ToponimiV[1]"/>
+        </key>
+    </constraints>
+</OBDA>
