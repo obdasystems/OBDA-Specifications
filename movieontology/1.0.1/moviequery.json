@@ -1,0 +1,40 @@
+{
+    "queryCatalog" : [ {
+      "queryID" : "spielberg",
+      "queryCode" : "PREFIX xml: <http://www.w3.org/XML/1998/namespace>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX mo: <http://www.movieontology.org/ontology/>\nPREFIX imdb: <http://imdb.com/data/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\n\n#-----------------------------------------------------------\n# Find all titles directed by Steven Spielgerg, with\n# title, genre, production year, rating, budget and gross.\n#-----------------------------------------------------------\nSELECT ?title ?title_name ?genre ?production_year\n       ?title_rating ?title_budget ?title_gross\nWHERE {\n  ?title a mo:Title;\n         mo:title ?title_name;\n         mo:productionYear ?production_year;\n         mo:rating ?title_rating;\n         mo:belongsToGenre ?genre;\n         mo:budget ?title_budget;\n         mo:gross ?title_gross;\n         mo:hasDirector [ mo:name \"Spielberg, Steven\"^^xsd:string ]\n}\n",
+      "queryDescription" : "",
+      "constructResultsRDFSyntax" : "TURTLE",
+      "construct" : false
+    }, {
+      "queryID" : "james_bond",
+      "queryCode" : "PREFIX xml: <http://www.w3.org/XML/1998/namespace>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX mo: <http://www.movieontology.org/ontology/>\nPREFIX imdb: <http://imdb.com/data/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\n\n#-----------------------------------------------------------\n# All the movies with title and production year\n# about James Bond.\n#-----------------------------------------------------------\nSELECT ?movie ?title ?year\nWHERE {\n   ?movie a mo:Movie;\n          mo:title ?title;\n          mo:productionYear ?year;\n          mo:hasCharacter [ mo:name \"James Bond\"^^xsd:string ].\n}\n",
+      "queryDescription" : "",
+      "constructResultsRDFSyntax" : "TURTLE",
+      "construct" : false
+    }, {
+      "queryID" : "simpsons",
+      "queryCode" : "PREFIX xml: <http://www.w3.org/XML/1998/namespace>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX mo: <http://www.movieontology.org/ontology/>\nPREFIX imdb: <http://imdb.com/data/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\n\n#-----------------------------------------------------------\n# All episodes with title, season number, episode number,\n# release dates, production year, rating of the TV series named\n# \"The Simpsons\".\n#-----------------------------------------------------------\nSELECT ?episode ?epTitle ?seasonNum ?epNum ?releasedate ?pyear ?epRating\nWHERE {\n    ?episode a mo:Episode;\n             mo:title ?epTitle;\n             mo:rating ?epRating;\n             mo:releasedate ?releasedate;\n             mo:productionYear ?pyear;\n             mo:episodeNr ?epNum;\n             mo:seasonNr ?seasonNum;\n             mo:isEpisodeOf [\n                 a mo:TVSeries;\n                 mo:title \"The Simpsons\"^^xsd:string\n             ].\n}\n",
+      "queryDescription" : "",
+      "constructResultsRDFSyntax" : "TURTLE",
+      "construct" : false
+    }, {
+      "queryID" : "italy_2000",
+      "queryCode" : "PREFIX xml: <http://www.w3.org/XML/1998/namespace>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX mo: <http://www.movieontology.org/ontology/>\nPREFIX imdb: <http://imdb.com/data/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\n\n#-----------------------------------------------------------\n# All the movies with title, genre, production year, budget, gross\n# and rating produced since 2000 that have been released in Italy.\n#-----------------------------------------------------------\nSELECT ?movie ?title ?genre ?production_year ?budget ?gross ?rating\nWHERE {\n  ?movie a mo:Movie;\n         mo:title ?title;\n         mo:belongsToGenre ?genre;\n         mo:productionYear ?production_year;\n         mo:budget ?budget;\n         mo:gross ?gross;\n         mo:rating ?rating;\n             mo:hasReleasingCountry mo:Italy.\n  FILTER (?production_year >= \"2000\"^^xsd:int).\n}\n",
+      "queryDescription" : "",
+      "constructResultsRDFSyntax" : "TURTLE",
+      "construct" : false
+    }, {
+      "queryID" : "matrix",
+      "queryCode" : "PREFIX xml: <http://www.w3.org/XML/1998/namespace>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX mo: <http://www.movieontology.org/ontology/>\nPREFIX imdb: <http://imdb.com/data/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\n\n#-----------------------------------------------------------\n# The production year, rating and imdbid of the movie\n# named \"The Matrix\".\n#-----------------------------------------------------------\nSELECT ?movie ?production_year ?imdbid\nWHERE {\n  ?movie a mo:Movie;\n         mo:title \"The Matrix\"^^xsd:string;\n         mo:productionYear ?production_year;\n         mo:rating ?title_rating;\n         mo:imdbid ?imdbid.\n}\n",
+      "queryDescription" : "",
+      "constructResultsRDFSyntax" : "TURTLE",
+      "construct" : false
+    }, {
+      "queryID" : "movie_game",
+      "queryCode" : "PREFIX xml: <http://www.w3.org/XML/1998/namespace>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\nPREFIX mo: <http://www.movieontology.org/ontology/>\nPREFIX imdb: <http://imdb.com/data/>\nPREFIX dbo: <http://dbpedia.org/ontology/>\nPREFIX dbr: <http://dbpedia.org/resource/>\n\n#-----------------------------------------------------------\n# Video games for which there is a movie with the same\n# title but later production year, and an higher rating\n# than the movie.\n#-----------------------------------------------------------\nSELECT ?game ?movie ?title\n       ?game_year ?movie_year\n       ?game_rating ?movie_rating\nWHERE {\n    ?game a mo:VideoGame;\n           mo:title ?title;\n           mo:rating ?game_rating;\n           mo:productionYear ?game_year.\n    ?movie a mo:Movie;\n           mo:title ?title;\n           mo:rating ?movie_rating;\n           mo:productionYear ?movie_year.\n    FILTER(?game_year < ?movie_year &&\n           ?game_rating >= ?movie_rating)\n}\n",
+      "queryDescription" : "",
+      "constructResultsRDFSyntax" : "TURTLE",
+      "construct" : false
+    } ]
+  } ]
+}

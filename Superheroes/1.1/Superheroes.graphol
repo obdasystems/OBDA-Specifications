@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphol version="2">
+  <ontology>
+    <name>Superheroes</name>
+    <version>1.0</version>
+    <profile>OWL 2</profile>
+    <IRI_prefixes_nodes_dict>
+      <iri iri_value="http://www.w3.org/1999/02/22-rdf-syntax-ns">
+        <prefixes>
+          <prefix prefix_value="rdf"/>
+        </prefixes>
+        <nodes/>
+        <properties>
+          <property property_value="Standard_IRI"/>
+        </properties>
+      </iri>
+      <iri iri_value="http://www.w3.org/2001/XMLSchema">
+        <prefixes>
+          <prefix prefix_value="xsd"/>
+        </prefixes>
+        <nodes/>
+        <properties>
+          <property property_value="Standard_IRI"/>
+        </properties>
+      </iri>
+      <iri iri_value="http://www.w3.org/2002/07/owl">
+        <prefixes>
+          <prefix prefix_value="owl"/>
+        </prefixes>
+        <nodes/>
+        <properties>
+          <property property_value="Standard_IRI"/>
+        </properties>
+      </iri>
+      <iri iri_value="http://www.w3.org/2000/01/rdf-schema">
+        <prefixes>
+          <prefix prefix_value="rdfs"/>
+        </prefixes>
+        <nodes/>
+        <properties>
+          <property property_value="Standard_IRI"/>
+        </properties>
+      </iri>
+      <iri iri_value="http://www.obdasystems.com/demo/superheroes/#">
+        <prefixes>
+          <prefix prefix_value="sh"/>
+        </prefixes>
+        <nodes>
+          <node node_value="RoleNode:sh:is_enemy_of:n25"/>
+          <node node_value="ConceptNode:sh:Human:n2"/>
+          <node node_value="ConceptNode:sh:Meta_human:n3"/>
+          <node node_value="AttributeNode:sh:name:n18"/>
+          <node node_value="ConceptNode:sh:Superhero:n24"/>
+          <node node_value="ConceptNode:sh:Ability:n13"/>
+          <node node_value="ConceptNode:sh:Character:n0"/>
+          <node node_value="ConceptNode:sh:Superpower:n17"/>
+          <node node_value="AttributeNode:sh:origin_planet_name:n9"/>
+          <node node_value="RoleNode:sh:has_ability:n14"/>
+          <node node_value="ConceptNode:sh:Extraterrestrial:n4"/>
+          <node node_value="ConceptNode:sh:Villain:n22"/>
+        </nodes>
+        <properties>
+          <property property_value="Project_IRI"/>
+        </properties>
+      </iri>
+    </IRI_prefixes_nodes_dict>
+  </ontology>
+  <predicates>
+    <predicate type="attribute" name="sh:origin_planet_name">
+      <description status=""></description>
+      <functional>1</functional>
+    </predicate>
+    <predicate type="attribute" name="sh:name">
+      <description status=""></description>
+      <functional>1</functional>
+    </predicate>
+  </predicates>
+  <diagrams>
+    <diagram width="5000" height="5000" name="superheroes">
+      <node color="#fcfcfc" id="n2" remaining_characters="Human" type="concept">
+        <geometry width="110" y="230" x="-30" height="50"/>
+        <label width="62" y="230" x="-30" height="23">sh:Human</label>
+      </node>
+      <node color="#fcfcfc" id="n12" type="value-domain">
+        <geometry width="90" y="320" x="470" height="40"/>
+        <label width="60" y="320" x="470" height="23">xsd:string</label>
+      </node>
+      <node color="#fcfcfc" id="n24" remaining_characters="Superhero" type="concept">
+        <geometry width="110" y="-150" x="310" height="50"/>
+        <label width="78" y="-150" x="310" height="23">sh:Superhero</label>
+      </node>
+      <node color="#000000" id="n16" type="range-restriction">
+        <geometry width="20" y="10" x="-180" height="20"/>
+        <label width="39" y="-12" x="-180" height="23">exists</label>
+      </node>
+      <node color="#fcfcfc" id="n14" remaining_characters="has_ability" type="role">
+        <geometry width="70" y="10" x="-80" height="50"/>
+        <label width="79" y="-25" x="-80" height="23">sh:has_ability</label>
+      </node>
+      <node color="#fcfcfc" id="n22" remaining_characters="Villain" type="concept">
+        <geometry width="110" y="-150" x="-90" height="50"/>
+        <label width="56" y="-150" x="-90" height="23">sh:Villain</label>
+      </node>
+      <node color="#fcfcfc" id="n20" type="domain-restriction">
+        <geometry width="20" y="180" x="-280" height="20"/>
+        <label width="39" y="205" x="-280" height="23">exists</label>
+      </node>
+      <node color="#000000" id="n23" type="disjoint-union">
+        <geometry width="50" y="-70" x="120" height="30"/>
+      </node>
+      <node color="#fcfcfc" id="n13" remaining_characters="Ability" type="concept">
+        <geometry width="110" y="10" x="-280" height="50"/>
+        <label width="56" y="10" x="-280" height="23">sh:Ability</label>
+      </node>
+      <node color="#fcfcfc" id="n36" type="union">
+        <geometry width="50" y="90" x="-280" height="30"/>
+        <label width="18" y="90" x="-280" height="23">or</label>
+      </node>
+      <node color="#fcfcfc" id="n17" remaining_characters="Superpower" type="concept">
+        <geometry width="110" y="10" x="-450" height="50"/>
+        <label width="87" y="10" x="-450" height="23">sh:Superpower</label>
+      </node>
+      <node color="#fcfcfc" id="n35" type="domain-restriction">
+        <geometry width="20" y="120" x="-330" height="20"/>
+        <label width="39" y="120" x="-360" height="23">exists</label>
+      </node>
+      <node color="#fcfcfc" id="n0" remaining_characters="Character" type="concept">
+        <geometry width="110" y="10" x="120" height="50"/>
+        <label width="75" y="10" x="120" height="23">sh:Character</label>
+      </node>
+      <node color="#fcfcfc" id="n21" type="value-domain">
+        <geometry width="90" y="180" x="-470" height="40"/>
+        <label width="60" y="180" x="-470" height="23">xsd:string</label>
+      </node>
+      <node color="#fcfcfc" id="n25" remaining_characters="is_enemy_of" type="role">
+        <geometry width="70" y="-150" x="120" height="50"/>
+        <label width="90" y="-185" x="133" height="23">sh:is_enemy_of</label>
+      </node>
+      <node color="#fcfcfc" id="n15" type="domain-restriction">
+        <geometry width="20" y="10" x="20" height="20"/>
+        <label width="39" y="-12" x="20" height="23">exists</label>
+      </node>
+      <node color="#000000" id="n19" type="range-restriction">
+        <geometry width="20" y="180" x="-380" height="20"/>
+        <label width="39" y="158" x="-380" height="23">exists</label>
+      </node>
+      <node color="#fcfcfc" id="n18" remaining_characters="name" type="attribute">
+        <geometry width="20" y="180" x="-330" height="20"/>
+        <label width="53" y="200" x="-330" height="23">sh:name</label>
+      </node>
+      <node color="#fcfcfc" id="n11" type="domain-restriction">
+        <geometry width="20" y="320" x="270" height="20"/>
+        <label width="39" y="340" x="270" height="23">exists</label>
+      </node>
+      <node color="#000000" id="n1" type="disjoint-union">
+        <geometry width="50" y="140" x="120" height="30"/>
+      </node>
+      <node color="#fcfcfc" id="n4" remaining_characters="Extraterrestrial" type="concept">
+        <geometry width="110" y="230" x="270" height="50"/>
+        <label width="101" y="230" x="270" height="23">sh:Extraterrestrial</label>
+      </node>
+      <node color="#fcfcfc" id="n3" remaining_characters="Meta_human" type="concept">
+        <geometry width="110" y="230" x="120" height="50"/>
+        <label width="93" y="230" x="120" height="23">sh:Meta_human</label>
+      </node>
+      <node color="#fcfcfc" id="n32" type="domain-restriction">
+        <geometry width="20" y="-150" x="50" height="20"/>
+        <label width="39" y="-172" x="50" height="23">exists</label>
+      </node>
+      <node color="#000000" id="n10" type="range-restriction">
+        <geometry width="20" y="320" x="390" height="20"/>
+        <label width="39" y="298" x="390" height="23">exists</label>
+      </node>
+      <node color="#000000" id="n33" type="range-restriction">
+        <geometry width="20" y="-150" x="190" height="20"/>
+        <label width="39" y="-172" x="190" height="23">exists</label>
+      </node>
+      <node color="#fcfcfc" id="n9" remaining_characters="origin_planet_name" type="attribute">
+        <geometry width="20" y="320" x="330" height="20"/>
+        <label width="127" y="345" x="363" height="23">sh:origin_planet_name</label>
+      </node>
+      <edge source="n22" id="e22" target="n23" type="input">
+        <point y="-150" x="-90"/>
+        <point y="-70" x="-90"/>
+        <point y="-70" x="120"/>
+      </edge>
+      <edge source="n3" id="e2" target="n1" type="input">
+        <point y="230" x="120"/>
+        <point y="140" x="120"/>
+      </edge>
+      <edge source="n4" id="e3" target="n1" type="input">
+        <point y="230" x="270"/>
+        <point y="140" x="270"/>
+        <point y="140" x="120"/>
+      </edge>
+      <edge source="n13" id="e32" target="n35" type="inclusion">
+        <point y="34" x="-330"/>
+        <point y="120" x="-330"/>
+      </edge>
+      <edge source="n17" id="e15" target="n13" type="inclusion">
+        <point y="10" x="-450"/>
+        <point y="10" x="-280"/>
+      </edge>
+      <edge source="n4" id="e11" target="n11" type="inclusion">
+        <point y="230" x="270"/>
+        <point y="320" x="270"/>
+      </edge>
+      <edge source="n24" id="e23" target="n23" type="input">
+        <point y="-150" x="310"/>
+        <point y="-70" x="310"/>
+        <point y="-70" x="120"/>
+      </edge>
+      <edge source="n20" id="e30" target="n36" type="inclusion">
+        <point y="180" x="-280"/>
+        <point y="90" x="-280"/>
+      </edge>
+      <edge source="n16" id="e14" target="n13" type="inclusion">
+        <point y="10" x="-180"/>
+        <point y="10" x="-280"/>
+      </edge>
+      <edge source="n0" id="e29" target="n36" type="input">
+        <point y="34" x="90"/>
+        <point y="90" x="90"/>
+        <point y="90" x="-280"/>
+      </edge>
+      <edge source="n23" id="e21" target="n0" type="inclusion">
+        <point y="-70" x="120"/>
+        <point y="10" x="120"/>
+      </edge>
+      <edge source="n9" id="e9" target="n11" type="input">
+        <point y="320" x="330"/>
+        <point y="320" x="270"/>
+      </edge>
+      <edge source="n32" id="e27" target="n22" type="equivalence">
+        <point y="-150" x="50"/>
+        <point y="-150" x="-90"/>
+      </edge>
+      <edge source="n25" id="e24" target="n33" type="input">
+        <point y="-150" x="120"/>
+        <point y="-150" x="190"/>
+      </edge>
+      <edge source="n19" id="e17" target="n21" type="inclusion">
+        <point y="180" x="-380"/>
+        <point y="180" x="-470"/>
+      </edge>
+      <edge source="n0" id="e0" target="n1" type="equivalence">
+        <point y="10" x="120"/>
+        <point y="140" x="120"/>
+      </edge>
+      <edge source="n2" id="e1" target="n1" type="input">
+        <point y="230" x="-30"/>
+        <point y="140" x="-30"/>
+        <point y="140" x="120"/>
+      </edge>
+      <edge source="n14" id="e13" target="n16" type="input">
+        <point y="10" x="-80"/>
+        <point y="10" x="-180"/>
+      </edge>
+      <edge source="n18" id="e31" target="n35" type="input">
+        <point y="180" x="-330"/>
+        <point y="120" x="-330"/>
+      </edge>
+      <edge source="n24" id="e33" target="n33" type="equivalence">
+        <point y="-150" x="310"/>
+        <point y="-150" x="190"/>
+      </edge>
+      <edge source="n15" id="e16" target="n0" type="inclusion">
+        <point y="10" x="20"/>
+        <point y="10" x="120"/>
+      </edge>
+      <edge source="n18" id="e19" target="n19" type="input">
+        <point y="180" x="-330"/>
+        <point y="180" x="-380"/>
+      </edge>
+      <edge source="n25" id="e25" target="n32" type="input">
+        <point y="-150" x="120"/>
+        <point y="-150" x="50"/>
+      </edge>
+      <edge source="n9" id="e10" target="n10" type="input">
+        <point y="320" x="330"/>
+        <point y="320" x="390"/>
+      </edge>
+      <edge source="n18" id="e18" target="n20" type="input">
+        <point y="180" x="-330"/>
+        <point y="180" x="-280"/>
+      </edge>
+      <edge source="n10" id="e8" target="n12" type="inclusion">
+        <point y="320" x="390"/>
+        <point y="320" x="470"/>
+      </edge>
+      <edge source="n13" id="e28" target="n36" type="input">
+        <point y="10" x="-280"/>
+        <point y="90" x="-280"/>
+      </edge>
+      <edge source="n14" id="e12" target="n15" type="input">
+        <point y="10" x="-80"/>
+        <point y="10" x="20"/>
+      </edge>
+    </diagram>
+  </diagrams>
+</graphol>
