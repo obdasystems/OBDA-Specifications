@@ -21,7 +21,7 @@
      xmlns:foaf="http://xmlns.com/foaf/0.1/"
      xmlns:dc="http://purl.org/dc/elements/1.1/">
     <owl:Ontology rdf:about="http://www.movieontology.org/ontology/">
-        <owl:imports rdf:resource="http://dbpedia.org/ontology/"/>
+       <!-- <owl:imports rdf:resource="http://dbpedia.org/ontology/"/> -->
         <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Amancio Bouza</dc:contributor>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#string">20.01.2010</dc:date>
         <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Amancio Bouza</dc:creator>

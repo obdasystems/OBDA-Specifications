@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<queryCatalog name="Protege">
+    <queryCatalogEntry id="special_edition_books">
+        <description>esempio di query congiuntiva in cui, per ogni libro che ha un'edizione speciale, si chiede titolo del libro, nome dell'autore, numero dell'edizione ed il nome dell'editor.  
+</description>
+        <code>PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX : &lt;http://www.obdasystems.com/books/&gt;
+PREFIX xml: &lt;http://www.w3.org/XML/1998/namespace&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+
+select ?bk_title ?ath_name ?ed_number ?edr_name
+where { 	?ath a :Author. 
+       		?ath :name ?ath_name. 
+       		?bk :writtenBy ?ath.
+            ?bk :title ?bk_title.
+            ?bk :hasEdition ?ed.
+            ?ed a :SpecialEdition.
+            ?ed :editionNumber ?ed_number. 
+            ?ed :editedBy ?edr.
+            ?edr :name ?edr_name}</code>
+    </queryCatalogEntry>
+    <queryCatalogEntry id="all_books">
+        <description>la seguente query ha risultati solo perchè il ragionatore riscrive la query chiedendo le sotto-classi del concetto Book. 
+E' semplice verificare che senza il ragionamento la query non restituirebbe risultati in quanto non vi è nella specifica
+alcun mapping per il concetto Book. (vi sono invece mapping per le sue sotto-classi). </description>
+        <code>PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX : &lt;http://www.obdasystems.com/books/&gt;
+PREFIX xml: &lt;http://www.w3.org/XML/1998/namespace&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+
+SELECT ?x 
+WHERE {?x a :Book }</code>
+    </queryCatalogEntry>
+    <queryCatalogEntry id="economic_edition">
+        <description>La seguente query restituisce 7 risultati. Si noti che sfruttando l'assioma NON DL-Lite "E-Book subClassOf hasEdition only EconomicEdition",  
+sistemi per query answering su ontologie OWL 2 sono in grado di restituire più istanze del concetto EconomicEdition. </description>
+        <code>PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX : &lt;http://www.obdasystems.com/books/&gt;
+PREFIX xml: &lt;http://www.w3.org/XML/1998/namespace&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+
+SELECT ?x 
+WHERE {?x a :EconomicEdition }</code>
+    </queryCatalogEntry>
+</queryCatalog>

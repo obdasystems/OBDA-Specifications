@@ -3,7 +3,7 @@
 	<mappingsMetadata id="MAP_01" version="1.0.2">
     	<description>Description of mappings MAP_01 version 1.0.2</description>   
 	</mappingsMetadata>
-    <dataSource name="datasource"/>
+    <dataSource name="superheroes"/>
     <prefixes>
         <prefix name="owl:" namespace="http://www.w3.org/2002/07/owl#"/>
         <prefix name="rdf:" namespace="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
