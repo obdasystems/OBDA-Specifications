@@ -185,7 +185,7 @@
         <ontologyPredicateMapping id="m_hasEdition_1">
             <role string="http://www.obdasystems.com/books/hasEdition">
                 <domainTemplate>http://www.obdasystems.com/books/book-{bk_id}</domainTemplate>
-                <rangeTemplate>http://www.obdasystems.com/books/edition-{bk_id}</rangeTemplate>
+                <rangeTemplate>http://www.obdasystems.com/books/edition-{code}</rangeTemplate>
             </role>
             <HEAD string="edition_view(code, type, date, edt, id, bk_id)"/>
         </ontologyPredicateMapping>
