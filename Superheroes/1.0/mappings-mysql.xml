@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OBDA version="1.0">
+    <mappingsMetadata id="superheroes_mappings" version="1.0">
+        <description>Description of mappings for superheroes ontology version 1.0</description>   
+    </mappingsMetadata>
+    <dataSource databaseDriver="com.mysql.jdbc.Driver" databaseName=""
+        databasePassword="redskins80"
+        databaseURL="jdbc:mysql://127.0.0.1/characters_db"
+        databaseUsername="root" name="datasource"/>
+    <prefixes>
+        <prefix name="owl:" namespace="http://www.w3.org/2002/07/owl#"/>
+        <prefix name="rdf:" namespace="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        <prefix name="sh:" namespace="http://www.obdasystems.com/demo/superheroes/#"/>
+        <prefix name="xsd:" namespace="http://www.w3.org/2001/XMLSchema#"/>
+        <prefix name=":" namespace="http://www.obdasystems.com/demo/superheroes/"/>
+        <prefix name="xml:" namespace="http://www.w3.org/XML/1998/namespace"/>
+        <prefix name="rdfs:" namespace="http://www.w3.org/2000/01/rdf-schema#"/>
+    </prefixes>
+    <templates>
+        <template>http://www.obdasystems.com/demo/superheroes/character_{_}</template>
+        <template>http://www.obdasystems.com/demo/superheroes/ability_{_}</template>
+        <template>{_}</template>
+    </templates>
+    <mappings>
+        <ontologyPredicateMapping id="M1_Human">
+            <concept string="http://www.obdasystems.com/demo/superheroes/#Human">
+                <template>http://www.obdasystems.com/demo/superheroes/character_{id}</template>
+            </concept>
+            <HEAD string="Humans_view(id)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="M2_Extraterrestrial">
+            <concept string="http://www.obdasystems.com/demo/superheroes/#Extraterrestrial">
+                <template>http://www.obdasystems.com/demo/superheroes/character_{id}</template>
+            </concept>
+            <HEAD string="Extraterrestrial_view(id, planet)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="M3_planet_name">
+            <attribute string="http://www.obdasystems.com/demo/superheroes/#origin_planet_name">
+                <domainTemplate>http://www.obdasystems.com/demo/superheroes/character_{id}</domainTemplate>
+                <rangeVariable>planet</rangeVariable>
+            </attribute>
+            <HEAD string="Extraterrestrial_view(id, planet)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="M4_Metahuman">
+            <concept string="http://www.obdasystems.com/demo/superheroes/#Meta_human">
+                <template>http://www.obdasystems.com/demo/superheroes/character_{id}</template>
+            </concept>
+            <HEAD string="Metahuman_view(id)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="M5_character_name">
+            <attribute string="http://www.obdasystems.com/demo/superheroes/#name">
+                <domainTemplate>http://www.obdasystems.com/demo/superheroes/character_{id}</domainTemplate>
+                <rangeVariable>name</rangeVariable>
+            </attribute>
+            <HEAD string="Character_name_view(id, name)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="M6_has_ability">
+            <role string="http://www.obdasystems.com/demo/superheroes/#has_ability">
+                <domainTemplate>http://www.obdasystems.com/demo/superheroes/character_{ch_id}</domainTemplate>
+                <rangeTemplate>http://www.obdasystems.com/demo/superheroes/ability_{ab_name}</rangeTemplate>
+            </role>
+            <HEAD string="has_ability_view(ch_id, ab_name)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="M7_ability_name">
+            <attribute string="http://www.obdasystems.com/demo/superheroes/#name">
+                <domainTemplate>http://www.obdasystems.com/demo/superheroes/ability_{ab_name}</domainTemplate>
+                <rangeVariable>ab_name</rangeVariable>
+            </attribute>
+            <HEAD string="has_ability_view(ch_id, ab_name)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="M8_Superpower">
+            <concept string="http://www.obdasystems.com/demo/superheroes/#Superpower">
+                <template>http://www.obdasystems.com/demo/superheroes/ability_{ab_name}</template>
+            </concept>
+            <HEAD string="Superpower_view(ab_name)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="M9_is_enemy_of">
+            <role string="http://www.obdasystems.com/demo/superheroes/#is_enemy_of">
+                <domainTemplate>http://www.obdasystems.com/demo/superheroes/character_{villain}</domainTemplate>
+                <rangeTemplate>http://www.obdasystems.com/demo/superheroes/character_{superhero}</rangeTemplate>
+            </role>
+            <HEAD string="is_enemy_of_view(villain, superhero)"/>
+        </ontologyPredicateMapping>
+        <primitiveView>
+            <HEAD string="Character_name_view(id, name)"/>
+            <SQLQuery> 
+				SELECT 	ch.id_ch AS id, ch.name AS name
+				FROM 	characters_db.characters ch
+				WHERE 	ch.name != ''
+		</SQLQuery>
+        </primitiveView>
+        <primitiveView>
+            <HEAD string="Extraterrestrial_view(id, planet)"/>
+            <SQLQuery> 
+				SELECT ch.id_ch AS id, ch.planet_of_origin AS planet
+				FROM characters_db.characters ch
+				WHERE ch.planet_of_origin != ''
+		</SQLQuery>
+        </primitiveView>
+        <primitiveView>
+            <HEAD string="has_ability_view(ch_id, ab_name)"/>
+            <SQLQuery> 
+				SELECT 	ab.id_ch AS ch_id, ab.ability_name AS ab_name
+				FROM 	characters_db.abilities ab
+				WHERE 	ab.ability_name != ''
+		</SQLQuery>
+        </primitiveView>
+        <primitiveView>
+            <HEAD string="Humans_view(id)"/>
+            <SQLQuery> 
+				SELECT 	ch.id_ch AS id
+				FROM 	characters_db.characters ch
+				WHERE 	ch.species = 'Human'
+		</SQLQuery>
+        </primitiveView>
+        <primitiveView>
+            <HEAD string="is_enemy_of_view(villain, superhero)"/>
+            <SQLQuery> 
+				SELECT DISTINCT sc.criminal_id AS villain, sc.foiled_by AS superhero
+				FROM characters_db.supercrimes sc
+		</SQLQuery>
+        </primitiveView>
+        <primitiveView>
+            <HEAD string="Metahuman_view(id)"/>
+            <SQLQuery> 
+				SELECT 	ch.id_ch AS id
+				FROM 	characters_db.characters ch
+				WHERE 	ch.species != 'Human' AND 
+						(ch.planet_of_origin = '' OR ch.planet_of_origin is null)
+		</SQLQuery>
+        </primitiveView>
+        <primitiveView>
+            <HEAD string="Superpower_view(ab_name)"/>
+            <SQLQuery> 
+				SELECT 	DISTINCT ab.ability_name AS ab_name
+				FROM 	characters_db.abilities ab
+				WHERE 	ab.ability_name != '' AND ab.superpower = true
+		</SQLQuery>
+        </primitiveView>
+    </mappings>
+    <blocks/>
+    <constraints/>
+</OBDA>
