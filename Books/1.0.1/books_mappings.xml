@@ -248,7 +248,7 @@ FROM tb_authors</SQLQuery>
     </mappings>
     <blocks/>
     <constraints>
-        <inclusion>
+        <inclusion id="id_1585642456141">
             <left arg="unedited_book_view[1]"/>
             <right arg="book_view[1]"/>
         </inclusion>
