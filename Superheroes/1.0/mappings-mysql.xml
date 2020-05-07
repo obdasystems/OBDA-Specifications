@@ -5,7 +5,7 @@
     </mappingsMetadata>
     <dataSource databaseDriver="com.mysql.jdbc.Driver" databaseName=""
         databasePassword="redskins80"
-        databaseURL="jdbc:mysql://127.0.0.1/characters_db"
+        databaseURL="jdbc:mysql://127.0.0.1/characters_db?serverTimezone=UTC"
         databaseUsername="root" name="datasource"/>
     <prefixes>
         <prefix name="owl:" namespace="http://www.w3.org/2002/07/owl#"/>

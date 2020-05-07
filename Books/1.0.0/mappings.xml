@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <OBDA version="1.0">
-    <mappingsMetadata id="books_mappings" version="1.0">
-        <description>Description of mappings for books ontology version 1.0</description>   
-    </mappingsMetadata>
     <dataSource databaseDriver="com.mysql.jdbc.Driver" databaseName=""
         databasePassword="redskins80"
-        databaseURL="jdbc:mysql://127.0.0.1/books"
+        databaseURL="jdbc:mysql://127.0.0.1/books?serverTimezone=UTC"
         databaseUsername="root" name="datasource"/>
     <prefixes>
         <prefix name="owl:" namespace="http://www.w3.org/2002/07/owl#"/>
@@ -32,15 +29,15 @@
                 <viewAtom>book_view(code,title,type)</viewAtom>
             </viewAtomsConjunction>
         </ontologyPredicateComplexMapping>
-        <ontologyPredicateComplexMapping id="m_EBook_1">
-            <concept string="http://www.obdasystems.com/books/E_Book">
+        <blockedMapping id="m_EBook_1">
+            <blocked string="http://www.obdasystems.com/books/E_Book">
                 <template>http://www.obdasystems.com/books/book-{code}</template>
-            </concept>
+            </blocked>
             <viewAtomsConjunction>
                 <viewAtom>EQUALS(type,'E'^^xsd:string)</viewAtom>
                 <viewAtom>book_view(code,title,type)</viewAtom>
             </viewAtomsConjunction>
-        </ontologyPredicateComplexMapping>
+        </blockedMapping>
         <ontologyPredicateComplexMapping id="m_EconomicEdition_1">
             <concept string="http://www.obdasystems.com/books/EconomicEdition">
                 <template>http://www.obdasystems.com/books/edition-{code}</template>

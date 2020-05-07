@@ -18,7 +18,6 @@
         <template>http://www.obdasystems.com/books/author-{_}</template>
         <template>http://www.obdasystems.com/books/book-{_}</template>
         <template>{_}</template>
-        <template>http://aci.com#{_}</template>
     </templates>
     <mappings>
         <ontologyPredicateComplexMapping id="m_AudioBook_1">
