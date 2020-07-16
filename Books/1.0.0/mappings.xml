@@ -29,15 +29,27 @@
                 <viewAtom>book_view(code,title,type)</viewAtom>
             </viewAtomsConjunction>
         </ontologyPredicateComplexMapping>
-        <blockedMapping id="m_EBook_1">
-            <blocked string="http://www.obdasystems.com/books/E_Book">
+        <ontologyPredicateMapping id="m_Author_1">
+            <concept string="http://www.obdasystems.com/books/Author">
+                <template>http://www.obdasystems.com/books/author-{code}</template>
+            </concept>
+            <HEAD string="affiliated_writer_view(code, name)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="m_Book_1">
+            <concept string="http://www.obdasystems.com/books/Book">
                 <template>http://www.obdasystems.com/books/book-{code}</template>
-            </blocked>
+            </concept>
+            <HEAD string="book_view(code, title, type)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateComplexMapping id="m_EBook_1">
+            <concept string="http://www.obdasystems.com/books/E-Book">
+                <template>http://www.obdasystems.com/books/book-{code}</template>
+            </concept>
             <viewAtomsConjunction>
                 <viewAtom>EQUALS(type,'E'^^xsd:string)</viewAtom>
                 <viewAtom>book_view(code,title,type)</viewAtom>
             </viewAtomsConjunction>
-        </blockedMapping>
+        </ontologyPredicateComplexMapping>
         <ontologyPredicateComplexMapping id="m_EconomicEdition_1">
             <concept string="http://www.obdasystems.com/books/EconomicEdition">
                 <template>http://www.obdasystems.com/books/edition-{code}</template>
@@ -47,6 +59,24 @@
                 <viewAtom>edition_view(code,type,date,edt,id,bk_id)</viewAtom>
             </viewAtomsConjunction>
         </ontologyPredicateComplexMapping>
+        <ontologyPredicateMapping id="m_Edition_1">
+            <concept string="http://www.obdasystems.com/books/Edition">
+                <template>http://www.obdasystems.com/books/edition-{code}</template>
+            </concept>
+            <HEAD string="edition_view(code, type, date, edt, id, bk_id)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="m_Editor_1">
+            <concept string="http://www.obdasystems.com/books/Editor">
+                <template>http://www.obdasystems.com/books/editor-{code}</template>
+            </concept>
+            <HEAD string="editor_view(code, name)"/>
+        </ontologyPredicateMapping>
+        <ontologyPredicateMapping id="m_EmergingWriter_1">
+            <concept string="http://www.obdasystems.com/books/EmergingWriter">
+                <template>http://www.obdasystems.com/books/author-{code}</template>
+            </concept>
+            <HEAD string="on_prob_view(code, name)"/>
+        </ontologyPredicateMapping>
         <ontologyPredicateComplexMapping id="m_PrintedBook_1">
             <concept string="http://www.obdasystems.com/books/PrintedBook">
                 <template>http://www.obdasystems.com/books/book-{code}</template>
@@ -65,6 +95,12 @@
                 <viewAtom>edition_view(code,type,date,edt,id,bk_id)</viewAtom>
             </viewAtomsConjunction>
         </ontologyPredicateComplexMapping>
+        <ontologyPredicateMapping id="m_UneditedBook_1">
+            <concept string="http://www.obdasystems.com/books/UneditedBook">
+                <template>http://www.obdasystems.com/books/book-{code}</template>
+            </concept>
+            <HEAD string="unedited_book_view(code)"/>
+        </ontologyPredicateMapping>
         <ontologyPredicateComplexMapping id="m_author_name_1">
             <attribute string="http://www.obdasystems.com/books/name">
                 <domainTemplate>http://www.obdasystems.com/books/author-{code}</domainTemplate>
@@ -145,42 +181,6 @@
                 <viewAtom>genre_view(book_code,genre_name)</viewAtom>
             </viewAtomsConjunction>
         </ontologyPredicateComplexMapping>
-        <ontologyPredicateMapping id="m_Author_1">
-            <concept string="http://www.obdasystems.com/books/Author">
-                <template>http://www.obdasystems.com/books/author-{code}</template>
-            </concept>
-            <HEAD string="affiliated_writer_view(code, name)"/>
-        </ontologyPredicateMapping>
-        <ontologyPredicateMapping id="m_Book_1">
-            <concept string="http://www.obdasystems.com/books/Book">
-                <template>http://www.obdasystems.com/books/book-{code}</template>
-            </concept>
-            <HEAD string="book_view(code, title, type)"/>
-        </ontologyPredicateMapping>
-        <ontologyPredicateMapping id="m_Edition_1">
-            <concept string="http://www.obdasystems.com/books/Edition">
-                <template>http://www.obdasystems.com/books/edition-{code}</template>
-            </concept>
-            <HEAD string="edition_view(code, type, date, edt, id, bk_id)"/>
-        </ontologyPredicateMapping>
-        <ontologyPredicateMapping id="m_Editor_1">
-            <concept string="http://www.obdasystems.com/books/Editor">
-                <template>http://www.obdasystems.com/books/editor-{code}</template>
-            </concept>
-            <HEAD string="editor_view(code, name)"/>
-        </ontologyPredicateMapping>
-        <ontologyPredicateMapping id="m_EmergingWriter_1">
-            <concept string="http://www.obdasystems.com/books/EmergingWriter">
-                <template>http://www.obdasystems.com/books/author-{code}</template>
-            </concept>
-            <HEAD string="on_prob_view(code, name)"/>
-        </ontologyPredicateMapping>
-        <ontologyPredicateMapping id="m_UneditedBook_1">
-            <concept string="http://www.obdasystems.com/books/UneditedBook">
-                <template>http://www.obdasystems.com/books/book-{code}</template>
-            </concept>
-            <HEAD string="unedited_book_view(code)"/>
-        </ontologyPredicateMapping>
         <ontologyPredicateMapping id="m_hasEdition_1">
             <role string="http://www.obdasystems.com/books/hasEdition">
                 <domainTemplate>http://www.obdasystems.com/books/book-{bk_id}</domainTemplate>
