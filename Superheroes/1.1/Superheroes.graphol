@@ -41,7 +41,7 @@
           <property property_value="Standard_IRI"/>
         </properties>
       </iri>
-      <iri iri_value="http://www.obdasystems.com/demo/superheroes/#">
+      <iri iri_value="http://www.obdasystems.com/demo/superheroes/">
         <prefixes>
           <prefix prefix_value="sh"/>
         </prefixes>

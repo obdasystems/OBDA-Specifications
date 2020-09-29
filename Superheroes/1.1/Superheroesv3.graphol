@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphol version="3">
+  <project name="Superheroes" version="1.0">
+    <ontology lang="en" prefix="sh" addLabelFromUserInput="0" iri="http://www.obdasystems.com/demo/superheroes/" addLabelFromSimpleName="0">
+      <imports/>
+      <prefixes>
+        <prefix>
+          <value>owl</value>
+          <namespace>http://www.w3.org/2002/07/owl#</namespace>
+        </prefix>
+        <prefix>
+          <value>rdf</value>
+          <namespace>http://www.w3.org/1999/02/22-rdf-syntax-ns#</namespace>
+        </prefix>
+        <prefix>
+          <value>rdfs</value>
+          <namespace>http://www.w3.org/2000/01/rdf-schema#</namespace>
+        </prefix>
+        <prefix>
+          <value>sh</value>
+          <namespace>http://www.obdasystems.com/demo/superheroes/</namespace>
+        </prefix>
+        <prefix>
+          <value>xsd</value>
+          <namespace>http://www.w3.org/2001/XMLSchema#</namespace>
+        </prefix>
+      </prefixes>
+      <datatypes>
+        <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+        <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral</datatype>
+        <datatype>http://www.w3.org/2000/01/rdf-schema#Literal</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#NCName</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#NMTOKEN</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#Name</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#anyURI</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#base64Binary</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#boolean</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#byte</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#dateTime</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#dateTimeStamp</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#decimal</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#double</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#float</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#hexBinary</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#int</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#integer</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#language</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#long</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#negativeInteger</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#nonNegativeInteger</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#nonPositiveInteger</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#normalizedString</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#positiveInteger</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#short</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#string</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#token</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#unsignedByte</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#unsignedInt</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#unsignedLong</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#unsignedShort</datatype>
+        <datatype>http://www.w3.org/2002/07/owl#rational</datatype>
+        <datatype>http://www.w3.org/2002/07/owl#real</datatype>
+      </datatypes>
+      <languages>
+        <language>de</language>
+        <language>en</language>
+        <language>es</language>
+        <language>fr</language>
+        <language>it</language>
+      </languages>
+      <facets>
+        <facet>http://www.w3.org/2001/XMLSchema#langRange</facet>
+        <facet>http://www.w3.org/2001/XMLSchema#length</facet>
+        <facet>http://www.w3.org/2001/XMLSchema#maxExclusive</facet>
+        <facet>http://www.w3.org/2001/XMLSchema#maxInclusive</facet>
+        <facet>http://www.w3.org/2001/XMLSchema#maxLength</facet>
+        <facet>http://www.w3.org/2001/XMLSchema#minExclusive</facet>
+        <facet>http://www.w3.org/2001/XMLSchema#minInclusive</facet>
+        <facet>http://www.w3.org/2001/XMLSchema#minLength</facet>
+        <facet>http://www.w3.org/2001/XMLSchema#pattern</facet>
+      </facets>
+      <annotationProperties>
+        <annotationProperty>http://www.w3.org/2000/01/rdf-schema#backwardCompatibleWith</annotationProperty>
+        <annotationProperty>http://www.w3.org/2000/01/rdf-schema#comment</annotationProperty>
+        <annotationProperty>http://www.w3.org/2000/01/rdf-schema#isDefinedBy</annotationProperty>
+        <annotationProperty>http://www.w3.org/2000/01/rdf-schema#label</annotationProperty>
+        <annotationProperty>http://www.w3.org/2002/07/owl#backwardCompatibleWith</annotationProperty>
+        <annotationProperty>http://www.w3.org/2002/07/owl#deprecated</annotationProperty>
+        <annotationProperty>http://www.w3.org/2002/07/owl#incompatibleWith</annotationProperty>
+        <annotationProperty>http://www.w3.org/2002/07/owl#priorVersion</annotationProperty>
+        <annotationProperty>http://www.w3.org/2002/07/owl#versionInfo</annotationProperty>
+      </annotationProperties>
+      <iris>
+        <iri>
+          <value>http://www.obdasystems.com/demo/superheroes/</value>
+        </iri>
+        <iri>
+          <value>http://www.obdasystems.com/demo/superheroes/Ability</value>
+          <annotations>
+            <annotation>
+              <subject>http://www.obdasystems.com/demo/superheroes/Ability</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>Ability</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>it</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>http://www.obdasystems.com/demo/superheroes/Character</value>
+          <annotations>
+            <annotation>
+              <subject>http://www.obdasystems.com/demo/superheroes/Character</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>Character</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>it</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>http://www.obdasystems.com/demo/superheroes/Extraterrestrial</value>
+          <annotations>
+            <annotation>
+              <subject>http://www.obdasystems.com/demo/superheroes/Extraterrestrial</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>Extraterrestrial</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>it</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>http://www.obdasystems.com/demo/superheroes/Human</value>
+          <annotations>
+            <annotation>
+              <subject>http://www.obdasystems.com/demo/superheroes/Human</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>Human</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>it</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>http://www.obdasystems.com/demo/superheroes/Meta_human</value>
+          <annotations>
+            <annotation>
+              <subject>http://www.obdasystems.com/demo/superheroes/Meta_human</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>Meta_human</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>it</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>http://www.obdasystems.com/demo/superheroes/Superhero</value>
+          <annotations>
+            <annotation>
+              <subject>http://www.obdasystems.com/demo/superheroes/Superhero</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>Superhero</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>it</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>http://www.obdasystems.com/demo/superheroes/Superpower</value>
+          <annotations>
+            <annotation>
+              <subject>http://www.obdasystems.com/demo/superheroes/Superpower</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>Superpower</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>it</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>http://www.obdasystems.com/demo/superheroes/Villain</value>
+          <annotations>
+            <annotation>
+              <subject>http://www.obdasystems.com/demo/superheroes/Villain</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>Villain</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>it</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>http://www.obdasystems.com/demo/superheroes/has_ability</value>
+          <annotations>
+            <annotation>
+              <subject>http://www.obdasystems.com/demo/superheroes/has_ability</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>has_ability</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>it</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>http://www.obdasystems.com/demo/superheroes/is_enemy_of</value>
+          <annotations>
+            <annotation>
+              <subject>http://www.obdasystems.com/demo/superheroes/is_enemy_of</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>is_enemy_of</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>it</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>http://www.obdasystems.com/demo/superheroes/name</value>
+          <functional/>
+          <annotations>
+            <annotation>
+              <subject>http://www.obdasystems.com/demo/superheroes/name</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>name</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>it</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>http://www.obdasystems.com/demo/superheroes/origin_planet_name</value>
+          <functional/>
+          <annotations>
+            <annotation>
+              <subject>http://www.obdasystems.com/demo/superheroes/origin_planet_name</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>origin_planet_name</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>it</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+      </iris>
+    </ontology>
+    <diagrams>
+      <diagram height="5000" name="superheroes" width="5000">
+        <node id="n0" color="#fcfcfc" type="concept">
+          <geometry height="50" y="10" width="110" x="120"/>
+          <iri>http://www.obdasystems.com/demo/superheroes/Character</iri>
+          <label height="23" customSize="0" y="10" width="59" x="120" size="12"/>
+        </node>
+        <node id="n1" color="#000000" type="disjoint-union">
+          <geometry height="30" y="140" width="50" x="120"/>
+        </node>
+        <node id="n10" color="#000000" type="range-restriction">
+          <geometry height="20" y="320" width="20" x="390"/>
+          <label height="23" customSize="0" y="298" width="39" x="390" size="12">exists</label>
+        </node>
+        <node id="n11" color="#fcfcfc" type="domain-restriction">
+          <geometry height="20" y="320" width="20" x="270"/>
+          <label height="23" customSize="0" y="340" width="39" x="270" size="12">exists</label>
+        </node>
+        <node id="n12" color="#fcfcfc" type="value-domain">
+          <geometry height="40" y="320" width="90" x="470"/>
+          <iri>http://www.w3.org/2001/XMLSchema#string</iri>
+          <label height="23" customSize="0" y="320" width="60" x="470" size="12"/>
+        </node>
+        <node id="n13" color="#fcfcfc" type="concept">
+          <geometry height="50" y="10" width="110" x="-280"/>
+          <iri>http://www.obdasystems.com/demo/superheroes/Ability</iri>
+          <label height="23" customSize="0" y="10" width="40" x="-280" size="12"/>
+        </node>
+        <node id="n14" color="#fcfcfc" type="role">
+          <geometry height="50" y="10" width="70" x="-80"/>
+          <iri>http://www.obdasystems.com/demo/superheroes/has_ability</iri>
+          <label height="23" customSize="0" y="-25" width="64" x="-80" size="12"/>
+        </node>
+        <node id="n15" color="#fcfcfc" type="domain-restriction">
+          <geometry height="20" y="10" width="20" x="20"/>
+          <label height="23" customSize="0" y="-12" width="39" x="20" size="12">exists</label>
+        </node>
+        <node id="n16" color="#000000" type="range-restriction">
+          <geometry height="20" y="10" width="20" x="-180"/>
+          <label height="23" customSize="0" y="-12" width="39" x="-180" size="12">exists</label>
+        </node>
+        <node id="n17" color="#fcfcfc" type="concept">
+          <geometry height="50" y="10" width="110" x="-450"/>
+          <iri>http://www.obdasystems.com/demo/superheroes/Superpower</iri>
+          <label height="23" customSize="0" y="10" width="71" x="-450" size="12"/>
+        </node>
+        <node id="n18" color="#fcfcfc" type="attribute">
+          <geometry height="20" y="180" width="20" x="-330"/>
+          <iri>http://www.obdasystems.com/demo/superheroes/name</iri>
+          <label height="23" customSize="0" y="200" width="37" x="-330" size="12"/>
+        </node>
+        <node id="n19" color="#000000" type="range-restriction">
+          <geometry height="20" y="180" width="20" x="-380"/>
+          <label height="23" customSize="0" y="158" width="39" x="-380" size="12">exists</label>
+        </node>
+        <node id="n2" color="#fcfcfc" type="concept">
+          <geometry height="50" y="230" width="110" x="-30"/>
+          <iri>http://www.obdasystems.com/demo/superheroes/Human</iri>
+          <label height="23" customSize="0" y="230" width="46" x="-30" size="12"/>
+        </node>
+        <node id="n20" color="#fcfcfc" type="domain-restriction">
+          <geometry height="20" y="180" width="20" x="-280"/>
+          <label height="23" customSize="0" y="205" width="39" x="-280" size="12">exists</label>
+        </node>
+        <node id="n21" color="#fcfcfc" type="value-domain">
+          <geometry height="40" y="180" width="90" x="-470"/>
+          <iri>http://www.w3.org/2001/XMLSchema#string</iri>
+          <label height="23" customSize="0" y="180" width="60" x="-470" size="12"/>
+        </node>
+        <node id="n22" color="#fcfcfc" type="concept">
+          <geometry height="50" y="-150" width="110" x="-90"/>
+          <iri>http://www.obdasystems.com/demo/superheroes/Villain</iri>
+          <label height="23" customSize="0" y="-150" width="40" x="-90" size="12"/>
+        </node>
+        <node id="n23" color="#000000" type="disjoint-union">
+          <geometry height="30" y="-70" width="50" x="120"/>
+        </node>
+        <node id="n24" color="#fcfcfc" type="concept">
+          <geometry height="50" y="-150" width="110" x="310"/>
+          <iri>http://www.obdasystems.com/demo/superheroes/Superhero</iri>
+          <label height="23" customSize="0" y="-150" width="62" x="310" size="12"/>
+        </node>
+        <node id="n25" color="#fcfcfc" type="role">
+          <geometry height="50" y="-150" width="70" x="120"/>
+          <iri>http://www.obdasystems.com/demo/superheroes/is_enemy_of</iri>
+          <label height="23" customSize="0" y="-185" width="74" x="133" size="12"/>
+        </node>
+        <node id="n3" color="#fcfcfc" type="concept">
+          <geometry height="50" y="230" width="110" x="120"/>
+          <iri>http://www.obdasystems.com/demo/superheroes/Meta_human</iri>
+          <label height="23" customSize="0" y="230" width="77" x="120" size="12"/>
+        </node>
+        <node id="n32" color="#fcfcfc" type="domain-restriction">
+          <geometry height="20" y="-150" width="20" x="50"/>
+          <label height="23" customSize="0" y="-172" width="39" x="50" size="12">exists</label>
+        </node>
+        <node id="n33" color="#000000" type="range-restriction">
+          <geometry height="20" y="-150" width="20" x="190"/>
+          <label height="23" customSize="0" y="-172" width="39" x="190" size="12">exists</label>
+        </node>
+        <node id="n35" color="#fcfcfc" type="domain-restriction">
+          <geometry height="20" y="120" width="20" x="-330"/>
+          <label height="23" customSize="0" y="120" width="39" x="-360" size="12">exists</label>
+        </node>
+        <node id="n36" color="#fcfcfc" type="union">
+          <geometry height="30" y="90" width="50" x="-280"/>
+          <label height="23" customSize="0" y="90" width="18" x="-280" size="12"/>
+        </node>
+        <node id="n4" color="#fcfcfc" type="concept">
+          <geometry height="50" y="230" width="110" x="270"/>
+          <iri>http://www.obdasystems.com/demo/superheroes/Extraterrestrial</iri>
+          <label height="23" customSize="0" y="230" width="86" x="270" size="12"/>
+        </node>
+        <node id="n9" color="#fcfcfc" type="attribute">
+          <geometry height="20" y="320" width="20" x="330"/>
+          <iri>http://www.obdasystems.com/demo/superheroes/origin_planet_name</iri>
+          <label height="23" customSize="0" y="345" width="111" x="363" size="12"/>
+        </node>
+        <edge target="n1" id="e0" source="n0" type="equivalence">
+          <point y="10" x="120"/>
+          <point y="140" x="120"/>
+        </edge>
+        <edge target="n1" id="e1" source="n2" type="input">
+          <point y="230" x="-30"/>
+          <point y="140" x="-30"/>
+          <point y="140" x="120"/>
+        </edge>
+        <edge target="n10" id="e10" source="n9" type="input">
+          <point y="320" x="330"/>
+          <point y="320" x="390"/>
+        </edge>
+        <edge target="n11" id="e11" source="n4" type="inclusion">
+          <point y="230" x="270"/>
+          <point y="320" x="270"/>
+        </edge>
+        <edge target="n15" id="e12" source="n14" type="input">
+          <point y="10" x="-80"/>
+          <point y="10" x="20"/>
+        </edge>
+        <edge target="n16" id="e13" source="n14" type="input">
+          <point y="10" x="-80"/>
+          <point y="10" x="-180"/>
+        </edge>
+        <edge target="n13" id="e14" source="n16" type="inclusion">
+          <point y="10" x="-180"/>
+          <point y="10" x="-280"/>
+        </edge>
+        <edge target="n13" id="e15" source="n17" type="inclusion">
+          <point y="10" x="-450"/>
+          <point y="10" x="-280"/>
+        </edge>
+        <edge target="n0" id="e16" source="n15" type="inclusion">
+          <point y="10" x="20"/>
+          <point y="10" x="120"/>
+        </edge>
+        <edge target="n21" id="e17" source="n19" type="inclusion">
+          <point y="180" x="-380"/>
+          <point y="180" x="-470"/>
+        </edge>
+        <edge target="n20" id="e18" source="n18" type="input">
+          <point y="180" x="-330"/>
+          <point y="180" x="-280"/>
+        </edge>
+        <edge target="n19" id="e19" source="n18" type="input">
+          <point y="180" x="-330"/>
+          <point y="180" x="-380"/>
+        </edge>
+        <edge target="n1" id="e2" source="n3" type="input">
+          <point y="230" x="120"/>
+          <point y="140" x="120"/>
+        </edge>
+        <edge target="n0" id="e21" source="n23" type="inclusion">
+          <point y="-70" x="120"/>
+          <point y="10" x="120"/>
+        </edge>
+        <edge target="n23" id="e22" source="n22" type="input">
+          <point y="-150" x="-90"/>
+          <point y="-70" x="-90"/>
+          <point y="-70" x="120"/>
+        </edge>
+        <edge target="n23" id="e23" source="n24" type="input">
+          <point y="-150" x="310"/>
+          <point y="-70" x="310"/>
+          <point y="-70" x="120"/>
+        </edge>
+        <edge target="n33" id="e24" source="n25" type="input">
+          <point y="-150" x="120"/>
+          <point y="-150" x="190"/>
+        </edge>
+        <edge target="n32" id="e25" source="n25" type="input">
+          <point y="-150" x="120"/>
+          <point y="-150" x="50"/>
+        </edge>
+        <edge target="n22" id="e27" source="n32" type="equivalence">
+          <point y="-150" x="50"/>
+          <point y="-150" x="-90"/>
+        </edge>
+        <edge target="n36" id="e28" source="n13" type="input">
+          <point y="10" x="-280"/>
+          <point y="90" x="-280"/>
+        </edge>
+        <edge target="n36" id="e29" source="n0" type="input">
+          <point y="34" x="90"/>
+          <point y="90" x="90"/>
+          <point y="90" x="-280"/>
+        </edge>
+        <edge target="n1" id="e3" source="n4" type="input">
+          <point y="230" x="270"/>
+          <point y="140" x="270"/>
+          <point y="140" x="120"/>
+        </edge>
+        <edge target="n36" id="e30" source="n20" type="inclusion">
+          <point y="180" x="-280"/>
+          <point y="90" x="-280"/>
+        </edge>
+        <edge target="n35" id="e31" source="n18" type="input">
+          <point y="180" x="-330"/>
+          <point y="120" x="-330"/>
+        </edge>
+        <edge target="n35" id="e32" source="n13" type="inclusion">
+          <point y="34" x="-330"/>
+          <point y="120" x="-330"/>
+        </edge>
+        <edge target="n33" id="e33" source="n24" type="equivalence">
+          <point y="-150" x="310"/>
+          <point y="-150" x="190"/>
+        </edge>
+        <edge target="n12" id="e8" source="n10" type="inclusion">
+          <point y="320" x="390"/>
+          <point y="320" x="470"/>
+        </edge>
+        <edge target="n11" id="e9" source="n9" type="input">
+          <point y="320" x="330"/>
+          <point y="320" x="270"/>
+        </edge>
+      </diagram>
+    </diagrams>
+  </project>
+</graphol>
