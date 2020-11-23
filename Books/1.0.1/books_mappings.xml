@@ -212,7 +212,7 @@ FROM tb_books</SQLQuery>
     pub_date as date,
     n_edt as edt,
     editor as id,
-    bk_id
+    bk_id as bk_id
 FROM tb_edition</SQLQuery>
         </primitiveView>
         <primitiveView>
