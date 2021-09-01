@@ -582,7 +582,7 @@ p, li { white-space: pre-wrap; }
           <iri>http://www.obdasystems.com/books/AudioBook</iri>
           <label y="310" height="23" size="12" customSize="0" width="66" x="600"/>
         </node>
-        <node id="n50" inputs="e61,e62,e63,e65" color="#fcfcfc" type="has-key">
+        <node id="n50" inputs="e61,e62,e63" color="#fcfcfc" type="has-key">
           <geometry y="100" height="30" width="50" x="-230"/>
           <label y="100" height="23" size="12" customSize="0" width="25" x="-230"/>
         </node>
@@ -838,11 +838,6 @@ p, li { white-space: pre-wrap; }
         <edge id="e63" target="n50" source="n16" type="input">
           <point y="170" x="-170"/>
           <point y="170" x="-230"/>
-          <point y="100" x="-230"/>
-        </edge>
-        <edge id="e65" target="n50" source="n11" type="input">
-          <point y="-80" x="-10"/>
-          <point y="-80" x="-230"/>
           <point y="100" x="-230"/>
         </edge>
         <edge id="e66" target="n51" source="n12" type="input">
