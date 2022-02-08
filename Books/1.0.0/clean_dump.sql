@@ -53,3 +53,105 @@ CREATE TABLE tb_on_prob_wr (
   PRIMARY KEY (wr_code)
 ) ;
 INSERT INTO tb_on_prob_wr VALUES (267,'Peter Griffin'),(278,'Homer Simpson'),(289,'Jon Stewart');
+
+CREATE TABLE tb_employees
+(
+  employee_id int,
+  vat varchar,
+  profession int,
+  employee_name varchar,
+  retired bool
+);
+
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (23, null, 'AUTHOR', 'AJ Scudiere', null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (25, null, 'AUTHOR', 'Anne Rainey', null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (27, null, 'AUTHOR', 'Barbara Delinsky', null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (34, null, 'AUTHOR', 'Chas Wienke', null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (43, null, 'AUTHOR', 'D.C. Ford', null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (45, null, 'AUTHOR', 'D. E. Knobbe', null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (47, 'DVDCDS', 'AUTHOR', 'David Cogswell', null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (76, 'DLSCLG', 'AUTHOR', 'Douglas Clegg', null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (78, null, 'AUTHOR', 'Iris Johanesen', null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (98, 'JANGRO', 'AUTHOR', 'Jan Groft', null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (101, 'JFFHVN', 'AUTHOR', 'Jeff Havens', null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (102, 'KATPRC', 'AUTHOR', 'Kate Pearce', null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (123, null, 'AUTHOR', 'L.C. Higgs', null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (127, null, 'AUTHOR', 'Melissa Mayhue', null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (134, null, 'AUTHOR', 'Mike Green', null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (145, null, 'AUTHOR', 'S. C. Carr', null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (156, null, 'AUTHOR', 'Shirley Tallman', null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (167, null, 'AUTHOR', 'Stacy Choen', null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (178, null, 'AUTHOR', 'Susan Lyons', null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (189, null, 'AUTHOR', 'Tim Davys', null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (234, null, 'AUTHOR', 'Tracy Richardson', null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (245, null, 'AUTHOR', 'William Boyd', 1);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (300, null, 'AUTHOR', null, null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (301, null, 'AUTHOR', null, null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (189, null, 'AUTHOR', null, null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (123, null, 'AUTHOR', null, null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (45, null, 'AUTHOR', null, null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (76, null, 'AUTHOR', null, null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (78, null, 'AUTHOR', null, null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (156, null, 'AUTHOR', null, null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (189, null, 'AUTHOR', null, null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (25, null, 'AUTHOR', null, null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (47, null, 'AUTHOR', null, null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (123, null, 'AUTHOR', null, null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (43, null, 'AUTHOR', null, null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (245, null, 'AUTHOR', null, null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (127, null, 'AUTHOR', null, null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (234, null, 'AUTHOR', null, null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (76, null, 'AUTHOR', null, null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (78, null, 'AUTHOR', null, null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (27, null, 'AUTHOR', null, null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (167, null, 'AUTHOR', null, null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (34, null, 'AUTHOR', null, null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (134, null, 'AUTHOR', null, null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (23, null, 'AUTHOR', null, null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (25, null, 'AUTHOR', null, null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (24, null, 'AUTHOR', null, null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (156, null, 'AUTHOR', null, null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (47, null, 'AUTHOR', null, null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (133, null, 'EDITOR', null, null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (176, null, 'EDITOR', null, null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (176, null, 'EDITOR', null, null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (198, null, 'EDITOR', null, null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (198, null, 'EDITOR', null, null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (125, null, 'EDITOR', null, null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (132, null, 'EDITOR', null, null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (132, null, 'EDITOR', null, null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (125, null, 'EDITOR', null, null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (133, null, 'EDITOR', null, null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (187, null, 'EDITOR', null, null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (154, 'MRCGCM', 'EDITOR', null, null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (112, null, 'EDITOR', null, null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (132, null, 'EDITOR', null, null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (187, null, 'EDITOR', null, null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (165, null, 'EDITOR', null, null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (121, null, 'EDITOR', null, null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (187, null, 'EDITOR', null, null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (165, null, 'EDITOR', null, null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (121, null, 'EDITOR', null, null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (144, null, 'EDITOR', null, null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (133, null, 'EDITOR', null, null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (187, null, 'EDITOR', null, null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (125, null, 'EDITOR', null, null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (112, null, 'EDITOR', null, null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (112, null, 'EDITOR', null, null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (132, null, 'EDITOR', null, null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (125, null, 'EDITOR', null, null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (112, 'PALGLD', 'EDITOR', 'Paul Golden', null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (121, 'PATRED', 'EDITOR', 'Pat Red', null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (125, 'SMNFRS', 'EDITOR', 'Simon Frost', null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (132, null, 'EDITOR', 'Melody Albert', null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (133, null, 'EDITOR', 'Valerio Nin', null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (144, null, 'EDITOR', 'Victoria Rolls', null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (154, null, 'EDITOR', 'Karl Forman', null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (165, null, 'EDITOR', 'Fill Luckett', null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (176, null, 'EDITOR', 'Eric Jonnes', null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (187, null, 'EDITOR', 'Bill Sugar', null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (198, null, 'EDITOR', 'Bill Green', null);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (null, 'LSAMCG', 'SECRETARY', 'Lisa McGill', 0);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (null, 'JHNSKW', 'SECRETARY', 'John Skow', 0);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (null, 'MCHJOD', 'SECRETARY', 'Micheal Joody', 1);
+INSERT INTO books.tb_employees (employee_id, vat, profession, employee_name, retired) VALUES (null, 'BRDBRD', 'MANAGER', 'Bridgitte Bird', 0);
