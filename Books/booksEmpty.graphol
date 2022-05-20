@@ -1,0 +1,1596 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphol version="3">
+  <project version="http://www.obdasystems.com/books/3.1" name="Books">
+    <ontology iri="http://www.obdasystems.com/books/" addLabelFromUserInput="0" addLabelFromSimpleName="0" lang="en">
+      <imports/>
+      <prefixes>
+        <prefix>
+          <value></value>
+          <namespace>http://www.obdasystems.com/books/</namespace>
+        </prefix>
+        <prefix>
+          <value>owl</value>
+          <namespace>http://www.w3.org/2002/07/owl#</namespace>
+        </prefix>
+        <prefix>
+          <value>rdf</value>
+          <namespace>http://www.w3.org/1999/02/22-rdf-syntax-ns#</namespace>
+        </prefix>
+        <prefix>
+          <value>rdfs</value>
+          <namespace>http://www.w3.org/2000/01/rdf-schema#</namespace>
+        </prefix>
+        <prefix>
+          <value>skos</value>
+          <namespace>http://www.w3.org/2004/02/skos/core#</namespace>
+        </prefix>
+        <prefix>
+          <value>swrl</value>
+          <namespace>http://www.w3.org/2003/11/swrl#</namespace>
+        </prefix>
+        <prefix>
+          <value>swrlb</value>
+          <namespace>http://www.w3.org/2003/11/swrlb#</namespace>
+        </prefix>
+        <prefix>
+          <value>time</value>
+          <namespace>http://www.w3.org/2006/time#</namespace>
+        </prefix>
+        <prefix>
+          <value>xml</value>
+          <namespace>http://www.w3.org/XML/1998/namespace</namespace>
+        </prefix>
+        <prefix>
+          <value>xsd</value>
+          <namespace>http://www.w3.org/2001/XMLSchema#</namespace>
+        </prefix>
+      </prefixes>
+      <datatypes>
+        <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+        <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#XMLLiteral</datatype>
+        <datatype>http://www.w3.org/2000/01/rdf-schema#Literal</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#NCName</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#NMTOKEN</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#Name</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#anyURI</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#base64Binary</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#boolean</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#byte</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#dateTime</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#dateTimeStamp</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#decimal</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#double</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#float</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#hexBinary</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#int</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#integer</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#language</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#long</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#negativeInteger</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#nonNegativeInteger</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#nonPositiveInteger</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#normalizedString</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#positiveInteger</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#short</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#string</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#token</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#unsignedByte</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#unsignedInt</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#unsignedLong</datatype>
+        <datatype>http://www.w3.org/2001/XMLSchema#unsignedShort</datatype>
+        <datatype>http://www.w3.org/2002/07/owl#rational</datatype>
+        <datatype>http://www.w3.org/2002/07/owl#real</datatype>
+      </datatypes>
+      <languages>
+        <language>de</language>
+        <language>en</language>
+        <language>es</language>
+        <language>fr</language>
+        <language>it</language>
+      </languages>
+      <facets>
+        <facet>http://www.w3.org/2001/XMLSchema#langRange</facet>
+        <facet>http://www.w3.org/2001/XMLSchema#length</facet>
+        <facet>http://www.w3.org/2001/XMLSchema#maxExclusive</facet>
+        <facet>http://www.w3.org/2001/XMLSchema#maxInclusive</facet>
+        <facet>http://www.w3.org/2001/XMLSchema#maxLength</facet>
+        <facet>http://www.w3.org/2001/XMLSchema#minExclusive</facet>
+        <facet>http://www.w3.org/2001/XMLSchema#minInclusive</facet>
+        <facet>http://www.w3.org/2001/XMLSchema#minLength</facet>
+        <facet>http://www.w3.org/2001/XMLSchema#pattern</facet>
+      </facets>
+      <annotationProperties>
+        <annotationProperty>http://www.w3.org/2000/01/rdf-schema#backwardCompatibleWith</annotationProperty>
+        <annotationProperty>http://www.w3.org/2000/01/rdf-schema#comment</annotationProperty>
+        <annotationProperty>http://www.w3.org/2000/01/rdf-schema#isDefinedBy</annotationProperty>
+        <annotationProperty>http://www.w3.org/2000/01/rdf-schema#label</annotationProperty>
+        <annotationProperty>http://www.w3.org/2002/07/owl#backwardCompatibleWith</annotationProperty>
+        <annotationProperty>http://www.w3.org/2002/07/owl#deprecated</annotationProperty>
+        <annotationProperty>http://www.w3.org/2002/07/owl#incompatibleWith</annotationProperty>
+        <annotationProperty>http://www.w3.org/2002/07/owl#priorVersion</annotationProperty>
+        <annotationProperty>http://www.w3.org/2002/07/owl#versionInfo</annotationProperty>
+      </annotationProperties>
+      <iris>
+        <iri>
+          <value>http://www.obdasystems.com/books/</value>
+        </iri>
+        <iri>
+          <value>http://www.obdasystems.com/books/AudioBook</value>
+          <annotations>
+            <annotation>
+              <subject>http://www.obdasystems.com/books/AudioBook</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>AudioBook</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>it</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>http://www.obdasystems.com/books/Author</value>
+          <annotations>
+            <annotation>
+              <subject>http://www.obdasystems.com/books/Author</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>Author</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>it</language>
+              </object>
+            </annotation>
+            <annotation>
+              <subject>http://www.obdasystems.com/books/Author</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#comment</property>
+              <object>
+                <lexicalForm>An author is the creator or originator of any written work such as a book or play, and is also considered a writer or poet.
+</lexicalForm>
+                <datatype/>
+                <language>en</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>http://www.obdasystems.com/books/Book</value>
+          <annotations>
+            <annotation>
+              <subject>http://www.obdasystems.com/books/Book</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>Book</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>it</language>
+              </object>
+            </annotation>
+            <annotation>
+              <subject>http://www.obdasystems.com/books/Book</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#comment</property>
+              <object>
+                <lexicalForm>A book is a medium for recording information in the form of writing or images, typically composed of many pages (made of papyrus, parchment, vellum, or paper) bound together and protected by a cover. The technical term for this physical arrangement is codex (plural, codices). In the history of hand-held physical supports for extended written compositions or records, the codex replaces its predecessor, the scroll. A single sheet in a codex is a leaf and each side of a leaf is a page.</lexicalForm>
+                <datatype/>
+                <language>en</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>http://www.obdasystems.com/books/ClassicBook</value>
+          <annotations>
+            <annotation>
+              <subject>http://www.obdasystems.com/books/ClassicBook</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>ClassicBook</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>en</language>
+              </object>
+            </annotation>
+            <annotation>
+              <subject>http://www.obdasystems.com/books/ClassicBook</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#comment</property>
+              <object>
+                <lexicalForm>A classic is a book accepted as being exemplary or noteworthy.</lexicalForm>
+                <datatype/>
+                <language>it</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>http://www.obdasystems.com/books/E-Book</value>
+          <annotations>
+            <annotation>
+              <subject>http://www.obdasystems.com/books/E-Book</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>E-Book</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>it</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>http://www.obdasystems.com/books/EconomicEdition</value>
+          <annotations>
+            <annotation>
+              <subject>http://www.obdasystems.com/books/EconomicEdition</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>EconomicEdition</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>it</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>http://www.obdasystems.com/books/Edition</value>
+          <annotations>
+            <annotation>
+              <subject>http://www.obdasystems.com/books/Edition</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>Edition</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>it</language>
+              </object>
+            </annotation>
+            <annotation>
+              <subject>http://www.obdasystems.com/books/Edition</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#comment</property>
+              <object>
+                <lexicalForm>The bibliographical definition of an edition includes all copies of a book printed “from substantially the same setting of type,” including all minor typographical variants.</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>en</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>http://www.obdasystems.com/books/EmergingWriter</value>
+          <annotations>
+            <annotation>
+              <subject>http://www.obdasystems.com/books/EmergingWriter</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>EmergingWriter</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>it</language>
+              </object>
+            </annotation>
+            <annotation>
+              <subject>http://www.obdasystems.com/books/EmergingWriter</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#comment</property>
+              <object>
+                <lexicalForm>It is an author which is not already well known by a large group of people.</lexicalForm>
+                <datatype/>
+                <language>en</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>http://www.obdasystems.com/books/Person</value>
+          <annotations>
+            <annotation>
+              <subject>http://www.obdasystems.com/books/Person</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>Person</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>en</language>
+              </object>
+            </annotation>
+            <annotation>
+              <subject>http://www.obdasystems.com/books/Person</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#comment</property>
+              <object>
+                <lexicalForm>A person (plural people or persons) is a being that has certain capacities or attributes such as reason, morality, consciousness or self-consciousness, and being a part of a culturally established form of social relations such as kinship, ownership of property, or legal responsibility.
+</lexicalForm>
+                <datatype/>
+                <language>en</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>http://www.obdasystems.com/books/PrintedBook</value>
+          <annotations>
+            <annotation>
+              <subject>http://www.obdasystems.com/books/PrintedBook</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>PrintedBook</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>it</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>http://www.obdasystems.com/books/Publisher</value>
+          <annotations>
+            <annotation>
+              <subject>http://www.obdasystems.com/books/Publisher</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>Publisher</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>en</language>
+              </object>
+            </annotation>
+            <annotation>
+              <subject>http://www.obdasystems.com/books/Publisher</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#comment</property>
+              <object>
+                <lexicalForm>The publisher's activity is of making information, literature, music, software and other content available to the public for sale or for free.
+</lexicalForm>
+                <datatype/>
+                <language>en</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>http://www.obdasystems.com/books/ScientificBook</value>
+          <annotations>
+            <annotation>
+              <subject>http://www.obdasystems.com/books/ScientificBook</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>ScientificBook</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>en</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>http://www.obdasystems.com/books/ScientificBookRevision</value>
+          <annotations>
+            <annotation>
+              <subject>http://www.obdasystems.com/books/ScientificBookRevision</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>ScientificBook
+Revision</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>en</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>http://www.obdasystems.com/books/SpecialEdition</value>
+          <annotations>
+            <annotation>
+              <subject>http://www.obdasystems.com/books/SpecialEdition</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>SpecialEdition</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>it</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>http://www.obdasystems.com/books/UnpublishedBook</value>
+          <annotations>
+            <annotation>
+              <subject>http://www.obdasystems.com/books/UnpublishedBook</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>UnpublishedBook</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>en</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>http://www.obdasystems.com/books/actAsAuthor</value>
+          <annotations>
+            <annotation>
+              <subject>http://www.obdasystems.com/books/actAsAuthor</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>actAsAuthor</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>en</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>http://www.obdasystems.com/books/actAsPublisher</value>
+          <annotations>
+            <annotation>
+              <subject>http://www.obdasystems.com/books/actAsPublisher</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>actAsPublisher</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>en</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>http://www.obdasystems.com/books/dateOfBirth</value>
+          <functional/>
+          <annotations>
+            <annotation>
+              <subject>http://www.obdasystems.com/books/dateOfBirth</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>dateOfBirth</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>en</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>http://www.obdasystems.com/books/dateOfPublication</value>
+          <functional/>
+          <annotations>
+            <annotation>
+              <subject>http://www.obdasystems.com/books/dateOfPublication</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>dateOfPublication</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>it</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>http://www.obdasystems.com/books/durationInSeconds</value>
+          <annotations>
+            <annotation>
+              <subject>http://www.obdasystems.com/books/durationInSeconds</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>durationInSeconds</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>en</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>http://www.obdasystems.com/books/editionNumber</value>
+          <functional/>
+          <annotations>
+            <annotation>
+              <subject>http://www.obdasystems.com/books/editionNumber</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>editionNumber</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>it</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>http://www.obdasystems.com/books/genre</value>
+          <annotations>
+            <annotation>
+              <subject>http://www.obdasystems.com/books/genre</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>genre</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>it</language>
+              </object>
+            </annotation>
+            <annotation>
+              <subject>http://www.obdasystems.com/books/genre</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#comment</property>
+              <object>
+                <lexicalForm>It is a genre of the book which describe the style in which the book is written</lexicalForm>
+                <datatype/>
+                <language>en</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>http://www.obdasystems.com/books/hasBookRevision</value>
+          <inverseFunctional/>
+          <annotations>
+            <annotation>
+              <subject>http://www.obdasystems.com/books/hasBookRevision</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>hasBookRevision</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>en</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>http://www.obdasystems.com/books/hasEdition</value>
+          <inverseFunctional/>
+          <annotations>
+            <annotation>
+              <subject>http://www.obdasystems.com/books/hasEdition</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>hasEdition</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>it</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>http://www.obdasystems.com/books/name</value>
+          <functional/>
+          <annotations>
+            <annotation>
+              <subject>http://www.obdasystems.com/books/name</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>name</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>en</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>http://www.obdasystems.com/books/numberOfPages</value>
+          <annotations>
+            <annotation>
+              <subject>http://www.obdasystems.com/books/numberOfPages</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>numberOfPages</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>en</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>http://www.obdasystems.com/books/penName</value>
+          <annotations>
+            <annotation>
+              <subject>http://www.obdasystems.com/books/penName</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>penName</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>en</language>
+              </object>
+            </annotation>
+            <annotation>
+              <subject>http://www.obdasystems.com/books/penName</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#comment</property>
+              <object>
+                <lexicalForm>A pen name, also called a nom de plume or a literary double, is a pseudonym (or, in some cases, a variant form of a real name) adopted by an author and printed on the title page or by-line of their works in place of their real name.
+</lexicalForm>
+                <datatype/>
+                <language>en</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>http://www.obdasystems.com/books/priceInDollars</value>
+          <functional/>
+          <annotations>
+            <annotation>
+              <subject>http://www.obdasystems.com/books/priceInDollars</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>priceInDollars</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>en</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>http://www.obdasystems.com/books/publishedBy</value>
+          <annotations>
+            <annotation>
+              <subject>http://www.obdasystems.com/books/publishedBy</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>publishedBy</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>en</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>http://www.obdasystems.com/books/scientificBookRevisionDate</value>
+          <annotations>
+            <annotation>
+              <subject>http://www.obdasystems.com/books/scientificBookRevisionDate</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>scientificBookRevisionDate</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>en</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>http://www.obdasystems.com/books/scientificTopic</value>
+          <annotations>
+            <annotation>
+              <subject>http://www.obdasystems.com/books/scientificTopic</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>scientificTopic</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>en</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>http://www.obdasystems.com/books/title</value>
+          <functional/>
+          <annotations>
+            <annotation>
+              <subject>http://www.obdasystems.com/books/title</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>title</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>it</language>
+              </object>
+            </annotation>
+            <annotation>
+              <subject>http://www.obdasystems.com/books/title</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#comment</property>
+              <object>
+                <lexicalForm>It is the title of the book. It identifies the book along eith the author.</lexicalForm>
+                <datatype/>
+                <language>en</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>http://www.obdasystems.com/books/vatNumber</value>
+          <functional/>
+          <annotations>
+            <annotation>
+              <subject>http://www.obdasystems.com/books/vatNumber</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>vatNumber</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>en</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+        <iri>
+          <value>http://www.obdasystems.com/books/writtenBy</value>
+          <annotations>
+            <annotation>
+              <subject>http://www.obdasystems.com/books/writtenBy</subject>
+              <property>http://www.w3.org/2000/01/rdf-schema#label</property>
+              <object>
+                <lexicalForm>writtenBy</lexicalForm>
+                <datatype>http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral</datatype>
+                <language>it</language>
+              </object>
+            </annotation>
+          </annotations>
+        </iri>
+      </iris>
+    </ontology>
+    <diagrams>
+      <diagram width="10000" height="10000" name="books">
+        <node type="concept" color="#fcfcfc" id="n1">
+          <geometry width="110" x="-420" y="-10" height="50"/>
+          <iri>http://www.obdasystems.com/books/Edition</iri>
+          <label width="44" x="-420" y="-10" customSize="0" size="12" height="23"/>
+        </node>
+        <node type="role" color="#fcfcfc" id="n108">
+          <geometry width="70" x="200" y="-350" height="50"/>
+          <iri>http://www.obdasystems.com/books/actAsAuthor</iri>
+          <label width="74" x="200" y="-380" customSize="0" size="12" height="23"/>
+        </node>
+        <node type="domain-restriction" color="#fcfcfc" id="n112">
+          <geometry width="20" x="100" y="-350" height="20"/>
+          <label width="39" x="100" y="-330" customSize="0" size="12" height="23">exists</label>
+        </node>
+        <node type="range-restriction" color="#000000" id="n113">
+          <geometry width="20" x="300" y="-350" height="20"/>
+          <label width="39" x="300" y="-372" customSize="0" size="12" height="23">exists</label>
+        </node>
+        <node type="role" color="#fcfcfc" id="n118">
+          <geometry width="70" x="-180" y="-350" height="50"/>
+          <iri>http://www.obdasystems.com/books/actAsPublisher</iri>
+          <label width="88" x="-180" y="-380" customSize="0" size="12" height="23"/>
+        </node>
+        <node type="range-restriction" color="#000000" id="n119">
+          <geometry width="20" x="-280" y="-350" height="20"/>
+          <label width="39" x="-280" y="-372" customSize="0" size="12" height="23">exists</label>
+        </node>
+        <node type="role" color="#fcfcfc" id="n12">
+          <geometry width="70" x="-120" y="-10" height="50"/>
+          <iri>http://www.obdasystems.com/books/hasEdition</iri>
+          <label width="63" x="-155" y="-45" customSize="0" size="12" height="23"/>
+        </node>
+        <node type="domain-restriction" color="#fcfcfc" id="n120">
+          <geometry width="20" x="-80" y="-350" height="20"/>
+          <label width="39" x="-80" y="-372" customSize="0" size="12" height="23">exists</label>
+        </node>
+        <node type="attribute" color="#fcfcfc" id="n121">
+          <geometry width="20" x="770" y="-70" height="20"/>
+          <iri>http://www.obdasystems.com/books/penName</iri>
+          <label width="59" x="730" y="-70" customSize="0" size="12" height="23"/>
+        </node>
+        <node type="domain-restriction" color="#fcfcfc" id="n122">
+          <geometry width="20" x="770" y="-10" height="20"/>
+          <label width="39" x="770" y="10" customSize="0" size="12" height="23">exists</label>
+        </node>
+        <node type="range-restriction" color="#000000" id="n123">
+          <geometry width="20" x="770" y="-140" height="20"/>
+          <label width="39" x="805" y="-140" customSize="0" size="12" height="23">exists</label>
+        </node>
+        <node type="value-domain" color="#fcfcfc" id="n124">
+          <geometry width="90" x="770" y="-220" height="40"/>
+          <iri>http://www.w3.org/2001/XMLSchema#string</iri>
+          <label width="60" x="770" y="-220" customSize="0" size="12" height="23"/>
+        </node>
+        <node type="concept" color="#fcfcfc" id="n126">
+          <geometry width="110" x="100" y="220" height="50"/>
+          <iri>http://www.obdasystems.com/books/UnpublishedBook</iri>
+          <label width="101" x="100" y="220" customSize="0" size="12" height="23"/>
+        </node>
+        <node type="concept" color="#fcfcfc" id="n127">
+          <geometry width="110" x="320" y="300" height="50"/>
+          <iri>http://www.obdasystems.com/books/ScientificBook</iri>
+          <label width="84" x="320" y="300" customSize="0" size="12" height="23"/>
+        </node>
+        <node type="concept" color="#fcfcfc" id="n129">
+          <geometry width="110" x="660" y="420" height="50"/>
+          <iri>http://www.obdasystems.com/books/ScientificBookRevision</iri>
+          <label width="84" x="660" y="420" customSize="0" size="12" height="38"/>
+        </node>
+        <node type="role" color="#fcfcfc" id="n13">
+          <geometry width="70" x="410" y="-10" height="50"/>
+          <iri>http://www.obdasystems.com/books/writtenBy</iri>
+          <label width="57" x="410" y="-45" customSize="0" size="12" height="23"/>
+        </node>
+        <node type="role" color="#fcfcfc" id="n130">
+          <geometry width="70" x="420" y="420" height="50"/>
+          <iri>http://www.obdasystems.com/books/hasBookRevision</iri>
+          <label width="99" x="420" y="390" customSize="0" size="12" height="23"/>
+        </node>
+        <node type="domain-restriction" color="#fcfcfc" id="n131">
+          <geometry width="20" x="320" y="420" height="20"/>
+          <label width="39" x="320" y="440" customSize="0" size="12" height="23">exists</label>
+        </node>
+        <node type="range-restriction" color="#000000" id="n132">
+          <geometry width="20" x="520" y="420" height="20"/>
+          <label width="39" x="520" y="398" customSize="0" size="12" height="23">exists</label>
+        </node>
+        <node type="attribute" color="#fcfcfc" id="n135">
+          <geometry width="20" x="460" y="240" height="20"/>
+          <iri>http://www.obdasystems.com/books/scientificTopic</iri>
+          <label width="85" x="460" y="218" customSize="0" size="12" height="23"/>
+        </node>
+        <node type="domain-restriction" color="#fcfcfc" id="n136">
+          <geometry width="20" x="380" y="240" height="20"/>
+          <label width="39" x="380" y="218" customSize="0" size="12" height="23">exists</label>
+        </node>
+        <node type="attribute" color="#fcfcfc" id="n137">
+          <geometry width="20" x="740" y="340" height="20"/>
+          <iri>http://www.obdasystems.com/books/scientificBookRevisionDate</iri>
+          <label width="152" x="740" y="305" customSize="0" size="12" height="23"/>
+        </node>
+        <node type="domain-restriction" color="#fcfcfc" id="n138">
+          <geometry width="20" x="660" y="340" height="20"/>
+          <label width="39" x="660" y="318" customSize="0" size="12" height="23">exists</label>
+        </node>
+        <node type="range-restriction" color="#000000" id="n139">
+          <geometry width="20" x="820" y="340" height="20"/>
+          <label width="39" x="820" y="318" customSize="0" size="12" height="23">exists</label>
+        </node>
+        <node type="range-restriction" color="#000000" id="n140">
+          <geometry width="20" x="540" y="240" height="20"/>
+          <label width="39" x="540" y="218" customSize="0" size="12" height="23">exists</label>
+        </node>
+        <node type="value-domain" color="#fcfcfc" id="n141">
+          <geometry width="90" x="640" y="240" height="40"/>
+          <iri>http://www.w3.org/2001/XMLSchema#string</iri>
+          <label width="60" x="640" y="240" customSize="0" size="12" height="23"/>
+        </node>
+        <node type="value-domain" color="#fcfcfc" id="n142">
+          <geometry width="90" x="820" y="420" height="40"/>
+          <iri>http://www.w3.org/2001/XMLSchema#dateTime</iri>
+          <label width="80" x="820" y="420" customSize="0" size="12" height="23"/>
+        </node>
+        <node type="complement" color="#fcfcfc" id="n143">
+          <geometry width="50" x="110" y="70" height="30"/>
+          <label width="25" x="110" y="70" customSize="0" size="12" height="23"/>
+        </node>
+        <node type="attribute" color="#fcfcfc" id="n15">
+          <geometry width="20" x="-640" y="-30" height="20"/>
+          <iri>http://www.obdasystems.com/books/dateOfPublication</iri>
+          <label width="103" x="-635" y="-50" customSize="0" size="12" height="23"/>
+        </node>
+        <node type="attribute" color="#fcfcfc" id="n16">
+          <geometry width="20" x="-640" y="20" height="20"/>
+          <iri>http://www.obdasystems.com/books/editionNumber</iri>
+          <label width="87" x="-635" y="0" customSize="0" size="12" height="23"/>
+        </node>
+        <node type="attribute" color="#fcfcfc" id="n17">
+          <geometry width="20" x="150" y="-200" height="20"/>
+          <iri>http://www.obdasystems.com/books/title</iri>
+          <label width="27" x="175" y="-215" customSize="0" size="12" height="23"/>
+        </node>
+        <node type="attribute" color="#fcfcfc" id="n18">
+          <geometry width="20" x="250" y="-130" height="20"/>
+          <iri>http://www.obdasystems.com/books/genre</iri>
+          <label width="37" x="250" y="-155" customSize="0" size="12" height="23"/>
+        </node>
+        <node type="concept" color="#fcfcfc" id="n2">
+          <geometry width="110" x="-800" y="300" height="50"/>
+          <iri>http://www.obdasystems.com/books/SpecialEdition</iri>
+          <label width="83" x="-800" y="300" customSize="0" size="12" height="23"/>
+        </node>
+        <node type="domain-restriction" color="#fcfcfc" id="n21">
+          <geometry width="20" x="-420" y="-110" height="20"/>
+          <label width="39" x="-385" y="-110" customSize="0" size="12" height="23">exists</label>
+        </node>
+        <node type="range-restriction" color="#000000" id="n22">
+          <geometry width="20" x="-420" y="-260" height="20"/>
+          <label width="39" x="-420" y="-280" customSize="0" size="12" height="23">exists</label>
+        </node>
+        <node type="disjoint-union" color="#000000" id="n23">
+          <geometry width="50" x="-680" y="200" height="30"/>
+        </node>
+        <node type="domain-restriction" color="#fcfcfc" id="n24">
+          <geometry width="20" x="-560" y="-30" height="20"/>
+          <label width="39" x="-560" y="-50" customSize="0" size="12" height="23">exists</label>
+        </node>
+        <node type="domain-restriction" color="#fcfcfc" id="n25">
+          <geometry width="20" x="-560" y="20" height="20"/>
+          <label width="39" x="-560" y="0" customSize="0" size="12" height="23">exists</label>
+        </node>
+        <node type="domain-restriction" color="#fcfcfc" id="n27">
+          <geometry width="20" x="10" y="-10" height="20"/>
+          <label width="39" x="10" y="-32" customSize="0" size="12" height="23">exists</label>
+        </node>
+        <node type="range-restriction" color="#000000" id="n29">
+          <geometry width="20" x="-220" y="-10" height="20"/>
+          <label width="39" x="-220" y="-32" customSize="0" size="12" height="23">exists</label>
+        </node>
+        <node type="concept" color="#fcfcfc" id="n3">
+          <geometry width="110" x="-560" y="300" height="50"/>
+          <iri>http://www.obdasystems.com/books/EconomicEdition</iri>
+          <label width="97" x="-560" y="300" customSize="0" size="12" height="23"/>
+        </node>
+        <node type="domain-restriction" color="#fcfcfc" id="n30">
+          <geometry width="20" x="150" y="-130" height="20"/>
+          <label width="39" x="125" y="-150" customSize="0" size="12" height="23">exists</label>
+        </node>
+        <node type="domain-restriction" color="#fcfcfc" id="n31">
+          <geometry width="20" x="190" y="-130" height="20"/>
+          <label width="39" x="190" y="-152" customSize="0" size="12" height="23">exists</label>
+        </node>
+        <node type="range-restriction" color="#000000" id="n32">
+          <geometry width="20" x="510" y="-10" height="20"/>
+          <label width="39" x="510" y="-32" customSize="0" size="12" height="23">exists</label>
+        </node>
+        <node type="domain-restriction" color="#fcfcfc" id="n33">
+          <geometry width="20" x="310" y="-10" height="20"/>
+          <label width="39" x="310" y="-32" customSize="0" size="12" height="23">exists</label>
+        </node>
+        <node type="disjoint-union" color="#000000" id="n37">
+          <geometry width="50" x="-260" y="200" height="30"/>
+        </node>
+        <node type="range-restriction" color="#000000" id="n38">
+          <geometry width="20" x="410" y="90" height="20"/>
+          <label width="28" x="410" y="110" customSize="0" size="12" height="23">(-,1)</label>
+        </node>
+        <node type="concept" color="#fcfcfc" id="n4">
+          <geometry width="110" x="-410" y="300" height="50"/>
+          <iri>http://www.obdasystems.com/books/E-Book</iri>
+          <label width="45" x="-410" y="300" customSize="0" size="12" height="23"/>
+        </node>
+        <node type="complement" color="#fcfcfc" id="n42">
+          <geometry width="50" x="10" y="120" height="30"/>
+          <label width="25" x="10" y="120" customSize="0" size="12" height="23"/>
+        </node>
+        <node type="domain-restriction" color="#fcfcfc" id="n44">
+          <geometry width="20" x="10" y="30" height="20"/>
+          <label width="39" x="10" y="8" customSize="0" size="12" height="23">exists</label>
+        </node>
+        <node type="domain-restriction" color="#fcfcfc" id="n46">
+          <geometry width="20" x="250" y="-80" height="20"/>
+          <label width="28" x="275" y="-80" customSize="0" size="12" height="23">(-,3)</label>
+        </node>
+        <node type="domain-restriction" color="#fcfcfc" id="n47">
+          <geometry width="20" x="80" y="-200" height="20"/>
+          <label width="28" x="80" y="-222" customSize="0" size="12" height="23">(1,-)</label>
+        </node>
+        <node type="domain-restriction" color="#fcfcfc" id="n48">
+          <geometry width="20" x="-280" y="-180" height="20"/>
+          <label width="28" x="-255" y="-180" customSize="0" size="12" height="23">(1,-)</label>
+        </node>
+        <node type="concept" color="#fcfcfc" id="n5">
+          <geometry width="110" x="-260" y="300" height="50"/>
+          <iri>http://www.obdasystems.com/books/AudioBook</iri>
+          <label width="66" x="-260" y="300" customSize="0" size="12" height="23"/>
+        </node>
+        <node type="has-key" color="#fcfcfc" inputs="e61,e62,e63" id="n50">
+          <geometry width="50" x="-640" y="80" height="30"/>
+          <label width="25" x="-640" y="80" customSize="0" size="12" height="23"/>
+        </node>
+        <node type="has-key" color="#fcfcfc" inputs="e67,e68,e172" id="n51">
+          <geometry width="50" x="460" y="-200" height="30"/>
+          <label width="25" x="460" y="-200" customSize="0" size="12" height="23"/>
+        </node>
+        <node type="range-restriction" color="#000000" id="n53">
+          <geometry width="20" x="250" y="-200" height="20"/>
+          <label width="39" x="250" y="-222" customSize="0" size="12" height="23">exists</label>
+        </node>
+        <node type="value-domain" color="#fcfcfc" id="n54">
+          <geometry width="90" x="330" y="-200" height="40"/>
+          <iri>http://www.w3.org/2001/XMLSchema#string</iri>
+          <label width="60" x="330" y="-200" customSize="0" size="12" height="23"/>
+        </node>
+        <node type="range-restriction" color="#000000" id="n55">
+          <geometry width="20" x="330" y="-130" height="20"/>
+          <label width="39" x="330" y="-110" customSize="0" size="12" height="23">exists</label>
+        </node>
+        <node type="range-restriction" color="#000000" id="n57">
+          <geometry width="20" x="-720" y="20" height="20"/>
+          <label width="39" x="-720" y="0" customSize="0" size="12" height="23">exists</label>
+        </node>
+        <node type="range-restriction" color="#000000" id="n58">
+          <geometry width="20" x="-720" y="-30" height="20"/>
+          <label width="39" x="-720" y="-50" customSize="0" size="12" height="23">exists</label>
+        </node>
+        <node type="value-domain" color="#fcfcfc" id="n59">
+          <geometry width="90" x="-820" y="20" height="40"/>
+          <iri>http://www.w3.org/2001/XMLSchema#string</iri>
+          <label width="60" x="-820" y="20" customSize="0" size="12" height="23"/>
+        </node>
+        <node type="concept" color="#fcfcfc" id="n6">
+          <geometry width="110" x="-110" y="300" height="50"/>
+          <iri>http://www.obdasystems.com/books/PrintedBook</iri>
+          <label width="73" x="-110" y="300" customSize="0" size="12" height="23"/>
+        </node>
+        <node type="value-domain" color="#fcfcfc" id="n60">
+          <geometry width="90" x="-820" y="-30" height="40"/>
+          <iri>http://www.w3.org/2001/XMLSchema#dateTime</iri>
+          <label width="80" x="-820" y="-30" customSize="0" size="12" height="23"/>
+        </node>
+        <node type="concept" color="#fcfcfc" id="n61">
+          <geometry width="110" x="100" y="-520" height="50"/>
+          <iri>http://www.obdasystems.com/books/Person</iri>
+          <label width="45" x="100" y="-520" customSize="0" size="12" height="23"/>
+        </node>
+        <node type="attribute" color="#fcfcfc" id="n62">
+          <geometry width="20" x="330" y="-480" height="20"/>
+          <iri>http://www.obdasystems.com/books/name</iri>
+          <label width="37" x="330" y="-502" customSize="0" size="12" height="23"/>
+        </node>
+        <node type="domain-restriction" color="#fcfcfc" id="n64">
+          <geometry width="20" x="250" y="-480" height="20"/>
+          <label width="39" x="250" y="-502" customSize="0" size="12" height="23">exists</label>
+        </node>
+        <node type="range-restriction" color="#000000" id="n65">
+          <geometry width="20" x="410" y="-480" height="20"/>
+          <label width="39" x="410" y="-502" customSize="0" size="12" height="23">exists</label>
+        </node>
+        <node type="attribute" color="#fcfcfc" id="n66">
+          <geometry width="20" x="330" y="-520" height="20"/>
+          <iri>http://www.obdasystems.com/books/vatNumber</iri>
+          <label width="66" x="330" y="-542" customSize="0" size="12" height="23"/>
+        </node>
+        <node type="domain-restriction" color="#fcfcfc" id="n67">
+          <geometry width="20" x="250" y="-520" height="20"/>
+          <label width="39" x="250" y="-542" customSize="0" size="12" height="23">exists</label>
+        </node>
+        <node type="range-restriction" color="#000000" id="n68">
+          <geometry width="20" x="410" y="-520" height="20"/>
+          <label width="39" x="410" y="-542" customSize="0" size="12" height="23">exists</label>
+        </node>
+        <node type="value-domain" color="#fcfcfc" id="n69">
+          <geometry width="90" x="520" y="-510" height="40"/>
+          <iri>http://www.w3.org/2001/XMLSchema#string</iri>
+          <label width="60" x="520" y="-510" customSize="0" size="12" height="23"/>
+        </node>
+        <node type="concept" color="#fcfcfc" id="n7">
+          <geometry width="110" x="190" y="-10" height="50"/>
+          <iri>http://www.obdasystems.com/books/Book</iri>
+          <label width="35" x="190" y="-10" customSize="0" size="12" height="23"/>
+        </node>
+        <node type="attribute" color="#fcfcfc" id="n70">
+          <geometry width="20" x="-340" y="400" height="20"/>
+          <iri>http://www.obdasystems.com/books/durationInSeconds</iri>
+          <label width="107" x="-340" y="378" customSize="0" size="12" height="23"/>
+        </node>
+        <node type="range-restriction" color="#000000" id="n71">
+          <geometry width="20" x="-340" y="470" height="20"/>
+          <label width="39" x="-375" y="470" customSize="0" size="12" height="23">exists</label>
+        </node>
+        <node type="domain-restriction" color="#fcfcfc" id="n72">
+          <geometry width="20" x="-260" y="400" height="20"/>
+          <label width="39" x="-260" y="420" customSize="0" size="12" height="23">exists</label>
+        </node>
+        <node type="value-domain" color="#fcfcfc" id="n73">
+          <geometry width="90" x="-260" y="530" height="40"/>
+          <iri>http://www.w3.org/2001/XMLSchema#integer</iri>
+          <label width="66" x="-260" y="530" customSize="0" size="12" height="23"/>
+        </node>
+        <node type="attribute" color="#fcfcfc" id="n77">
+          <geometry width="20" x="-640" y="-80" height="20"/>
+          <iri>http://www.obdasystems.com/books/priceInDollars</iri>
+          <label width="81" x="-640" y="-102" customSize="0" size="12" height="23"/>
+        </node>
+        <node type="range-restriction" color="#000000" id="n78">
+          <geometry width="20" x="-720" y="-80" height="20"/>
+          <label width="39" x="-720" y="-102" customSize="0" size="12" height="23">exists</label>
+        </node>
+        <node type="domain-restriction" color="#fcfcfc" id="n79">
+          <geometry width="20" x="-560" y="-80" height="20"/>
+          <label width="39" x="-560" y="-102" customSize="0" size="12" height="23">exists</label>
+        </node>
+        <node type="concept" color="#fcfcfc" id="n8">
+          <geometry width="110" x="640" y="-10" height="50"/>
+          <iri>http://www.obdasystems.com/books/Author</iri>
+          <label width="43" x="640" y="-10" customSize="0" size="12" height="23"/>
+        </node>
+        <node type="value-domain" color="#fcfcfc" id="n80">
+          <geometry width="90" x="-820" y="-80" height="40"/>
+          <iri>http://www.w3.org/2001/XMLSchema#double</iri>
+          <label width="65" x="-820" y="-80" customSize="0" size="12" height="23"/>
+        </node>
+        <node type="attribute" color="#fcfcfc" id="n81">
+          <geometry width="20" x="-190" y="400" height="20"/>
+          <iri>http://www.obdasystems.com/books/numberOfPages</iri>
+          <label width="94" x="-190" y="378" customSize="0" size="12" height="23"/>
+        </node>
+        <node type="domain-restriction" color="#fcfcfc" id="n84">
+          <geometry width="20" x="-110" y="400" height="20"/>
+          <label width="39" x="-110" y="420" customSize="0" size="12" height="23">exists</label>
+        </node>
+        <node type="range-restriction" color="#000000" id="n85">
+          <geometry width="20" x="-190" y="470" height="20"/>
+          <label width="39" x="-155" y="470" customSize="0" size="12" height="23">exists</label>
+        </node>
+        <node type="concept" color="#fcfcfc" id="n87">
+          <geometry width="110" x="-280" y="-260" height="50"/>
+          <iri>http://www.obdasystems.com/books/Publisher</iri>
+          <label width="57" x="-280" y="-260" customSize="0" size="12" height="23"/>
+        </node>
+        <node type="role" color="#fcfcfc" id="n88">
+          <geometry width="70" x="-420" y="-180" height="50"/>
+          <iri>http://www.obdasystems.com/books/publishedBy</iri>
+          <label width="72" x="-495" y="-180" customSize="0" size="12" height="23"/>
+        </node>
+        <node type="concept" color="#fcfcfc" id="n89">
+          <geometry width="110" x="190" y="300" height="50"/>
+          <iri>http://www.obdasystems.com/books/ClassicBook</iri>
+          <label width="74" x="190" y="300" customSize="0" size="12" height="23"/>
+        </node>
+        <node type="concept" color="#fcfcfc" id="n9">
+          <geometry width="110" x="640" y="90" height="50"/>
+          <iri>http://www.obdasystems.com/books/EmergingWriter</iri>
+          <label width="90" x="640" y="90" customSize="0" size="12" height="23"/>
+        </node>
+        <node type="complement" color="#fcfcfc" id="n92">
+          <geometry width="50" x="380" y="170" height="30"/>
+          <label width="25" x="380" y="170" customSize="0" size="12" height="23"/>
+        </node>
+        <node type="range-restriction" color="#000000" id="n93">
+          <geometry width="20" x="350" y="80" height="20"/>
+          <label width="35" x="320" y="80" customSize="0" size="12" height="23">forall</label>
+        </node>
+        <node type="value-domain" color="#fcfcfc" id="n94">
+          <geometry width="90" x="520" y="-430" height="40"/>
+          <iri>http://www.w3.org/2001/XMLSchema#dateTime</iri>
+          <label width="80" x="520" y="-430" customSize="0" size="12" height="23"/>
+        </node>
+        <node type="range-restriction" color="#000000" id="n95">
+          <geometry width="20" x="410" y="-430" height="20"/>
+          <label width="39" x="410" y="-450" customSize="0" size="12" height="23">exists</label>
+        </node>
+        <node type="attribute" color="#fcfcfc" id="n96">
+          <geometry width="20" x="330" y="-430" height="20"/>
+          <iri>http://www.obdasystems.com/books/dateOfBirth</iri>
+          <label width="69" x="330" y="-452" customSize="0" size="12" height="23"/>
+        </node>
+        <node type="domain-restriction" color="#fcfcfc" id="n97">
+          <geometry width="20" x="250" y="-430" height="20"/>
+          <label width="39" x="250" y="-452" customSize="0" size="12" height="23">exists</label>
+        </node>
+        <edge target="n24" type="input" source="n15" id="e10">
+          <point x="-640" y="-30"/>
+          <point x="-560" y="-30"/>
+        </edge>
+        <edge target="n73" type="inclusion" source="n71" id="e100">
+          <point x="-340" y="470"/>
+          <point x="-260" y="530"/>
+        </edge>
+        <edge target="n1" type="inclusion" source="n37" id="e103">
+          <point x="-260" y="200"/>
+          <point x="-420" y="-10"/>
+        </edge>
+        <edge target="n3" type="inclusion" source="n4" id="e104">
+          <point x="-410" y="300"/>
+          <point x="-560" y="300"/>
+        </edge>
+        <edge target="n78" type="input" source="n77" id="e105">
+          <point x="-640" y="-80"/>
+          <point x="-720" y="-80"/>
+        </edge>
+        <edge target="n79" type="input" source="n77" id="e106">
+          <point x="-640" y="-80"/>
+          <point x="-560" y="-80"/>
+        </edge>
+        <edge target="n80" type="inclusion" source="n78" id="e107">
+          <point x="-720" y="-80"/>
+          <point x="-820" y="-80"/>
+        </edge>
+        <edge target="n79" type="inclusion" source="n1" id="e109">
+          <point x="-420" y="-10"/>
+          <point x="-560" y="-80"/>
+        </edge>
+        <edge target="n25" type="input" source="n16" id="e11">
+          <point x="-640" y="20"/>
+          <point x="-560" y="20"/>
+        </edge>
+        <edge target="n24" type="inclusion" source="n1" id="e110">
+          <point x="-420" y="-10"/>
+          <point x="-560" y="-30"/>
+        </edge>
+        <edge target="n5" type="inclusion" source="n72" id="e111">
+          <point x="-260" y="400"/>
+          <point x="-260" y="300"/>
+        </edge>
+        <edge target="n84" type="input" source="n81" id="e114">
+          <point x="-190" y="400"/>
+          <point x="-110" y="400"/>
+        </edge>
+        <edge target="n85" type="input" source="n81" id="e115">
+          <point x="-190" y="400"/>
+          <point x="-190" y="470"/>
+        </edge>
+        <edge target="n6" type="inclusion" source="n84" id="e116">
+          <point x="-110" y="400"/>
+          <point x="-110" y="300"/>
+        </edge>
+        <edge target="n73" type="inclusion" source="n85" id="e117">
+          <point x="-190" y="470"/>
+          <point x="-260" y="530"/>
+        </edge>
+        <edge target="n87" type="inclusion" source="n22" id="e118">
+          <point x="-420" y="-260"/>
+          <point x="-280" y="-260"/>
+        </edge>
+        <edge target="n48" type="input" source="n87" id="e121">
+          <point x="-280" y="-260"/>
+          <point x="-280" y="-180"/>
+        </edge>
+        <edge target="n22" type="input" source="n88" id="e122">
+          <point x="-420" y="-180"/>
+          <point x="-420" y="-260"/>
+        </edge>
+        <edge target="n21" type="input" source="n88" id="e123">
+          <point x="-420" y="-180"/>
+          <point x="-420" y="-110"/>
+        </edge>
+        <edge target="n48" type="input" source="n88" id="e124">
+          <point x="-420" y="-180"/>
+          <point x="-280" y="-180"/>
+        </edge>
+        <edge target="n7" type="inclusion" source="n89" id="e125">
+          <point x="190" y="300"/>
+          <point x="190" y="-10"/>
+        </edge>
+        <edge target="n42" type="inclusion" source="n89" id="e126">
+          <point x="190" y="300"/>
+          <point x="10" y="300"/>
+          <point x="10" y="120"/>
+        </edge>
+        <edge target="n93" type="input" source="n13" id="e127">
+          <point x="410" y="-10"/>
+          <point x="350" y="80"/>
+        </edge>
+        <edge target="n93" type="input" source="n89" id="e128">
+          <point x="190" y="300"/>
+          <point x="350" y="80"/>
+        </edge>
+        <edge target="n93" type="inclusion" source="n92" id="e129">
+          <point x="380" y="170"/>
+          <point x="380" y="80"/>
+          <point x="350" y="80"/>
+        </edge>
+        <edge target="n1" type="equivalence" source="n25" id="e13">
+          <point x="-560" y="20"/>
+          <point x="-420" y="-10"/>
+        </edge>
+        <edge target="n92" type="input" source="n9" id="e130">
+          <point x="640" y="90"/>
+          <point x="640" y="170"/>
+          <point x="380" y="170"/>
+        </edge>
+        <edge target="n94" type="inclusion" source="n95" id="e131">
+          <point x="410" y="-430"/>
+          <point x="520" y="-430"/>
+        </edge>
+        <edge target="n97" type="input" source="n96" id="e133">
+          <point x="330" y="-430"/>
+          <point x="250" y="-430"/>
+        </edge>
+        <edge target="n97" type="inclusion" source="n61" id="e134">
+          <point x="100" y="-520"/>
+          <point x="250" y="-430"/>
+        </edge>
+        <edge target="n95" type="input" source="n96" id="e135">
+          <point x="330" y="-430"/>
+          <point x="410" y="-430"/>
+        </edge>
+        <edge target="n27" type="input" source="n12" id="e14">
+          <point x="-120" y="-10"/>
+          <point x="10" y="-10"/>
+        </edge>
+        <edge target="n112" type="input" source="n108" id="e156">
+          <point x="200" y="-350"/>
+          <point x="100" y="-350"/>
+        </edge>
+        <edge target="n113" type="input" source="n108" id="e157">
+          <point x="200" y="-350"/>
+          <point x="300" y="-350"/>
+        </edge>
+        <edge target="n29" type="input" source="n12" id="e16">
+          <point x="-120" y="-10"/>
+          <point x="-220" y="-10"/>
+        </edge>
+        <edge target="n119" type="input" source="n118" id="e160">
+          <point x="-180" y="-350"/>
+          <point x="-280" y="-350"/>
+        </edge>
+        <edge target="n120" type="input" source="n118" id="e161">
+          <point x="-180" y="-350"/>
+          <point x="-80" y="-350"/>
+        </edge>
+        <edge target="n61" type="inclusion" source="n120" id="e162">
+          <point x="-80" y="-350"/>
+          <point x="100" y="-520"/>
+        </edge>
+        <edge target="n61" type="inclusion" source="n112" id="e163">
+          <point x="100" y="-350"/>
+          <point x="100" y="-520"/>
+        </edge>
+        <edge target="n119" type="equivalence" source="n87" id="e164">
+          <point x="-280" y="-260"/>
+          <point x="-280" y="-350"/>
+        </edge>
+        <edge target="n8" type="equivalence" source="n113" id="e165">
+          <point x="300" y="-350"/>
+          <point x="640" y="-350"/>
+          <point x="640" y="-10"/>
+        </edge>
+        <edge target="n122" type="input" source="n121" id="e166">
+          <point x="770" y="-70"/>
+          <point x="770" y="-10"/>
+        </edge>
+        <edge target="n123" type="input" source="n121" id="e167">
+          <point x="770" y="-70"/>
+          <point x="770" y="-140"/>
+        </edge>
+        <edge target="n124" type="inclusion" source="n123" id="e169">
+          <point x="770" y="-140"/>
+          <point x="770" y="-220"/>
+        </edge>
+        <edge target="n1" type="inclusion" source="n29" id="e17">
+          <point x="-220" y="-10"/>
+          <point x="-420" y="-10"/>
+        </edge>
+        <edge target="n8" type="inclusion" source="n122" id="e171">
+          <point x="770" y="-10"/>
+          <point x="640" y="-10"/>
+        </edge>
+        <edge target="n51" type="input" source="n13" id="e172">
+          <point x="410" y="-10"/>
+          <point x="510" y="-90"/>
+          <point x="510" y="-200"/>
+          <point x="460" y="-200"/>
+        </edge>
+        <edge target="n42" type="inclusion" source="n126" id="e173">
+          <point x="100" y="220"/>
+          <point x="10" y="120"/>
+        </edge>
+        <edge target="n7" type="inclusion" source="n126" id="e174">
+          <point x="100" y="220"/>
+          <point x="190" y="-10"/>
+        </edge>
+        <edge target="n7" type="inclusion" source="n127" id="e175">
+          <point x="320" y="300"/>
+          <point x="190" y="-10"/>
+        </edge>
+        <edge target="n131" type="input" source="n130" id="e176">
+          <point x="420" y="420"/>
+          <point x="320" y="420"/>
+        </edge>
+        <edge target="n132" type="input" source="n130" id="e177">
+          <point x="420" y="420"/>
+          <point x="520" y="420"/>
+        </edge>
+        <edge target="n129" type="equivalence" source="n132" id="e178">
+          <point x="520" y="420"/>
+          <point x="660" y="420"/>
+        </edge>
+        <edge target="n7" type="inclusion" source="n27" id="e18">
+          <point x="10" y="-10"/>
+          <point x="190" y="-10"/>
+        </edge>
+        <edge target="n131" type="inclusion" source="n127" id="e180">
+          <point x="320" y="300"/>
+          <point x="320" y="420"/>
+        </edge>
+        <edge target="n136" type="input" source="n135" id="e181">
+          <point x="460" y="240"/>
+          <point x="380" y="240"/>
+        </edge>
+        <edge target="n136" type="inclusion" source="n127" id="e183">
+          <point x="320" y="300"/>
+          <point x="380" y="240"/>
+        </edge>
+        <edge target="n138" type="input" source="n137" id="e184">
+          <point x="740" y="340"/>
+          <point x="660" y="340"/>
+        </edge>
+        <edge target="n139" type="input" source="n137" id="e185">
+          <point x="740" y="340"/>
+          <point x="820" y="340"/>
+        </edge>
+        <edge target="n140" type="input" source="n135" id="e186">
+          <point x="460" y="240"/>
+          <point x="540" y="240"/>
+        </edge>
+        <edge target="n141" type="inclusion" source="n140" id="e187">
+          <point x="540" y="240"/>
+          <point x="640" y="240"/>
+        </edge>
+        <edge target="n138" type="equivalence" source="n129" id="e188">
+          <point x="660" y="420"/>
+          <point x="660" y="340"/>
+        </edge>
+        <edge target="n142" type="inclusion" source="n139" id="e189">
+          <point x="820" y="340"/>
+          <point x="820" y="420"/>
+        </edge>
+        <edge target="n30" type="input" source="n17" id="e19">
+          <point x="150" y="-200"/>
+          <point x="150" y="-130"/>
+        </edge>
+        <edge target="n143" type="input" source="n126" id="e190">
+          <point x="100" y="220"/>
+          <point x="110" y="70"/>
+        </edge>
+        <edge target="n7" type="inclusion" source="n143" id="e191">
+          <point x="110" y="70"/>
+          <point x="190" y="-10"/>
+        </edge>
+        <edge target="n31" type="input" source="n18" id="e20">
+          <point x="250" y="-130"/>
+          <point x="190" y="-130"/>
+        </edge>
+        <edge target="n30" type="equivalence" source="n7" id="e21">
+          <point x="190" y="-10"/>
+          <point x="150" y="-130"/>
+        </edge>
+        <edge target="n31" type="equivalence" source="n7" id="e22">
+          <point x="190" y="-10"/>
+          <point x="190" y="-130"/>
+        </edge>
+        <edge target="n32" type="input" source="n13" id="e23">
+          <point x="410" y="-10"/>
+          <point x="510" y="-10"/>
+        </edge>
+        <edge target="n33" type="input" source="n13" id="e24">
+          <point x="410" y="-10"/>
+          <point x="310" y="-10"/>
+        </edge>
+        <edge target="n33" type="equivalence" source="n7" id="e25">
+          <point x="190" y="-10"/>
+          <point x="310" y="-10"/>
+        </edge>
+        <edge target="n8" type="inclusion" source="n32" id="e26">
+          <point x="510" y="-10"/>
+          <point x="640" y="-10"/>
+        </edge>
+        <edge target="n8" type="inclusion" source="n9" id="e27">
+          <point x="640" y="90"/>
+          <point x="640" y="-10"/>
+        </edge>
+        <edge target="n37" type="input" source="n4" id="e32">
+          <point x="-410" y="300"/>
+          <point x="-410" y="200"/>
+          <point x="-260" y="200"/>
+        </edge>
+        <edge target="n37" type="input" source="n5" id="e33">
+          <point x="-260" y="300"/>
+          <point x="-260" y="200"/>
+        </edge>
+        <edge target="n37" type="input" source="n6" id="e34">
+          <point x="-110" y="300"/>
+          <point x="-110" y="200"/>
+          <point x="-260" y="200"/>
+        </edge>
+        <edge target="n38" type="input" source="n13" id="e39">
+          <point x="410" y="-10"/>
+          <point x="410" y="90"/>
+        </edge>
+        <edge target="n38" type="inclusion" source="n9" id="e40">
+          <point x="640" y="90"/>
+          <point x="410" y="90"/>
+        </edge>
+        <edge target="n44" type="input" source="n12" id="e46">
+          <point x="-120" y="-10"/>
+          <point x="-80" y="30"/>
+          <point x="10" y="30"/>
+        </edge>
+        <edge target="n42" type="input" source="n44" id="e47">
+          <point x="10" y="30"/>
+          <point x="10" y="120"/>
+        </edge>
+        <edge target="n46" type="input" source="n18" id="e51">
+          <point x="250" y="-130"/>
+          <point x="250" y="-80"/>
+        </edge>
+        <edge target="n46" type="inclusion" source="n7" id="e52">
+          <point x="190" y="-10"/>
+          <point x="250" y="-80"/>
+        </edge>
+        <edge target="n47" type="input" source="n17" id="e53">
+          <point x="150" y="-200"/>
+          <point x="80" y="-200"/>
+        </edge>
+        <edge target="n47" type="inclusion" source="n7" id="e54">
+          <point x="190" y="-10"/>
+          <point x="80" y="-60"/>
+          <point x="80" y="-200"/>
+        </edge>
+        <edge target="n48" type="inclusion" source="n1" id="e57">
+          <point x="-420" y="-10"/>
+          <point x="-280" y="-180"/>
+        </edge>
+        <edge target="n1" type="equivalence" source="n21" id="e6">
+          <point x="-420" y="-110"/>
+          <point x="-420" y="-10"/>
+        </edge>
+        <edge target="n50" type="input" source="n1" id="e61">
+          <point x="-420" y="-10"/>
+          <point x="-640" y="80"/>
+        </edge>
+        <edge target="n50" type="input" source="n15" id="e62">
+          <point x="-640" y="-30"/>
+          <point x="-690" y="-10"/>
+          <point x="-690" y="80"/>
+          <point x="-640" y="80"/>
+        </edge>
+        <edge target="n50" type="input" source="n16" id="e63">
+          <point x="-640" y="20"/>
+          <point x="-640" y="80"/>
+        </edge>
+        <edge target="n51" type="input" source="n7" id="e67">
+          <point x="190" y="-10"/>
+          <point x="340" y="-90"/>
+          <point x="460" y="-90"/>
+          <point x="460" y="-200"/>
+        </edge>
+        <edge target="n51" type="input" source="n17" id="e68">
+          <point x="150" y="-200"/>
+          <point x="150" y="-280"/>
+          <point x="460" y="-280"/>
+          <point x="460" y="-200"/>
+        </edge>
+        <edge target="n23" type="input" source="n2" id="e7">
+          <point x="-800" y="300"/>
+          <point x="-800" y="200"/>
+          <point x="-680" y="200"/>
+        </edge>
+        <edge target="n54" type="inclusion" source="n53" id="e71">
+          <point x="250" y="-200"/>
+          <point x="330" y="-200"/>
+        </edge>
+        <edge target="n53" type="input" source="n17" id="e73">
+          <point x="150" y="-200"/>
+          <point x="250" y="-200"/>
+        </edge>
+        <edge target="n55" type="input" source="n18" id="e75">
+          <point x="250" y="-130"/>
+          <point x="330" y="-130"/>
+        </edge>
+        <edge target="n54" type="inclusion" source="n55" id="e76">
+          <point x="330" y="-130"/>
+          <point x="330" y="-200"/>
+        </edge>
+        <edge target="n57" type="input" source="n16" id="e79">
+          <point x="-640" y="20"/>
+          <point x="-720" y="20"/>
+        </edge>
+        <edge target="n23" type="input" source="n3" id="e8">
+          <point x="-560" y="300"/>
+          <point x="-560" y="200"/>
+          <point x="-680" y="200"/>
+        </edge>
+        <edge target="n58" type="input" source="n15" id="e80">
+          <point x="-640" y="-30"/>
+          <point x="-720" y="-30"/>
+        </edge>
+        <edge target="n59" type="inclusion" source="n57" id="e81">
+          <point x="-720" y="20"/>
+          <point x="-820" y="20"/>
+        </edge>
+        <edge target="n60" type="inclusion" source="n58" id="e82">
+          <point x="-720" y="-30"/>
+          <point x="-820" y="-30"/>
+        </edge>
+        <edge target="n64" type="input" source="n62" id="e85">
+          <point x="330" y="-480"/>
+          <point x="250" y="-480"/>
+        </edge>
+        <edge target="n65" type="input" source="n62" id="e86">
+          <point x="330" y="-480"/>
+          <point x="410" y="-480"/>
+        </edge>
+        <edge target="n64" type="inclusion" source="n61" id="e87">
+          <point x="100" y="-520"/>
+          <point x="250" y="-480"/>
+        </edge>
+        <edge target="n1" type="inclusion" source="n23" id="e9">
+          <point x="-680" y="200"/>
+          <point x="-420" y="-10"/>
+        </edge>
+        <edge target="n67" type="input" source="n66" id="e92">
+          <point x="330" y="-520"/>
+          <point x="250" y="-520"/>
+        </edge>
+        <edge target="n68" type="input" source="n66" id="e93">
+          <point x="330" y="-520"/>
+          <point x="410" y="-520"/>
+        </edge>
+        <edge target="n69" type="inclusion" source="n68" id="e94">
+          <point x="410" y="-520"/>
+          <point x="520" y="-510"/>
+        </edge>
+        <edge target="n69" type="inclusion" source="n65" id="e95">
+          <point x="410" y="-480"/>
+          <point x="520" y="-510"/>
+        </edge>
+        <edge target="n67" type="inclusion" source="n61" id="e96">
+          <point x="100" y="-520"/>
+          <point x="250" y="-520"/>
+        </edge>
+        <edge target="n71" type="input" source="n70" id="e97">
+          <point x="-340" y="400"/>
+          <point x="-340" y="470"/>
+        </edge>
+        <edge target="n72" type="input" source="n70" id="e98">
+          <point x="-340" y="400"/>
+          <point x="-260" y="400"/>
+        </edge>
+      </diagram>
+    </diagrams>
+  </project>
+</graphol>
