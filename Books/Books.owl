@@ -11,7 +11,7 @@ Prefix(swrlb:=<http://www.w3.org/2003/11/swrlb#>)
 
 Ontology(<http://www.obdasystems.com/books/>
 
-<http://www.obdasystems.com/books/3.1>
+<http://www.obdasystems.com/books/3.1_owl>
 Declaration(Class(:AudioBook))
 Declaration(Class(:Author))
 Declaration(Class(:Book))
