@@ -1,5 +1,7 @@
 CREATE DATABASE characters_db;
 
+use characters_db;
+
 CREATE TABLE abilities (
 id_ch integer NOT NULL,
 superpower boolean DEFAULT false NOT NULL,
