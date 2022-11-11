@@ -1,0 +1,651 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><OBDA version="1.0">
+    <mappingsMetadata id="books_4" version="">
+        <description>No description provided</description>
+    </mappingsMetadata>
+    <prefixes>
+        <prefix name="swrl:" namespace="http://www.w3.org/2003/11/swrl#"/>
+        <prefix name="owl:" namespace="http://www.w3.org/2002/07/owl#"/>
+        <prefix name="rdf:" namespace="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        <prefix name="skos:" namespace="http://www.w3.org/2004/02/skos/core#"/>
+        <prefix name="xsd:" namespace="http://www.w3.org/2001/XMLSchema#"/>
+        <prefix name="time:" namespace="http://www.w3.org/2006/time#"/>
+        <prefix name="swrlb:" namespace="http://www.w3.org/2003/11/swrlb#"/>
+        <prefix name=":" namespace="http://www.obdasystems.com/books/"/>
+        <prefix name="xml:" namespace="http://www.w3.org/XML/1998/namespace"/>
+        <prefix name="rdfs:" namespace="http://www.w3.org/2000/01/rdf-schema#"/>
+    </prefixes>
+    <templates>
+        <template>http://obdasystems.com/books/publisher-{_}</template>
+        <template>http://obdasystems.com/books/person-{_}</template>
+        <template>http://obdasystems.com/books/author-{_}</template>
+        <template>http://obdasystems.com/books/book-{_}</template>
+        <template>http://obdasystems.com/books/edition-{_}</template>
+        <template>{_}</template>
+    <template>http://obdasystems.com/books/book-{_}-revision-{_}</template>
+    </templates>
+    <mappingParameters/>
+    <mappings>
+        <primitiveView id="writers">
+            <HEAD string="writers(wr_code, wr_name)"/>
+            <SQLQuery>SELECT tb_affiliated_writers.wr_code AS wr_code, tb_affiliated_writers.wr_name AS wr_name
+FROM tb_affiliated_writers</SQLQuery>
+            <description/>
+        </primitiveView>
+        <primitiveView id="books">
+            <HEAD string="books(bk_code, bk_title, is_classic)"/>
+            <SQLQuery>select tb_books.bk_code AS bk_code, tb_books.bk_title AS bk_title, tb_books.is_classic AS is_classic
+from tb_books</SQLQuery>
+            <description/>
+        </primitiveView>
+        <primitiveView id="publisher">
+            <HEAD string="publisher(ed_code, ed_name)"/>
+            <SQLQuery>select tb_editor.ed_code AS ed_code, tb_editor.ed_name AS ed_name
+from tb_editor</SQLQuery>
+            <description/>
+        </primitiveView>
+        <primitiveView id="genres">
+            <HEAD string="genres(id_bk, gen_name)"/>
+            <SQLQuery>select tb_bk_gen.id_bk AS id_bk, tb_bk_gen.gen_name AS gen_name
+from tb_bk_gen</SQLQuery>
+            <description/>
+        </primitiveView>
+        <primitiveView id="emerging_writers">
+            <HEAD string="emerging_writers(wr_code, wr_name)"/>
+            <SQLQuery>select tb_on_prob_wr.wr_code AS wr_code, tb_on_prob_wr.wr_name AS wr_name
+from tb_on_prob_wr</SQLQuery>
+            <description/>
+        </primitiveView>
+        <primitiveView id="unedited_book">
+            <HEAD string="unedited_book(code)"/>
+            <SQLQuery>SELECT
+  bk_code as code
+FROM
+  tb_books
+WHERE
+  not exists (
+    SELECT
+      1
+    FROM
+      tb_edition
+    WHERE
+      bk_id = bk_code
+  )</SQLQuery>
+            <description/>
+        </primitiveView>
+        <primitiveView id="written_by">
+            <HEAD string="written_by(bk_code, wr_id)"/>
+            <SQLQuery>select tb_authors.bk_code AS bk_code, tb_authors.wr_id AS wr_id
+from tb_authors</SQLQuery>
+            <description/>
+        </primitiveView>
+        <ontologyPredicateComplexMapping id="_Publisher_1">
+            <concept string="http://www.obdasystems.com/books/Publisher">
+                <template>http://obdasystems.com/books/publisher-{ed_code}</template>
+            </concept>
+            <viewAtomsConjunction>
+                <viewAtom>publisher(ed_code, ed_name)</viewAtom>
+            </viewAtomsConjunction>
+            <userQuery>select publisher.ed_code AS ed_code, publisher.ed_name AS ed_name
+from publisher</userQuery>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="_Author_1">
+            <concept string="http://www.obdasystems.com/books/Author">
+                <template>http://obdasystems.com/books/author-{wr_code}</template>
+            </concept>
+            <viewAtomsConjunction>
+                <viewAtom>writers(wr_code, wr_name)</viewAtom>
+            </viewAtomsConjunction>
+            <userQuery>select writers.wr_code AS wr_code, writers.wr_name AS wr_name
+from writers</userQuery>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="_EmergingWriter_1">
+            <concept string="http://www.obdasystems.com/books/EmergingWriter">
+                <template>http://obdasystems.com/books/author-{wr_code}</template>
+            </concept>
+            <viewAtomsConjunction>
+                <viewAtom>emerging_writers(wr_code, wr_name)</viewAtom>
+            </viewAtomsConjunction>
+            <userQuery>select emerging_writers.wr_code AS wr_code, emerging_writers.wr_name AS wr_name
+from emerging_writers</userQuery>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="_Book_1">
+            <concept string="http://www.obdasystems.com/books/Book">
+                <template>http://obdasystems.com/books/book-{bk_code}</template>
+            </concept>
+            <viewAtomsConjunction>
+                <viewAtom>books(bk_code, bk_title, is_classic)</viewAtom>
+            </viewAtomsConjunction>
+            <userQuery>select books.bk_code AS bk_code, books.bk_title AS bk_title, books.is_classic AS is_classic
+from books</userQuery>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="_ClassicBook_1">
+            <concept string="http://www.obdasystems.com/books/ClassicBook">
+                <template>http://obdasystems.com/books/book-{bk_code}</template>
+            </concept>
+            <viewAtomsConjunction>
+                <viewAtom>books(bk_code, bk_title, is_classic)</viewAtom>
+                <viewAtom>EQUALS(is_classic, '1'^^xsd:decimal)</viewAtom>
+            </viewAtomsConjunction>
+            <userQuery>select books.bk_code AS bk_code, books.bk_title AS bk_title, books.is_classic AS is_classic
+from books
+where books.is_classic = 1</userQuery>
+        </ontologyPredicateComplexMapping>
+        <primitiveView id="audio_book_editions">
+            <HEAD string="audio_book_editions(ed_code, duration)"/>
+            <SQLQuery>select tb_edition_audio.ed_code AS ed_code, tb_edition_audio.duration AS duration
+from tb_edition_audio</SQLQuery>
+            <description/>
+        </primitiveView>
+        <primitiveView id="editions">
+            <HEAD string="editions(ed_code, ed_type, pub_date, n_edt, editor, bk_id, e_book, price)"/>
+            <SQLQuery>select tb_edition.ed_code AS ed_code, tb_edition.ed_type AS ed_type, tb_edition.pub_date AS pub_date, tb_edition.n_edt AS n_edt, tb_edition.editor AS editor, tb_edition.bk_id AS bk_id, tb_edition.e_book AS e_book, tb_edition.price AS price
+from tb_edition</SQLQuery>
+            <description/>
+        </primitiveView>
+        <ontologyPredicateComplexMapping id="_AudioBook_1">
+            <concept string="http://www.obdasystems.com/books/AudioBook">
+                <template>http://obdasystems.com/books/edition-{ed_code}</template>
+            </concept>
+            <viewAtomsConjunction>
+                <viewAtom>editions(ed_code, ed_type, pub_date, n_edt, editor, bk_id, e_book, price)</viewAtom>
+                <viewAtom>audio_book_editions(ed_code, __x9)</viewAtom>
+            </viewAtomsConjunction>
+            <userQuery>SELECT editions.ed_code AS ed_code, editions.ed_type AS ed_type, editions.pub_date AS pub_date, editions.n_edt AS n_edt, editions.editor AS editor, editions.bk_id AS bk_id, editions.e_book AS e_book, editions.price AS price
+FROM editions JOIN audio_book_editions on editions.ed_code = audio_book_editions.ed_code
+</userQuery>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="_E_Book_1">
+            <concept string="http://www.obdasystems.com/books/E-Book">
+                <template>http://obdasystems.com/books/edition-{ed_code}</template>
+            </concept>
+            <viewAtomsConjunction>
+                <viewAtom>editions(ed_code, __x1, __x2, __x3, __x4, __x5, '1'^^xsd:decimal, __x7)</viewAtom>
+            </viewAtomsConjunction>
+            <userQuery>SELECT editions.ed_code AS ed_code
+FROM editions
+WHERE editions.e_book = 1</userQuery>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="_EconomicEdition_1">
+            <concept string="http://www.obdasystems.com/books/EconomicEdition">
+                <template>http://obdasystems.com/books/edition-{ed_code}</template>
+            </concept>
+            <viewAtomsConjunction>
+                <viewAtom>editions(ed_code, 'E'^^xsd:string, __x2, __x3, __x4, __x5, __x6, __x7)</viewAtom>
+            </viewAtomsConjunction>
+            <userQuery>SELECT editions.ed_code AS ed_code
+FROM editions
+WHERE editions.ed_type = 'E'
+</userQuery>
+        </ontologyPredicateComplexMapping>
+        <primitiveView id="printed_book_editions">
+            <HEAD string="printed_book_editions(ed_code, pages)"/>
+            <SQLQuery>select tb_edition_printed.ed_code AS ed_code, tb_edition_printed.pages AS pages
+from tb_edition_printed</SQLQuery>
+            <description/>
+        </primitiveView>
+        <ontologyPredicateComplexMapping id="_PrintedBook_1">
+            <concept string="http://www.obdasystems.com/books/PrintedBook">
+                <template>http://obdasystems.com/books/edition-{ed_code}</template>
+            </concept>
+            <viewAtomsConjunction>
+                <viewAtom>editions(ed_code, ed_type, pub_date, n_edt, editor, bk_id, e_book, price)</viewAtom>
+                <viewAtom>printed_book_editions(ed_code, __x9)</viewAtom>
+            </viewAtomsConjunction>
+            <userQuery>SELECT editions.ed_code AS ed_code, editions.ed_type AS ed_type, editions.pub_date AS pub_date, editions.n_edt AS n_edt, editions.editor AS editor, editions.bk_id AS bk_id, editions.e_book AS e_book, editions.price AS price
+FROM editions JOIN printed_book_editions on editions.ed_code = printed_book_editions.ed_code
+</userQuery>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="_SpecialEdition_1">
+            <concept string="http://www.obdasystems.com/books/SpecialEdition">
+                <template>http://obdasystems.com/books/edition-{ed_code}</template>
+            </concept>
+            <viewAtomsConjunction>
+                <viewAtom>editions(ed_code, 'S'^^xsd:string, __x2, __x3, __x4, __x5, __x6, __x7)</viewAtom>
+            </viewAtomsConjunction>
+            <userQuery>SELECT editions.ed_code AS ed_code
+FROM editions
+WHERE editions.ed_type = 'S'
+</userQuery>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="_hasEdition_1">
+            <role string="http://www.obdasystems.com/books/hasEdition">
+                <domainTemplate>http://obdasystems.com/books/book-{bk_id}</domainTemplate>
+                <rangeTemplate>http://obdasystems.com/books/edition-{ed_code}</rangeTemplate>
+            </role>
+            <viewAtomsConjunction>
+                <viewAtom>editions(ed_code, ed_type, pub_date, n_edt, editor, bk_id, e_book, price)</viewAtom>
+            </viewAtomsConjunction>
+            <userQuery>select editions.ed_code AS ed_code, editions.ed_type AS ed_type, editions.pub_date AS pub_date, editions.n_edt AS n_edt, editions.editor AS editor, editions.bk_id AS bk_id, editions.e_book AS e_book, editions.price AS price
+from editions</userQuery>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="_publishedBy_1">
+            <role string="http://www.obdasystems.com/books/publishedBy">
+                <domainTemplate>http://obdasystems.com/books/edition-{ed_code}</domainTemplate>
+                <rangeTemplate>http://obdasystems.com/books/publisher-{editor}</rangeTemplate>
+            </role>
+            <viewAtomsConjunction>
+                <viewAtom>editions(ed_code, ed_type, pub_date, n_edt, editor, bk_id, e_book, price)</viewAtom>
+                <viewAtom>IS_NOT_NULL(n_edt)</viewAtom>
+            </viewAtomsConjunction>
+            <userQuery>select editions.ed_code AS ed_code, editions.ed_type AS ed_type, editions.pub_date AS pub_date, editions.n_edt AS n_edt, editions.editor AS editor, editions.bk_id AS bk_id, editions.e_book AS e_book, editions.price AS price
+from editions
+where editions.n_edt is not null</userQuery>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="_writtenBy_1">
+            <role string="http://www.obdasystems.com/books/writtenBy">
+                <domainTemplate>http://obdasystems.com/books/book-{bk_code}</domainTemplate>
+                <rangeTemplate>http://obdasystems.com/books/author-{wr_id}</rangeTemplate>
+            </role>
+            <viewAtomsConjunction>
+                <viewAtom>written_by(bk_code, wr_id)</viewAtom>
+            </viewAtomsConjunction>
+            <userQuery>select written_by.bk_code AS bk_code, written_by.wr_id AS wr_id
+from written_by</userQuery>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="_dateOfPublication_1">
+            <attribute string="http://www.obdasystems.com/books/dateOfPublication">
+                <domainTemplate>http://obdasystems.com/books/edition-{ed_code}</domainTemplate>
+                <rangeVariable>pub_date</rangeVariable>
+            </attribute>
+            <viewAtomsConjunction>
+                <viewAtom>editions(ed_code, ed_type, pub_date, n_edt, editor, bk_id, e_book, price)</viewAtom>
+            </viewAtomsConjunction>
+            <userQuery>select editions.ed_code AS ed_code, editions.ed_type AS ed_type, editions.pub_date AS pub_date, editions.n_edt AS n_edt, editions.editor AS editor, editions.bk_id AS bk_id, editions.e_book AS e_book, editions.price AS price
+from editions</userQuery>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="_editionNumber_1">
+            <attribute string="http://www.obdasystems.com/books/editionNumber">
+                <domainTemplate>http://obdasystems.com/books/edition-{ed_code}</domainTemplate>
+                <rangeVariable>n_edt</rangeVariable>
+            </attribute>
+            <viewAtomsConjunction>
+                <viewAtom>editions(ed_code, ed_type, pub_date, n_edt, editor, bk_id, e_book, price)</viewAtom>
+            </viewAtomsConjunction>
+            <userQuery>select editions.ed_code AS ed_code, editions.ed_type AS ed_type, editions.pub_date AS pub_date, editions.n_edt AS n_edt, editions.editor AS editor, editions.bk_id AS bk_id, editions.e_book AS e_book, editions.price AS price
+from editions</userQuery>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="_numberOfPages_1">
+            <attribute string="http://www.obdasystems.com/books/numberOfPages">
+                <domainTemplate>http://obdasystems.com/books/edition-{ed_code}</domainTemplate>
+                <rangeVariable>pages</rangeVariable>
+            </attribute>
+            <viewAtomsConjunction>
+                <viewAtom>printed_book_editions(ed_code, pages)</viewAtom>
+            </viewAtomsConjunction>
+            <userQuery>select printed_book_editions.ed_code AS ed_code, printed_book_editions.pages AS pages
+from printed_book_editions</userQuery>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="_priceInDollars_1">
+            <attribute string="http://www.obdasystems.com/books/priceInDollars">
+                <domainTemplate>http://obdasystems.com/books/edition-{ed_code}</domainTemplate>
+                <rangeVariable>price</rangeVariable>
+            </attribute>
+            <viewAtomsConjunction>
+                <viewAtom>editions(ed_code, ed_type, pub_date, n_edt, editor, bk_id, e_book, price)</viewAtom>
+            </viewAtomsConjunction>
+            <userQuery>select editions.ed_code AS ed_code, editions.ed_type AS ed_type, editions.pub_date AS pub_date, editions.n_edt AS n_edt, editions.editor AS editor, editions.bk_id AS bk_id, editions.e_book AS e_book, editions.price AS price
+from editions</userQuery>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="_title_1">
+            <attribute string="http://www.obdasystems.com/books/title">
+                <domainTemplate>http://obdasystems.com/books/book-{bk_code}</domainTemplate>
+                <rangeVariable>bk_title</rangeVariable>
+            </attribute>
+            <viewAtomsConjunction>
+                <viewAtom>books(bk_code, bk_title, is_classic)</viewAtom>
+            </viewAtomsConjunction>
+            <userQuery>select books.bk_code AS bk_code, books.bk_title AS bk_title, books.is_classic AS is_classic
+from books</userQuery>
+        </ontologyPredicateComplexMapping>
+        <primitiveView id="employees">
+            <HEAD string="employees(employee_id, vat, profession, employee_name, retired, date_birth)"/>
+            <SQLQuery>select tb_employees.employee_id AS employee_id, coalesce(tb_employees.vat, tb_employees.employee_id, tb_employees.employee_name) AS vat, tb_employees.profession AS profession, tb_employees.employee_name AS employee_name, tb_employees.retired AS retired, tb_employees.date_birth AS date_birth
+from tb_employees</SQLQuery>
+            <description/>
+        </primitiveView>
+    <ontologyPredicateComplexMapping id="_durationInSeconds_1">
+            <attribute string="http://www.obdasystems.com/books/durationInSeconds">
+                <domainTemplate>http://obdasystems.com/books/edition-{ed_code}</domainTemplate>
+                <rangeVariable>duration</rangeVariable>
+            </attribute>
+            <viewAtomsConjunction>
+                <viewAtom>audio_book_editions(ed_code, duration)</viewAtom>
+            </viewAtomsConjunction>
+            <userQuery>select audio_book_editions.ed_code AS ed_code, audio_book_editions.duration AS duration
+from audio_book_editions</userQuery>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="_genre_1">
+            <attribute string="http://www.obdasystems.com/books/genre">
+                <domainTemplate>http://obdasystems.com/books/book-{id_bk}</domainTemplate>
+                <rangeVariable>gen_name</rangeVariable>
+            </attribute>
+            <viewAtomsConjunction>
+                <viewAtom>genres(id_bk, gen_name)</viewAtom>
+                <viewAtom>IS_NOT_NULL(gen_name)</viewAtom>
+            </viewAtomsConjunction>
+            <userQuery>select genres.id_bk AS id_bk, genres.gen_name AS gen_name
+from genres
+where genres.gen_name is not null</userQuery>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="_name_1">
+            <attribute string="http://www.obdasystems.com/books/name">
+                <domainTemplate>http://obdasystems.com/books/person-{vat}</domainTemplate>
+                <rangeVariable>employee_name</rangeVariable>
+            </attribute>
+            <viewAtomsConjunction>
+                <viewAtom>employees(__x0, vat, __x2, employee_name, __x4, __x5)</viewAtom>
+                <viewAtom>IS_NOT_NULL(vat)</viewAtom>
+                <viewAtom>IS_NOT_NULL(employee_name)</viewAtom>
+            </viewAtomsConjunction>
+            <userQuery>SELECT employees.vat AS vat, 
+employees.employee_name AS employee_name
+FROM employees
+WHERE employees.vat IS NOT NULL AND employees.employee_name IS NOT NULL
+</userQuery>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="_Edition_1">
+            <concept string="http://www.obdasystems.com/books/Edition">
+                <template>http://obdasystems.com/books/edition-{ed_code}</template>
+            </concept>
+            <viewAtomsConjunction>
+                <viewAtom>editions(ed_code, __x1, __x2, __x3, __x4, __x5, __x6, __x7)</viewAtom>
+            </viewAtomsConjunction>
+            <userQuery>SELECT editions.ed_code AS ed_code
+FROM editions
+
+</userQuery>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="_Person_1">
+            <concept string="http://www.obdasystems.com/books/Person">
+                <template>http://obdasystems.com/books/person-{vat}</template>
+            </concept>
+            <viewAtomsConjunction>
+                <viewAtom>employees(__x0, vat, __x2, __x3, __x4, __x5)</viewAtom>
+            </viewAtomsConjunction>
+            <userQuery>SELECT employees.vat AS vat
+FROM employees
+
+</userQuery>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="_actAsAuthor_1">
+            <role string="http://www.obdasystems.com/books/actAsAuthor">
+                <domainTemplate>http://obdasystems.com/books/person-{vat}</domainTemplate>
+                <rangeTemplate>http://obdasystems.com/books/author-{employee_id}</rangeTemplate>
+            </role>
+            <viewAtomsConjunction>
+                <viewAtom>employees(employee_id, vat, 'AUTHOR'^^xsd:string, __x3, __x4, __x5)</viewAtom>
+                <viewAtom>writers(employee_id, __x7)</viewAtom>
+            </viewAtomsConjunction>
+            <userQuery>SELECT employees.vat AS vat, 
+employees.employee_id AS employee_id
+FROM employees
+  JOIN writers
+    ON writers.wr_code = employees.employee_id
+WHERE employees.profession = 'AUTHOR'
+</userQuery>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="_actAsPublisher_1">
+            <role string="http://www.obdasystems.com/books/actAsPublisher">
+                <domainTemplate>http://obdasystems.com/books/person-{vat}</domainTemplate>
+                <rangeTemplate>http://obdasystems.com/books/publisher-{employee_id}</rangeTemplate>
+            </role>
+            <viewAtomsConjunction>
+                <viewAtom>employees(employee_id, vat, 'EDITOR'^^xsd:string, __x3, __x4, __x5)</viewAtom>
+                <viewAtom>publisher(employee_id, __x7)</viewAtom>
+            </viewAtomsConjunction>
+            <userQuery>SELECT employees.vat AS vat, 
+employees.employee_id AS employee_id
+FROM employees
+  JOIN publisher
+    ON publisher.ed_code = employees.employee_id
+WHERE employees.profession = 'EDITOR'
+</userQuery>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="_dateOfBirth_1">
+            <attribute string="http://www.obdasystems.com/books/dateOfBirth">
+                <domainTemplate>http://obdasystems.com/books/person-{vat}</domainTemplate>
+                <rangeVariable>date_birth</rangeVariable>
+            </attribute>
+            <viewAtomsConjunction>
+                <viewAtom>employees(__x0, vat, __x2, __x3, __x4, date_birth)</viewAtom>
+                <viewAtom>IS_NOT_NULL(vat)</viewAtom>
+            </viewAtomsConjunction>
+            <userQuery>SELECT employees.vat AS vat, 
+employees.date_birth AS date_birth
+FROM employees
+WHERE employees.vat IS NOT NULL 
+</userQuery>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="_vatNumber_1">
+            <attribute string="http://www.obdasystems.com/books/vatNumber">
+                <domainTemplate>http://obdasystems.com/books/person-{vat}</domainTemplate>
+                <rangeVariable>vat</rangeVariable>
+            </attribute>
+            <viewAtomsConjunction>
+                <viewAtom>employees(__x0, vat, __x2, __x3, __x4, __x5)</viewAtom>
+                <viewAtom>IS_NOT_NULL(vat)</viewAtom>
+            </viewAtomsConjunction>
+            <userQuery>SELECT employees.vat AS vat
+FROM employees
+WHERE employees.vat IS NOT NULL 
+</userQuery>
+        </ontologyPredicateComplexMapping>
+        <primitiveView id="employee_by_id">
+            <HEAD string="employee_by_id(employee_id, vat, name, birth_date)"/>
+            <SQLQuery>select
+  employee_id as employee_id,
+  substring_index(group_concat(vat separator '|'), '|', 1) as vat,
+  substring_index(
+    group_concat(employee_name separator '|'),
+    '|',
+    1
+  ) as name,
+  substring_index(group_concat(date_birth separator '|'), '|', 1) as birth_date
+from
+  tb_employees
+group by
+  employee_id
+having
+  employee_id is not null</SQLQuery>
+            <description/>
+        </primitiveView>
+    <ontologyPredicateComplexMapping id="_UnpublishedBook_1">
+            <concept string="http://www.obdasystems.com/books/UnpublishedBook">
+                <template>http://obdasystems.com/books/book-{code}</template>
+            </concept>
+            <viewAtomsConjunction>
+                <viewAtom>unedited_book(code)</viewAtom>
+            </viewAtomsConjunction>
+            <userQuery>select unedited_book.code AS code
+from unedited_book</userQuery>
+        </ontologyPredicateComplexMapping>
+        <primitiveView id="scientific_books">
+            <HEAD string="scientific_books(bk_id, revision, topic, title)"/>
+            <SQLQuery>select tb_scientific_books.bk_id AS bk_id, tb_scientific_books.revision AS revision, tb_scientific_books.topic AS topic, tb_scientific_books.title AS title
+from tb_scientific_books</SQLQuery>
+            <description/>
+        </primitiveView>
+        <ontologyPredicateComplexMapping id="_ScientificBook_1">
+            <concept string="http://www.obdasystems.com/books/ScientificBook">
+                <template>http://obdasystems.com/books/book-{bk_id}</template>
+            </concept>
+            <viewAtomsConjunction>
+                <viewAtom>scientific_books(bk_id, revision, topic, title)</viewAtom>
+            </viewAtomsConjunction>
+            <userQuery>select scientific_books.bk_id AS bk_id, scientific_books.revision AS revision, scientific_books.topic AS topic, scientific_books.title AS title
+from scientific_books</userQuery>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="_ScientificBookRevision_1">
+            <concept string="http://www.obdasystems.com/books/ScientificBookRevision">
+                <template>http://obdasystems.com/books/book-{bk_id}-revision-{revision}</template>
+            </concept>
+            <viewAtomsConjunction>
+                <viewAtom>scientific_books(bk_id, revision, topic, title)</viewAtom>
+            </viewAtomsConjunction>
+            <userQuery>select scientific_books.bk_id AS bk_id, scientific_books.revision AS revision, scientific_books.topic AS topic, scientific_books.title AS title
+from scientific_books</userQuery>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="_hasBookRevision_1">
+            <role string="http://www.obdasystems.com/books/hasBookRevision">
+                <domainTemplate>http://obdasystems.com/books/book-{bk_id}</domainTemplate>
+                <rangeTemplate>http://obdasystems.com/books/book-{bk_id}-revision-{revision}</rangeTemplate>
+            </role>
+            <viewAtomsConjunction>
+                <viewAtom>scientific_books(bk_id, revision, topic, title)</viewAtom>
+            </viewAtomsConjunction>
+            <userQuery>select scientific_books.bk_id AS bk_id, scientific_books.revision AS revision, scientific_books.topic AS topic, scientific_books.title AS title
+from scientific_books</userQuery>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="_scientificBookRevisionDate_1">
+            <attribute string="http://www.obdasystems.com/books/scientificBookRevisionDate">
+                <domainTemplate>http://obdasystems.com/books/book-{bk_id}-revision-{revision}</domainTemplate>
+                <rangeVariable>revision</rangeVariable>
+            </attribute>
+            <viewAtomsConjunction>
+                <viewAtom>scientific_books(bk_id, revision, topic, title)</viewAtom>
+            </viewAtomsConjunction>
+            <userQuery>select scientific_books.bk_id AS bk_id, scientific_books.revision AS revision, scientific_books.topic AS topic, scientific_books.title AS title
+from scientific_books</userQuery>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="_scientificTopic_1">
+            <attribute string="http://www.obdasystems.com/books/scientificTopic">
+                <domainTemplate>http://obdasystems.com/books/book-{bk_id}</domainTemplate>
+                <rangeVariable>topic</rangeVariable>
+            </attribute>
+            <viewAtomsConjunction>
+                <viewAtom>scientific_books(bk_id, revision, topic, title)</viewAtom>
+            </viewAtomsConjunction>
+            <userQuery>select scientific_books.bk_id AS bk_id, scientific_books.revision AS revision, scientific_books.topic AS topic, scientific_books.title AS title
+from scientific_books</userQuery>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="_title_2">
+            <attribute string="http://www.obdasystems.com/books/title">
+                <domainTemplate>http://obdasystems.com/books/book-{bk_id}</domainTemplate>
+                <rangeVariable>title</rangeVariable>
+            </attribute>
+            <viewAtomsConjunction>
+                <viewAtom>scientific_books(bk_id, revision, topic, title)</viewAtom>
+            </viewAtomsConjunction>
+            <userQuery>select scientific_books.bk_id AS bk_id, scientific_books.revision AS revision, scientific_books.topic AS topic, scientific_books.title AS title
+from scientific_books</userQuery>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="_penName_1">
+            <attribute string="http://www.obdasystems.com/books/penName">
+                <domainTemplate>http://obdasystems.com/books/author-{employee_id}</domainTemplate>
+                <rangeVariable>name</rangeVariable>
+            </attribute>
+            <viewAtomsConjunction>
+                <viewAtom>employees(employee_id, __x1, __x2, __x3, __x4, __x5)</viewAtom>
+                <viewAtom>writers(employee_id, name)</viewAtom>
+                <viewAtom>NOT_EQUALS(__x3, name)</viewAtom>
+            </viewAtomsConjunction>
+            <userQuery>SELECT employees.employee_id AS employee_id,
+writers.wr_name AS name
+FROM employees
+  JOIN writers
+    ON writers.wr_code = employees.employee_id
+WHERE employees.employee_name &lt;&gt; writers.wr_name</userQuery>
+        </ontologyPredicateComplexMapping>
+    <ontologyPredicateComplexMapping id="_bookOutline_1"><attribute string="http://www.obdasystems.com/books/bookOutline"><domainTemplate>http://obdasystems.com/books/book-{bk_code}</domainTemplate><rangeTemplate>Outline of the book with code {bk_code} the book is titled {bk_title}</rangeTemplate></attribute><viewAtomsConjunction><viewAtom>books(bk_code, bk_title, is_classic)</viewAtom></viewAtomsConjunction><userQuery>select books.bk_code AS bk_code, books.bk_title AS bk_title, books.is_classic AS is_classic
+from books</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="_editionOutline_1"><attribute string="http://www.obdasystems.com/books/editionOutline"><domainTemplate>http://obdasystems.com/books/edition-{ed_code}</domainTemplate><rangeTemplate>Outline description of the edition with code {ed_code} of book with title {bk_title}: the date is {ed_date} the type is {ed_type}</rangeTemplate></attribute><viewAtomsConjunction><viewAtom>editions(ed_code, ed_type, ed_date, __x3, __x4, __x5, __x6, __x7)</viewAtom><viewAtom>books(__x5, bk_title, __x10)</viewAtom></viewAtomsConjunction><userQuery>SELECT editions.ed_code AS ed_code,
+editions.pub_date as ed_date,
+editions.ed_type as ed_type,
+books.bk_title as bk_title
+FROM editions, books
+where editions.bk_id=books.bk_code</userQuery></ontologyPredicateComplexMapping>
+
+
+
+<intensionalAnnotationMapping id="book_label">
+	<annotation>
+		<property>http://www.w3.org/2000/01/rdf-schema#label</property>
+		<subject>
+			<iri>http://www.obdasystems.com/books/Book</iri>
+		</subject>
+		<value lang="{bk_title}">{bk_code}</value>
+	</annotation>
+	<viewAtomsConjunction>
+		<viewAtom>books(bk_code, bk_title, is_classic)</viewAtom>
+	</viewAtomsConjunction>
+	<userQuery>select books.bk_code AS bk_code, books.bk_title AS bk_title, books.is_classic AS is_classic</userQuery>
+</intensionalAnnotationMapping>
+
+<intensionalAnnotationMapping id="book_comment">
+	<annotation>
+		<property>http://www.w3.org/2000/01/rdf-schema#comment</property>
+		<subject>
+			<iri>http://www.obdasystems.com/books/Book</iri>
+		</subject>
+		<value lang="{bk_title}">{bk_code}</value>
+	</annotation>
+	<viewAtomsConjunction>
+		<viewAtom>books(bk_code, bk_title, is_classic)</viewAtom>
+	</viewAtomsConjunction>
+	<userQuery>select books.bk_code AS bk_code, books.bk_title AS bk_title, books.is_classic AS is_classic</userQuery>
+</intensionalAnnotationMapping>
+
+
+
+</mappings>
+    <blocks/>
+    <constraints>
+        
+        <key id="kd_1643796288060">
+            <projection arg="writers[1]"/>
+            <description/>
+        </key>
+        <key id="kd_1643796319689">
+            <projection arg="books[1]"/>
+            <description/>
+        </key>
+        <key id="kd_1643796463386">
+            <projection arg="publisher[1]"/>
+            <description/>
+        </key>
+        <key id="kd_1643796502368">
+            <projection arg="genres[1, 2]"/>
+            <description/>
+        </key>
+        <key id="kd_1643796534485">
+            <projection arg="emerging_writers[1]"/>
+            <description/>
+        </key>
+        <key id="kd_1643796598834">
+            <projection arg="unedited_book[1]"/>
+            <description/>
+        </key>
+        <inclusion id="id_1643796815762">
+            <left arg="unedited_book[1]"/>
+            <right arg="books[1]"/>
+            <description/>
+        </inclusion>
+        <key id="kd_1643797471127">
+            <projection arg="audio_book_editions[1]"/>
+            <description/>
+        </key>
+        <key id="kd_1643798080516">
+            <projection arg="editions[1]"/>
+            <description/>
+        </key>
+        <key id="kd_1643798389274">
+            <projection arg="printed_book_editions[1]"/>
+            <description/>
+        </key>
+        
+        
+        
+    <key id="kd_1643907436600">
+            <projection arg="employee_by_id[1]"/>
+            <description/>
+        </key>
+        <inclusion id="id_1643907506680">
+            <left arg="employee_by_id[1]"/>
+            <right arg="employees[1]"/>
+            <description/>
+        </inclusion>
+    <key id="kd_1644244515277">
+            <projection arg="scientific_books[1, 2]"/>
+            <description/>
+        </key>
+    </constraints>
+</OBDA>
