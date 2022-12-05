@@ -552,41 +552,7 @@ editions.pub_date as ed_date,
 editions.ed_type as ed_type,
 books.bk_title as bk_title
 FROM editions, books
-where editions.bk_id=books.bk_code</userQuery></ontologyPredicateComplexMapping>
-
-
-
-<intensionalAnnotationMapping id="book_label">
-	<annotation>
-		<property>http://www.w3.org/2000/01/rdf-schema#label</property>
-		<subject>
-			<iri>http://www.obdasystems.com/books/Book</iri>
-		</subject>
-		<value lang="{bk_title}">{bk_code}</value>
-	</annotation>
-	<viewAtomsConjunction>
-		<viewAtom>books(bk_code, bk_title, is_classic)</viewAtom>
-	</viewAtomsConjunction>
-	<userQuery>select books.bk_code AS bk_code, books.bk_title AS bk_title, books.is_classic AS is_classic</userQuery>
-</intensionalAnnotationMapping>
-
-<intensionalAnnotationMapping id="book_comment">
-	<annotation>
-		<property>http://www.w3.org/2000/01/rdf-schema#comment</property>
-		<subject>
-			<iri>http://www.obdasystems.com/books/Book</iri>
-		</subject>
-		<value lang="{bk_title}">{bk_code}</value>
-	</annotation>
-	<viewAtomsConjunction>
-		<viewAtom>books(bk_code, bk_title, is_classic)</viewAtom>
-	</viewAtomsConjunction>
-	<userQuery>select books.bk_code AS bk_code, books.bk_title AS bk_title, books.is_classic AS is_classic</userQuery>
-</intensionalAnnotationMapping>
-
-
-
-</mappings>
+where editions.bk_id=books.bk_code</userQuery></ontologyPredicateComplexMapping></mappings>
     <blocks/>
     <constraints>
         
