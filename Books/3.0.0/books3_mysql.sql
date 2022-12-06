@@ -1,3 +1,5 @@
+use books;
+
 create table tb_affiliated_writers
 (
     wr_code int          not null,
