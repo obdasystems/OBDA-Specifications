@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><OBDA version="1.0">
-    <mappingsMetadata id="books_4" version="">
+    <mappingsMetadata id="books_3" version="http://www.obdasystems.com/books/3.0">
         <description>No description provided</description>
     </mappingsMetadata>
     <prefixes>
@@ -546,13 +546,21 @@ FROM employees
     ON writers.wr_code = employees.employee_id
 WHERE employees.employee_name &lt;&gt; writers.wr_name</userQuery>
         </ontologyPredicateComplexMapping>
-    <ontologyPredicateComplexMapping id="_bookOutline_1"><attribute string="http://www.obdasystems.com/books/bookOutline"><domainTemplate>http://obdasystems.com/books/book-{bk_code}</domainTemplate><rangeTemplate>Outline of the book with code {bk_code} the book is titled {bk_title}</rangeTemplate></attribute><viewAtomsConjunction><viewAtom>books(bk_code, bk_title, is_classic)</viewAtom></viewAtomsConjunction><userQuery>select books.bk_code AS bk_code, books.bk_title AS bk_title, books.is_classic AS is_classic
-from books</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="_editionOutline_1"><attribute string="http://www.obdasystems.com/books/editionOutline"><domainTemplate>http://obdasystems.com/books/edition-{ed_code}</domainTemplate><rangeTemplate>Outline description of the edition with code {ed_code} of book with title {bk_title}: the date is {ed_date} the type is {ed_type}</rangeTemplate></attribute><viewAtomsConjunction><viewAtom>editions(ed_code, ed_type, ed_date, __x3, __x4, __x5, __x6, __x7)</viewAtom><viewAtom>books(__x5, bk_title, __x10)</viewAtom></viewAtomsConjunction><userQuery>SELECT editions.ed_code AS ed_code,
-editions.pub_date as ed_date,
-editions.ed_type as ed_type,
-books.bk_title as bk_title
-FROM editions, books
-where editions.bk_id=books.bk_code</userQuery></ontologyPredicateComplexMapping></mappings>
+    <primitiveView id="intensional_annotations"><HEAD string="intensional_annotations(subject, property, lang, value)"/><SQLQuery>select annotations.subject AS subject, 
+annotations.property AS property, 
+annotations.lang AS lang, 
+annotations.value AS value 
+from annotations</SQLQuery><description/></primitiveView><intensionalAnnotationMapping id="1670250979760"><annotation><property>http://www.w3.org/2000/01/rdf-schema#label</property><subject><iri>{subject}</iri></subject><value lang="">{value}</value></annotation><viewAtomsConjunction><viewAtom>intensional_annotations(subject, property, lang, value)</viewAtom><viewAtom>EQUALS(property, 'rdfs:label'^^xsd:string)</viewAtom></viewAtomsConjunction><userQuery>select intensional_annotations.subject AS subject, 
+intensional_annotations.property AS property, 
+intensional_annotations.lang AS lang, 
+intensional_annotations.value AS value 
+from intensional_annotations
+where intensional_annotations.property= 'rdfs:label'</userQuery></intensionalAnnotationMapping><intensionalAnnotationMapping id="1670251550265"><annotation><property>http://www.w3.org/2000/01/rdf-schema#comment</property><subject><iri>{subject}</iri></subject><value lang="">{value}</value></annotation><viewAtomsConjunction><viewAtom>intensional_annotations(subject, property, lang, value)</viewAtom><viewAtom>EQUALS(property, 'rdfs:comment'^^xsd:string)</viewAtom></viewAtomsConjunction><userQuery>select intensional_annotations.subject AS subject, 
+intensional_annotations.property AS property, 
+intensional_annotations.lang AS lang, 
+intensional_annotations.value AS value 
+from intensional_annotations
+where intensional_annotations.property= 'rdfs:comment'</userQuery></intensionalAnnotationMapping></mappings>
     <blocks/>
     <constraints>
         
