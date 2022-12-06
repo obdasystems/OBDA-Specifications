@@ -546,19 +546,19 @@ FROM employees
     ON writers.wr_code = employees.employee_id
 WHERE employees.employee_name &lt;&gt; writers.wr_name</userQuery>
         </ontologyPredicateComplexMapping>
-    <primitiveView id="intensional_annotations"><HEAD string="intensional_annotations(subject, property, lang, value)"/><SQLQuery>select annotations.subject AS subject, 
+    <primitiveView id="intensional_annotations"><HEAD string="intensional_annotations(subject, property, lang, valore)"/><SQLQuery>select annotations.subject AS subject,
 annotations.property AS property, 
 annotations.lang AS lang, 
-annotations.value AS value 
-from annotations</SQLQuery><description/></primitiveView><intensionalAnnotationMapping id="1670250979760"><annotation><property>http://www.w3.org/2000/01/rdf-schema#label</property><subject><iri>{subject}</iri></subject><value lang="">{value}</value></annotation><viewAtomsConjunction><viewAtom>intensional_annotations(subject, property, lang, value)</viewAtom><viewAtom>EQUALS(property, 'rdfs:label'^^xsd:string)</viewAtom></viewAtomsConjunction><userQuery>select intensional_annotations.subject AS subject, 
+annotations.valore AS valore
+from annotations</SQLQuery><description/></primitiveView><intensionalAnnotationMapping id="1670250979760"><annotation><property>http://www.w3.org/2000/01/rdf-schema#label</property><subject><iri>{subject}</iri></subject><value lang="">{valore}</value></annotation><viewAtomsConjunction><viewAtom>intensional_annotations(subject, property, lang, valore)</viewAtom><viewAtom>EQUALS(property, 'rdfs:label'^^xsd:string)</viewAtom></viewAtomsConjunction><userQuery>select intensional_annotations.subject AS subject,
 intensional_annotations.property AS property, 
 intensional_annotations.lang AS lang, 
-intensional_annotations.value AS value 
+intensional_annotations.valore AS valore
 from intensional_annotations
-where intensional_annotations.property= 'rdfs:label'</userQuery></intensionalAnnotationMapping><intensionalAnnotationMapping id="1670251550265"><annotation><property>http://www.w3.org/2000/01/rdf-schema#comment</property><subject><iri>{subject}</iri></subject><value lang="">{value}</value></annotation><viewAtomsConjunction><viewAtom>intensional_annotations(subject, property, lang, value)</viewAtom><viewAtom>EQUALS(property, 'rdfs:comment'^^xsd:string)</viewAtom></viewAtomsConjunction><userQuery>select intensional_annotations.subject AS subject, 
+where intensional_annotations.property= 'rdfs:label'</userQuery></intensionalAnnotationMapping><intensionalAnnotationMapping id="1670251550265"><annotation><property>http://www.w3.org/2000/01/rdf-schema#comment</property><subject><iri>{subject}</iri></subject><value lang="">{valore}</value></annotation><viewAtomsConjunction><viewAtom>intensional_annotations(subject, property, lang, valore)</viewAtom><viewAtom>EQUALS(property, 'rdfs:comment'^^xsd:string)</viewAtom></viewAtomsConjunction><userQuery>select intensional_annotations.subject AS subject,
 intensional_annotations.property AS property, 
 intensional_annotations.lang AS lang, 
-intensional_annotations.value AS value 
+intensional_annotations.valore AS valore
 from intensional_annotations
 where intensional_annotations.property= 'rdfs:comment'</userQuery></intensionalAnnotationMapping></mappings>
     <blocks/>
