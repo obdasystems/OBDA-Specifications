@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<OBDA version="1.0">
-    <mappingsMetadata id="books_3" version="http://www.obdasystems.com/books/3.0">
-        <description>No description provided</description>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><OBDA version="1.0">
+    <mappingsMetadata id="books_3_1" version="">
+        <description>Mapping modified to be compliant with H2 database in coalesce function. They work with both MySQL and H2 DBMS.</description>
     </mappingsMetadata>
     <prefixes>
         <prefix name="swrl:" namespace="http://www.w3.org/2003/11/swrl#"/>
@@ -22,8 +21,7 @@
         <template>http://obdasystems.com/books/book-{_}</template>
         <template>http://obdasystems.com/books/edition-{_}</template>
         <template>{_}</template>
-    <template>http://obdasystems.com/books/book-{_}-revision-{_}</template>
-    </templates>
+    <template>http://obdasystems.com/books/book-{_}-revision-{_}</template></templates>
     <mappingParameters/>
     <mappings>
         <primitiveView id="writers">
@@ -88,16 +86,6 @@ from tb_authors</SQLQuery>
             </viewAtomsConjunction>
             <userQuery>select publisher.ed_code AS ed_code, publisher.ed_name AS ed_name
 from publisher</userQuery>
-        </ontologyPredicateComplexMapping>
-        <ontologyPredicateComplexMapping id="_Author_1">
-            <concept string="http://www.obdasystems.com/books/Author">
-                <template>http://obdasystems.com/books/author-{wr_code}</template>
-            </concept>
-            <viewAtomsConjunction>
-                <viewAtom>writers(wr_code, wr_name)</viewAtom>
-            </viewAtomsConjunction>
-            <userQuery>select writers.wr_code AS wr_code, writers.wr_name AS wr_name
-from writers</userQuery>
         </ontologyPredicateComplexMapping>
         <ontologyPredicateComplexMapping id="_EmergingWriter_1">
             <concept string="http://www.obdasystems.com/books/EmergingWriter">
@@ -298,12 +286,6 @@ from editions</userQuery>
             <userQuery>select books.bk_code AS bk_code, books.bk_title AS bk_title, books.is_classic AS is_classic
 from books</userQuery>
         </ontologyPredicateComplexMapping>
-        <primitiveView id="employees">
-            <HEAD string="employees(employee_id, vat, profession, employee_name, retired, date_birth)"/>
-            <SQLQuery>select tb_employees.employee_id AS employee_id, coalesce(tb_employees.vat, tb_employees.employee_id, tb_employees.employee_name) AS vat, tb_employees.profession AS profession, tb_employees.employee_name AS employee_name, tb_employees.retired AS retired, tb_employees.date_birth AS date_birth
-from tb_employees</SQLQuery>
-            <description/>
-        </primitiveView>
     <ontologyPredicateComplexMapping id="_durationInSeconds_1">
             <attribute string="http://www.obdasystems.com/books/durationInSeconds">
                 <domainTemplate>http://obdasystems.com/books/edition-{ed_code}</domainTemplate>
@@ -546,8 +528,15 @@ FROM employees
   JOIN writers
     ON writers.wr_code = employees.employee_id
 WHERE employees.employee_name &lt;&gt; writers.wr_name</userQuery>
-        </ontologyPredicateComplexMapping>
-    </mappings>
+        </ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="_Author_1"><concept string="http://www.obdasystems.com/books/Author"><template>http://obdasystems.com/books/author-{wr_code}</template></concept><viewAtomsConjunction><viewAtom>writers(wr_code, wr_name)</viewAtom></viewAtomsConjunction><userQuery>select writers.wr_code AS wr_code, writers.wr_name AS wr_name
+from writers</userQuery></ontologyPredicateComplexMapping><primitiveView id="employees"><HEAD string="employees(employee_id, vat, profession, employee_name, retired, date_birth)"/><SQLQuery>select 
+  tb_employees.employee_id AS employee_id, 
+  coalesce(tb_employees.vat, cast(tb_employees.employee_id as char(4)), tb_employees.employee_name) AS vat, 
+  tb_employees.profession AS profession, 
+  tb_employees.employee_name AS employee_name, 
+  tb_employees.retired AS retired, 
+  tb_employees.date_birth AS date_birth
+from tb_employees</SQLQuery><description/></primitiveView></mappings>
     <blocks/>
     <constraints>
         
