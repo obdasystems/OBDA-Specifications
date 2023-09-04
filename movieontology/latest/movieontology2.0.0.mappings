@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><OBDA version="1.0">
+    <mappingsMetadata id="imbd_2.0.0" version="">
+        <description>Mappings for IMDB Movie ontology</description>
+    </mappingsMetadata>
+    
+    <prefixes>
+        <prefix name="xml:" namespace="http://www.w3.org/XML/1998/namespace"/>
+        <prefix name="xsd:" namespace="http://www.w3.org/2001/XMLSchema#"/>
+        <prefix name="rdf:" namespace="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        <prefix name="rdfs:" namespace="http://www.w3.org/2000/01/rdf-schema#"/>
+        <prefix name="owl:" namespace="http://www.w3.org/2002/07/owl#"/>
+        <prefix name="vann:" namespace="http://purl.org/vocab/vann/"/>
+        <prefix name="terms:" namespace="http://purl.org/dc/terms/"/>
+        <prefix name="dbo:" namespace="http://dbpedia.org/ontology/"/>
+        <prefix name="dbr:" namespace="http://dbpedia.org/resource/"/>
+        <prefix name="ns:" namespace="http://creativecommons.org/ns#"/>
+        <prefix name="terms1:" namespace="http://open.vocab.org/terms/"/>
+        <prefix name="mo:" namespace="http://www.movieontology.org/ontology/"/>
+        <prefix name="imdb:" namespace="http://imdb.com/data/"/>
+        <prefix name="dc:" namespace="http://purl.org/dc/elements/1.1/"/>
+        <prefix name="powder-s:" namespace="http://www.w3.org/2007/05/powder-s#"/>
+        <prefix name="page:" namespace="http://dbpedia.org/page/"/>
+        <prefix name="foaf:" namespace="http://xmlns.com/foaf/0.1/"/>
+        <prefix name="owl2xml:" namespace="http://www.w3.org/2006/12/owl2-xml#"/>
+    </prefixes>
+    <templates>
+        <template>http://imdb.com/data/character/{_}</template>
+        <template>http://imdb.com/data/soundmix/{_}</template>
+        <template>http://imdb.com/data/person/{_}</template>
+        <template>http://dbpedia.org/resource/{_}</template>
+        <template>http://imdb.com/data/title/{_}</template>
+        <template>http://imdb.com/data/company/{_}</template>
+        <template>{_}</template>
+    <template>http://imdb.com/data/country/{_}</template><template>http://imdb.com/data/color/{_}</template><template>http://imdb.com/data/genre/{_}</template><template>http://imdb.com/data/place/{_}</template><template>http://imdb.com/data/certification/{_}</template></templates>
+    <mappings>
+        <primitiveView>
+            <HEAD string="aka_title_view(title_id, movie_id, aka_title, imdb_index, kind_id, production_year, episode_of_id, season_nr, episode_nr, note)"/>
+            <SQLQuery>SELECT t.id AS title_id,
+      t.movie_id AS movie_id,
+       t.title AS aka_title,
+       t.imdb_index AS imdb_index,
+       t.kind_id AS kind_id,
+       t.production_year AS production_year,
+       t.episode_of_id AS episode_of_id,
+       t.season_nr AS season_nr,
+       t.episode_nr AS episode_nr,
+       t.note AS note
+FROM aka_title t, kind_type k
+WHERE t.kind_id = k.id</SQLQuery>
+        </primitiveView>
+        <primitiveView>
+            <HEAD string="character_view(character_id, name, imdb_index, imdb_id)"/>
+            <SQLQuery>SELECT c.id as character_id,
+       c.name as name,
+       c.imdb_index as imdb_index,
+       c.imdb_id as imdb_id
+FROM char_name c</SQLQuery>
+        </primitiveView>
+        <primitiveView>
+            <HEAD string="movie_info_idx_view(movie_id, info_type_id, info, info_name, info_note)"/>
+            <SQLQuery>SELECT m.movie_id AS movie_id,
+      m.info_type_id AS info_type_id,
+       m.info AS info,
+       i.info AS info_name,
+       m.note AS info_note
+FROM movie_info m, info_type i
+WHERE m.info_type_id = i.id</SQLQuery>
+        </primitiveView>
+        <primitiveView>
+            <HEAD string="movie_info_view(movie_id, info_type_id, info, info_name, info_note)"/>
+            <SQLQuery>SELECT m.movie_id AS movie_id,
+      m.info_type_id AS info_type_id,
+       m.info AS info,
+       i.info AS info_name,
+       m.note AS info_note
+FROM movie_info m, info_type i
+WHERE m.info_type_id = i.id</SQLQuery>
+        </primitiveView>
+        <primitiveView>
+            <HEAD string="movie_link_view(link_id, movie_id, linked_movie_id, link_type_id, link_name)"/>
+            <SQLQuery>SELECT l.id AS link_id,
+       l.movie_id AS movie_id,
+       l.linked_movie_id AS linked_movie_id,
+       l.link_type_id AS link_type_id,
+       t.link AS link_name
+FROM movie_link l,
+     link_type t
+WHERE l.link_type_id = t.id</SQLQuery>
+        </primitiveView>
+        <primitiveView>
+            <HEAD string="person_info_view(person_id, info_type_id, info, info_name, note)"/>
+            <SQLQuery>SELECT p.person_id AS person_id,
+       p.info_type_id AS info_type_id,
+       p.info AS info,
+       i.info AS info_name,
+       p.note AS note
+FROM person_info p,
+     info_type i
+WHERE p.info_type_id = i.id</SQLQuery>
+        </primitiveView>
+        <primitiveView>
+            <HEAD string="person_view(person_id, name, imdb_index, imdb_id, gender)"/>
+            <SQLQuery>SELECT n.id AS person_id,
+      n.name AS name,
+       n.imdb_index AS imdb_index,
+       n.imdb_id AS imdb_id,
+       n.gender AS gender
+FROM name n</SQLQuery>
+        </primitiveView>
+        <primitiveView>
+            <HEAD string="title_view(title_id, title, imdb_index, kind_id, kind_name, production_year, imdb_id, episode_of_id, season_nr, episode_nr, series_years)"/>
+            <SQLQuery>SELECT t.id AS title_id,
+       t.title AS title,
+       t.imdb_index AS imdb_index,
+       t.kind_id AS kind_id,
+       k.kind AS kind_name,
+       t.production_year AS production_year,
+       t.imdb_id AS imdb_id,
+       t.episode_of_id AS episode_of_id,
+       t.season_nr AS season_nr,
+       t.episode_nr AS episode_nr,
+       t.series_years AS series_years
+FROM title t, kind_type k
+WHERE t.kind_id = k.id</SQLQuery>
+        </primitiveView>
+        <ontologyPredicateComplexMapping id="M_episodeNr_C_MOD">
+            <attribute string="http://www.movieontology.org/ontology/episodeNr">
+                <domainTemplate>http://imdb.com/data/title/{title_id}</domainTemplate>
+                <rangeVariable>episode_nr</rangeVariable>
+            </attribute>
+            <viewAtomsConjunction>
+                <viewAtom>IS_NOT_NULL(episode_nr)</viewAtom>
+                <viewAtom>title_view(title_id,title,imdb_index,kind_id,kind_name,production_year,imdb_id,episode_of_id,season_nr,episode_nr,series_years)</viewAtom>
+            </viewAtomsConjunction>
+            <userQuery>SELECT ALIAS_2.title_id AS title_id, ALIAS_2.episode_nr AS episode_nr FROM title_view AS ALIAS_2 WHERE ALIAS_2.episode_nr IS NOT NULL</userQuery>
+            <description>Modified by IssueMastro354.class</description>
+        </ontologyPredicateComplexMapping>
+        <ontologyPredicateComplexMapping id="M_seasonNr_C_MOD">
+            <attribute string="http://www.movieontology.org/ontology/seasonNr">
+                <domainTemplate>http://imdb.com/data/title/{title_id}</domainTemplate>
+                <rangeVariable>season_nr</rangeVariable>
+            </attribute>
+            <viewAtomsConjunction>
+                <viewAtom>IS_NOT_NULL(season_nr)</viewAtom>
+                <viewAtom>title_view(title_id,title,imdb_index,kind_id,kind_name,production_year,imdb_id,episode_of_id,season_nr,episode_nr,series_years)</viewAtom>
+            </viewAtomsConjunction>
+            <userQuery>SELECT ALIAS_2.title_id AS title_id, ALIAS_2.season_nr AS season_nr FROM title_view AS ALIAS_2 WHERE ALIAS_2.season_nr IS NOT NULL</userQuery>
+            <description>Modified by IssueMastro354.class</description>
+        </ontologyPredicateComplexMapping>
+    <ontologyPredicateComplexMapping id="M_person_S_MOD"><concept string="http://dbpedia.org/ontology/Person"><template>http://imdb.com/data/person/{person_id}</template><annotations><annotation><property>http://www.w3.org/2000/01/rdf-schema#label</property><valueTemplate lang="en">{name}</valueTemplate></annotation></annotations></concept><viewAtomsConjunction><viewAtom>person_view(person_id, name, __x2, __x3, __x4)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_1.person_id AS person_id,
+ALIAS_1.name as name
+FROM person_view AS ALIAS_1</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="M_Character_S_MOD"><concept string="http://www.movieontology.org/ontology/Character"><template>http://imdb.com/data/character/{character_id}</template><annotations><annotation><property>http://www.w3.org/2000/01/rdf-schema#label</property><valueTemplate lang="en">{name}</valueTemplate></annotation></annotations></concept><viewAtomsConjunction><viewAtom>character_view(character_id, name, __x2, __x3)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_1.character_id AS character_id,
+ALIAS_1.name as name
+FROM character_view AS ALIAS_1</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="M_VideoGame_C_MOD"><concept string="http://www.movieontology.org/ontology/VideoGame"><template>http://imdb.com/data/title/{title_id}</template><annotations><annotation><property>http://www.w3.org/2000/01/rdf-schema#label</property><valueTemplate lang="en">{title}</valueTemplate></annotation></annotations></concept><viewAtomsConjunction><viewAtom>title_view(title_id, title, __x2, '4'^^xsd:decimal, __x4, __x5, __x6, __x7, __x8, __x9, __x10)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_3.title_id AS title_id,
+ALIAS_3.title as title
+FROM title_view AS ALIAS_3 WHERE ALIAS_3.kind_id = 4</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="M_Movie_C_MOD"><concept string="http://www.movieontology.org/ontology/Movie"><template>http://imdb.com/data/title/{title_id}</template><annotations><annotation><property>http://www.w3.org/2000/01/rdf-schema#label</property><valueTemplate lang="en">{title}</valueTemplate></annotation></annotations></concept><viewAtomsConjunction><viewAtom>title_view(title_id, title, __x2, '1'^^xsd:decimal, __x4, __x5, __x6, __x7, __x8, __x9, __x10)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_3.title_id AS title_id,
+ALIAS_3.title as title
+FROM title_view AS ALIAS_3 WHERE ALIAS_3.kind_id = 1</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="mo_TVMovie_1"><concept string="http://www.movieontology.org/ontology/TVMovie"><template>http://imdb.com/data/title/{title_id}</template><annotations><annotation><property>http://www.w3.org/2000/01/rdf-schema#label</property><valueTemplate lang="en">{title}</valueTemplate></annotation></annotations></concept><viewAtomsConjunction><viewAtom>title_view(title_id, title, __x2, '3'^^xsd:decimal, __x4, __x5, __x6, __x7, __x8, __x9, __x10)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_3.title_id AS title_id,
+ALIAS_3.title as title
+FROM title_view AS ALIAS_3 WHERE ALIAS_3.kind_id = 3</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="mo_Video_Movie_1"><concept string="http://www.movieontology.org/ontology/Video_Movie"><template>http://imdb.com/data/title/{title_id}</template><annotations><annotation><property>http://www.w3.org/2000/01/rdf-schema#label</property><valueTemplate lang="en">{title}</valueTemplate></annotation></annotations></concept><viewAtomsConjunction><viewAtom>title_view(title_id, title, __x2, '4'^^xsd:decimal, __x4, __x5, __x6, __x7, __x8, __x9, __x10)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_3.title_id AS title_id,
+ALIAS_3.title as title
+FROM title_view AS ALIAS_3 WHERE ALIAS_3.kind_id = 4</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="M_TVSeries_C_MOD"><concept string="http://www.movieontology.org/ontology/TVSeries"><template>http://imdb.com/data/title/{title_id}</template><annotations><annotation><property>http://www.w3.org/2000/01/rdf-schema#label</property><valueTemplate lang="en">{title}</valueTemplate></annotation></annotations></concept><viewAtomsConjunction><viewAtom>title_view(title_id, title, __x2, '2'^^xsd:decimal, __x4, __x5, __x6, __x7, __x8, __x9, __x10)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_3.title_id AS title_id,
+ALIAS_3.title as title
+FROM title_view AS ALIAS_3 WHERE ALIAS_3.kind_id = 2</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="M_Episode_C_MOD"><concept string="http://www.movieontology.org/ontology/Episode"><template>http://imdb.com/data/title/{title_id}</template><annotations><annotation><property>http://www.w3.org/2000/01/rdf-schema#label</property><valueTemplate lang="en">{title}</valueTemplate></annotation></annotations></concept><viewAtomsConjunction><viewAtom>title_view(title_id, title, __x2, '7'^^xsd:decimal, __x4, __x5, __x6, __x7, __x8, __x9, __x10)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_3.title_id AS title_id,
+ALIAS_3.title as title
+FROM title_view AS ALIAS_3 WHERE ALIAS_3.kind_id = 7</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="mo_Short_1"><concept string="http://www.movieontology.org/ontology/Short"><template>http://imdb.com/data/title/{title_id}</template><annotations><annotation><property>http://www.w3.org/2000/01/rdf-schema#label</property><valueTemplate lang="en">{title}</valueTemplate></annotation></annotations></concept><viewAtomsConjunction><viewAtom>title_view(title_id, title, __x2, '8'^^xsd:decimal, __x4, __x5, __x6, __x7, __x8, __x9, __x10)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_3.title_id AS title_id,
+ALIAS_3.title as title
+FROM title_view AS ALIAS_3 WHERE ALIAS_3.kind_id = 8</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="mo_TVShort_1"><concept string="http://www.movieontology.org/ontology/TVShort"><template>http://imdb.com/data/title/{title_id}</template><annotations><annotation><property>http://www.w3.org/2000/01/rdf-schema#label</property><valueTemplate lang="en">{title}</valueTemplate></annotation></annotations></concept><viewAtomsConjunction><viewAtom>title_view(title_id, title, __x2, '9'^^xsd:decimal, __x4, __x5, __x6, __x7, __x8, __x9, __x10)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_3.title_id AS title_id,
+ALIAS_3.title as title
+FROM title_view AS ALIAS_3 WHERE ALIAS_3.kind_id = 9</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="mo_TV_Mini_Series_1"><concept string="http://www.movieontology.org/ontology/TV_Mini_Series"><template>http://imdb.com/data/title/{title_id}</template><annotations><annotation><property>http://www.w3.org/2000/01/rdf-schema#label</property><valueTemplate lang="en">{title}</valueTemplate></annotation></annotations></concept><viewAtomsConjunction><viewAtom>title_view(title_id, title, __x2, '5'^^xsd:decimal, __x4, __x5, __x6, __x7, __x8, __x9, __x10)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_3.title_id AS title_id,
+ALIAS_3.title as title
+FROM title_view AS ALIAS_3 WHERE ALIAS_3.kind_id = 5</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="mo_hasEpisode_1"><role string="http://www.movieontology.org/ontology/hasEpisode"><domainTemplate>http://imdb.com/data/title/{title_id}</domainTemplate><rangeTemplate>http://imdb.com/data/title/{episode_of_id}</rangeTemplate></role><viewAtomsConjunction><viewAtom>title_view(title_id, __x1, __x2, '7'^^xsd:decimal, __x4, __x5, __x6, episode_of_id, __x8, __x9, __x10)</viewAtom><viewAtom>IS_NOT_NULL(episode_of_id)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_3.title_id AS title_id, 
+ALIAS_3.episode_of_id AS episode_of_id 
+FROM title_view AS ALIAS_3 
+WHERE ALIAS_3.kind_id = 7 AND ALIAS_3.episode_of_id IS NOT NULL</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="M_isEpisodeOf_C_MOD"><role string="http://www.movieontology.org/ontology/isEpisodeOf"><domainTemplate>http://imdb.com/data/title/{episode_of_id}</domainTemplate><rangeTemplate>http://imdb.com/data/title/{title_id}</rangeTemplate></role><viewAtomsConjunction><viewAtom>title_view(title_id, __x1, __x2, '7'^^xsd:decimal, __x4, __x5, __x6, episode_of_id, __x8, __x9, __x10)</viewAtom><viewAtom>IS_NOT_NULL(episode_of_id)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_3.title_id AS title_id, 
+ALIAS_3.episode_of_id AS episode_of_id 
+FROM title_view AS ALIAS_3 
+WHERE ALIAS_3.kind_id = 7 AND ALIAS_3.episode_of_id IS NOT NULL</userQuery></ontologyPredicateComplexMapping><primitiveView id="movie_keyword_view"><HEAD string="movie_keyword_view(movie_id, keyword_id, keyword, phonetic_code)"/><SQLQuery>select movie_keyword.movie_id as movie_id,
+  keyword.id AS keyword_id, 
+  keyword.keyword AS keyword, 
+  keyword.phonetic_code AS phonetic_code
+from keyword,
+movie_keyword
+where keyword.id = movie_keyword.keyword_id</SQLQuery><description/></primitiveView><ontologyPredicateComplexMapping id="mo_keyword_1"><attribute string="http://www.movieontology.org/ontology/keyword"><domainTemplate>http://imdb.com/data/title/{movie_id}</domainTemplate><rangeVariable>keyword</rangeVariable></attribute><viewAtomsConjunction><viewAtom>movie_keyword_view(movie_id, keyword_id, keyword, phonetic_code)</viewAtom></viewAtomsConjunction><userQuery>SELECT movie_keyword_view.movie_id AS movie_id, 
+  movie_keyword_view.keyword_id AS keyword_id, 
+  movie_keyword_view.keyword AS keyword, 
+  movie_keyword_view.phonetic_code AS phonetic_code
+FROM movie_keyword_view</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="mo_Title_1"><concept string="http://www.movieontology.org/ontology/Title"><template>http://imdb.com/data/title/{title_id}</template><annotations><annotation><property>http://www.w3.org/2000/01/rdf-schema#label</property><valueTemplate lang="en">{title}</valueTemplate></annotation></annotations></concept><viewAtomsConjunction><viewAtom>title_view(title_id, title, __x2, __x3, __x4, __x5, __x6, __x7, __x8, __x9, __x10)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_3.title_id AS title_id,
+ALIAS_3.title as title
+FROM title_view AS ALIAS_3</userQuery></ontologyPredicateComplexMapping><primitiveView id="company_view"><HEAD string="company_view(company_id, movie_id, company_name, country_code, imdb_id, company_type, note)"/><SQLQuery>SELECT
+  c.id AS company_id,
+  m.movie_id AS movie_id,
+  c.name AS company_name,
+  c.country_code AS country_code,
+  c.imdb_id AS imdb_id,
+  m.company_type_id as company_type,
+  m.note as note
+FROM
+  company_name c,
+  movie_companies m
+WHERE
+  c.id = m.company_id</SQLQuery><description/></primitiveView><ontologyPredicateComplexMapping id="mo_companyName_2"><attribute string="http://www.movieontology.org/ontology/companyName"><domainTemplate>http://imdb.com/data/company/{company_id}</domainTemplate><rangeVariable>company_name</rangeVariable></attribute><viewAtomsConjunction><viewAtom>company_view(company_id, __x1, company_name, __x3, __x4, __x5, __REF__6)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_1.company_id AS company_id, ALIAS_1.company_name AS company_name FROM company_view AS ALIAS_1</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="M_isProducedBy_S_MOD"><role string="http://www.movieontology.org/ontology/isProducedBy"><domainTemplate>http://imdb.com/data/title/{movie_id}</domainTemplate><rangeTemplate>http://imdb.com/data/company/{company_id}</rangeTemplate></role><viewAtomsConjunction><viewAtom>company_view(company_id, movie_id, __x2, __x3, __x4, '2'^^xsd:decimal, __x6)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_1.movie_id AS movie_id, ALIAS_1.company_id AS company_id 
+FROM company_view AS ALIAS_1
+WHERE ALIAS_1.company_type = 2</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="mo_produced_1"><role string="http://www.movieontology.org/ontology/produced"><domainTemplate>http://imdb.com/data/company/{company_id}</domainTemplate><rangeTemplate>http://imdb.com/data/title/{movie_id}</rangeTemplate></role><viewAtomsConjunction><viewAtom>company_view(company_id, movie_id, __x2, __x3, __x4, '2'^^xsd:decimal, __x6)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_1.movie_id AS movie_id, 
+ALIAS_1.company_id AS company_id 
+FROM company_view AS ALIAS_1
+WHERE ALIAS_1.company_type = 2</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="mo_Distributor_1"><concept string="http://www.movieontology.org/ontology/Distributor"><template>http://imdb.com/data/company/{company_id}</template><annotations><annotation><property>http://www.w3.org/2000/01/rdf-schema#label</property><valueTemplate lang="en">{company_name}</valueTemplate></annotation></annotations></concept><viewAtomsConjunction><viewAtom>company_view(company_id, __x1, company_name, __x3, __x4, '1'^^xsd:decimal, __x6)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_1.company_id AS company_id,
+ALIAS_1.company_name as company_name
+FROM company_view AS ALIAS_1
+WHERE ALIAS_1.company_type = 1</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="mo_Production_Company_2"><concept string="http://www.movieontology.org/ontology/Production_Company"><template>http://imdb.com/data/company/{company_id}</template><annotations><annotation><property>http://www.w3.org/2000/01/rdf-schema#label</property><valueTemplate lang="en">{company_name}</valueTemplate></annotation></annotations></concept><viewAtomsConjunction><viewAtom>company_view(company_id, __x1, company_name, __x3, __x4, '2'^^xsd:decimal, __x6)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_1.company_id AS company_id,
+ALIAS_1.company_name as company_name
+FROM company_view AS ALIAS_1
+WHERE ALIAS_1.company_type = 2</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="mo_Company_1"><concept string="http://www.movieontology.org/ontology/Company"><template>http://imdb.com/data/company/{company_id}</template><annotations><annotation><property>http://www.w3.org/2000/01/rdf-schema#label</property><valueTemplate lang="en">{company_name}</valueTemplate></annotation></annotations></concept><viewAtomsConjunction><viewAtom>company_view(company_id, __x1, company_name, __x3, __x4, __x5, __x6)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_1.company_id AS company_id,
+ALIAS_1.company_name as company_name
+FROM company_view AS ALIAS_1
+</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="mo_Special_Effects_Company_1"><concept string="http://www.movieontology.org/ontology/Special_Effects_Company"><template>http://imdb.com/data/company/{company_id}</template><annotations><annotation><property>http://www.w3.org/2000/01/rdf-schema#label</property><valueTemplate lang="en">{company_name}</valueTemplate></annotation></annotations></concept><viewAtomsConjunction><viewAtom>company_view(company_id, __x1, company_name, __x3, __x4, '3'^^xsd:decimal, __x6)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_1.company_id AS company_id,
+ALIAS_1.company_name as company_name
+FROM company_view AS ALIAS_1
+WHERE ALIAS_1.company_type = 3</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="mo_Miscellaneous_Company_1"><concept string="http://www.movieontology.org/ontology/Miscellaneous_Company"><template>http://imdb.com/data/company/{company_id}</template><annotations><annotation><property>http://www.w3.org/2000/01/rdf-schema#label</property><valueTemplate lang="en">{company_name}</valueTemplate></annotation></annotations></concept><viewAtomsConjunction><viewAtom>company_view(company_id, __x1, company_name, __x3, __x4, '4'^^xsd:decimal, __x6)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_1.company_id AS company_id,
+ALIAS_1.company_name as company_name
+FROM company_view AS ALIAS_1
+WHERE ALIAS_1.company_type = 4</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="mo_note_1"><attribute string="http://www.movieontology.org/ontology/note"><domainTemplate>http://imdb.com/data/company/{company_id}</domainTemplate><rangeVariable>note</rangeVariable></attribute><viewAtomsConjunction><viewAtom>company_view(company_id, __x1, __x2, __x3, __x4, __x5, note)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_1.company_id AS company_id, ALIAS_1.note AS note FROM company_view AS ALIAS_1</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="mo_companyID_1"><attribute string="http://www.movieontology.org/ontology/companyID"><domainTemplate>http://imdb.com/data/company/{company_id}</domainTemplate><rangeVariable>company_id</rangeVariable></attribute><viewAtomsConjunction><viewAtom>company_view(company_id, __x1, __x2, __x3, __x4, __x5, __x6)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_1.company_id AS company_id 
+FROM company_view AS ALIAS_1</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="dbo_Country_1"><concept string="http://dbpedia.org/ontology/Country"><template>http://imdb.com/data/country/{country_code}</template><annotations><annotation><property>http://www.w3.org/2000/01/rdf-schema#label</property><valueTemplate lang="en">{country_code}</valueTemplate></annotation></annotations></concept><viewAtomsConjunction><viewAtom>company_view(__x0, __x1, __x2, country_code, __x4, __x5, __x6)</viewAtom></viewAtomsConjunction><userQuery>SELECT 
+  company_view.country_code AS country_code
+FROM company_view</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="mo_countryCode_1"><attribute string="http://www.movieontology.org/ontology/countryCode"><domainTemplate>http://imdb.com/data/country/{country_code}</domainTemplate><rangeVariable>country_code</rangeVariable></attribute><viewAtomsConjunction><viewAtom>company_view(__x0, __x1, __x2, country_code, __x4, __x5, __x6)</viewAtom></viewAtomsConjunction><userQuery>SELECT 
+  company_view.country_code AS country_code
+FROM company_view</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="mo_isLocatedIn_1"><role string="http://www.movieontology.org/ontology/isLocatedIn"><domainTemplate>http://imdb.com/data/company/{company_id}</domainTemplate><rangeTemplate>http://imdb.com/data/country/{country_code}</rangeTemplate></role><viewAtomsConjunction><viewAtom>company_view(company_id, __x1, __x2, country_code, __x4, __x5, __x6)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_1.company_id AS company_id,
+ALIAS_1.country_code as country_code
+FROM company_view AS ALIAS_1
+</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="M_budget_C_MOD"><attribute string="http://www.movieontology.org/ontology/budget"><domainTemplate>http://imdb.com/data/title/{movie_id}</domainTemplate><rangeVariable>info</rangeVariable></attribute><viewAtomsConjunction><viewAtom>movie_info_view(movie_id, '105'^^xsd:decimal, info, __x3, __x4)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_2.movie_id AS movie_id, ALIAS_2.info AS info FROM movie_info_view AS ALIAS_2 WHERE ALIAS_2.info_type_id = 105</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="M_runtime_C_MOD"><attribute string="http://www.movieontology.org/ontology/runtime"><domainTemplate>http://imdb.com/data/title/{movie_id}</domainTemplate><rangeVariable>info</rangeVariable></attribute><viewAtomsConjunction><viewAtom>movie_info_view(movie_id, '1'^^xsd:decimal, info, __x3, __x4)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_2.movie_id AS movie_id, ALIAS_2.info AS info FROM movie_info_view AS ALIAS_2 WHERE ALIAS_2.info_type_id = 1</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="M_gross_C_MOD"><attribute string="http://www.movieontology.org/ontology/gross"><domainTemplate>http://imdb.com/data/title/{movie_id}</domainTemplate><rangeVariable>info</rangeVariable></attribute><viewAtomsConjunction><viewAtom>movie_info_view(movie_id, '107'^^xsd:decimal, info, __x3, __x4)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_2.movie_id AS movie_id, ALIAS_2.info AS info FROM movie_info_view AS ALIAS_2 WHERE ALIAS_2.info_type_id = 107</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="M_releasedate_C_MOD"><attribute string="http://www.movieontology.org/ontology/releasedate"><domainTemplate>http://imdb.com/data/title/{movie_id}</domainTemplate><rangeVariable>info</rangeVariable></attribute><viewAtomsConjunction><viewAtom>movie_info_view(movie_id, '16'^^xsd:decimal, info, __x3, __x4)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_2.movie_id AS movie_id, ALIAS_2.info AS info FROM movie_info_view AS ALIAS_2 WHERE ALIAS_2.info_type_id = 16</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="M_hasColor_S_MOD"><role string="http://www.movieontology.org/ontology/hasColor"><domainTemplate>http://imdb.com/data/title/{movie_id}</domainTemplate><rangeTemplate>http://imdb.com/data/color/{color}</rangeTemplate></role><viewAtomsConjunction><viewAtom>movie_color_info_view(movie_id, color)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_1.movie_id AS movie_id, ALIAS_1.color AS color FROM movie_color_info_view AS ALIAS_1</userQuery></ontologyPredicateComplexMapping><primitiveView id="movie_color_info_view"><HEAD string="movie_color_info_view(movie_id, color)"/><SQLQuery>SELECT m.movie_id AS movie_id,
+      REPLACE(m.info, ' ', '_') AS color
+FROM movie_info m
+WHERE
+     m.info_type_id = 2</SQLQuery><description/></primitiveView><ontologyPredicateComplexMapping id="mo_isColorOf_1"><role string="http://www.movieontology.org/ontology/isColorOf"><domainTemplate>http://imdb.com/data/color/{color}</domainTemplate><rangeTemplate>http://imdb.com/data/title/{movie_id}</rangeTemplate></role><viewAtomsConjunction><viewAtom>movie_color_info_view(movie_id, color)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_1.movie_id AS movie_id, ALIAS_1.color AS color FROM movie_color_info_view AS ALIAS_1</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="mo_Colorinfo_1"><concept string="http://www.movieontology.org/ontology/Colorinfo"><template>http://imdb.com/data/color/{color}</template><annotations><annotation><property>http://www.w3.org/2000/01/rdf-schema#label</property><valueTemplate lang="en">{color}</valueTemplate></annotation></annotations></concept><viewAtomsConjunction><viewAtom>movie_color_info_view(__x0, color)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_1.color AS color FROM movie_color_info_view AS ALIAS_1</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="M_hasReleasingCountry_C_MOD"><role string="http://www.movieontology.org/ontology/hasReleasingCountry"><domainTemplate>http://imdb.com/data/title/{movie_id}</domainTemplate><rangeTemplate>http://imdb.com/data/country/{info}</rangeTemplate></role><viewAtomsConjunction><viewAtom>movie_info_view(movie_id, '2'^^xsd:decimal, info, __x3, __x4)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_2.movie_id AS movie_id, ALIAS_2.info AS info FROM movie_info_view AS ALIAS_2 WHERE ALIAS_2.info_type_id = 2</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="M_belongsToGenre_C_MOD"><role string="http://www.movieontology.org/ontology/belongsToGenre"><domainTemplate>http://imdb.com/data/title/{movie_id}</domainTemplate><rangeTemplate>http://imdb.com/data/genre/{info}</rangeTemplate></role><viewAtomsConjunction><viewAtom>movie_info_view(movie_id, '3'^^xsd:decimal, info, __x3, __x4)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_2.movie_id AS movie_id, ALIAS_2.info AS info FROM movie_info_view AS ALIAS_2 WHERE ALIAS_2.info_type_id = 3</userQuery></ontologyPredicateComplexMapping><primitiveView id="movie_soundmix_view"><HEAD string="movie_soundmix_view(movie_id, soundmix)"/><SQLQuery>SELECT m.movie_id AS movie_id,
+      REPLACE(m.info, ' ', '_') AS soundmix
+FROM movie_info m
+WHERE
+     m.info_type_id = 6</SQLQuery><description/></primitiveView><primitiveView id="movie_languages_view"><HEAD string="movie_languages_view(movie_id, language)"/><SQLQuery>SELECT m.movie_id AS movie_id,
+       CONCAT(REPLACE(m.info, ' ', '_'), '_language') AS language
+FROM movie_info m
+WHERE m.info_type_id = 4</SQLQuery><description/></primitiveView><ontologyPredicateComplexMapping id="M_isTranslatedTo_S_MOD"><role string="http://www.movieontology.org/ontology/isTranslatedTo"><domainTemplate>http://imdb.com/data/title/{movie_id}</domainTemplate><rangeTemplate>http://dbpedia.org/resource/{language}</rangeTemplate></role><viewAtomsConjunction><viewAtom>movie_languages_view(movie_id, language)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_1.movie_id AS movie_id, ALIAS_1.language AS language FROM movie_languages_view AS ALIAS_1</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="mo_hasTranslatedMovie_1"><role string="http://www.movieontology.org/ontology/hasTranslatedMovie"><domainTemplate>http://dbpedia.org/resource/{language}</domainTemplate><rangeTemplate>http://imdb.com/data/title/{movie_id}</rangeTemplate></role><viewAtomsConjunction><viewAtom>movie_languages_view(movie_id, language)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_1.movie_id AS movie_id, ALIAS_1.language AS language FROM movie_languages_view AS ALIAS_1</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="dbo_Language_1"><concept string="http://dbpedia.org/ontology/Language"><template>http://dbpedia.org/resource/{language}</template><annotations><annotation><property>http://www.w3.org/2000/01/rdf-schema#label</property><valueTemplate lang="en">{language}</valueTemplate></annotation></annotations></concept><viewAtomsConjunction><viewAtom>movie_languages_view(__x0, language)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_1.language AS language FROM movie_languages_view AS ALIAS_1</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="mo_isSoundmixOf_1"><role string="http://www.movieontology.org/ontology/isSoundmixOf"><domainTemplate>http://imdb.com/data/soundmix/{soundmix}</domainTemplate><rangeTemplate>http://imdb.com/data/title/{movie_id}</rangeTemplate></role><viewAtomsConjunction><viewAtom>movie_soundmix_view(movie_id, soundmix)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_1.movie_id AS movie_id, ALIAS_1.soundmix AS soundmix FROM movie_soundmix_view AS ALIAS_1</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="mo_Sound_Mix_1"><concept string="http://www.movieontology.org/ontology/Sound_Mix"><template>http://imdb.com/data/soundmix/{soundmix}</template><annotations><annotation><property>http://www.w3.org/2000/01/rdf-schema#label</property><valueTemplate lang="en">{soundmix}</valueTemplate></annotation></annotations></concept><viewAtomsConjunction><viewAtom>movie_soundmix_view(__x0, soundmix)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_1.soundmix AS soundmix FROM movie_soundmix_view AS ALIAS_1</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="mo_series_years_1"><attribute string="http://www.movieontology.org/ontology/series_years"><domainTemplate>http://imdb.com/data/title/{title_id}</domainTemplate><rangeVariable>series_years</rangeVariable></attribute><viewAtomsConjunction><viewAtom>title_view(title_id, __x1, __x2, '2'^^xsd:decimal, __x4, __x5, __x6, __x7, __x8, __x9, series_years)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_3.title_id AS title_id,
+ALIAS_3.series_years as series_years
+FROM title_view AS ALIAS_3 WHERE ALIAS_3.kind_id = 2</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="mo_id_1"><attribute string="http://www.movieontology.org/ontology/id"><domainTemplate>http://imdb.com/data/person/{person_id}</domainTemplate><rangeVariable>person_id</rangeVariable></attribute><viewAtomsConjunction><viewAtom>person_view(person_id, __x1, __x2, __x3, __x4)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_1.person_id AS person_id
+FROM person_view AS ALIAS_1</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="mo_gender_1"><attribute string="http://www.movieontology.org/ontology/gender"><domainTemplate>http://imdb.com/data/person/{person_id}</domainTemplate><rangeVariable>gender</rangeVariable></attribute><viewAtomsConjunction><viewAtom>person_view(person_id, __x1, __x2, __x3, gender)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_1.person_id AS person_id, ALIAS_1.gender AS gender FROM person_view AS ALIAS_1</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="M_birthName_C_MOD"><attribute string="http://www.movieontology.org/ontology/birthName"><domainTemplate>http://imdb.com/data/person/{person_id}</domainTemplate><rangeVariable>info</rangeVariable></attribute><viewAtomsConjunction><viewAtom>person_info_view(person_id, '26'^^xsd:decimal, info, __x3, __x4)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_2.person_id AS person_id, ALIAS_2.info AS info 
+FROM person_info_view AS ALIAS_2 
+WHERE ALIAS_2.info_type_id = 26</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="M_birthDate_C_MOD"><attribute string="http://www.movieontology.org/ontology/birthDate"><domainTemplate>http://imdb.com/data/person/{person_id}</domainTemplate><rangeVariable>info</rangeVariable></attribute><viewAtomsConjunction><viewAtom>person_info_view(person_id, '21'^^xsd:decimal, info, __x3, __x4)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_2.person_id AS person_id, ALIAS_2.info AS info FROM person_info_view AS ALIAS_2 WHERE ALIAS_2.info_type_id = 21</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="dbo_Place_1"><concept string="http://dbpedia.org/ontology/Place"><template>http://imdb.com/data/place/{info}</template><annotations><annotation><property>http://www.w3.org/2000/01/rdf-schema#label</property><valueTemplate lang="en">{info}</valueTemplate></annotation></annotations></concept><viewAtomsConjunction><viewAtom>movie_info_view(__x0, '18'^^xsd:decimal, info, __x3, __x4)</viewAtom></viewAtomsConjunction><userQuery>SELECT miv.info AS info
+FROM movie_info_view miv
+where miv.info_type_id = 18</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="mo_isFilmLocationOf_1"><role string="http://www.movieontology.org/ontology/isFilmLocationOf"><domainTemplate>http://imdb.com/data/place/{info}</domainTemplate><rangeTemplate>http://imdb.com/data/title/{movie}</rangeTemplate></role><viewAtomsConjunction><viewAtom>movie_info_view(movie, '18'^^xsd:decimal, info, __x3, __x4)</viewAtom></viewAtomsConjunction><userQuery>SELECT miv.movie_id as movie,
+miv.info AS info
+FROM movie_info_view miv
+where miv.info_type_id = 18</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="mo_hasFilmLocation_1"><role string="http://www.movieontology.org/ontology/hasFilmLocation"><domainTemplate>http://imdb.com/data/title/{movie}</domainTemplate><rangeTemplate>http://imdb.com/data/place/{info}</rangeTemplate></role><viewAtomsConjunction><viewAtom>movie_info_view(movie, '18'^^xsd:decimal, info, __x3, __x4)</viewAtom></viewAtomsConjunction><userQuery>SELECT miv.movie_id as movie,
+miv.info AS info
+FROM movie_info_view miv
+where miv.info_type_id = 18</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="mo_Certification_1"><concept string="http://www.movieontology.org/ontology/Certification"><template>http://imdb.com/data/certification/{info}</template><annotations><annotation><property>http://www.w3.org/2000/01/rdf-schema#label</property><valueTemplate lang="en">{info}</valueTemplate></annotation></annotations></concept><viewAtomsConjunction><viewAtom>movie_info_view(__x0, '5'^^xsd:decimal, info, __x3, __x4)</viewAtom></viewAtomsConjunction><userQuery>SELECT miv.info AS info
+FROM movie_info_view miv
+where miv.info_type_id = 5</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="mo_isCertificationOf_1"><role string="http://www.movieontology.org/ontology/isCertificationOf"><domainTemplate>http://imdb.com/data/certification/{info}</domainTemplate><rangeTemplate>http://imdb.com/data/title/{movie}</rangeTemplate></role><viewAtomsConjunction><viewAtom>movie_info_view(movie, '5'^^xsd:decimal, info, __x3, __x4)</viewAtom></viewAtomsConjunction><userQuery>SELECT miv.movie_id as movie,
+miv.info AS info
+FROM movie_info_view miv
+where miv.info_type_id = 5</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="mo_isCertifiedWith_1"><role string="http://www.movieontology.org/ontology/isCertifiedWith"><domainTemplate>http://imdb.com/data/title/{movie}</domainTemplate><rangeTemplate>http://imdb.com/data/certification/{info}</rangeTemplate></role><viewAtomsConjunction><viewAtom>movie_info_view(movie, '5'^^xsd:decimal, info, __x3, __x4)</viewAtom></viewAtomsConjunction><userQuery>SELECT miv.movie_id as movie,
+miv.info AS info
+FROM movie_info_view miv
+where miv.info_type_id = 5</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="mo_Genre_1"><concept string="http://www.movieontology.org/ontology/Genre"><template>http://imdb.com/data/genre/{info}</template><annotations><annotation><property>http://www.w3.org/2000/01/rdf-schema#label</property><valueTemplate lang="en">{info}</valueTemplate></annotation></annotations></concept><viewAtomsConjunction><viewAtom>movie_info_view(__x0, '3'^^xsd:decimal, info, __x3, __x4)</viewAtom></viewAtomsConjunction><userQuery>SELECT miv.info AS info
+FROM movie_info_view miv
+where miv.info_type_id = 3</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="mo_isGenreOf_2"><role string="http://www.movieontology.org/ontology/isGenreOf"><domainTemplate>http://imdb.com/data/genre/{info}</domainTemplate><rangeTemplate>http://imdb.com/data/title/{movie_id}</rangeTemplate></role><viewAtomsConjunction><viewAtom>movie_info_view(movie_id, '3'^^xsd:decimal, info, __x3, __x4)</viewAtom></viewAtomsConjunction><userQuery>SELECT miv.info AS info,
+miv.movie_id AS movie_id
+FROM movie_info_view miv
+where miv.info_type_id = 3</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="mo_Porn_1"><concept string="http://www.movieontology.org/ontology/Porn"><template>http://imdb.com/data/genre/{info}</template><annotations><annotation><property>http://www.w3.org/2000/01/rdf-schema#label</property><valueTemplate lang="en">{info}</valueTemplate></annotation></annotations></concept><viewAtomsConjunction><viewAtom>movie_info_view(__x0, '3'^^xsd:decimal, info, __x3, __x4)</viewAtom><viewAtom>EQUALS(info, 'Adult'^^xsd:string)</viewAtom></viewAtomsConjunction><userQuery>SELECT miv.info AS info
+FROM movie_info_view miv
+where miv.info_type_id = 3
+and miv.info = 'Adult'</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="mo_Actionreach_1"><concept string="http://www.movieontology.org/ontology/Actionreach"><template>http://imdb.com/data/genre/{info}</template><annotations><annotation><property>http://www.w3.org/2000/01/rdf-schema#label</property><valueTemplate lang="en">{info}</valueTemplate></annotation></annotations></concept><viewAtomsConjunction><viewAtom>movie_info_view(__x0, '3'^^xsd:decimal, info, __x3, __x4)</viewAtom><viewAtom>IN(info, 'Action'^^xsd:string, 'Adventure'^^xsd:string)</viewAtom></viewAtomsConjunction><userQuery>SELECT miv.info AS info
+FROM movie_info_view miv
+where miv.info_type_id = 3
+and miv.info in ('Action', 'Adventure')</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="M_follows_C_MOD"><role string="http://www.movieontology.org/ontology/follows"><domainTemplate>http://imdb.com/data/title/{movie_id}</domainTemplate><rangeTemplate>http://imdb.com/data/title/{linked_movie_id}</rangeTemplate></role><viewAtomsConjunction><viewAtom>movie_link_view(__x0, movie_id, linked_movie_id, '1'^^xsd:decimal, __x4)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_2.movie_id AS movie_id, 
+ALIAS_2.linked_movie_id AS linked_movie_id 
+FROM movie_link_view AS ALIAS_2 
+WHERE ALIAS_2.link_type_id = 1</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="M_followedBy_C_MOD"><role string="http://www.movieontology.org/ontology/followedBy"><domainTemplate>http://imdb.com/data/title/{movie_id}</domainTemplate><rangeTemplate>http://imdb.com/data/title/{linked_movie_id}</rangeTemplate></role><viewAtomsConjunction><viewAtom>movie_link_view(__x0, movie_id, linked_movie_id, '2'^^xsd:decimal, __x4)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_2.movie_id AS movie_id, 
+ALIAS_2.linked_movie_id AS linked_movie_id 
+FROM movie_link_view AS ALIAS_2 
+WHERE ALIAS_2.link_type_id = 2</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="M_isRemakeOf_C_MOD"><role string="http://www.movieontology.org/ontology/isRemakeOf"><domainTemplate>http://imdb.com/data/title/{movie_id}</domainTemplate><rangeTemplate>http://imdb.com/data/title/{linked_movie_id}</rangeTemplate></role><viewAtomsConjunction><viewAtom>movie_link_view(__x0, movie_id, linked_movie_id, '3'^^xsd:decimal, __x4)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_2.movie_id AS movie_id, 
+ALIAS_2.linked_movie_id AS linked_movie_id 
+FROM movie_link_view AS ALIAS_2 
+WHERE ALIAS_2.link_type_id = 3</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="M_hasRemake_C_MOD"><role string="http://www.movieontology.org/ontology/hasRemake"><domainTemplate>http://imdb.com/data/title/{movie_id}</domainTemplate><rangeTemplate>http://imdb.com/data/title/{linked_movie_id}</rangeTemplate></role><viewAtomsConjunction><viewAtom>movie_link_view(__x0, movie_id, linked_movie_id, '4'^^xsd:decimal, __x4)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_2.movie_id AS movie_id, 
+ALIAS_2.linked_movie_id AS linked_movie_id 
+FROM movie_link_view AS ALIAS_2 
+WHERE ALIAS_2.link_type_id = 4</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="M_references_C_MOD"><role string="http://www.movieontology.org/ontology/references"><domainTemplate>http://imdb.com/data/title/{movie_id}</domainTemplate><rangeTemplate>http://imdb.com/data/title/{linked_movie_id}</rangeTemplate></role><viewAtomsConjunction><viewAtom>movie_link_view(__x0, movie_id, linked_movie_id, '5'^^xsd:decimal, __x4)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_2.movie_id AS movie_id, 
+ALIAS_2.linked_movie_id AS linked_movie_id 
+FROM movie_link_view AS ALIAS_2 
+WHERE ALIAS_2.link_type_id = 5</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="M_isReferencedBy_C_MOD"><role string="http://www.movieontology.org/ontology/referencedBy"><domainTemplate>http://imdb.com/data/title/{movie_id}</domainTemplate><rangeTemplate>http://imdb.com/data/title/{linked_movie_id}</rangeTemplate></role><viewAtomsConjunction><viewAtom>movie_link_view(__x0, movie_id, linked_movie_id, '6'^^xsd:decimal, __x4)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_2.movie_id AS movie_id, 
+ALIAS_2.linked_movie_id AS linked_movie_id 
+FROM movie_link_view AS ALIAS_2 
+WHERE ALIAS_2.link_type_id = 6</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="mo_spinOffOf_1"><role string="http://www.movieontology.org/ontology/spinOffOf"><domainTemplate>http://imdb.com/data/title/{movie_id}</domainTemplate><rangeTemplate>http://imdb.com/data/title/{linked_movie_id}</rangeTemplate></role><viewAtomsConjunction><viewAtom>movie_link_view(__x0, movie_id, linked_movie_id, '11'^^xsd:decimal, __x4)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_2.movie_id AS movie_id, 
+ALIAS_2.linked_movie_id AS linked_movie_id 
+FROM movie_link_view AS ALIAS_2 
+WHERE ALIAS_2.link_type_id = 11</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="mo_hasSpinOff_1"><role string="http://www.movieontology.org/ontology/hasSpinOff"><domainTemplate>http://imdb.com/data/title/{movie_id}</domainTemplate><rangeTemplate>http://imdb.com/data/title/{linked_movie_id}</rangeTemplate></role><viewAtomsConjunction><viewAtom>movie_link_view(__x0, movie_id, linked_movie_id, '12'^^xsd:decimal, __x4)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_2.movie_id AS movie_id, 
+ALIAS_2.linked_movie_id AS linked_movie_id 
+FROM movie_link_view AS ALIAS_2 
+WHERE ALIAS_2.link_type_id = 12</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="mo_imdb_index_1"><attribute string="http://www.movieontology.org/ontology/imdb_index"><domainTemplate>http://imdb.com/data/title/{title_id}</domainTemplate><rangeVariable>imdb_index</rangeVariable></attribute><viewAtomsConjunction><viewAtom>title_view(title_id, __x1, imdb_index, __x3, __x4, __x5, __x6, __x7, __x8, __x9, __x10)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_3.title_id AS title_id,
+ALIAS_3.imdb_index as imdb_index
+FROM title_view AS ALIAS_3</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="mo_kind_1"><attribute string="http://www.movieontology.org/ontology/kind"><domainTemplate>http://imdb.com/data/title/{title_id}</domainTemplate><rangeVariable>kind</rangeVariable></attribute><viewAtomsConjunction><viewAtom>title_view(title_id, __x1, __x2, __x3, kind, __x5, __x6, __x7, __x8, __x9, __x10)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_3.title_id AS title_id,
+ALIAS_3.kind_name as kind
+FROM title_view AS ALIAS_3</userQuery></ontologyPredicateComplexMapping><primitiveView id="cast_info_view"><HEAD string="cast_info_view(movie_id, person_id, character_id, role, note, nr_order, role_id)"/><SQLQuery>SELECT
+  c.movie_id AS movie_id,
+  c.person_id AS person_id,
+  c.person_role_id AS character_id,
+  r.role AS role,
+  c.note AS note,
+  c.nr_order AS nr_order,
+  c.role_id AS role_id
+FROM
+  cast_info c,
+  role_type r
+WHERE
+  c.role_id = r.id</SQLQuery><description/></primitiveView><ontologyPredicateComplexMapping id="mo_genreTitle_1"><attribute string="http://www.movieontology.org/ontology/genreTitle"><domainTemplate>http://imdb.com/data/genre/{info}</domainTemplate><rangeVariable>info</rangeVariable></attribute><viewAtomsConjunction><viewAtom>movie_info_view(__x0, '3'^^xsd:decimal, info, __x3, __x4)</viewAtom></viewAtomsConjunction><userQuery>SELECT miv.info AS info
+FROM movie_info_view miv
+where miv.info_type_id = 3</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="mo_info_1"><attribute string="http://www.movieontology.org/ontology/info"><domainTemplate>http://imdb.com/data/person/{person_id}</domainTemplate><rangeVariable>info</rangeVariable></attribute><viewAtomsConjunction><viewAtom>person_info_view(person_id, __x1, info, __x3, __x4)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_2.person_id AS person_id, ALIAS_2.info AS info 
+FROM person_info_view AS ALIAS_2 
+</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="M_title_S_MOD"><attribute string="http://www.movieontology.org/ontology/title"><domainTemplate>http://imdb.com/data/title/{title_id}</domainTemplate><rangeVariable>title</rangeVariable></attribute><viewAtomsConjunction><viewAtom>title_view(title_id, title, __x2, __x3, __x4, __x5, __x6, __x7, __x8, __x9, __x10)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_1.title_id AS title_id, ALIAS_1.title AS title FROM title_view AS ALIAS_1</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="M_akaTitle_S_MOD"><attribute string="http://www.movieontology.org/ontology/akaTitle"><domainTemplate>http://imdb.com/data/title/{movie_id}</domainTemplate><rangeVariable>aka_title</rangeVariable></attribute><viewAtomsConjunction><viewAtom>aka_title_view(__x0, movie_id, aka_title, __x3, __x4, __x5, __x6, __x7, __x8, __x9)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_1.movie_id AS movie_id, ALIAS_1.aka_title AS aka_title FROM aka_title_view AS ALIAS_1</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="M_akaTitleInfo_S_MOD"><attribute string="http://www.movieontology.org/ontology/akaTitleInfo"><domainTemplate>http://imdb.com/data/title/{movie_id}</domainTemplate><rangeVariable>note</rangeVariable></attribute><viewAtomsConjunction><viewAtom>aka_title_view(__x0, movie_id, __x2, __x3, __x4, __x5, __x6, __x7, __x8, note)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_1.movie_id AS movie_id, ALIAS_1.note AS note FROM aka_title_view AS ALIAS_1</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="M_hasSoundmix_S_MOD"><role string="http://www.movieontology.org/ontology/hasSoundmix"><domainTemplate>http://imdb.com/data/title/{movie_id}</domainTemplate><rangeTemplate>http://imdb.com/data/soundmix/{soundmix}</rangeTemplate></role><viewAtomsConjunction><viewAtom>movie_soundmix_view(movie_id, soundmix)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_1.movie_id AS movie_id, ALIAS_1.soundmix AS soundmix FROM movie_soundmix_view AS ALIAS_1</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="M_imdbid_S_MOD"><attribute string="http://www.movieontology.org/ontology/imdbid"><domainTemplate>http://imdb.com/data/title/{title_id}</domainTemplate><rangeVariable>imdb_id</rangeVariable></attribute><viewAtomsConjunction><viewAtom>title_view(title_id, __x1, __x2, __x3, __x4, __x5, imdb_id, __x7, __x8, __x9, __x10)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_1.title_id AS title_id, ALIAS_1.imdb_id AS imdb_id FROM title_view AS ALIAS_1</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="M_name_S_MOD"><attribute string="http://www.movieontology.org/ontology/name"><domainTemplate>http://imdb.com/data/person/{person_id}</domainTemplate><rangeVariable>name</rangeVariable></attribute><viewAtomsConjunction><viewAtom>person_view(person_id, name, __x2, __x3, __x4)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_1.person_id AS person_id, ALIAS_1.name AS name FROM person_view AS ALIAS_1</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="M_imdbrating_C_MOD"><attribute string="http://www.movieontology.org/ontology/rating"><domainTemplate>http://imdb.com/data/title/{movie_id}</domainTemplate><rangeVariable>info</rangeVariable></attribute><viewAtomsConjunction><viewAtom>movie_info_idx_view(movie_id, '101'^^xsd:decimal, info, __x3, __x4)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_2.movie_id AS movie_id, ALIAS_2.info AS info 
+FROM movie_info_idx_view AS ALIAS_2 
+WHERE ALIAS_2.info_type_id = 101</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="M_votes_C_MOD"><attribute string="http://www.movieontology.org/ontology/votesCount"><domainTemplate>http://imdb.com/data/title/{movie_id}</domainTemplate><rangeVariable>info</rangeVariable></attribute><viewAtomsConjunction><viewAtom>movie_info_idx_view(movie_id, '100'^^xsd:decimal, info, __x3, __x4)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_2.movie_id AS movie_id, ALIAS_2.info AS info 
+FROM movie_info_idx_view AS ALIAS_2 
+WHERE ALIAS_2.info_type_id = 100</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="M_productionYear_S_MOD"><attribute string="http://www.movieontology.org/ontology/productionYear"><domainTemplate>http://imdb.com/data/title/{title_id}</domainTemplate><rangeVariable>production_year</rangeVariable></attribute><viewAtomsConjunction><viewAtom>title_view(title_id, __x1, __x2, __x3, __x4, production_year, __x6, __x7, __x8, __x9, __x10)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_1.title_id AS title_id, ALIAS_1.production_year AS production_year FROM title_view AS ALIAS_1</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="mo_character_name_1"><attribute string="http://www.movieontology.org/ontology/character_name"><domainTemplate>http://imdb.com/data/character/{character_id}</domainTemplate><rangeVariable>name</rangeVariable></attribute><viewAtomsConjunction><viewAtom>character_view(character_id, name, __x2, __x3)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_1.character_id AS character_id, ALIAS_1.name AS name 
+FROM character_view AS ALIAS_1</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="M_editor_C_MOD"><concept string="http://www.movieontology.org/ontology/Editor"><template>http://imdb.com/data/person/{person_id}</template><annotations><annotation><property>http://www.w3.org/2000/01/rdf-schema#label</property><valueTemplate lang="en">{name}</valueTemplate></annotation></annotations></concept><viewAtomsConjunction><viewAtom>cast_information_view(__x0, person_id, __x2, '9'^^xsd:decimal, __x4, __x5, __x6, name)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_2.person_id AS person_id,
+ALIAS_2.name as name
+FROM cast_information_view AS ALIAS_2 WHERE ALIAS_2.role = 9</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="M_costume_designer_C_MOD"><concept string="http://www.movieontology.org/ontology/Costume_Designer"><template>http://imdb.com/data/person/{person_id}</template><annotations><annotation><property>http://www.w3.org/2000/01/rdf-schema#label</property><valueTemplate lang="en">{name}</valueTemplate></annotation></annotations></concept><viewAtomsConjunction><viewAtom>cast_information_view(__x0, person_id, __x2, '7'^^xsd:decimal, __x4, __x5, __x6, name)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_2.person_id AS person_id,
+ALIAS_2.name as name
+FROM cast_information_view AS ALIAS_2 WHERE ALIAS_2.role = 7</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="dbo_Film_Director_1"><concept string="http://dbpedia.org/ontology/Film_Director"><template>http://imdb.com/data/person/{person_id}</template><annotations><annotation><property>http://www.w3.org/2000/01/rdf-schema#label</property><valueTemplate lang="en">{name}</valueTemplate></annotation></annotations></concept><viewAtomsConjunction><viewAtom>cast_information_view(__x0, person_id, __x2, '8'^^xsd:decimal, __x4, __x5, __x6, name)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_2.person_id AS person_id,
+ALIAS_2.name as name
+FROM cast_information_view AS ALIAS_2 WHERE ALIAS_2.role = 8</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="M_writer_C_MOD"><concept string="http://dbpedia.org/ontology/Writer"><template>http://imdb.com/data/person/{person_id}</template><annotations><annotation><property>http://www.w3.org/2000/01/rdf-schema#label</property><valueTemplate lang="en">{name}</valueTemplate></annotation></annotations></concept><viewAtomsConjunction><viewAtom>cast_information_view(__x0, person_id, __x2, '4'^^xsd:decimal, __x4, __x5, __x6, name)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_2.person_id AS person_id,
+ALIAS_2.name as name
+FROM cast_information_view AS ALIAS_2 WHERE ALIAS_2.role = 4</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="mo_Crew_1"><concept string="http://www.movieontology.org/ontology/Crew"><template>http://imdb.com/data/person/{person_id}</template><annotations><annotation><property>http://www.w3.org/2000/01/rdf-schema#label</property><valueTemplate lang="en">{name}</valueTemplate></annotation></annotations></concept><viewAtomsConjunction><viewAtom>cast_information_view(__x0, person_id, __x2, '10'^^xsd:decimal, __x4, __x5, __x6, name)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_2.person_id AS person_id,
+ALIAS_2.name as name
+FROM cast_information_view AS ALIAS_2 WHERE ALIAS_2.role = 10</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="M_musical_artist_C_MOD"><concept string="http://dbpedia.org/ontology/Musical_Artist"><template>http://imdb.com/data/person/{person_id}</template><annotations><annotation><property>http://www.w3.org/2000/01/rdf-schema#label</property><valueTemplate lang="en">{name}</valueTemplate></annotation></annotations></concept><viewAtomsConjunction><viewAtom>cast_information_view(__x0, person_id, __x2, '6'^^xsd:decimal, __x4, __x5, __x6, name)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_2.person_id AS person_id,
+ALIAS_2.name as name
+FROM cast_information_view AS ALIAS_2 WHERE ALIAS_2.role = 6</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="M_producer_C_MOD"><concept string="http://www.movieontology.org/ontology/Producer"><template>http://imdb.com/data/person/{person_id}</template><annotations><annotation><property>http://www.w3.org/2000/01/rdf-schema#label</property><valueTemplate lang="en">{name}</valueTemplate></annotation></annotations></concept><viewAtomsConjunction><viewAtom>cast_information_view(__x0, person_id, __x2, '3'^^xsd:decimal, __x4, __x5, __x6, name)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_2.person_id AS person_id,
+ALIAS_2.name as name
+FROM cast_information_view AS ALIAS_2 WHERE ALIAS_2.role = 3</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="mo_Guest_1"><concept string="http://www.movieontology.org/ontology/Guest"><template>http://imdb.com/data/person/{person_id}</template><annotations><annotation><property>http://www.w3.org/2000/01/rdf-schema#label</property><valueTemplate lang="en">{name}</valueTemplate></annotation></annotations></concept><viewAtomsConjunction><viewAtom>cast_information_view(__x0, person_id, __x2, '12'^^xsd:decimal, __x4, __x5, __x6, name)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_2.person_id AS person_id,
+ALIAS_2.name as name
+FROM cast_information_view AS ALIAS_2 WHERE ALIAS_2.role = 12</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="mo_Production_Designer_1"><concept string="http://www.movieontology.org/ontology/Production_Designer"><template>http://imdb.com/data/person/{person_id}</template><annotations><annotation><property>http://www.w3.org/2000/01/rdf-schema#label</property><valueTemplate lang="en">{name}</valueTemplate></annotation></annotations></concept><viewAtomsConjunction><viewAtom>cast_information_view(__x0, person_id, __x2, '11'^^xsd:decimal, __x4, __x5, __x6, name)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_2.person_id AS person_id,
+ALIAS_2.name as name
+FROM cast_information_view AS ALIAS_2 WHERE ALIAS_2.role = 11</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="mo_Cinematographer_1"><concept string="http://www.movieontology.org/ontology/Cinematographer"><template>http://imdb.com/data/person/{person_id}</template><annotations><annotation><property>http://www.w3.org/2000/01/rdf-schema#label</property><valueTemplate lang="en">{name}</valueTemplate></annotation></annotations></concept><viewAtomsConjunction><viewAtom>cast_information_view(__x0, person_id, __x2, '5'^^xsd:decimal, __x4, __x5, __x6, name)</viewAtom></viewAtomsConjunction><description>Modified by IssueMastro354.class</description><userQuery>SELECT ALIAS_2.person_id AS person_id,
+ALIAS_2.name as name
+FROM cast_information_view AS ALIAS_2 WHERE ALIAS_2.role = 5</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="M_actor_C_MOD"><concept string="http://dbpedia.org/ontology/Actor"><template>http://imdb.com/data/person/{person_id}</template><annotations><annotation><property>http://www.w3.org/2000/01/rdf-schema#label</property><valueTemplate lang="en">{name}</valueTemplate></annotation></annotations></concept><viewAtomsConjunction><viewAtom>cast_information_view(__x0, person_id, __x2, __x3, __x4, __x5, __x6, name)</viewAtom><viewAtom>IN(__x6, '1'^^xsd:decimal, '2'^^xsd:decimal)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_2.person_id AS person_id, 
+ALIAS_2.name as name 
+FROM cast_information_view AS ALIAS_2 WHERE ALIAS_2.role_id in (1,2)</userQuery></ontologyPredicateComplexMapping><primitiveView id="cast_information_view"><HEAD string="cast_information_view(movie_id, person_id, character_id, role, note, nr_order, role_id, name)"/><SQLQuery>SELECT
+  c.movie_id AS movie_id,
+  c.person_id AS person_id,
+  c.character_id AS character_id,
+  c.role AS role,
+  c.note AS note,
+  c.nr_order AS nr_order,
+  c.role_id AS role_id,
+  c.name as name
+FROM
+  materialized_cast_info c</SQLQuery><description/></primitiveView><ontologyPredicateComplexMapping id="M_playsRoleOf_S_MOD"><role string="http://www.movieontology.org/ontology/playsRoleOf"><domainTemplate>http://imdb.com/data/person/{person_id}</domainTemplate><rangeTemplate>http://imdb.com/data/character/{character_id}</rangeTemplate></role><viewAtomsConjunction><viewAtom>cast_information_view(__x0, person_id, character_id, __x3, __x4, __x5, __x6, __x7)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_1.person_id AS person_id, 
+ALIAS_1.character_id AS character_id 
+FROM cast_information_view AS ALIAS_1</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="mo_hasCinematographer_1"><role string="http://www.movieontology.org/ontology/hasCinematographer"><domainTemplate>http://imdb.com/data/title/{movie_id}</domainTemplate><rangeTemplate>http://imdb.com/data/person/{person_id}</rangeTemplate></role><viewAtomsConjunction><viewAtom>cast_information_view(movie_id, person_id, __x2, __x3, __x4, __x5, '5'^^xsd:decimal, __x7)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_2.movie_id AS movie_id, ALIAS_2.person_id AS person_id 
+FROM cast_information_view AS ALIAS_2 
+WHERE ALIAS_2.role_id = 5</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="M_hasCharacter_S_MOD"><role string="http://www.movieontology.org/ontology/hasCharacter"><domainTemplate>http://imdb.com/data/title/{movie_id}</domainTemplate><rangeTemplate>http://imdb.com/data/character/{character_id}</rangeTemplate></role><viewAtomsConjunction><viewAtom>cast_information_view(movie_id, __x1, character_id, __x3, __x4, __x5, __x6, __x7)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_1.movie_id AS movie_id, ALIAS_1.character_id AS character_id 
+FROM cast_information_view AS ALIAS_1</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="mo_isCharacterOf_1"><role string="http://www.movieontology.org/ontology/isCharacterOf"><domainTemplate>http://imdb.com/data/character/{character_id}</domainTemplate><rangeTemplate>http://imdb.com/data/title/{movie_id}</rangeTemplate></role><viewAtomsConjunction><viewAtom>cast_information_view(movie_id, __x1, character_id, __x3, __x4, __x5, __x6, __x7)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_1.movie_id AS movie_id, ALIAS_1.character_id AS character_id FROM cast_information_view AS ALIAS_1</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="M_hasProducer_C_MOD"><role string="http://www.movieontology.org/ontology/hasProducer"><domainTemplate>http://imdb.com/data/title/{movie_id}</domainTemplate><rangeTemplate>http://imdb.com/data/person/{person_id}</rangeTemplate></role><viewAtomsConjunction><viewAtom>cast_information_view(movie_id, person_id, __x2, __x3, __x4, __x5, '3'^^xsd:decimal, __x7)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_2.movie_id AS movie_id, ALIAS_2.person_id AS person_id 
+FROM cast_information_view AS ALIAS_2 
+WHERE ALIAS_2.role_id = 3</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="mo_hasGuest_1"><role string="http://www.movieontology.org/ontology/hasGuest"><domainTemplate>http://imdb.com/data/title/{movie_id}</domainTemplate><rangeTemplate>http://imdb.com/data/person/{person_id}</rangeTemplate></role><viewAtomsConjunction><viewAtom>cast_information_view(movie_id, person_id, __x2, __x3, __x4, __x5, '12'^^xsd:decimal, __x7)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_2.movie_id AS movie_id, ALIAS_2.person_id AS person_id 
+FROM cast_information_view AS ALIAS_2 
+WHERE ALIAS_2.role_id = 12</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="mo_hasProductionDesigner_1"><role string="http://www.movieontology.org/ontology/hasProductionDesigner"><domainTemplate>http://imdb.com/data/title/{movie_id}</domainTemplate><rangeTemplate>http://imdb.com/data/person/{person_id}</rangeTemplate></role><viewAtomsConjunction><viewAtom>cast_information_view(movie_id, person_id, __x2, __x3, __x4, __x5, '11'^^xsd:decimal, __x7)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_2.movie_id AS movie_id, ALIAS_2.person_id AS person_id 
+FROM cast_information_view AS ALIAS_2 
+WHERE ALIAS_2.role_id = 11</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="mo_hasCrew_1"><role string="http://www.movieontology.org/ontology/hasCrew"><domainTemplate>http://imdb.com/data/title/{movie_id}</domainTemplate><rangeTemplate>http://imdb.com/data/person/{person_id}</rangeTemplate></role><viewAtomsConjunction><viewAtom>cast_information_view(movie_id, person_id, __x2, __x3, __x4, __x5, '10'^^xsd:decimal, __x7)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_2.movie_id AS movie_id, ALIAS_2.person_id AS person_id 
+FROM cast_information_view AS ALIAS_2 
+WHERE ALIAS_2.role_id = 10</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="mo_isMaleActorIn_1"><role string="http://www.movieontology.org/ontology/isMaleActorIn"><domainTemplate>http://imdb.com/data/person/{person_id}</domainTemplate><rangeTemplate>http://imdb.com/data/title/{movie_id}</rangeTemplate></role><viewAtomsConjunction><viewAtom>cast_information_view(movie_id, person_id, __x2, __x3, __x4, __x5, '1'^^xsd:decimal, __x7)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_2.movie_id AS movie_id, ALIAS_2.person_id AS person_id 
+FROM cast_information_view AS ALIAS_2 
+WHERE ALIAS_2.role_id = 1</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="mo_isDirectorOf_1"><role string="http://www.movieontology.org/ontology/isDirectorOf"><domainTemplate>http://imdb.com/data/person/{person_id}</domainTemplate><rangeTemplate>http://imdb.com/data/title/{movie_id}</rangeTemplate></role><viewAtomsConjunction><viewAtom>cast_information_view(movie_id, person_id, __x2, __x3, __x4, __x5, '8'^^xsd:decimal, __x7)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_2.movie_id AS movie_id, ALIAS_2.person_id AS person_id 
+FROM cast_information_view AS ALIAS_2 
+WHERE ALIAS_2.role_id = 8</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="mo_isCostumeDesignerIn_1"><role string="http://www.movieontology.org/ontology/isCostumeDesignerIn"><domainTemplate>http://imdb.com/data/person/{person_id}</domainTemplate><rangeTemplate>http://imdb.com/data/title/{movie_id}</rangeTemplate></role><viewAtomsConjunction><viewAtom>cast_information_view(movie_id, person_id, __x2, __x3, __x4, __x5, '7'^^xsd:decimal, __x7)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_2.movie_id AS movie_id, ALIAS_2.person_id AS person_id 
+FROM cast_information_view AS ALIAS_2 
+WHERE ALIAS_2.role_id = 7</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="mo_isComposerIn_1"><role string="http://www.movieontology.org/ontology/isComposerIn"><domainTemplate>http://imdb.com/data/person/{person_id}</domainTemplate><rangeTemplate>http://imdb.com/data/title/{movie_id}</rangeTemplate></role><viewAtomsConjunction><viewAtom>cast_information_view(movie_id, person_id, __x2, __x3, __x4, __x5, '6'^^xsd:decimal, __x7)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_2.movie_id AS movie_id, ALIAS_2.person_id AS person_id 
+FROM cast_information_view AS ALIAS_2 
+WHERE ALIAS_2.role_id = 6</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="mo_isActressIn_1"><role string="http://www.movieontology.org/ontology/isActressIn"><domainTemplate>http://imdb.com/data/person/{person_id}</domainTemplate><rangeTemplate>http://imdb.com/data/title/{movie_id}</rangeTemplate></role><viewAtomsConjunction><viewAtom>cast_information_view(movie_id, person_id, __x2, __x3, __x4, __x5, '2'^^xsd:decimal, __x7)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_2.movie_id AS movie_id, ALIAS_2.person_id AS person_id 
+FROM cast_information_view AS ALIAS_2 
+WHERE ALIAS_2.role_id = 2</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="mo_isEditorIn_1"><role string="http://www.movieontology.org/ontology/isEditorIn"><domainTemplate>http://imdb.com/data/person/{person_id}</domainTemplate><rangeTemplate>http://imdb.com/data/title/{movie_id}</rangeTemplate></role><viewAtomsConjunction><viewAtom>cast_information_view(movie_id, person_id, __x2, __x3, __x4, __x5, '9'^^xsd:decimal, __x7)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_2.movie_id AS movie_id, ALIAS_2.person_id AS person_id 
+FROM cast_information_view AS ALIAS_2 
+WHERE ALIAS_2.role_id = 9</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="M_hasMaleActor_C_MOD"><role string="http://www.movieontology.org/ontology/hasMaleActor"><domainTemplate>http://imdb.com/data/title/{movie_id}</domainTemplate><rangeTemplate>http://imdb.com/data/person/{person_id}</rangeTemplate></role><viewAtomsConjunction><viewAtom>cast_information_view(movie_id, person_id, __x2, __x3, __x4, __x5, '1'^^xsd:decimal, __x7)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_2.movie_id AS movie_id, ALIAS_2.person_id AS person_id 
+FROM cast_information_view AS ALIAS_2 
+WHERE ALIAS_2.role_id = 1</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="M_hasActress_C_MOD"><role string="http://www.movieontology.org/ontology/hasActress"><domainTemplate>http://imdb.com/data/title/{movie_id}</domainTemplate><rangeTemplate>http://imdb.com/data/person/{person_id}</rangeTemplate></role><viewAtomsConjunction><viewAtom>cast_information_view(movie_id, person_id, __x2, __x3, __x4, __x5, '2'^^xsd:decimal, __x7)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_2.movie_id AS movie_id, ALIAS_2.person_id AS person_id 
+FROM cast_information_view AS ALIAS_2 
+WHERE ALIAS_2.role_id = 2</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="M_hasCostumeDesigner_C_MOD"><role string="http://www.movieontology.org/ontology/hasCostumeDesigner"><domainTemplate>http://imdb.com/data/title/{movie_id}</domainTemplate><rangeTemplate>http://imdb.com/data/person/{person_id}</rangeTemplate></role><viewAtomsConjunction><viewAtom>cast_information_view(movie_id, person_id, __x2, __x3, __x4, __x5, '7'^^xsd:decimal, __x7)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_2.movie_id AS movie_id, ALIAS_2.person_id AS person_id 
+FROM cast_information_view AS ALIAS_2 
+WHERE ALIAS_2.role_id = 7</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="M_hasEditor_C_MOD"><role string="http://www.movieontology.org/ontology/hasEditor"><domainTemplate>http://imdb.com/data/title/{movie_id}</domainTemplate><rangeTemplate>http://imdb.com/data/person/{person_id}</rangeTemplate></role><viewAtomsConjunction><viewAtom>cast_information_view(movie_id, person_id, __x2, __x3, __x4, __x5, '9'^^xsd:decimal, __x7)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_2.movie_id AS movie_id, ALIAS_2.person_id AS person_id 
+FROM cast_information_view AS ALIAS_2 
+WHERE ALIAS_2.role_id = 9</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="M_hasDirector_C_MOD"><role string="http://www.movieontology.org/ontology/hasDirector"><domainTemplate>http://imdb.com/data/title/{movie_id}</domainTemplate><rangeTemplate>http://imdb.com/data/person/{person_id}</rangeTemplate></role><viewAtomsConjunction><viewAtom>cast_information_view(movie_id, person_id, __x2, __x3, __x4, __x5, '8'^^xsd:decimal, __x7)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_2.movie_id AS movie_id, ALIAS_2.person_id AS person_id 
+FROM cast_information_view AS ALIAS_2 
+WHERE ALIAS_2.role_id = 8</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="M_hasComposer_C_MOD"><role string="http://www.movieontology.org/ontology/hasComposer"><domainTemplate>http://imdb.com/data/title/{movie_id}</domainTemplate><rangeTemplate>http://imdb.com/data/person/{person_id}</rangeTemplate></role><viewAtomsConjunction><viewAtom>cast_information_view(movie_id, person_id, __x2, __x3, __x4, __x5, '6'^^xsd:decimal, __x7)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_2.movie_id AS movie_id, ALIAS_2.person_id AS person_id 
+FROM cast_information_view AS ALIAS_2 
+WHERE ALIAS_2.role_id = 6</userQuery></ontologyPredicateComplexMapping><ontologyPredicateComplexMapping id="mo_hasWriter_1"><role string="http://www.movieontology.org/ontology/hasWriter"><domainTemplate>http://imdb.com/data/title/{movie_id}</domainTemplate><rangeTemplate>http://imdb.com/data/person/{person_id}</rangeTemplate></role><viewAtomsConjunction><viewAtom>cast_information_view(movie_id, person_id, __x2, __x3, __x4, __x5, '4'^^xsd:decimal, __x7)</viewAtom></viewAtomsConjunction><description/><userQuery>SELECT ALIAS_2.movie_id AS movie_id, ALIAS_2.person_id AS person_id 
+FROM cast_information_view AS ALIAS_2 
+WHERE ALIAS_2.role_id = 4</userQuery></ontologyPredicateComplexMapping></mappings>
+    <blocks/>
+    <constraints>
+        <inclusion>
+            <left arg="aka_title_view[2]"/>
+            <right arg="title_view[1]"/>
+        </inclusion>
+        <inclusion>
+            <left arg="cast_info_view[1]"/>
+            <right arg="title_view[1]"/>
+        </inclusion>
+        <inclusion>
+            <left arg="cast_info_view[2]"/>
+            <right arg="person_view[1]"/>
+        </inclusion>
+        <inclusion>
+            <left arg="cast_info_view[3]"/>
+            <right arg="character_view[1]"/>
+        </inclusion>
+        <inclusion>
+            <left arg="movie_color_info_view[1]"/>
+            <right arg="title_view[1]"/>
+        </inclusion>
+        <inclusion>
+            <left arg="movie_info_idx_view[1]"/>
+            <right arg="title_view[1]"/>
+        </inclusion>
+        <inclusion>
+            <left arg="movie_info_view[1]"/>
+            <right arg="title_view[1]"/>
+        </inclusion>
+        <inclusion>
+            <left arg="movie_languages_view[1]"/>
+            <right arg="title_view[1]"/>
+        </inclusion>
+        <inclusion>
+            <left arg="movie_link_view[2]"/>
+            <right arg="title_view[1]"/>
+        </inclusion>
+        <inclusion>
+            <left arg="movie_link_view[3]"/>
+            <right arg="title_view[1]"/>
+        </inclusion>
+        <inclusion>
+            <left arg="movie_soundmix_view[1]"/>
+            <right arg="title_view[1]"/>
+        </inclusion>
+        <inclusion>
+            <left arg="person_info_view[1]"/>
+            <right arg="person_view[1]"/>
+        </inclusion>
+        <key>
+            <projection arg="aka_title_view[1]"/>
+        </key>
+        <key>
+            <projection arg="character_view[1]"/>
+        </key>
+        <key>
+            <projection arg="movie_link_view[1]"/>
+        </key>
+        <key>
+            <projection arg="person_view[1]"/>
+        </key>
+        <key>
+            <projection arg="title_view[1]"/>
+        </key>
+    <key id="kd_1693236556590"><projection arg="movie_keyword_view[1, 2]"/><description/></key><inclusion id="id_1693236599837"><left arg="movie_keyword_view[1]"/><right arg="movie_info_view[1]"/><description/></inclusion><key id="kd_1693515688378"><projection arg="company_view[1, 2]"/><description/></key><key id="kd_1693551020856"><projection arg="movie_color_info_view[1]"/><description/></key><key id="kd_1693819020515"><projection arg="cast_info_view[1, 2, 7]"/><description/></key><inclusion id="id_1692826954114"><left arg="cast_information_view[2, 8]"/><right arg="person_view[1, 2]"/><description/></inclusion><inclusion id="id_1693823923391"><left arg="cast_information_view[1]"/><right arg="title_view[1]"/><description/></inclusion><inclusion id="id_1693823966920"><left arg="cast_information_view[2]"/><right arg="person_info_view[1]"/><description/></inclusion><inclusion id="id_1693824225071"><left arg="cast_information_view[3]"/><right arg="character_view[1]"/><description/></inclusion><inclusion id="id_1693824561735"><left arg="cast_information_view[1, 2, 3]"/><right arg="cast_info_view[1, 2, 3]"/><description/></inclusion><inclusion id="id_1693824576038"><left arg="cast_information_view[1]"/><right arg="cast_info_view[1]"/><description/></inclusion><inclusion id="id_1693824587058"><left arg="cast_information_view[2]"/><right arg="cast_info_view[2]"/><description/></inclusion><key id="kd_1693826754784"><projection arg="cast_information_view[1, 2, 3]"/><description/></key></constraints>
+</OBDA>
